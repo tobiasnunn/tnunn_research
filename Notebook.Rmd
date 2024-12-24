@@ -9,22 +9,37 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# 2025 Frog bacteria Analyses
+## Lab Notebook
+### 2024-12-24 de novo prelim
+3 days ago i was looking through the gtdbtk manual and saw that "de_novo_wf" was an option for analysis to create the trees, from the description given:
+https://ecogenomics.github.io/GTDBTk/commands/de_novo_wf.html
+i beleived this would be something i should do as it might produce more accurate trees. sample 1Dt2d "Enterobacter cancerogenus" had been placed by the "classify_wf" in the previous gtdbtk analysis in the genus "Pantoea", which lead me to this search. after a bit of trial and error, i produced this script: https://github.com/tobiasnunn/tnunn_research/blob/21f2fb071d76040dc82286b9399cb11ff11a3b3c/00_scripts/de_novo_gtdbtk.sh 
+this ran as a slurm job on hawk (SCW) from rougly 20:10 on the 23rd to 01:00 on the 24th, totalling 4 hours and 50 minutes. the main parameters that i experimented with were
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+- #SBATCH --ntasks=5
+- #SBATCH --time=24:00:00
+- #SBATCH --mem=50g
+- --cpus 10
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ## R Markdown -->
+
+<!-- This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. -->
+
+<!-- When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this: -->
 
 ```{r cars}
 summary(cars)
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
