@@ -1,0 +1,39 @@
+---
+title: "Final Report ENS-2002"
+author: "Tobias Nunn"
+date: "2024-12-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+This study hopes to answer many questions pertaining to the makeup and fuction of host-associated skin microbiomes in amphibians. One special aim of the study is to identify genes relating to chitridiomycosis infection. A later stage of the study may focus on comparisons with existing probiotics. I have learned much over this study, however, when i began i did not know much about the techniques i would later learn to use. Whilst it was an accurate record of my mistakes, it became confusing to both write and read. Thus, i have decided to start again and keep a more meticulous record of my actions as rewriting my old notebook would be complicated, and rerunning old processes again could produce more accurate results to work with. This notebook will be a record of me retracing my steps, but more coherent and future work done in 2025.
+
+## Methods
+
+
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
