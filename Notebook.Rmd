@@ -2,26 +2,51 @@
 title: "ENS-2002 Scientific Notebook MK2"
 author: "Tobias Nunn"
 date: "2024-12-22"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    theme:
+      bg: "#fdfffc"
+      fg: "#212b32"
+      primary: "#003973"
+      secondary: "#FAB600"
+      success: "#8cc04b"
+    toc_depth: 2
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 2025 Frog bacteria Analyses
-## Lab Notebook
-### 2024-12-24 de novo prelim
-3 days ago i was looking through the gtdbtk manual and saw that "de_novo_wf" was an option for analysis to create the trees, from the description given:
-https://ecogenomics.github.io/GTDBTk/commands/de_novo_wf.html
-i beleived this would be something i should do as it might produce more accurate trees. sample 1Dt2d "Enterobacter cancerogenus" had been placed by the "classify_wf" in the previous gtdbtk analysis in the genus "Pantoea", which lead me to this search. after a bit of trial and error, i produced this script: https://github.com/tobiasnunn/tnunn_research/blob/21f2fb071d76040dc82286b9399cb11ff11a3b3c/00_scripts/de_novo_gtdbtk.sh 
-this ran as a slurm job on hawk (SCW) from rougly 20:10 on the 23rd to 01:00 on the 24th, totalling 4 hours and 50 minutes. The main parameters that i experimented with were
+# 2024-12-24 de novo prelim
+## Introduction
 
+3 days ago i was looking through the gtdbtk manual and saw that `de_novo_wf` was an option for analysis to create the trees, from the description given:
+
+```{r}
+knitr::include_url("https://ecogenomics.github.io/GTDBTk/commands/de_novo_wf.html")
+```
+
+i beleived this would be something i should do as it might produce more accurate trees. sample `1Dt2d` *Enterobacter cancerogenus* had been placed by the `classify_wf` in the previous gtdbtk analysis in the genus *Pantoea*, which lead me to this search. after a bit of trial and error, i produced [this script](https://github.com/tobiasnunn/tnunn_research/blob/21f2fb071d76040dc82286b9399cb11ff11a3b3c/00_scripts/de_novo_gtdbtk.sh)
+
+## Methods
+
+This ran as a slurm job on hawk (SCW) from rougly 20:10 on the 23rd to 01:00 on the 24th, totalling 4 hours and 50 minutes. The main parameters that i experimented with were
+
+~~~
 - #SBATCH --ntasks=5
 - #SBATCH --time=24:00:00
 - #SBATCH --mem=50g
 - --cpus 10
-I settled on these as being the "best", however, it is entirely possible that they could be more optimised. this analysis produced these files:
+~~~
+
+I settled on these as being the "best", however, it is entirely possible that they could be more optimised. 
+
+## Results
+
+This analysis produced these files:
+
+~~~
 /scratch/scw2160/02_outputs/flye_asm/gtdb_tk_de_novo5/
 .:
 text.txt
@@ -58,35 +83,39 @@ gtdbtk.bac120.rooted.tree
 gtdbtk.bac120.fasttree.log
 gtdbtk.bac120.tree.log
 gtdbtk.bac120.unrooted.tree
-
-i then moved this "gtdbtk.bac120.decorated.tree" file into dendroscope for review, all 10 are on one tree, but 1Dt2d is still being placed in the "wrong" genus. on review of its sister accession on the ncbi database: 
-https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000773965.1/
-
-on this page, can be found a Checkm analysis that comes back with a completeness of 90% and a contamination of 3.6%, futher down can be seen a table with the words "Taxonomy check status    Failed". upon viewing the tree in dendroscope, the joining node has the label 0.968. This i believe to be the probability the relationship is correct. this implies they are the same species, and the online sample is also identified as Enterobacter cancerogenus. However, due to the checkm analysis i find it plausible that they both have been misidentified and are in reality Pantoea species, i find this the most parsimonious explaination. i will follow this up with a checkm analysis of my own on 1Dt2d
-![dendroscope screenshot showing location and relationship for 1Dt2d after de novo analysis](04_images/denovodendro.png){width="90%"}
-
-      {<[TODO: do another Checkm analysis on 1Dt2d to see if the values are similar to the online sample]>}
+~~~
 
 
-this was a "technical spike" or proof of concept for "de_novo_wf"
+I then moved this `gtdbtk.bac120.decorated.tree` file into Dendroscope for review, all 10 are on one tree, but `1Dt2d` is still being placed in the "wrong" genus. on review of its [sister accession](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000773965.1/) on the ncbi database.
+
+## Conclusion
+
+On the NCBI page for the sister accession, can be found a **CheckM** analysis that comes back with
+
+> completeness: 90%  
+contamination: 3.6%  
+Taxonomy check status: failed
+
+Upon viewing the tree in Dendroscope, the joining node has the label `0.968`. This I believe to be the probability the relationship is correct. this implies they are the same species, and the online sample is also identified as *Enterobacter cancerogenus*. However, due to the checkm analysis i find it plausible that they both have been misidentified and are in reality Pantoea species, i find this the most parsimonious explanation. I will follow this up with a CheckM analysis of my own on `1Dt2d`
+
+![dendroscope screenshot showing location and relationship for 1Dt2d after de novo analysis](04_images/denovodendro.png)
+
+---
+
+This was a "technical spike" or proof of concept for `de_novo_wf`
 
 
+<div style="background-color:yellow;">&#128204; TODO: do another Checkm analysis on 1Dt2d to see if the values are similar to the online sample</div>
 
 
-
-
-
-
-
-
-
-
-<!-- ## R Markdown -->
-
-<!-- This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. -->
-
-<!-- When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this: -->
-
-```{r cars}
-summary(cars)
+```{r class.output="bg-warning"}
+mtcars[1:5, "mpg"]
 ```
+
+To make sure that we always get a data frame, we have to use
+the argument `drop = FALSE`. Now we use the chunk option
+`class.source = "bg-success"`.
+
+
+
+
