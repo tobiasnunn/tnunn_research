@@ -110,9 +110,19 @@ This was a "technical spike" or proof of concept for `de_novo_wf`
 # 2024-12-25 &#127876; begginning of table, checkm
 ## introduction
 i wanted to see if the outputs of checkm differed from checkm2 so ran that on hawk. I also began recreating the innital table for metadata about the bangor samples, in the spirit of automation, a less manual approach was chosen this time around.
-## methods
-using [this script](https://github.com/tobiasnunn/tnunn_research/blob/21f2fb071d76040dc82286b9399cb11ff11a3b3c/00_scripts/de_novo_gtdbtk.sh)
 
+## methods
+using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/checkmtest.sh) i ran a slurm job on hawk under the `lineage_wf` of CheckM for all 10 Bangor-made samples, this took just 4 minutes. I also worked on exporting the data i want to tabulate off of hawk. The **past** way i did this was by manually entering each file and noting down the important characteristics. However, because there are going to be more samples(and i wanted to be clever) i decided to use a more automated process. This was done by identifying different documents in the flye directories on hawk, specifically files called "assembly_info.txt" which contain the same information, but are vastly more exportable. These are stored here:
+cd /scratch/scw2160/02_outputs/flye_asm/flye_asm_[accession]/
+using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/assemblytabledatagetter.sh) i exported them off of hawk.
+
+## results
+the CheckM analysis produced [this output directory](https://github.com/tobiasnunn/tnunn_research/tree/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/02_middle-analysis_outputs/checkm_test_results). My export script exported all 10 "assembly_info.txt" files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise i wouldnt know which belonged to what accession. I then brought them down and stored them [here.](https://github.com/tobiasnunn/tnunn_research/tree/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/05_projectdatabase/flyestuff)
+
+## conclusions
+with it being christmas i did not take a serious look at the significance of the outputs of either, so that is what i plan to do next so that i can have some conclusions, maybe by the end of tomorrow. In conclusion, this process is only half done and will continue into the following entry(s).
+
+<div style="background-color:yellow;">&#128204; TODO: Complete analysis / processing of checkm and table stuff</div>
 
 
 
