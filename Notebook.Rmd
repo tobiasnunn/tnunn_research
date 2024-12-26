@@ -107,14 +107,12 @@ This was a "technical spike" or proof of concept for `de_novo_wf`
 
 <div style="background-color:yellow;">&#128204; TODO: do another Checkm analysis on 1Dt2d to see if the values are similar to the online sample</div>
 
+# 2024-12-25 &#127876; begginning of table, checkm
+## introduction
+i wanted to see if the outputs of checkm differed from checkm2 so ran that on hawk. I also began recreating the innital table for metadata about the bangor samples, in the spirit of automation, a less manual approach was chosen this time around.
+## methods
+using [this script](https://github.com/tobiasnunn/tnunn_research/blob/21f2fb071d76040dc82286b9399cb11ff11a3b3c/00_scripts/de_novo_gtdbtk.sh)
 
-```{r class.output="bg-warning"}
-mtcars[1:5, "mpg"]
-```
-
-To make sure that we always get a data frame, we have to use
-the argument `drop = FALSE`. Now we use the chunk option
-`class.source = "bg-success"`.
 
 
 
