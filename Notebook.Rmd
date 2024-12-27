@@ -19,6 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # 2024-12-24 de novo prelim
+
 ## Introduction
 
 3 days ago i was looking through the gtdbtk manual and saw that `de_novo_wf` was an option for analysis to create the trees, from the description given:
@@ -33,20 +34,20 @@ i beleived this would be something i should do as it might produce more accurate
 
 This ran as a slurm job on hawk (SCW) from rougly 20:10 on the 23rd to 01:00 on the 24th, totalling 4 hours and 50 minutes. The main parameters that i experimented with were
 
-~~~
+```         
 - #SBATCH --ntasks=5
 - #SBATCH --time=24:00:00
 - #SBATCH --mem=50g
 - --cpus 10
-~~~
+```
 
-I settled on these as being the "best", however, it is entirely possible that they could be more optimised. 
+I settled on these as being the "best", however, it is entirely possible that they could be more optimised.
 
 ## Results
 
 This analysis produced these files:
 
-~~~
+```         
 /scratch/scw2160/02_outputs/flye_asm/gtdb_tk_de_novo5/
 .:
 text.txt
@@ -83,8 +84,7 @@ gtdbtk.bac120.rooted.tree
 gtdbtk.bac120.fasttree.log
 gtdbtk.bac120.tree.log
 gtdbtk.bac120.unrooted.tree
-~~~
-
+```
 
 I then moved this `gtdbtk.bac120.decorated.tree` file into Dendroscope for review, all 10 are on one tree, but `1Dt2d` is still being placed in the "wrong" genus. on review of its [sister accession](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000773965.1/) on the ncbi database.
 
@@ -92,38 +92,118 @@ I then moved this `gtdbtk.bac120.decorated.tree` file into Dendroscope for revie
 
 On the NCBI page for the sister accession, can be found a **CheckM** analysis that comes back with
 
-> completeness: 90%  
-contamination: 3.6%  
-Taxonomy check status: failed
+> completeness: 90%\
+> contamination: 3.6%\
+> Taxonomy check status: failed
 
 Upon viewing the tree in Dendroscope, the joining node has the label `0.968`. This I believe to be the probability the relationship is correct. this implies they are the same species, and the online sample is also identified as *Enterobacter cancerogenus*. However, due to the checkm analysis i find it plausible that they both have been misidentified and are in reality Pantoea species, i find this the most parsimonious explanation. I will follow this up with a CheckM analysis of my own on `1Dt2d`
 
 ![dendroscope screenshot showing location and relationship for 1Dt2d after de novo analysis](04_images/denovodendro.png)
 
----
+------------------------------------------------------------------------
 
 This was a "technical spike" or proof of concept for `de_novo_wf`
 
+::: {style="background-color:yellow;"}
+📌 TODO: do another Checkm analysis on 1Dt2d to see if the values are similar to the online sample
+:::
 
-<div style="background-color:yellow;">&#128204; TODO: do another Checkm analysis on 1Dt2d to see if the values are similar to the online sample</div>
+# 2024-12-25 🎄 begginning of table, checkm
 
-# 2024-12-25 &#127876; begginning of table, checkm
 ## introduction
+
 i wanted to see if the outputs of checkm differed from checkm2 so ran that on hawk. I also began recreating the innital table for metadata about the bangor samples, in the spirit of automation, a less manual approach was chosen this time around.
 
 ## methods
-using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/checkmtest.sh) i ran a slurm job on hawk under the `lineage_wf` of CheckM for all 10 Bangor-made samples, this took just 4 minutes. I also worked on exporting the data i want to tabulate off of hawk. The **past** way i did this was by manually entering each file and noting down the important characteristics. However, because there are going to be more samples(and i wanted to be clever) i decided to use a more automated process. This was done by identifying different documents in the flye directories on hawk, specifically files called "assembly_info.txt" which contain the same information, but are vastly more exportable. These are stored here:
-cd /scratch/scw2160/02_outputs/flye_asm/flye_asm_[accession]/
-using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/assemblytabledatagetter.sh) i exported them off of hawk.
+
+using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/checkmtest.sh) i ran a slurm job on hawk under the `lineage_wf` of CheckM for all 10 Bangor-made samples, this took just 4 minutes. I also worked on exporting the data i want to tabulate off of hawk. The **past** way i did this was by manually entering each file and noting down the important characteristics. However, because there are going to be more samples(and i wanted to be clever) i decided to use a more automated process. This was done by identifying different documents in the flye directories on hawk, specifically files called "assembly_info.txt" which contain the same information, but are vastly more exportable. These are stored here: cd /scratch/scw2160/02_outputs/flye_asm/flye_asm\_[accession]/ using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/assemblytabledatagetter.sh) i exported them off of hawk.
 
 ## results
-the CheckM analysis produced [this output directory](https://github.com/tobiasnunn/tnunn_research/tree/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/02_middle-analysis_outputs/checkm_test_results). My export script exported all 10 "assembly_info.txt" files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise i wouldnt know which belonged to what accession. I then brought them down and stored them [here.](https://github.com/tobiasnunn/tnunn_research/tree/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/05_projectdatabase/flyestuff)
+
+the CheckM analysis produced [this output directory](https://github.com/tobiasnunn/tnunn_research/tree/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM). My export script exported all 10 "assembly_info.txt" files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise i wouldnt know which belonged to what accession. I then brought them down and stored them [here.](https://github.com/tobiasnunn/tnunn_research/tree/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/05_projectdatabase/flyestuff)
 
 ## conclusions
+
 with it being christmas i did not take a serious look at the significance of the outputs of either, so that is what i plan to do next so that i can have some conclusions, maybe by the end of tomorrow. In conclusion, this process is only half done and will continue into the following entry(s).
 
-<div style="background-color:yellow;">&#128204; TODO: Complete analysis / processing of checkm and table stuff</div>
+::: {style="background-color:yellow;"}
+📌 TODO: Complete analysis / processing of checkm and table stuff
+:::
 
+# 2024-12-26 finishing the table and checkm stuff, maybe extra if there is time
 
+## intro
 
+basic stuff, finding out what i can do to the checkm analysis to turn it into publishable data, making the table using R scripts and the output files. exams in January are rapidly approaching, so i really do need to pick up the pace if i want to get this done before i begin revising.
 
+## methods
+
+using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#qa). I found the output that i needed was [bin_stats_ext.tsv](https://github.com/tobiasnunn/tnunn_research/blob/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv). this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate.
+
+## results
+
+```{r, include=FALSE}
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(gt)
+#------------------------import tsv------------------------------
+checkm <- read.delim("C:/Users/tobyn/source/tnunn_research/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv", header = FALSE)
+colnames(checkm) <- c("accession", "checkmdata")
+#------------------------cleaning data------------------------
+checkm[] <- lapply(checkm, function(x) gsub("\\{|'|#|, 'GCN0.*|flye_asm_|_part2", "", x))
+#-------------------------cutting out unwanted stuff---------------------
+checkm <- checkm %>%
+  separate_rows(checkmdata, sep = ",") %>%
+  separate_wider_delim(cols = checkmdata, delim = ":", names = c("key", "value")) %>%
+  mutate(across(where(is.character), str_trim)) %>%
+  pivot_wider(names_from = key, values_from = value)
+checkm <- transform(checkm, 
+                    Completeness = as.numeric(Completeness), 
+                    Contamination = as.numeric(Contamination),
+                    GC = as.numeric(GC),
+                     `GC std` = as.numeric(`GC std`),
+                     `Genome size` = as.numeric(`Genome size`),
+                    contigs = as.numeric(contigs),
+                    `Coding density` = as.numeric(`Coding density`),
+                    `predicted genes` = as.numeric(`predicted genes`),
+                    `Longest contig` = as.numeric(`Longest contig`)
+                    )
+#--------------------------table creation------------------------------
+columnnames <- c("accession", "marker lineage","Completeness", "Contamination","GC","GC std", "Genome size", "contigs", "Longest contig", "Coding density", "predicted genes")
+```
+
+```{r}
+checkm[columnnames] %>%
+  arrange(desc(Completeness)) %>%
+  gt() %>%
+  fmt_number(
+    columns = c(Completeness, Contamination, `Coding density`),
+    decimals = 2,
+    use_seps = TRUE) %>%
+  fmt_percent(
+    columns = c(GC, `GC std`, `Coding density`),
+    decimals = 3,
+    use_seps = TRUE) %>%
+  fmt_number(
+    columns = c(`Genome size`, `predicted genes`, `Longest contig`),
+    decimals = 0,
+    use_seps = TRUE) %>%
+  tab_source_note(source_note = "Source: CheckM lineage_wf performed on 2024-12-25") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  data_color(
+    columns = Completeness,
+    method = "numeric",
+    palette = "Purples",
+    domain = c(90, 100),
+    reverse = FALSE
+  ) %>%
+  tab_header(
+    title = "Table 1 - subset of data obtained from CheckM analysis",
+    subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality.")
+  )
+
+```
+
+## conclusion
