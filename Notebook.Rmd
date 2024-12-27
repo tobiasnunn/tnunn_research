@@ -134,11 +134,11 @@ with it being christmas i did not take a serious look at the significance of the
 
 ## intro
 
-basic stuff, finding out what i can do to the checkm analysis to turn it into publishable data, making the table using R scripts and the output files. exams in January are rapidly approaching, so i really do need to pick up the pace if i want to get this done before i begin revising.
+Basic stuff, finding out what i can do to the checkm analysis to turn it into publishable data, making the table using R scripts and the output files. exams in January are rapidly approaching, so i really do need to pick up the pace if i want to get this done before i begin revising. there is not a real goal for this exact piece, i just want to know how congruent the outputs from CheckM are to CheckM2.
 
 ## methods
 
-using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#qa). I found the output that i needed was [bin_stats_ext.tsv](https://github.com/tobiasnunn/tnunn_research/blob/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv). this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate.
+Using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#qa). I found the output that i needed was [bin_stats_ext.tsv](https://github.com/tobiasnunn/tnunn_research/blob/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv). this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate. Over the course of the day i developed and improved [CheckMtablegenerator.R](https://github.com/tobiasnunn/tnunn_research/blob/60126045c5802ef0627e86df57e7b533ff568e9d/00_scripts/CheckMtablegenerator.R). which creates the table layed out in results below. This uses a few packages, one of which was new to me, `gt`. This is a very useful package for table generation.
 
 ## results
 
@@ -206,4 +206,11 @@ checkm[columnnames] %>%
 
 ```
 
-## conclusion
+As mentioned, this table is a subset of the data, there was more outputted by CheckM, some of which overlaps with other analyses, but i did not know if it was relevent to include, so left it out, however, creating a new one with the omitted fields in would not be hard. This table will pair with one produced from CheckM2, because from what i've seen one is kind of an improvement on the other, but they kind of do different things, its confusing and thus why i want to do the comparison for future reference. I did not know what counted as "significantly complete", so arbitrarily placed the value at 90%. This analysis shows that 7 of the 10 samples are complete or near enough, with only 3 falling below my line. It should be noted that 2Dt1e, the lowest sample is only found to be 45% complete, this is a large outlier from the rest of the range. Contamination is fairly low in all, none above 3% and 3 samples on 0.00%.
+
+## conclusion 
+The main purpose of doing this is to compare with Checkm2, so im not sure what conclusions i can get from just this, other than many of the samples look sufficiently complete and i learned a fair amount from this experience. I think this will act as a good first step to compare future analysis against, for confirmation, as many upcoming analyses will give repeat data in some areas. Some of the field, for example "GC" are odd and i dont quite understand their significance, perhaps Aaron can give more info when he gets to this part of the notebook.
+
+::: {style="background-color:yellow;"}
+📌 TODO: finish the straight flye analysis / start on CheckM2
+:::
