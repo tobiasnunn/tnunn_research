@@ -9,17 +9,16 @@ names <- sub("_.*", "", names)
 final <- data.frame(accession=character(), key=character(), value=numeric())
 
 for (i in 1:length(names)) {
-  #i <- 3
-  log <- tail(read.fwf(flyelog[i], widths = 100), 25)
-  cut <- as.data.frame(log[-grep('\\[', log$V1),]) 
-  names(cut) <- c("data")
-  cut <- as.data.frame(cut[!(is.na(cut$data) | cut$data==""), ])
-  names(cut) <- c("data")
-  key <- cut[grep(':', cut$data),]
-  value <- cut[-grep(':', cut$data),]
-  frame <- data.frame(key, value)
-  frame$accession <- names[i]
+  #read in the log file but keep only the last 25 rows. Remove rows which start with
+  #[, are empty or contain NAs
+  log <- tail(read.fwf(flyelog[i], widths = 100), 25) %>%
+    filter(., !(grepl("\\[", V1) | V1 == "" | is.na(V1)))
+  #create a data frame that puts all the values with a : in the first colum, and all the rows
+  #without in the second column and add a column with the accession
+  frame <- data.frame(accession = names[i], key = log[grep(':', log$V1),], value = log[-grep(':', log$V1),]) 
+  #then remove the : from the key column
   frame$key <- gsub(":", "", as.character(frame$key))
+  #add this to the final dataframe
   final <- rbind(final, frame)
 }
 
