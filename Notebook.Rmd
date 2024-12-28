@@ -172,9 +172,29 @@ Today i wanted to finish off the work from yesterday and start on CheckM2. this 
 
 ## Methods
 
-I created an R script, "[rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/rawflyeanalysis.R)". Basic stuff, imports the text files i chose to download(i wonder if i could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages. Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let's see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/run_checkm2TN.sh).
+The order i did the two main focuses in shifted greatly during the day, with me bouncing between flye and CheckM2 analyses, so this section will have subheaders for better readability
+
+### Flye analysis 1: assembly_info.txt
+
+I created an R script, "[rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/rawflyeanalysis.R)". Basic stuff, imports the text files i chose to download(i wonder if i could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages, [Table 2: Assembly_info.txt].
+
+### CheckM2: slurm job
+
+Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let's see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/run_checkm2TN.sh).
+
+### Flye analysis 2: flye.log
+
+After lunch, firstly i went back to the flye.log analysis i wanted to do largely for posterity. This was horrifyingly complex due to the "complex" nature of the flye.log files. I did this by creating a modified copy of my assembly_info.txt file grabber shell script, called [flye.loggetter.sh](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/flye.loggetter.sh), using ctrl + h to find and replace instead of manually changing things. I added this to an existing output directory in my home section of hawk, which i exported using MobaXterm**(do i need to include a section on how i use MobaXterm?)** to my computer**.** This is the folder called [flyestuff](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/flyestuff), which contains both the flye.log and the assembly_info.txt files for each accession, i grouped them as it seemed relevent for organisation and didnt hinder the coding process at all. The R file i used to tabulate this is [flyeloganalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/flyeloganalysis.R). This produced [Table 3: Flye.log]
+
+### CheckM2: R table generation
+
+This started with doing `cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228` to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, [here.](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/CheckM2_20241228) Then, i began work on the R file to turn the `quality_report.tsv` file. This file was formatted very well, so turning it into a table was very simple, done in [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/CheckM2tablegenerator.R) This produced [Table 4: CheckM2]
+
+Note: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.
 
 ## Results
+
+### Table 2: Assembly_info.txt
 
 ```{r, code = readLines("00_scripts/rawflyeanalysis.R"), echo=FALSE}
 
@@ -182,14 +202,29 @@ I created an R script, "[rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_
 
 The basic flye output analysis produced this table, as mentioned, i couldn't get coverage to match what was on the flye.log file that i got the original of this table from, it is possible that file is the one that is wrong, but genome coverage is kind of all over the place, so i just omitted it as i don't think its one of the mandatory fields. I chose to sort the table by "Number of contigs" rather arbitrarily, but it does show something interesting in that why is there such a large range in fragment number?
 
+### Table 3: Flye.log
+```{r, code = readLines("00_scripts/flyeloganalysis.R"), echo=FALSE}
+
+```
+
+This is a table of the type of stuff i first collated in the Summer, it shares many similarities and cross overs with Table 2, neither have quality statistics, but both are metadata largely concerning the length and fragment, a marked difference is this one comes with a concrete value of coverage. Comparative analysis of them feels like a thing that would happen in the conclusion to this document.
+
+### Table 4: CheckM2
+```{r, code = readLines("00_scripts/CheckM2tablegenerator.R"), echo=FALSE, warning=FALSE}
+
+```
+
+This is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion. 
+
 ## Conclusion
 
-Thus far, i think that i got all of the fields in Table 2 in a more reliable format in Table 1, but with the quality checks as well, both tables suffer weirdness with "cov." and "GC" are they the same? are they both coverage? it is as mysterious as it is annoying. Let's see how they match up to CheckM2.
-
+Thus far, i think that i got all of the fields in Table 2 in a more reliable format in Table 1, but with the quality checks as well, both tables suffer weirdness with "cov." and "GC" are they the same? are they both coverage? it is as mysterious as it is annoying. Let's see how they match up to CheckM2. It is getting late, i think that tomorrow is going to be the comparitive analysis and then moving onto the fun-looking checkm2 stuff.
 ::: {style="background-color:yellow;"}
-📌 TODO: something about pills/ investigations into KO and protein stuff / write up log stuff, link all that jazz, and now checkm2 logging
+📌 ?: CONCLUSION: how do comparison of all 4 tables next to each other without creating a monstrocity of indented code / something about pills/ find date difference in version history between CheckM and CheckM2 comparitive analysis/
+:::
 :::
 
 ::: {style="background-color:yellow;"}
-📌 ?: how do comparison of all 4 tables next to each other without creating a monstrocity of indented code
-:::
+📌 TODO: (after conc of last bit) investigations into KO and protein stuff / just found out checkm is better documented and has some graph output options, so that is something to look into as well 
+
+
