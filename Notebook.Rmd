@@ -187,5 +187,5 @@ The basic flye output analysis produced this table, as mentioned, i couldn't get
 Thus far, i think that i got all of the fields in Table 2 in a more reliable format in Table 1, but with the quality checks as well, both tables suffer weirdness with "cov." and "GC" are they the same? are they both coverage? it is as mysterious as it is annoying. Let's see how they match up to CheckM2.
 
 ::: {style="background-color:yellow;"}
-📌 TODO: pull down and link to runCheckM2TN.sh in the Rmd / something about pills / add link to rawflyeanalysis.R
+📌 TODO: pull down and link to runCheckM2TN.sh in the Rmd / something about pills / add link to rawflyeanalysis.R / caching / flye.log sub() stuff
 :::
