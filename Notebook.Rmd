@@ -172,7 +172,7 @@ Today i wanted to finish off the work from yesterday and start on CheckM2. this 
 
 ## Methods
 
-I created an R script, "rawflyeanalysis". Basic stuff, imports the text files i chose to download(i wonder if i could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages. Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let's see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once.
+I created an R script, "[rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/rawflyeanalysis.R)". Basic stuff, imports the text files i chose to download(i wonder if i could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages. Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let's see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/run_checkm2TN.sh).
 
 ## Results
 
@@ -187,5 +187,9 @@ The basic flye output analysis produced this table, as mentioned, i couldn't get
 Thus far, i think that i got all of the fields in Table 2 in a more reliable format in Table 1, but with the quality checks as well, both tables suffer weirdness with "cov." and "GC" are they the same? are they both coverage? it is as mysterious as it is annoying. Let's see how they match up to CheckM2.
 
 ::: {style="background-color:yellow;"}
-📌 TODO: pull down and link to runCheckM2TN.sh in the Rmd / something about pills / add link to rawflyeanalysis.R / caching / flye.log sub() stuff
+📌 TODO: something about pills/ tabulating checkm2 stuff / investigations into KO and protein stuff / write up log stuff, link all that jazz /
+:::
+
+::: {style="background-color:yellow;"}
+📌 ?: how do comparison of all 4 tables next to each other without creating a monstrocity of indented code
 :::
