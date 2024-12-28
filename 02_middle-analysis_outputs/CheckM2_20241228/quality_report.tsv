@@ -1,0 +1,11 @@
+Name	Completeness	Contamination	Completeness_Model_Used	Translation_Table_Used	Additional_Notes
+flye_asm_1Dt100g_part2	78.42	0.33	Neural Network (Specific Model)	11	None
+flye_asm_1Dt100h_part2	99.12	0.0	Gradient Boost (General Model)	11	None
+flye_asm_1Dt1h_part2	100.0	0.31	Neural Network (Specific Model)	11	None
+flye_asm_1Dt2d_part2	100.0	0.87	Neural Network (Specific Model)	11	None
+flye_asm_2Dt1e_part2	48.29	0.08	Neural Network (Specific Model)	11	None
+flye_asm_2Dt1l_part2	100.0	0.27	Neural Network (Specific Model)	11	None
+flye_asm_3Dt1c_part2	98.34	0.86	Neural Network (Specific Model)	11	None
+flye_asm_3Dt2c_part2	99.94	0.39	Neural Network (Specific Model)	11	None
+flye_asm_3Dt2h_part2	86.04	0.1	Neural Network (Specific Model)	11	None
+flye_asm_3Dt2j_part2	99.8	0.0	Neural Network (Specific Model)	11	None

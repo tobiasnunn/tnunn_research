@@ -3,7 +3,7 @@ library(tidyr)
 library(tidyverse)
 library(gt)
 #------------------------import tsv------------------------------
-checkm <- read.delim("C:/Users/tobyn/source/tnunn_research/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv", header = FALSE)
+checkm <- read.delim("02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv", header = FALSE)
 colnames(checkm) <- c("accession", "checkmdata")
 #------------------------cleaning data------------------------
 checkm[] <- lapply(checkm, function(x) gsub("\\{|'|#|, 'GCN0.*|flye_asm_|_part2", "", x))
