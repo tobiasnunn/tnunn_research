@@ -187,7 +187,7 @@ The basic flye output analysis produced this table, as mentioned, i couldn't get
 Thus far, i think that i got all of the fields in Table 2 in a more reliable format in Table 1, but with the quality checks as well, both tables suffer weirdness with "cov." and "GC" are they the same? are they both coverage? it is as mysterious as it is annoying. Let's see how they match up to CheckM2.
 
 ::: {style="background-color:yellow;"}
-📌 TODO: something about pills/ tabulating checkm2 stuff / investigations into KO and protein stuff / write up log stuff, link all that jazz /
+📌 TODO: something about pills/ investigations into KO and protein stuff / write up log stuff, link all that jazz, and now checkm2 logging
 :::
 
 ::: {style="background-color:yellow;"}
