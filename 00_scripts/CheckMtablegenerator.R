@@ -55,3 +55,4 @@ checkm[columnnames] %>%
     title = "Table 1 - subset of data obtained from CheckM analysis",
     subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality.")
   )
+write.csv(checkm, file = "03_final_outputs/metadata_and_quality_tables/checkm.csv", row.names = FALSE)

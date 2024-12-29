@@ -1,3 +1,6 @@
+library(dplyr)
+library(tidyverse)
+library(gt)
 #------------------------import tsv------------------------------
 checkm2 <- read.delim("02_middle-analysis_outputs/CheckM2_20241228/quality_report.tsv", header = TRUE, sep = "\t")
 #------------------------cleaning data------------------------
@@ -27,4 +30,6 @@ checkm2 %>%
   cols_width(
     Completeness_Model_Used ~ px(250)
   )
+
+write.csv(checkm2, file = "03_final_outputs/metadata_and_quality_tables/checkm2.csv", row.names = FALSE)
 

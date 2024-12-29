@@ -48,3 +48,4 @@ final %>%
     title = "Table 3 - Data obtained from flye.log outputs",
     subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*")
   )
+write.csv(final, file = "03_final_outputs/metadata_and_quality_tables/flyelog.csv", row.names = FALSE)

@@ -51,3 +51,5 @@ processedtable %>%
              total_length = "Total length",
              largest_fragment = "Largest fragment",
              mean_fragments = "Mean fragments")
+
+write.csv(processedtable, file = "03_final_outputs/metadata_and_quality_tables/assemblyinfo.csv", row.names = FALSE)
