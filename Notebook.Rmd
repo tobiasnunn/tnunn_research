@@ -120,7 +120,7 @@ This was a "technical spike" or proof of concept for `de_novo_wf`
 📌 TODO: do another Checkm analysis on 1Dt2d to see if the values are similar to the online sample
 :::
 
-# 2024-12-25 🎄 begginning of table, checkm
+# 2024-12-25 🎄 beginning of table, checkm
 
 ## Introduction
 
@@ -379,9 +379,11 @@ Due to this section being largely about the conclusion from the last week, the o
 
 ## Methods
 
-One thing that might be relevent to note is that i changed the Markdown file so that the tables generated above now come from .csv output files. This helps on cutting down the time taken to knit the document and means that there are not multiple instances of code across the document, as the results section down here will include all 4 tables in one form or another. (basically, this increases flexibility of how the data can be used). In order to find the version history for CheckM, i went here ______. For CheckM2, i went here ______ and looked at the comit history as the version on Hawk is a developer version, not one of the official release, beggining at ____.
+One thing that might be relevent to note is that i changed the Markdown file so that the tables generated above now come from .csv output files. This helps on cutting down the time taken to knit the document and means that there are not multiple instances of code across the document, as the results section down here will include all 4 tables in one form or another. (basically, this increases flexibility of how the data can be used). In order to find the version history for CheckM, i went here ______. For CheckM2, i went here ______ and looked at the comit history as the version on Hawk is a developer version, not one of the official release, beginning at ____.
 
 ## Results
+
+### Comparison of CheckM and CheckM2
 
 ```{r m_vs_m2, echo=FALSE, warning=FALSE}
 #----------------------combi table gen-------------------------------------
@@ -398,8 +400,9 @@ combicheck[columnnames] %>%
     columns = c(Completeness.x, Contamination.x, Completeness.y, Contamination.y),
     decimals = 2,
     use_seps = TRUE)  %>%
-  tab_source_note(source_note = "Source: CheckM lineage_wf performed on 2024-12-25 \n 
-                  CheckM2 predict performed on 2024-12-28") %>%
+  tab_source_note(source_note = md("Source:  
+                  CheckM lineage_wf performed on 2024-12-25  
+                  CheckM2 predict performed on 2024-12-28")) %>%
   opt_row_striping() %>%
   opt_stylize(style = 5, color = "blue") %>%
   data_color(
@@ -437,6 +440,35 @@ combicheck[columnnames] %>%
 ::: {style="background-color:yellow;"}
 📌 ?: AFTER LUNCH: pill stuff for comparison of programs directly, date the programs, do the comparison for the "raw"/ no package analyses. / look in log files for diamond version for M and M2
 :::
+
+### All tables {.tabset .tabset-pills}
+
+#### Flye assembly
+
+```{r chart-flye, ref.label = c('assemblyinfo'), echo=FALSE, warning=FALSE}
+
+```
+
+#### Flye log
+
+```{r chart-flye-log, ref.label = c('flyelog'), echo=FALSE, warning=FALSE}
+
+```
+
+#### CheckM
+
+```{r chart-checkm, ref.label = c('checkm'), echo=FALSE, warning=FALSE}
+
+```
+
+#### CheckM2
+
+```{r chart-checkm2, ref.label = c('checkm2'), echo=FALSE, warning=FALSE}
+
+```
+
+
+### {-}
 
 ## Conclusion
 
