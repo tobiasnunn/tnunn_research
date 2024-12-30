@@ -484,3 +484,17 @@ In conclusion, i believe CheckM is the best overall analysis, giving results for
 ::: {style="background-color:yellow;"}
 📌 TODO: (after conc of last bit) investigations into KO and protein stuff / just found out checkm is better documented and has some graph output options, so that is something to look into as well / tree_qa command (fun checkM stuff abound).
 :::
+
+# 2024-12-30 checkm tree_qa
+
+## Introduction
+
+In the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Workflows#lineage-specific-workflow) for lineage_wf, there are 6 functions, 5 are categorised as M (Mandetory), however a 6th "checkm tree_qa" is marked as "R" and is stated to be optional, looking closer at [this function,](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#tree_qa) it has 5 different potential outputs that look interesting, so i figured i would give it a go and see what i could get out of it, sort of exploratory.
+
+## Methods
+
+The vast majority of the code required was already used for the original checkm bash script, so i copied it and made the modifications, producing [this file.](https://github.com/tobiasnunn/tnunn_research/blob/3d90f340592d7081d3c6e172cbc786c8b85f368f/00_scripts/checkMtreeqa.sh) I could not figure out a way to run all 5 functions at once, so i had to go into the file and change the name (because these were all outputting to one place so naming the function was required to distinguish)and -o function(how to select the desired output) for each iteration. This was not an issue however as when run as a slurm job on hawk, none of the options took longer than 10 seconds to complete.
+
+## Results
+
+I created an [output directory](https://github.com/tobiasnunn/tnunn_research/tree/3d90f340592d7081d3c6e172cbc786c8b85f368f/02_middle-analysis_outputs/CheckM/checkmtreeqa) to store all the outputs. As mentioned, there were five; 2 are metadata tables which contain taxonomy data, one basic and one with more data. The next two are .tree files which place the samples in a tree with online references from the [IMG database](https://img.jgi.doe.gov/), one had the ID on that system, in the other the tip labels contained the full taxonomy of each sample. It is possible i can use these for a comparative analysis of CheckM and gtdbtk or ncbi and img. The fifth and final output is: "multiple sequence alignment of reference genomes and bins which can be used to infer a *de novo* genome tree". It looks to be a fasta file for proteins in each sequence, as of now im unsure what to do with it, i recognise de novo from gtdbtk, is there a link? i will have to consult Aaron for this one.
