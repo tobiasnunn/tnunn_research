@@ -110,7 +110,7 @@ On the NCBI page for the sister accession, can be found a **CheckM** analysis th
 
 Upon viewing the tree in Dendroscope, the joining node has the label `0.968`. This I believe to be the probability the relationship is correct. this implies they are the same species, and the online sample is also identified as *Enterobacter cancerogenus*. However, due to the checkm analysis i find it plausible that they both have been misidentified and are in reality Pantoea species, i find this the most parsimonious explanation. I will follow this up with a CheckM analysis of my own on `1Dt2d`
 
-![dendroscope screenshot showing location and relationship for 1Dt2d after de novo analysis](04_images/denovodendro.png)
+![Figure 1 - dendroscope screenshot showing location and relationship for 1Dt2d after de novo analysis](04_images/denovodendro.png)
 
 ------------------------------------------------------------------------
 
@@ -150,9 +150,11 @@ Basic stuff, finding out what i can do to the checkm analysis to turn it into pu
 
 ## Methods
 
-Using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#qa). I found the output that i needed was [bin_stats_ext.tsv](https://github.com/tobiasnunn/tnunn_research/blob/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv). this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate. Over the course of the day i developed and improved [CheckMtablegenerator.R](https://github.com/tobiasnunn/tnunn_research/blob/60126045c5802ef0627e86df57e7b533ff568e9d/00_scripts/CheckMtablegenerator.R). which creates the table layed out in results below. This uses a few packages, one of which was new to me, `gt`. This is a very useful package for table generation.
+Using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#qa). I found the output that i needed was [bin_stats_ext.tsv](https://github.com/tobiasnunn/tnunn_research/blob/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv). this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate. Over the course of the day i developed and improved [CheckMtablegenerator.R](https://github.com/tobiasnunn/tnunn_research/blob/60126045c5802ef0627e86df57e7b533ff568e9d/00_scripts/CheckMtablegenerator.R). which creates the table layed out in results below. This uses a few packages, one of which was new to me, `gt`. This is a very useful package for table generation, [here is some info](https://gt.rstudio.com/).
 
 ## Results
+
+### Table 1: CheckM analysis
 
 ```{r checkm, echo=FALSE, warning=FALSE}
 checkm <- read.csv("03_final_outputs/metadata_and_quality_tables/checkm.csv")
@@ -467,6 +469,8 @@ combicheck[columnnames] %>%
 
 ```
 
+###  {.unnumbered}
+
 Table 5 is a direct comparison of each module's ability to calculate Completeness and Contamination for the same samples. Each column has a [data colourisation](https://gt.rstudio.com/reference/data_color.html), the scale for Completeness was 90-100%, so anything appearing in grey i consider "low quality", the scale for Contamination is 0-3%. Both analyses agree that 3 of the ten accessions (1Dt100g, 2Dt1e and 3Dt2h) do not meet the 90% threshold, and only slightly differ on exact value. 2Dt1e is of special note because it is the only sample below 50% completeness. All values of Completeness are roughly the same, with CheckM2 having slightly higher results across the board. This contrasts with the values of Contamination, in which values differ quite dramatically, with small results getting larger and large results getting smaller. This is seen most in the results for 2Dt1l, in which the CheckM contamination states 2.32%, but this falls sharply in CheckM2 to 0.27%, coincidentally this sample also sees a rise in Completeness from 98.82% to 100%, so perhaps different genes or sequences are differently classified between the two systems. Overall, Contamination is lower in CheckM2 than CheckM.
 
 However, Completeness and Contamination are not the only fields that these modules produce. CheckM returns with a wide array of extra data about the samples (as well as the extra stuff i will discuss in the next section, if that path leads anywhere) including; taxonomy to the order level, accession 1Dt2d even got identified to the family level, as well as many metrics for fragment count and size. It is important to remember that as an undergraduate student i don't have a full understanding of all of these fields, and this is a subset of the data based upon what i thought was important. This contrasts with CheckM2 which outputs no additional data, however, it does include information about the "Completeness model" and "Translation table" used, which could be useful in fact-checking the results of the analysis.
@@ -485,7 +489,7 @@ In conclusion, i believe CheckM is the best overall analysis, giving results for
 📌 TODO: (after conc of last bit) investigations into KO and protein stuff / just found out checkm is better documented and has some graph output options, so that is something to look into as well / tree_qa command (fun checkM stuff abound). / dendrogram?
 :::
 
-# 2024-12-30 checkm tree_qa
+# 2024-12-30 / 2024-12-31 checkm tree_qa
 
 ## Introduction
 
@@ -493,7 +497,9 @@ In the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Workflo
 
 ## Methods
 
-The vast majority of the code required was already used for the original checkm bash script, so i copied it and made the modifications, producing [this file.](https://github.com/tobiasnunn/tnunn_research/blob/3d90f340592d7081d3c6e172cbc786c8b85f368f/00_scripts/checkMtreeqa.sh) I could not figure out a way to run all 5 functions at once, so i had to go into the file and change the name (because these were all outputting to one place so naming the function was required to distinguish)and -o function(how to select the desired output) for each iteration. This was not an issue however as when run as a slurm job on hawk, none of the options took longer than 10 seconds to complete.
+The vast majority of the code required was already used for the original checkm bash script, so i copied it and made the modifications, producing [this file.](https://github.com/tobiasnunn/tnunn_research/blob/3d90f340592d7081d3c6e172cbc786c8b85f368f/00_scripts/checkMtreeqa.sh) I could not figure out a way to run all 5 functions at once, so i had to go into the file and change the name (because these were all outputting to one place so naming the function was required to distinguish)and -o function(how to select the desired output) for each iteration. This was not an issue however as when run as a slurm job on hawk, none of the options took longer than 10 seconds to complete. In order to turn the output from option 2 into a table, i created [this R script](https://github.com/tobiasnunn/tnunn_research/blob/20d1f52225ae83ba449e471cd260ce62f92c4ed9/00_scripts/CheckMtreeqa.R), which outputs [this file.](https://github.com/tobiasnunn/tnunn_research/blob/20d1f52225ae83ba449e471cd260ce62f92c4ed9/03_final_outputs/metadata_and_quality_tables/checkmtreeqa.csv) I am not sure if i mentioned it above, but i found a way to do the formatting for my tables in this document, which frees up memory and reduces load times, by loading in a .csv of the cleaned data, instead of cleaning the data and doing the whole script in R, which also creates multiple instances. Basically, it was a whole thing, but now it is not a problem because of some clever coding.
+
+[viewClade function](https://yulab-smu.top/treedata-book/chapter6.html?q=viewclade#viewing-selected-clade)
 
 ## Results
 
@@ -544,4 +550,39 @@ treeqa[columnnames] %>%
   
 ```
 
-This is a subset of output 2 showing some taxonomic assignments for the samples, as well as "unique markers". 9 are above 40, with only 2Dt1e falling below at 32.
+This is a subset of output 2 showing some taxonomic assignments for the samples, as well as "unique markers". 9 are above 40, with only 2Dt1e falling below at 32. Output 1 is a simplified version of Output 2, with the same main fields but missing some found in 2. As mentioned, this is a subset, due to space, and some difficulties in coding, i only took the unique fields. The output table also contained data on number of genes and fragment count, GC etc that is already shown in [Table 1: CheckM analysis]. As well as this, there were some extra fields focussing on the mean values of each field for the groupings each sample were in, i beleive this is the final value in "Taxonomy (Contained)", again because of space and relevance i cut them from the final product.
+
+### Tree_qa Phylograms {.tabset .tabset-pills}
+
+#### *Sphingomonas* samples
+
+![Figure 2 - Phylogram for 4 samples known to be of the genus *Sphingomonas*. Generated by checkm tree_qa on the 30th of December 2024](04_images/treeqa3sphingo.png)
+
+#### *Microbacterium* samples
+
+![Figure 3 - Phylogram for 2 samples known to be of the genus *Microbacterium*. Generated by checkm tree_qa on the 30th of December 2024.](04_images/treeqa3micro.png)
+
+#### *Brachybacterium /* Dermabactersample
+
+![Figure 4 - Phylogram for 1 sample known to be of the genus *Brachybacterium*. Generated by checkm tree_qa on the 30th of December 2024.](04_images/treeqa3brachy.png)
+
+#### *Brevibacterium* samples
+
+![Figure 5 - Phylogram for 1 sample known to be of the genus *Brevibacterium*. Generated by checkm tree_qa on the 30th of December 2024.](04_images/treeqa3brevi.png)
+
+#### *Pantoea* samples
+
+![Figure 5 - Phylogram for 1 sample of disputed genus. Generated by checkm tree_qa on the 30th of December 2024.](04_images/treeqa3pantoea.png)
+
+
+###{-}
+
+## Conclusion
+
+Output 2, and to a lesser extent 1, present interesting data, it is not as useful as the data produced by the main analysis, but i think it was worth doing. It is possible i am not fully apreciating all of the outputs of this. Only very few of the samples get a taxonomy to the species level, however, it does confirm that sample 1Dt2d, marked "*Enterobacter cancerogenus*" by early taxonomic analysis actually belongs to the genus *Pantoea.* Confirming the analysis done all the way back in the technical spike for gtdbtk de novo [Conclusion].
+
+I learned some new things vis a vis new functions to tabulate like changing text size and pruning/collapsing trees in R
+
+::: {style="background-color:yellow;"}
+📌 TODO: finish off the results for the phylos, talk about output 5 and then finish conc / investigations into KO and protein stuff / just found out checkm is better documented and has some graph output options, so that is something to look into as well / tree_qa command (fun checkM stuff abound). / dendrogram? / did i ever link to the gt() documentation? / ggtree heatmaps?
+:::
