@@ -482,7 +482,7 @@ From this information and my analysis of the tables i generated, i conclude that
 In conclusion, i believe CheckM is the best overall analysis, giving results for all 3 extra analysis combined, in reference to CheckM2 they largely agree in all areas, but if my results had real world consequences i would run both for the conformation, though i can find no way of discerning which method is more accurate. Perhaps in future i can ask for the most modern versions of each to be downloaded to hawk and conduct a comparison on them then. My next projects will be conducted on areas around CheckM due to the discovery of graphical outputs and links to KO pathways, which i hope to yield interesting results. When term restarts i will have to discuss with Aaron the implications for this part of the study. i.e. what does the results of Completeness and contamination mean for our samples? or are these just things we want to know about them?
 
 ::: {style="background-color:yellow;"}
-📌 TODO: (after conc of last bit) investigations into KO and protein stuff / just found out checkm is better documented and has some graph output options, so that is something to look into as well / tree_qa command (fun checkM stuff abound).
+📌 TODO: (after conc of last bit) investigations into KO and protein stuff / just found out checkm is better documented and has some graph output options, so that is something to look into as well / tree_qa command (fun checkM stuff abound). / dendrogram?
 :::
 
 # 2024-12-30 checkm tree_qa
@@ -498,3 +498,50 @@ The vast majority of the code required was already used for the original checkm 
 ## Results
 
 I created an [output directory](https://github.com/tobiasnunn/tnunn_research/tree/3d90f340592d7081d3c6e172cbc786c8b85f368f/02_middle-analysis_outputs/CheckM/checkmtreeqa) to store all the outputs. As mentioned, there were five; 2 are metadata tables which contain taxonomy data, one basic and one with more data. The next two are .tree files which place the samples in a tree with online references from the [IMG database](https://img.jgi.doe.gov/), one had the ID on that system, in the other the tip labels contained the full taxonomy of each sample. It is possible i can use these for a comparative analysis of CheckM and gtdbtk or ncbi and img. The fifth and final output is: "multiple sequence alignment of reference genomes and bins which can be used to infer a *de novo* genome tree". It looks to be a fasta file for proteins in each sequence, as of now im unsure what to do with it, i recognise de novo from gtdbtk, is there a link? i will have to consult Aaron for this one.
+
+section finished on 2024-12-31
+
+```{r chart-checkmtreeqa, echo=FALSE, warning=FALSE}
+#---------------read in file--------------------------------
+treeqa <- read.csv(file = "03_final_outputs/metadata_and_quality_tables/checkmtreeqa.csv")
+#----------------table--------------------------
+columnnames <- c("BinId", "Xuniquemarkersof43", "Taxonomycontained","Taxonomysisterlineage")
+treeqa$Taxonomycontained <- gsub(";", "&#8594;", treeqa$Taxonomycontained)
+treeqa$Taxonomysisterlineage <- gsub(";", "&#8594;", treeqa$Taxonomysisterlineage)
+treeqa[columnnames] %>%
+  gt() %>%
+  tab_source_note(source_note = "Source: CheckM tree_qa performed on 2024-12-30") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  tab_header(
+    title = "Table 6 - subset of data obtained from secondary CheckM analysis",
+    subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including taxonomy at various levels")
+  ) %>%
+  fmt_markdown(
+    columns = c(Taxonomycontained, Taxonomysisterlineage),
+    rows = everything(),
+    md_engine = "markdown"
+  ) %>%
+  cols_label(Xuniquemarkersof43 = "Unique Markers (of 43)",
+         Taxonomycontained = "Taxonomy (Contained)",
+         Taxonomysisterlineage = "Taxonomy (Sister Lineage)",
+         BinId = "Accession") %>%
+  data_color(
+    columns = c(Xuniquemarkersof43),
+    method = "numeric",
+    palette = "Blues",
+    domain = c(40, 43),
+    reverse = FALSE) %>%
+  tab_style(
+    style = list(
+      cell_text(size = "small")
+      ), 
+    locations = cells_body(
+      columns = c(Taxonomycontained, Taxonomysisterlineage),
+      rows = everything()
+      )
+    )
+  
+```
+
+This is a subset of output 2 showing some taxonomic assignments for the samples, as well as "unique markers". 9 are above 40, with only 2Dt1e falling below at 32.
