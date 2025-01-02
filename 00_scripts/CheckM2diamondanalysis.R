@@ -62,25 +62,55 @@ unique_diamond <- unique(dires[c("accession", "ko_value")])
 combined <- rbind(unique_egg, unique_diamond )
 combined <- unique(combined[c("accession", "ko_value")])
 combined <- combined[!is.na(combined$accession), ]
-
+# creating a combined accession and ko column to make it easier to match to combined
+unique_egg$accko <- paste(unique_egg$accession, unique_egg$ko_value, sep = "-")
+unique_diamond$accko <- paste(unique_diamond$accession, unique_diamond$ko_value, sep = "-")
+combined$accko <- paste(combined$accession, combined$ko_value, sep = "-")
 #-----------------------------------comparison--------------------------
 
+combined$egg <- combined$accko %in% unique_egg$accko
+combined$diamond <- combined$accko %in% unique_diamond$accko
 
-r <- combined %>% left_join(x = combined, y = unique_egg, by = c("accession", "ko_value"), suffix = c("", ".e"), keep = TRUE)
-r <- r %>% left_join(x = r, y = unique_diamond, by = c("accession", "ko_value"), suffix = c("", ".d"), keep = TRUE)
-r$diamond <- !is.na(r$accession.d)
-r$eggnog <- !is.na(r$accession.e)
-
-full_comparison <- r[c("accession", "ko_value", "diamond", "eggnog")]
-
-unique(full_comparison$accession)
-
-full_comparison %>% 
+unique <- combined %>% 
   group_by(accession) %>% 
-  summarise(tot_rows = n(), diamond = length(accession[diamond == TRUE]), eggnog = length(accession[eggnog == TRUE])) %>%
-  mutate(diamond_per = diamond / tot_rows) %>% mutate (egg_per = eggnog / tot_rows)
-  
+  summarise(
+    tot_rows = n(), 
+    diamond = length(accession[diamond == TRUE]), 
+    egg = length(accession[egg == TRUE]), 
+    diamond_per = diamond / tot_rows,
+    egg_per = egg / tot_rows)
+#------------------------------------graphing----------------------------
+write.csv(unique, "02_middle-analysis_outputs/CheckM2_20241228/uniquecomp.csv", row.names = FALSE)
+#------------------------------------cumulative-------------------------
+# two tables, the stuff for the unique values is above
+#this section will be for the full table to have a look at most frequent per accession
 
+eggcum <- eggnog_kos[!is.na(eggnog_kos$accession),] %>% 
+  group_by(accession, ko_value) %>% 
+  summarise(
+    tot_rows = n()) %>%
+    slice_max(
+      order_by = tot_rows,
+      n = 5,
+      with_ties = FALSE,
+      na_rm = TRUE
+    )
+
+diacum <- dires[!is.na(dires$accession),] %>% 
+  group_by(accession, ko_value) %>% 
+  summarise(
+    tot_rows = n()) %>%
+  slice_max(
+    order_by = tot_rows,
+    n = 5,
+    with_ties = FALSE,
+    na_rm = TRUE
+  )
+
+cumcomb <- bind_cols(eggcum, diacum)
+names(cumcomb) <- c("accession.e", "ko_value.e", "tot_rows.e", "accession.d", "ko_value.d", "tot_rows.d")
+
+write.csv(cumcomb, "02_middle-analysis_outputs/CheckM2_20241228/cumcomb.csv", row.names = FALSE)
 
 # write up investigation into DIAMOND_RESULTS.tsv and output a table with some key metrics
 # like how many are in both and how many are in only one, maybe scale up to all accessions. 

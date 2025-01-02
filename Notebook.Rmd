@@ -645,3 +645,60 @@ Output 2, and to a lesser extent 1, present interesting data, it is not as usefu
 ::: {style="background-color:yellow;"}
 📌 TODO: investigations into KO and protein stuff / just found out checkm is better documented and has some graph output options, so that is something to look into as well / tree_qa command (fun checkM stuff abound). / dendrogram? / did i ever link to the gt() documentation? / ggtree heatmaps?
 :::
+
+# 2025-01-01 / 2025-01-02 CheckM2 DIAMOND_RESULTS.tsv
+
+## Introduction
+
+I decided to take a look at the full outputs of CheckM2 to see if there was anything interesting to analyse other than the Completeness and Contamination, i found this file called [DIAMOND_RESULTS.tsv](https://github.com/tobiasnunn/tnunn_research/blob/8a2b1cd3852c30ae0e91261d39e82f7165a53bc5/02_middle-analysis_outputs/CheckM2_20241228/diamond_output/DIAMOND_RESULTS.tsv). It has a bunch of weird stuff in it, i did however recognise the existence of KO pathways in the second column, along with links to a website that displays 3D images of proteins, so i decided to take a closer look at this file.
+
+## Methods
+
+I created this [R script](https://github.com/tobiasnunn/tnunn_research/blob/8a2b1cd3852c30ae0e91261d39e82f7165a53bc5/00_scripts/CheckM2diamondanalysis.R) to import the data to a table and do an analysis of the important looking fields. This was quite a difficult task that made this little project stretch over 2 days. The main output i wanted from this was a comparison between the KO pathways outputted from this and those outputted by Eggnog-mapper. Eggnog-mapper still is not working on Hawk so maybe we could get the KO pathways for the heatmaps through CheckM2 instead. I did this analysis at two levels, a comparison of which unique KOs each system recognised, and the "cumulitive" or total differences.
+
+## Results
+
+The table is very large, so i cannot include it in the document, there is a line for each gene in all 10 samples. Here is a screenshot of it in Notepad ++
+
+```{r checkm2kosunique, echo=FALSE, warning=FALSE}
+unique <- read.csv("02_middle-analysis_outputs/CheckM2_20241228/uniquecomp.csv")
+unique %>%
+  gt()  %>%
+  tab_source_note(source_note = "Source: DIAMOND_RESULTS.tsv produced by CheckM2 predict performed on 2024-12-28") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  tab_header(
+    title = "Table 7 - Unique KO pathway analysis from CheckM2",
+    subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
+  ) %>%
+  cols_label(accession = "Accession",
+             tot_rows = "Total unique KOs",
+             diamond = "KO # in DIAMOND file",
+             egg = "KO # from eggNog-mapper files",
+             diamond_per = "% diff DIAMOND - eggNog",
+             egg_per = "% diff eggNog - DIAMOND")
+```
+
+```{r checkm2koscumulative, echo=FALSE, warning=FALSE}
+cumul <- read.csv("02_middle-analysis_outputs/CheckM2_20241228/cumcomb.csv")
+cumul %>%
+  gt()  %>%
+  tab_source_note(source_note = "Source: DIAMOND_RESULTS.tsv produced by CheckM2 predict performed on 2024-12-28") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  tab_header(
+    title = "Table 8 - KO pathway Total Frequency analysis from CheckM2",
+    subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
+  ) %>%
+  cols_label(accession.e = "Accession",
+             ko_value.e = "EggNog-mapper most-frequent KO pathways",
+             tot_rows.e = "Ocurrance number in genome",
+             ko_value.d = "DIAMOND most-frequent KO pathways",
+             tot_rows.d = "Ocurrance number in genome")
+```
+
+Tables 7 and 8 represent my analysis of the DIAMOND_RESULTS.tsv file. I decided to do this by comparing it to the outputs i got from eggNog-mapper when i ran it earlier in the year. Table 7 represents a comparison of unique KO pathways. Often, the same KO pathway is found multiple times in the same genome, this makes evolutionary sense but if CheckM2 is a good alternative to eggNog-mapper, which does not work on hawk yet then it must find similar KO pathways. Table 7 would confirm this as similarities between output files consistently stay above 85%. Table 8 represents a comparison of highest frequency, taken as the top 5 most frequent for each genome. Basically, what are each system finding most often. Often, there will be similarities, with values only off by 2 or 3, however, occasionally the most common in DIAMOND will be absent from the list for eggNog-mapper and vise-versa.
+
+## Conclusion
+
+This analysis has been interesting, it is possible there is more here i am not fully understanding, but the resources to fact check and better understand are few and far between, so maybe Aaron will have something to say when he gets here. Table 7 suggested that the KO pathways being found are very similar. However, Table 8 suggests the opposite in most cases when repeats are taken into account. Ultimately, i do not think CheckM2 is a replacement for eggNog-mapper as this analysis is not its primary function. On the other hand, eggNog-mapper on hawk does not work at all, so i am stuck there, and if i have the time i may just use CheckM2 anyway to see what happens, i will make note that the results may not be entirely accurate if i take this path however.
