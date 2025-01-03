@@ -152,6 +152,7 @@ ttest <- t.test(unique$diamond_per, unique$egg_per)
 # due to the nature of the pipeline, i am going to need to do some stuff to
 # prepare the data for transformation
 cum_egg <- eggnog_kos[c("accession", "ko_value")]
+cum_egg <- cum_egg[!is.na(cum_egg$accession), ]
 cum_diamond <- dires[c("accession", "ko_value")]
 cumbined <- rbind(cum_egg, cum_diamond)
 #combined <- unique(combined[c("accession", "ko_value")])
@@ -202,25 +203,39 @@ plot_grid(unibox, cumbox, labels=c("Unique", "Cumulative"), ncol = 2, nrow = 1)
 # "total" list containing KOs from both, but, having built up the code for this
 # can i now compare them to each other directly?
 
-length(unique_diamond$accko[unique_diamond$accko %in% unique_egg$accko])
-length(unique_diamond$accko)
-length(unique_egg$accko)
+comparisondiamond <- data.frame(accko = cum_diamond$accko)
+comparisondiamond <- comparisondiamond %>% arrange(accko)
+comparisondiamond$index <- comparisondiamond %>% group_by(accko) %>% mutate(id = row_number())
+comparisondiamond$index_number <- unlist(comparisondiamond[["index"]][[2]])
+comparisondiamond$comparison_value <- paste(comparisondiamond$accko,
+                                            comparisondiamond$index_number, sep = "-")
+comparisondiamond <- data.frame(compvalue = comparisondiamond$comparison_value)
 
-length(unique_diamond$accko[unique_diamond$accko %in% unique_egg$accko]) / length(unique_diamond$accko)
-length(unique_diamond$accko[unique_diamond$accko %in% unique_egg$accko]) / length(unique_egg$accko)
 
+comparisonegg <- data.frame(accko = cum_egg$accko)
+comparisonegg <- comparisonegg %>% arrange(accko)
+comparisonegg$index <- comparisonegg %>% group_by(accko) %>% mutate(id = row_number())
+comparisonegg$index_number <- unlist(comparisonegg[["index"]][[2]])
+comparisonegg$comparison_value <- paste(comparisonegg$accko,
+                                            comparisonegg$index_number, sep = "-")
+comparisonegg <- data.frame(compvalue = comparisonegg$comparison_value)
 
+length(comparisondiamond$compvalue[comparisondiamond$compvalue %in% comparisonegg$compvalue])
+length(comparisondiamond$compvalue)
+length(comparisonegg$compvalue)
+
+length(comparisondiamond$compvalue[comparisondiamond$compvalue %in% comparisonegg$compvalue]) / length(comparisondiamond$compvalue)
+length(comparisondiamond$compvalue[comparisondiamond$compvalue %in% comparisonegg$compvalue]) / length(comparisonegg$compvalue)
+
+compttest <- t.test(comparisondiamond$compvalue, comparisonegg$compvalue)
+compttest
 #test
 frog <- c(1,1,1,1,35,69)
 toad <- c(1,1,1,1,1,2,5,43)
 pond <- frog[frog %in% toad]
 dnop <- toad[toad %in% frog]
 # dopn <- frog[toad %in% frog]
-write.csv(cum_egg, file = "cum_egg.csv")
 
-replicate(3, cum_egg, simplify = FALSE) %>%
-  imap_dfr(~ cum_egg$accko %>% 
-             mutate(id = cum_egg$accko))
 
 #9oooooooooooooooooooooooooooooooooo54rrrtrgfffff
 # write u# write u# write up investigation into DIAMOND_RESULTS.tsv and output a table with some key metrics
