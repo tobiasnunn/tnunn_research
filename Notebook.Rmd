@@ -654,11 +654,13 @@ I decided to take a look at the full outputs of CheckM2 to see if there was anyt
 
 ## Methods
 
-I created this [R script](https://github.com/tobiasnunn/tnunn_research/blob/8a2b1cd3852c30ae0e91261d39e82f7165a53bc5/00_scripts/CheckM2diamondanalysis.R) to import the data to a table and do an analysis of the important looking fields. This was quite a difficult task that made this little project stretch over 2 days. The main output i wanted from this was a comparison between the KO pathways outputted from this and those outputted by Eggnog-mapper. Eggnog-mapper still is not working on Hawk so maybe we could get the KO pathways for the heatmaps through CheckM2 instead. I did this analysis at two levels, a comparison of which unique KOs each system recognised, and the "cumulitive" or total differences.
+The file did not output with column headers, i believe the ones found [here](https://www.metagenomics.wiki/tools/blast/blastn-output-format-6) match up well, but the descriptions of some are vague, so i am not sure what the significance of a few of the columns is. Due to the size of DIAMOND_RESULTS.tsv, i decided not to include it as a table or image in this document. I created this [R script](https://github.com/tobiasnunn/tnunn_research/blob/8a2b1cd3852c30ae0e91261d39e82f7165a53bc5/00_scripts/CheckM2diamondanalysis.R) to import the data to a table and do an analysis of the important looking fields. This was quite a difficult task that made this little project stretch over 2 days. The main output i wanted from this was a comparison between the KO pathways outputted from this and those outputted by Eggnog-mapper. Eggnog-mapper still is not working on Hawk so maybe we could get the KO pathways for the heatmaps through CheckM2 instead. I did this analysis at two levels, a comparison of which unique KOs each system recognised, and the "cumulitive" or total differences.
 
 ## Results
 
-The table is very large, so i cannot include it in the document, there is a line for each gene in all 10 samples. Here is a screenshot of it in Notepad ++
+The original file is very large, so i cannot include it in the document, there is a line for each gene in all 10 samples. Here is a screenshot of it in Notepad ++
+
+![Figure 7 - Subset of DIAMOND_RESULTS.tsv file without headers](04_images/DIAMOND_RESULTS.tsv.png)
 
 ```{r checkm2kosunique, echo=FALSE, warning=FALSE}
 unique <- read.csv("02_middle-analysis_outputs/CheckM2_20241228/uniquecomp.csv")
@@ -702,3 +704,9 @@ Tables 7 and 8 represent my analysis of the DIAMOND_RESULTS.tsv file. I decided 
 ## Conclusion
 
 This analysis has been interesting, it is possible there is more here i am not fully understanding, but the resources to fact check and better understand are few and far between, so maybe Aaron will have something to say when he gets here. Table 7 suggested that the KO pathways being found are very similar. However, Table 8 suggests the opposite in most cases when repeats are taken into account. Ultimately, i do not think CheckM2 is a replacement for eggNog-mapper as this analysis is not its primary function. On the other hand, eggNog-mapper on hawk does not work at all, so i am stuck there, and if i have the time i may just use CheckM2 anyway to see what happens, i will make note that the results may not be entirely accurate if i take this path however.
+
+# 2024-01-03 Statistical analysis of yesterdays work
+
+## Introduction
+
+I figured if i am going to make decisions based on if two methods are different, i should compare them statistically instead of eyeballing it. It is simple enough, tests, graphs, that sort of stuff.
