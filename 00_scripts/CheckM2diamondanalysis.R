@@ -104,6 +104,7 @@ for (i in 1:length(accession_names)) {
   bygroup <- bygroup %>% add_row(Accession = selecter, DIAMOND_per = DIApercent, eggNog_per = eggpercent)
 }
 
+write.csv(bygroup, file = "03_final_outputs/misc/DIAMONDeggcomp.csv", row.names = FALSE)
 
 
 compttest <- t.test(comparisondiamond$compvalue, comparisonegg$compvalue)

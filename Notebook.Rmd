@@ -713,4 +713,38 @@ I figured if i am going to make decisions based on if two methods are different,
 
 ## Methods
 
-I started off testing which KO values against which accessions in each file, excluding repetitions.
+I started off testing which KO values against which accessions in each file, excluding repetitions. However, i then realised that this methodology did not give a full picture of the results, so i decided to work on trying to identify when duplicates occured and add them to the dataset. After much trial and error to get right, i created [this file](https://github.com/tobiasnunn/tnunn_research/blob/c00a875b2b0bc381bd39406d5ecbb0855de3c03a/00_scripts/CheckM2diamondanalysis.R). I included all the dead-ends as comments at the end for posterity. I finally decided to use the shared KO values divided by the total for each accession and method to create my values showing the differences between DIAMOND and eggNog-mapper. I then decided to run a statistical analysis to see if the differences observed between groups was significant.
+
+## Results
+
+```{r finalDIAMONDegganalysis, echo=FALSE, warning=FALSE}
+groupby <- read.csv("03_final_outputs/misc/DIAMONDeggcomp.csv")
+groupby %>%
+  gt()  %>%
+  tab_source_note(source_note = "Source: DIAMOND_RESULTS.tsv produced by CheckM2 predict performed on 2024-12-28 and the series of eggNog-mapper outputs i generated using eggNog-mapper v2 for the web 2024-08-28") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  tab_header(
+    title = "Table 9 - Shared KO values between two systems represented as proportions of their totals",
+    subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
+  ) %>%
+  cols_label(DIAMOND_per = "% of shared KO values present in DIAMOND_RESULTS.tsv",
+             eggNog_per = "% of shared KO values present in eggNog-mapper outputs") %>%
+  fmt_percent(
+    columns = c(DIAMOND_per, eggNog_per),
+    decimals = 1,
+    use_seps = TRUE)
+```
+
+```{r stattestDIAegg, echo=TRUE, warning=FALSE}
+shapiro.test(groupby$DIAMOND_per)
+shapiro.test(groupby$eggNog_per)
+
+compttest <- t.test(groupby$DIAMOND_per, groupby$eggNog_per)
+compttest
+```
+
+Table 9 shows that the common KO values represent a very large proportion of the total KO values for both methods and all accessions, never dipping below 80%. Shapiro testing showed that a parametric test could be used for this. I decided on a Student's t-test(t(15.199) = -1.6563, p = 0.1182). As the p value is larger than 0.05, we accept the null hypothesis that the groups are not significantly different.
+
+## Conclusion
+I believe that my work over the past few days proves that if i have time between doing the exams, i can use CheckM2 as an alternative to eggNog-mapper, because as of now, eggNog-mapper still does not function on hawk. However, when that situation gets sorted out i will also do analyses using it and then do something very similar to what i did here. If i cannot get there before eggNog-mapepr is fixed, then i will only use that method.
