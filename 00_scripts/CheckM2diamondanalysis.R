@@ -110,7 +110,18 @@ write.csv(bygroup, file = "03_final_outputs/misc/DIAMONDeggcomp.csv", row.names 
 compttest <- t.test(comparisondiamond$compvalue, comparisonegg$compvalue)
 compttest
 
-
+#---------------------------plots----------------------------------------
+#whenever i did this before, they had me do it with a graph, so why not do one here
+groupbox <- bygroup %>%
+  select(DIAMOND_per, eggNog_per) %>%
+  pivot_longer(everything(), names_to = "variable", values_to = "value") %>%
+  ggplot(aes(x=variable,y=value)) +
+  geom_boxplot(fill = c("purple","yellow")) + 
+  geom_jitter(alpha=0.3, width = 0.1) + 
+  ylim(0.80,1) +
+  xlab("System") +
+  ylab("% similarity")
+groupbox
 
 #--------------------------------------------------old stuff, NOT OUTPUT-------------------------------------------
 # #test
