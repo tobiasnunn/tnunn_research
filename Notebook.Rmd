@@ -747,4 +747,11 @@ compttest
 Table 9 shows that the common KO values represent a very large proportion of the total KO values for both methods and all accessions, never dipping below 80%. Shapiro testing showed that a parametric test could be used for this. I decided on a Student's t-test(t(15.199) = -1.6563, p = 0.1182). As the p value is larger than 0.05, we accept the null hypothesis that the groups are not significantly different.
 
 ## Conclusion
+
 I believe that my work over the past few days proves that if i have time between doing the exams, i can use CheckM2 as an alternative to eggNog-mapper, because as of now, eggNog-mapper still does not function on hawk. However, when that situation gets sorted out i will also do analyses using it and then do something very similar to what i did here. If i cannot get there before eggNog-mapepr is fixed, then i will only use that method.
+
+## EggNog-Mapper analysis and heatmaps(2025-01-10 to \_\_\_)
+
+### Introduction
+
+Aaron emailed me back with advice on a way to make eggNog-mapper/2.1.12 on hawk work. As i am revising for an exam i cant spend too long on this, so from the 10th to the 12th i tried running a test file i made earlier in december 2024, i may not have written about it as i didnt get anywhere at that time. This process was also hindered by hawk being very encumbered in the new year meaning it takes a good half day for any results to appear. On the 11th i managed to get a successful result with the .xlsx file i need for the heatmaps for accession 3Dt1c. Today(the 12th) i set off 3 jobs each containing 3 accessions to hopefully get the results of the remaining 9. If there are no complications i will then be in a place where i can obtain the .fastas for the online comparison accessions and then run them through eggNog-mapper. It should be noted that i used the same list of parameters i found on the web version of hawk for this, **[[[[[[[[[[screenshot attached]]]]]]]]]]]].**
