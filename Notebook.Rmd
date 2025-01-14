@@ -750,6 +750,8 @@ Table 9 shows that the common KO values represent a very large proportion of the
 
 I believe that my work over the past few days proves that if i have time between doing the exams, i can use CheckM2 as an alternative to eggNog-mapper, because as of now, eggNog-mapper still does not function on hawk. However, when that situation gets sorted out i will also do analyses using it and then do something very similar to what i did here. If i cannot get there before eggNog-mapepr is fixed, then i will only use that method.
 
+#------------------------------------------------------------------------------------------------------ \# Continued in Notebook #2
+
 # EggNog-Mapper innitial test analysis(2025-01-10 to \_\_\_)
 
 ## Introduction
