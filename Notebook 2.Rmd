@@ -88,14 +88,14 @@ countingenus <- filter(families, genus %in% local$genus) %>% count(genus)
 #### Family Sphingomonadaceae
 
 ```{r chart-f__sphingo, echo=FALSE, warning=FALSE}
-filter(countinfamily, family == "f__Sphingomonadaceae") %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
+filter(countinfamily, family == "f__Sphingomonadaceae"&n>29) %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
   summary_rows(
     #columns = where(is.numeric),
     columns = n,
     fns = list(
       Total = ~sum(., na.rm = TRUE)))  %>%
   tab_header(
-    title = "Table 10 - count of genera in the family Sphingomonadaceae",
+    title = "Table 10 - count of genera in the family Sphingomonadaceae with 30+ accessions",
     subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
   ) %>%
   cols_label(genus = "Family and Genus",
@@ -153,4 +153,29 @@ This number of hours is not one i can logistically work with, maybe Aaron would 
 > could limit to genera with more than 30 samples
 > screenscrape-method
 > enlist more manpower to do online(if we have to do on web)]
+> look at de_novo to see what species each sample was closest to
 :::
+
+##full numbers
+Assuming I want to limit the family analysis to larger groups (more than 30), the total samples are:
+```{r chart-limitedourgens, echo=FALSE, warning=FALSE}
+filter(countinfamily, family %in% c("f__Sphingomonadaceae", "f__Microbacteriaceae") & n>29 | genus %in% local$genus & n>29) %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
+  summary_rows(
+    #columns = where(is.numeric),
+    columns = n,
+    fns = list(
+      Total = ~sum(., na.rm = TRUE)))  %>%
+  grand_summary_rows(
+    columns = n,
+    #fmt = NULL,
+    fns = list(
+      "Grand Total" = ~sum(., na.rm = TRUE)),
+    side = "top",
+    missing_text = "---") %>%
+  tab_header(
+    title = "Table 13 - count of samples in all genera of interest, by family",
+    subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
+  ) %>%
+  cols_label(genus = "Family and Genus",
+             n = "Number of Accessions")
+```
