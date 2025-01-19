@@ -31,7 +31,7 @@ library(gt)
 library(knitr)
 ```
 
-# EggNog-Mapper initial test analysis(2025-01-10 to 2025-01-14)
+# EggNog-Mapper initial test analysis(2025-01-10 to 2025-01-19)
 
 ## Introduction
 
@@ -39,7 +39,7 @@ Aaron emailed me back with advice on a way to make eggNog-mapper/2.1.12 on hawk 
 
 ## Methods
 
-From the 10th to the 12th i tried running a **[[test file]]** i made earlier in december 2024, i may not have written about it as i didnt get anywhere at that time. This process was also hindered by hawk being very encumbered in the new year meaning it takes a good half day for any results to appear. On the 11th i managed to get a successful result with the .xlsx file i need for the heatmaps for accession 3Dt1c. Today(the 12th) i set off 3 jobs each containing 3 accessions to hopefully get the results of the remaining 9. If there are no complications i will then be in a place where i can obtain the .fastas for the online comparison accessions and then run them through eggNog-mapper. It should be noted that i used the same list of parameters i found on the web version of hawk for this, **[[[[[[[[[[screenshot attached]]]]]]]]]]]].** I had some marginal success, the second set of three finished in over 3 hours, the other 2 sets are still going strong after 8, so ill let them time out over night and see what i have, maybe they will complete, i did give them 12 hours.I then discovered the command `dbmem` which could help to speed up the process. I tested with **[[this file]]** set to run over night from roughly 9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5 files, not great. I then experimented with taking out some of the arguments `--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`, that produced **[[this script]]**. Tomorrow(14th) i will have a look at recreating run 1 with `dbmem` switched on.
+From the 10th to the 12th i tried running a **[[test file]]** i made earlier in december 2024, i may not have written about it as i didnt get anywhere at that time. This process was also hindered by hawk being very encumbered in the new year meaning it takes a good half day for any results to appear. On the 11th i managed to get a successful result with the .xlsx file i need for the heatmaps for accession 3Dt1c. Today(the 12th) i set off 3 jobs each containing 3 accessions to hopefully get the results of the remaining 9. If there are no complications i will then be in a place where i can obtain the .fastas for the online comparison accessions and then run them through eggNog-mapper. It should be noted that i used the same list of parameters i found on the web version of hawk for this, **[[[[[[[[[[screenshot attached]]]]]]]]]]]].** I had some marginal success, the second set of three finished in over 3 hours, the other 2 sets are still going strong after 8, so ill let them time out over night and see what i have, maybe they will complete, i did give them 12 hours.I then discovered the command `dbmem` which could help to speed up the process. I tested with **[[this file]]** set to run over night from roughly 9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5 files, not great. I then experimented with taking out some of the arguments `--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`, that produced **[[this script]]**. Tomorrow(14th) i will have a look at recreating run 1 with `dbmem` switched on. Today(19th), i changed some criteria around so now there are 25 cpus per task, however, i believe i had already been doing this by accident in the previous runs i did. Speed has not picked up considerably, so i may have reached the limits of how fast i can make this and thus, it might be time to email Aaron to see what he thinks.
 
 ## Results
 Run one had mixed results, 3 sets of 3 ran in parallel, set 1 completed in 3 and a half hours, good. set 2 took 8 and a half hours, bad, set 3 timed out, very bad. so dont have the outputs needed for 1Dt100h or 1Dt1h. Run 2 was more successful, with 5 solid looking outputs in 6 hours. Run 3 did not improve on that time despite the extra parameters being cut.
@@ -51,7 +51,7 @@ It could have been overcrowding on hawk, however it appears that running multipl
 - Comparing the genera containing just our samples
 
 
-# Additional pre-eggnog analysis + API (2025-01-17 to 2025-01-__)
+# Additional pre-eggnog analysis (2025-01-17 to 2025-01-19)
 
 ## Introduction
 Hawk is still running slow, so while those jobs from the previous section are running, i figured i would like to do something extra to fill time. I wanted to see just how many samples we are going to need to pull down and process for this and get a rough time estimate for that, as well as the API stuff to pull the files down as that is by far the easy bit
