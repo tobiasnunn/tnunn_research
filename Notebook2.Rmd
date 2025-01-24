@@ -3,15 +3,10 @@ title: "ENS-2002 Scientific Notebook MK2 number 2"
 author: "Tobias Nunn"
 date: "2025-01-13"
 output: 
-  html_document:
+  html_document: 
     toc: true
-    theme:
-      bg: "#fdfffc"
-      fg: "#212b32"
-      primary: "#003973"
-      secondary: "#FAB600"
-      success: "#8cc04b"
     toc_depth: 1
+    keep_md: true
 ---
 
 ```{=html}
@@ -39,7 +34,7 @@ Aaron emailed me back with advice on a way to make eggNog-mapper/2.1.12 on hawk 
 
 ## Methods
 
-From the 10th to the 12th i tried running a **[[test file]]** i made earlier in december 2024, i may not have written about it as i didnt get anywhere at that time. This process was also hindered by hawk being very encumbered in the new year meaning it takes a good half day for any results to appear. On the 11th i managed to get a successful result with the .xlsx file i need for the heatmaps for accession 3Dt1c. Today(the 12th) i set off 3 jobs each containing 3 accessions to hopefully get the results of the remaining 9. If there are no complications i will then be in a place where i can obtain the .fastas for the online comparison accessions and then run them through eggNog-mapper. It should be noted that i used the same list of parameters i found on the web version of hawk for this, **[[[[[[[[[[screenshot attached]]]]]]]]]]]].** I had some marginal success, the second set of three finished in over 3 hours, the other 2 sets are still going strong after 8, so ill let them time out over night and see what i have, maybe they will complete, i did give them 12 hours.I then discovered the command `dbmem` which could help to speed up the process. I tested with **[[this file]]** set to run over night from roughly 9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5 files, not great. I then experimented with taking out some of the arguments `--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`, that produced **[[this script]]**. Tomorrow(14th) i will have a look at recreating run 1 with `dbmem` switched on. Today(19th), i changed some criteria around so now there are 25 cpus per task, however, i believe i had already been doing this by accident in the previous runs i did. Speed has not picked up considerably, so i may have reached the limits of how fast i can make this and thus, it might be time to email Aaron to see what he thinks.
+From the 10th to the 12th i tried running a **test file** i made earlier in december 2024, i may not have written about it as i didnt get anywhere at that time. This process was also hindered by hawk being very encumbered in the new year meaning it takes a good half day for any results to appear. On the 11th i managed to get a successful result with the .xlsx file i need for the heatmaps for accession 3Dt1c. Today(the 12th) i set off 3 jobs each containing 3 accessions to hopefully get the results of the remaining 9. If there are no complications i will then be in a place where i can obtain the .fastas for the online comparison accessions and then run them through eggNog-mapper. It should be noted that i used the same list of parameters i found on the web version of hawk for this, **screenshot attached.** I had some marginal success, the second set of three finished in over 3 hours, the other 2 sets are still going strong after 8, so ill let them time out over night and see what i have, maybe they will complete, i did give them 12 hours.I then discovered the command `dbmem` which could help to speed up the process. I tested with **this file** set to run over night from roughly 9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5 files, not great. I then experimented with taking out some of the arguments `--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`, that produced **this script**. Tomorrow(14th) i will have a look at recreating run 1 with `dbmem` switched on. Today(19th), i changed some criteria around so now there are 25 cpus per task, however, i believe i had already been doing this by accident in the previous runs i did. Speed has not picked up considerably, so i may have reached the limits of how fast i can make this and thus, it might be time to email Aaron to see what he thinks.
 
 ## Results
 Run one had mixed results, 3 sets of 3 ran in parallel, set 1 completed in 3 and a half hours, good. set 2 took 8 and a half hours, bad, set 3 timed out, very bad. so dont have the outputs needed for 1Dt100h or 1Dt1h. Run 2 was more successful, with 5 solid looking outputs in 6 hours. Run 3 did not improve on that time despite the extra parameters being cut.
@@ -61,87 +56,85 @@ I started this by making tables based along the sets of samples i am going to ne
 1. all the genera in the family sphingomonadaceae /
 2. all the genera in the family Microbacteriaceae /
 3. all the genera containing our flye_asm samples
-This fits with the specification of work i was given. Being 2 analyses, 1 for comparing just our genera and another comparing genera in families we have multiple samples in. As of now i am yet to do the API call. (still the 17th) I decided to run some more tests to try cut the time down by adding some more commands to my [[[[anothergo.sh]]]] script, [[[[[[specifically____]]]]]] I was having trouble with creating the slurm scripts on hawk, it was a lot of typing complex strings, so i made another script maker to automate that, which will be much more convenient when working at scale, [[[[[here]]]]]
+This fits with the specification of work i was given. Being 2 analyses, 1 for comparing just our genera and another comparing genera in families we have multiple samples in. As of now i am yet to do the API call. (still the 17th) I decided to run some more tests to try cut the time down by adding some more commands to my anothergo.sh script, specifically____ I was having trouble with creating the slurm scripts on hawk, it was a lot of typing complex strings, so i made another script maker to automate that, which will be much more convenient when working at scale, here
 
 ## Results
 
-# ```{r setup for counts, echo=FALSE}
-#   datafile <- read.csv("02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_wf/gtdbtk.bac120.decorated.tree-taxonomy", sep = "\t", header = FALSE)
-# names(datafile) <- c("accession", "path")
-# datafile <- datafile %>% 
-#   separate_wider_delim(
-#     path, 
-#     delim = "; ", 
-#     names = c("domain", "phylum", "class", "order", "family", "genus", "species"), 
-#     too_few = "align_start",
-#     too_many = "merge")
-# local <- filter(datafile, grepl("flye", accession))
-# families <- filter(datafile, family %in% local$family)
-# countinfamily <- filter(families, !family == "f__" ) %>% count(family, genus)
-# countingenus <- filter(families, genus %in% local$genus) %>% count(genus) 
-# 
-# ```
+```{r setup for counts, echo=FALSE}
+  datafile <- read.csv("02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_wf/gtdbtk.bac120.decorated.tree-taxonomy", sep = "\t", header = FALSE)
+names(datafile) <- c("accession", "path")
+datafile <- datafile %>%
+  separate_wider_delim(
+    path,
+    delim = "; ",
+    names = c("domain", "phylum", "class", "order", "family", "genus", "species"),
+    too_few = "align_start",
+    too_many = "merge")
+local <- filter(datafile, grepl("flye", accession))
+families <- filter(datafile, family %in% local$family)
+countinfamily <- filter(families, !family == "f__" ) %>% count(family, genus)
+countingenus <- filter(families, genus %in% local$genus) %>% count(genus)
+```
 
 
 ### All tables {.tabset .tabset-pills}
 
 #### Family Sphingomonadaceae
 
-# ```{r chart-f__sphingo, echo=FALSE, warning=FALSE}
-# filter(countinfamily, family == "f__Sphingomonadaceae") %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
-#   summary_rows(
-#     #columns = where(is.numeric),
-#     columns = n,
-#     fns = list(
-#       Total = ~sum(., na.rm = TRUE)))  %>%
-#   tab_header(
-#     title = "Table 10 - count of genera in the family Sphingomonadaceae",
-#     subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
-#   ) %>%
-#   cols_label(genus = "Family and Genus",
-#              n = "Number of Accessions")
-# 
-# ```
+```{r chart-f__sphingo, echo=FALSE, warning=FALSE}
+filter(countinfamily, family == "f__Sphingomonadaceae") %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
+  summary_rows(
+    #columns = where(is.numeric),
+    columns = n,
+    fns = list(
+      Total = ~sum(., na.rm = TRUE)))  %>%
+  tab_header(
+    title = "Table 10 - count of genera in the family Sphingomonadaceae",
+    subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
+  ) %>%
+  cols_label(genus = "Family and Genus",
+             n = "Number of Accessions")
+```
 
 #### Family Microbacteriaceae
 
-# ```{r chart-f__Micro, echo=FALSE, warning=FALSE}
-# filter(countinfamily, family == "f__Microbacteriaceae") %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
-#   summary_rows(
-#     #columns = where(is.numeric),
-#     columns = n,
-#     fns = list(
-#       Total = ~sum(., na.rm = TRUE))) %>%
-#   tab_header(
-#     title = "Table 11 - count of genera in the family Microbacteriaceae",
-#     subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
-#   )  %>%
-#   cols_label(genus = "Family and Genus",
-#              n = "Number of Accessions")
-# ```
+```{r chart-f__Micro, echo=FALSE, warning=FALSE}
+filter(countinfamily, family == "f__Microbacteriaceae") %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
+  summary_rows(
+    #columns = where(is.numeric),
+    columns = n,
+    fns = list(
+      Total = ~sum(., na.rm = TRUE))) %>%
+  tab_header(
+    title = "Table 11 - count of genera in the family Microbacteriaceae",
+    subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
+  )  %>%
+  cols_label(genus = "Family and Genus",
+             n = "Number of Accessions")
+```
 
 #### Our Genera
 
-# ```{r chart-ourgens, echo=FALSE, warning=FALSE}
-# countingenus %>% gt() %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
-#   grand_summary_rows(
-#     #columns = where(is.numeric),
-#     columns = n,
-#     fns = list(
-#       Total = ~sum(., na.rm = TRUE))) %>%
-#   tab_header(
-#     title = "Table 12 - count of genera from accessions produced at Bangor",
-#     subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24") 
-#   ) %>%
-#   cols_label(genus = "Genus",
-#              n = "Number of Accessions")
-# ```
+```{r chart-ourgens, echo=FALSE, warning=FALSE}
+countingenus %>% gt() %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
+  grand_summary_rows(
+    #columns = where(is.numeric),
+    columns = n,
+    fns = list(
+      Total = ~sum(., na.rm = TRUE))) %>%
+  tab_header(
+    title = "Table 12 - count of genera from accessions produced at Bangor",
+    subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
+  ) %>%
+  cols_label(genus = "Genus",
+             n = "Number of Accessions")
+```
 
 ###  {.unnumbered}
 
 There are 887 accession in sphingomonadaceae, 806 in microbacteriaceae and 587 in just our genera, however, there is overlap inside the genera Sphingomonas and Microbacterium, assuming those values are held inside the respective numbers before, that comes out to 128 "unique" samples from that group. This however contains the sample that could not even be given a family, 1Dt100h, so discounting this odd sample i cannot even logically analyse 127 accessions. This brings me to the total of 1,820 accessions that need to be processed. The fastest i have been able to process samples on eggnog is roughly 1 hour and 10 minutes per sample. Multiplying 1,820 by 1.1667 = 2,123.4 hours. This means that if i could do them constantly, it would take over 88 days, so 2 months to just run the samples through eggnog. Through testing i have already made a brief start, with maybe 20 done.
 
-Right, as of 11:12 today (17th) i have managed to do a successful run using [[[[[this file]]]]] that gave me the output in a nice 25 minutes. I added some extra fields that i saw both on the online eggnogmapper and from a stack-overflow from someone doing a similar thing and something worked. using this new number, 1,820 x 0.4167 = 758.4 hours = 31.6 days so even now i'm down to just over a month, good stuff. This one used 10 cpus, the online one used 20, but i didnt want to overdo it with hawk, now im thinking can i get that number to half again by doubling the cpus?
+Right, as of 11:12 today (17th) i have managed to do a successful run using this file that gave me the output in a nice 25 minutes. I added some extra fields that i saw both on the online eggnogmapper and from a stack-overflow from someone doing a similar thing and something worked. using this new number, 1,820 x 0.4167 = 758.4 hours = 31.6 days so even now i'm down to just over a month, good stuff. This one used 10 cpus, the online one used 20, but i didnt want to overdo it with hawk, now im thinking can i get that number to half again by doubling the cpus?
 
 ## Conclusion
 This number of hours is not one i can logistically work with, maybe Aaron would be fine with me taking that time, but i feel i can do it faster. I am still working on improving the script to cut down on time taken, but hawk is being a pain in that regard, i have also starting thinking of alternatives or ways to cut down the list. My front-running idea is to take samples from only genera with more than 10, or 30 or some other arbitrary high number of samples. This would cut out all groups with only 1-4 accessions in them which i dont think are useful to this analysis anyway as an average cannot be calculated, it would also make the heatmaps much more legible, so i might run the numbers on what cutting down the sample size would look like. It may however, be better to group all those small genera into an "other" column to make the dataset as big as possible, but that doesnt solve my predicament.
@@ -157,3 +150,6 @@ This number of hours is not one i can logistically work with, maybe Aaron would 
 ::: {style="background-color:yellow;"}
 📌 ?: TODO: trees and formatting
 :::
+
+# A cautionary tale (2025-01-24 11:48)
+So for the past 2 weeks while i was doing exams i decided i didnt want to fully stop this project, but i didnt have enough time to do stuff and properly fill the notebook, so i decided to leave myself placeholders in multiple square brackets to make it obvious when i came back later, i can't replicate this here. For some unknown reason doing too many square brackets breaks the visual editor and busts the ability to knit. Anyway, because of that i haveant been able to knit all this time and have just lost the whole morning to trying to fix this, all over some square brackets... the shame i feel from this is immeasurable. This really does prove that there is **always** time for proper note taking.
