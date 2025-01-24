@@ -7,6 +7,9 @@ output:
     toc: true
     toc_depth: 1
     keep_md: true
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{=html}
@@ -19,46 +22,118 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache = T)
 library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(gt)
 library(knitr)
+library(jsonlite)
+library(tidyjson)
 ```
 
-# EggNog-Mapper initial test analysis(2025-01-10 to 2025-01-19)
+# EggNog-Mapper initial test analyses (2025-01-10 to 2025-01-19)
 
 ## Introduction
 
-Aaron emailed me back with advice on a way to make eggNog-mapper/2.1.12 on hawk work. As i am revising for an exam i cant spend too long on this. p.s. i think i did pretty good on the exam
+Aaron emailed me back with advice on a way to make eggNog-mapper/2.1.12
+on hawk work. As i am revising for an exam i can't spend too long on
+this. p.s. i think i did pretty good on the exam. This section is
+somewhat of a proof of concept just so i can understand and play with
+the base commands for eggnogmapepr and try to get it running quickly,
+and all the trials that entails. Hawk is still running slow, so while
+those jobs from the previous section are running, i figured i would like
+to do something extra to fill time. I wanted to see just how many
+samples we are going to need to pull down and process for this and get a
+rough time estimate for that, as well as the API stuff to pull the files
+down as that is by far the easy bit
 
 ## Methods
 
-From the 10th to the 12th i tried running a **test file** i made earlier in december 2024, i may not have written about it as i didnt get anywhere at that time. This process was also hindered by hawk being very encumbered in the new year meaning it takes a good half day for any results to appear. On the 11th i managed to get a successful result with the .xlsx file i need for the heatmaps for accession 3Dt1c. Today(the 12th) i set off 3 jobs each containing 3 accessions to hopefully get the results of the remaining 9. If there are no complications i will then be in a place where i can obtain the .fastas for the online comparison accessions and then run them through eggNog-mapper. It should be noted that i used the same list of parameters i found on the web version of hawk for this, **screenshot attached.** I had some marginal success, the second set of three finished in over 3 hours, the other 2 sets are still going strong after 8, so ill let them time out over night and see what i have, maybe they will complete, i did give them 12 hours.I then discovered the command `dbmem` which could help to speed up the process. I tested with **this file** set to run over night from roughly 9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5 files, not great. I then experimented with taking out some of the arguments `--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`, that produced **this script**. Tomorrow(14th) i will have a look at recreating run 1 with `dbmem` switched on. Today(19th), i changed some criteria around so now there are 25 cpus per task, however, i believe i had already been doing this by accident in the previous runs i did. Speed has not picked up considerably, so i may have reached the limits of how fast i can make this and thus, it might be time to email Aaron to see what he thinks.
+From the 10th to the 12th i tried running a preliminary [test
+script](https://github.com/tobiasnunn/tnunn_research/blob/a962833b3ec1b2c7420fef155b526f2b330d644c/00_scripts/newnogtest.sh)
+that I made earlier in december 2024, i may not have written about it as
+i didnt get anywhere at that time. This process was also hindered by
+hawk being very encumbered in the new year meaning it takes a good half
+day for any results to appear. On the 11th i managed to get a successful
+result with the .xlsx file i need for the heatmaps for accession 3Dt1c,
+found here in a zip file to save on space:
+
+02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs
+
+Today(the 12th) i set off 3 jobs each containing 3 accessions to
+hopefully get the results of the remaining 9. If there are no
+complications i will then be in a place where i can obtain the .fastas
+for the online comparison accessions and then run them through
+eggNog-mapper. It should be noted that i used the same list of
+parameters i found on the web version of hawk for this.
+
+![Figure 1 - Screenshot of parameters used in early eggnog runs on
+hawk](04_images/eggnogparameters.png)
+
+I had some marginal success, the second set of three finished in over 3
+hours, the other 2 sets are still going strong after 8, so ill let them
+time out over night and see what i have, maybe they will complete, i did
+give them 12 hours. One of the remaining two finished just before the
+time limit, the other timed out on sample 1Dt100h, proving to be a
+difficult sample, this means i have 8 of 10, with the other missing
+being 1Dt1h(alphabetically next).
+
+I then discovered the command `dbmem` which could help to speed up the
+process. I tested with [this file called
+"anothergo.sh"](https://github.com/tobiasnunn/tnunn_research/blob/a962833b3ec1b2c7420fef155b526f2b330d644c/00_scripts/anothergo.sh).
+The version linked to is not the file at that point, as i am doing the
+linking here retroactively. This was set to run over night from roughly
+9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5
+files, not great. I then experimented with taking out some of the
+arguments
+`--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`.
+This did not significantly increase time and likely hindered the quality
+of the sample, so that was a dead end. Tomorrow(14th) i will have a look
+at recreating run 1 with `dbmem` switched on. Around this time i also
+tried to run two scripts in parallel, same content but different source
+fastas, being another old version of "anothergo.sh" and
+"anothergoparallel.sh". This was not successful as slurm scheduled them
+sequentially. Today(19th), i changed some criteria around so now there
+are 25 cpus per task, however, i believe i had already been doing this
+by accident in the previous runs i did. There are two files, one being
+the up-to-date version of "anothergo.sh" and one called
+[Brachyscript.sh](https://github.com/tobiasnunn/tnunn_research/blob/a962833b3ec1b2c7420fef155b526f2b330d644c/00_scripts/brachy_script.sh)
+which did multiple files in sequence but from the same script. I believe
+these were not testing any parameters and were just attempts at
+preliminary downloads to guage how long it might take. Speed has not
+picked up considerably, so i may have reached the limits of how fast i
+can make this and thus, it might be time to email Aaron to see what he
+thinks. He emailed me back with some ideas about how i could use python
+scripts to loop and that could make slurm do them in parallel.
+
+I started this by making tables based along the sets of samples i am
+going to need off of the ncbi website. I identified 3 groups of
+samples: 1. all the genera in the family sphingomonadaceae / 2. all the
+genera in the family Microbacteriaceae / 3. all the genera containing
+our flye_asm samples This fits with the specification of work i was
+given. Being 2 analyses, 1 for comparing just our genera and another
+comparing genera in families we have multiple samples in. As of now i am
+yet to do the API call. (still the 17th) I decided to run some more
+tests to try cut the time down by adding some more commands to my
+anothergo.sh script. I was having trouble with creating the slurm
+scripts on hawk, it was a lot of typing complex strings, so i made
+another script maker to automate that, which will be much more
+convenient when working at scale, here
 
 ## Results
-Run one had mixed results, 3 sets of 3 ran in parallel, set 1 completed in 3 and a half hours, good. set 2 took 8 and a half hours, bad, set 3 timed out, very bad. so dont have the outputs needed for 1Dt100h or 1Dt1h. Run 2 was more successful, with 5 solid looking outputs in 6 hours. Run 3 did not improve on that time despite the extra parameters being cut.
 
-## Conclusion
-It could have been overcrowding on hawk, however it appears that running multiple sets in parallel adversely affects the result, however, i have not tested this with `dbmem` on. The large problem is the volume of samples required, the desired output is 3 heatmaps comparing KO pathways:
-- Comparing genera inside sphingomonadaceae
-- Comparing genera inside Microbacteriaceae
-- Comparing the genera containing just our samples
-
-
-# Additional pre-eggnog analysis (2025-01-17 to 2025-01-19)
-
-## Introduction
-Hawk is still running slow, so while those jobs from the previous section are running, i figured i would like to do something extra to fill time. I wanted to see just how many samples we are going to need to pull down and process for this and get a rough time estimate for that, as well as the API stuff to pull the files down as that is by far the easy bit
-
-## Methods
-I started this by making tables based along the sets of samples i am going to need off of the ncbi website. I identified 3 groups of samples:
-1. all the genera in the family sphingomonadaceae /
-2. all the genera in the family Microbacteriaceae /
-3. all the genera containing our flye_asm samples
-This fits with the specification of work i was given. Being 2 analyses, 1 for comparing just our genera and another comparing genera in families we have multiple samples in. As of now i am yet to do the API call. (still the 17th) I decided to run some more tests to try cut the time down by adding some more commands to my anothergo.sh script, specifically____ I was having trouble with creating the slurm scripts on hawk, it was a lot of typing complex strings, so i made another script maker to automate that, which will be much more convenient when working at scale, here
-
-## Results
+Run one had mixed results, 3 sets of 3 ran in parallel, set 1 completed
+in 3 and a half hours, good. set 2 took 8 and a half hours, bad, set 3
+timed out, very bad. so dont have the outputs needed for 1Dt100h or
+1Dt1h. Run 2 was more successful, with 5 solid looking outputs in 6
+hours. Run 3 did not improve on that time despite the extra parameters
+being cut. As mentioned above, i managed to use `dbmem` and more
+optimised cpu and memory usage using the `seff` command. This helped get
+the average time to do a file down to roughly 27 minutes. After emailing
+Aaron he agreed that the list of accessions should be cut down to remove
+groups with low sample counts, i decided to cut at the number 30, so
+groups with 29 or below are cut, as seen in these tables:
 
 ```{r setup for counts, echo=FALSE}
   datafile <- read.csv("02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_wf/gtdbtk.bac120.decorated.tree-taxonomy", sep = "\t", header = FALSE)
@@ -76,41 +151,50 @@ countinfamily <- filter(families, !family == "f__" ) %>% count(family, genus)
 countingenus <- filter(families, genus %in% local$genus) %>% count(genus)
 ```
 
-
 ### All tables {.tabset .tabset-pills}
 
 #### Family Sphingomonadaceae
 
 ```{r chart-f__sphingo, echo=FALSE, warning=FALSE}
-filter(countinfamily, family == "f__Sphingomonadaceae") %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
+filter(countinfamily, family == "f__Sphingomonadaceae"&n>29) %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
   summary_rows(
     #columns = where(is.numeric),
     columns = n,
     fns = list(
       Total = ~sum(., na.rm = TRUE)))  %>%
   tab_header(
-    title = "Table 10 - count of genera in the family Sphingomonadaceae",
+    title = "Table 1 - count of genera in the family Sphingomonadaceae",
     subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
   ) %>%
   cols_label(genus = "Family and Genus",
-             n = "Number of Accessions")
+             n = "Number of Accessions") %>%
+  tab_footnote(
+    footnote="This is a subset of the full list, filtered to those genera with more than 29 accessions.",
+    locations = NULL,
+    placement = c("auto")
+)
 ```
 
 #### Family Microbacteriaceae
 
 ```{r chart-f__Micro, echo=FALSE, warning=FALSE}
-filter(countinfamily, family == "f__Microbacteriaceae") %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
+filter(countinfamily, family == "f__Microbacteriaceae"&n>29) %>% gt(groupname_col = "family") %>% opt_row_striping() %>% opt_stylize(style = 5, color = "blue") %>%
   summary_rows(
     #columns = where(is.numeric),
     columns = n,
     fns = list(
       Total = ~sum(., na.rm = TRUE))) %>%
   tab_header(
-    title = "Table 11 - count of genera in the family Microbacteriaceae",
+    title = "Table 2 - count of genera in the family Microbacteriaceae",
     subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
   )  %>%
   cols_label(genus = "Family and Genus",
-             n = "Number of Accessions")
+             n = "Number of Accessions") %>%
+  tab_footnote(
+    footnote="This is a subset of the full list, filtered to those genera with more than 29 accessions.",
+    locations = NULL,
+    placement = c("auto")
+  )
 ```
 
 #### Our Genera
@@ -123,33 +207,168 @@ countingenus %>% gt() %>% opt_row_striping() %>% opt_stylize(style = 5, color = 
     fns = list(
       Total = ~sum(., na.rm = TRUE))) %>%
   tab_header(
-    title = "Table 12 - count of genera from accessions produced at Bangor",
+    title = "Table 3 - count of genera from accessions produced at Bangor",
     subtitle = md("accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24")
   ) %>%
   cols_label(genus = "Genus",
-             n = "Number of Accessions")
+             n = "Number of Accessions") 
 ```
 
 ###  {.unnumbered}
 
-There are 887 accession in sphingomonadaceae, 806 in microbacteriaceae and 587 in just our genera, however, there is overlap inside the genera Sphingomonas and Microbacterium, assuming those values are held inside the respective numbers before, that comes out to 128 "unique" samples from that group. This however contains the sample that could not even be given a family, 1Dt100h, so discounting this odd sample i cannot even logically analyse 127 accessions. This brings me to the total of 1,820 accessions that need to be processed. The fastest i have been able to process samples on eggnog is roughly 1 hour and 10 minutes per sample. Multiplying 1,820 by 1.1667 = 2,123.4 hours. This means that if i could do them constantly, it would take over 88 days, so 2 months to just run the samples through eggnog. Through testing i have already made a brief start, with maybe 20 done.
+There are 887 accession in sphingomonadaceae, 806 in microbacteriaceae
+and 587 in just our genera, however, there is overlap inside the genera
+Sphingomonas and Microbacterium, assuming those values are held inside
+the respective numbers before, that comes out to 128 "unique" samples
+from that group. This however contains the sample that could not even be
+given a family, 1Dt100h, so discounting this odd sample i cannot even
+logically analyse 127 accessions. This brings me to the total of 1,820
+accessions that need to be processed. The fastest i have been able to
+process samples on eggnog is roughly 1 hour and 10 minutes per sample.
+Multiplying 1,820 by 1.1667 = 2,123.4 hours. This means that if i could
+do them constantly, it would take over 88 days, so 2 months to just run
+the samples through eggnog. Through testing i have already made a brief
+start, with maybe 20 done.
 
-Right, as of 11:12 today (17th) i have managed to do a successful run using this file that gave me the output in a nice 25 minutes. I added some extra fields that i saw both on the online eggnogmapper and from a stack-overflow from someone doing a similar thing and something worked. using this new number, 1,820 x 0.4167 = 758.4 hours = 31.6 days so even now i'm down to just over a month, good stuff. This one used 10 cpus, the online one used 20, but i didnt want to overdo it with hawk, now im thinking can i get that number to half again by doubling the cpus?
+Right, as of 11:12 today (17th) i have managed to do a successful run
+using this file that gave me the output in a nice 25 minutes. I added
+some extra fields that i saw both on the online eggnogmapper and from a
+stack-overflow from someone doing a similar thing and something worked.
+using this new number, 1,820 x 0.4167 = 758.4 hours = 31.6 days so even
+now i'm down to just over a month, good stuff. This one used 10 cpus,
+the online one used 20, but i didnt want to overdo it with hawk, now im
+thinking can i get that number to half again by doubling the cpus?
+
+As of the 24th Aaron agrees with my assessment to cut down on the number
+of samples, this leaves me with 1158 samples to run, at an average of 27
+minutes, this would take 21.7 days, however, this would speed up
+dramatically if i can get his loops working so parallel stuff can
+happen.
 
 ## Conclusion
-This number of hours is not one i can logistically work with, maybe Aaron would be fine with me taking that time, but i feel i can do it faster. I am still working on improving the script to cut down on time taken, but hawk is being a pain in that regard, i have also starting thinking of alternatives or ways to cut down the list. My front-running idea is to take samples from only genera with more than 10, or 30 or some other arbitrary high number of samples. This would cut out all groups with only 1-4 accessions in them which i dont think are useful to this analysis anyway as an average cannot be calculated, it would also make the heatmaps much more legible, so i might run the numbers on what cutting down the sample size would look like. It may however, be better to group all those small genera into an "other" column to make the dataset as big as possible, but that doesnt solve my predicament.
+
+It could have been overcrowding on hawk, however it appears that running
+multiple sets in parallel adversely affects the result, however, i have
+not tested this with `dbmem` on. The large problem is the volume of
+samples required, the desired output is 3 heatmaps comparing KO
+pathways: - Comparing genera inside sphingomonadaceae - Comparing genera
+inside Microbacteriaceae - Comparing the genera containing just our
+samples. This number of hours is not one i can logistically work with,
+maybe Aaron would be fine with me taking that time, but i feel i can do
+it faster. I am still working on improving the script to cut down on
+time taken, but hawk is being a pain in that regard, i have also
+starting thinking of alternatives or ways to cut down the list. My
+front-running idea is to take samples from only genera with more than
+10, or 30 or some other arbitrary high number of samples. This would cut
+out all groups with only 1-4 accessions in them which i dont think are
+useful to this analysis anyway as an average cannot be calculated, it
+would also make the heatmaps much more legible, so i might run the
+numbers on what cutting down the sample size would look like. It may
+however, be better to group all those small genera into an "other"
+column to make the dataset as big as possible, but that doesnt solve my
+predicament. The total time continues to shrink, with the filter in
+place and hopefully with the loops working it could take less than 10
+days
 
 ::: {style="background-color:yellow;"}
-📌 ?: TODO: 
-[eggnog-mapper on hawk is slow, possibly too slow to scale to where we need it to be. alternatives: 
-> what scale are we looking at - 1693 samples for the family comparison
-> could limit to genera with more than 30 samples
-> screenscrape-method
-> enlist more manpower to do online(if we have to do on web)]
+📌 ?: TODO: [eggnog-mapper on hawk is slow, possibly too slow to scale
+to where we need it to be. alternatives: \> what scale are we looking
+at - 1693 samples for the family comparison \> could limit to genera
+with more than 30 samples \> screenscrape-method \> enlist more manpower
+to do online(if we have to do on web)]
 :::
+
 ::: {style="background-color:yellow;"}
-📌 ?: TODO: trees and formatting
+📌 ?: TODO: trees and formatting (never did gtdb repeat because need
+download all the metadata to make it nice and sparkly)
 :::
 
 # A cautionary tale (2025-01-24 11:48)
-So for the past 2 weeks while i was doing exams i decided i didnt want to fully stop this project, but i didnt have enough time to do stuff and properly fill the notebook, so i decided to leave myself placeholders in multiple square brackets to make it obvious when i came back later, i can't replicate this here. For some unknown reason doing too many square brackets breaks the visual editor and busts the ability to knit. Anyway, because of that i haveant been able to knit all this time and have just lost the whole morning to trying to fix this, all over some square brackets... the shame i feel from this is immeasurable. This really does prove that there is **always** time for proper note taking.
+
+So for the past 2 weeks while i was doing exams i decided i didnt want
+to fully stop this project, but i didnt have enough time to do stuff and
+properly fill the notebook, so i decided to leave myself placeholders in
+multiple square brackets to make it obvious when i came back later, i
+can't replicate this here. For some unknown reason doing too many square
+brackets breaks the visual editor and busts the ability to knit. Anyway,
+because of that i haveant been able to knit all this time and have just
+lost the whole morning to trying to fix this, all over some square
+brackets... the shame i feel from this is immeasurable. This really does
+prove that there is **always** time for proper note taking.
+
+::: {style="background-color:yellow;"}
+📌 ?: TODO: API call for JSONS, fastas
+:::
+
+# Prototype Heatmap Creation Run, end-to-end 2025-01-24 onwards
+
+## introduction
+
+Ok, i am done with the eggnog testing, i am in a place now where i am
+happy to begin actually doing stuff with this. I figured that i should
+start with the less intensive analysis, being the genera comparison of
+just the ones our samples are in, seen in Table 3: [Our Genera]. This is
+so that i don't have to think about automation to the same degree yet,
+thus, i can create the pipeline in a more crude way and add "fancy code
+stuff" to make it better later so i'm not wondering whats causing
+problems. Even then, i am still going to start smaller, taking only 10
+from each genus so that i can create a prototype of sorts, hopefully to
+show Aaron when i am back in Bangor. Here is my plan for this section:
+
+1.  Download the metadata for the chosen genera, this is going to use
+    the
+    [dataset_report](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/dataset_report)
+    API for the NCBI website. These will serve multiple purposes, for
+    example they will tell me which samples have a high quality metric,
+    they will also help with the generation of trees from gtdb-tk
+    de_novo_wf done in Notebook 1, but not output because of this exact
+    reason.
+
+2.  Choose 10 accessions per genus to use in my prototype pipeline. All
+    groups will total 10 samples, our own Bangor-made accession will be
+    included in this number, excluding 1Dt100h, as gtdb-tk could not
+    classify it into a family.
+
+3.  Download the genomic .fasta files for all of these. This will use
+    the [Download
+    API](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/download)
+    to pull them from the NCBI website.
+
+4.  Annotate all those fastas using eggNog-mapper on hawk.
+
+5.  create the file(s) that turn the annotation file into a heatmap
+
+## Methods
+
+Using the httr2 package in R, i created . A useful command of not is
+"req_dry_run" which allows one to view what the API request looks like.
+From the first downloaded JSON(though im sure its in all others this is
+the place i first found it) i found the concept of an "ANI" or Average
+Nucleotide Identity analysis that the NCBI had performed, this is
+interesting, can i do it on mine? One thing i forgot to do was remove
+the local samples from the list i passed to NCBI, so those ones
+obviously failed but it didn't affect the rest, so if this need be done
+again, remember to take the local accessions out of the list.
+
+## Results
+
+The API call itself took around 2 minutes to get 587 samples, very fast,
+but also just slow enough to avoid the limit NCBI imposes on download
+volume. The ANI stuff in the JSON files was very intriguing for me, i
+decided i wanted to output a summary of the JSON files by their ANI
+statuses:
+
+#### JSON ANI analysis
+
+```{r ANI and JSON, echo=FALSE, warning=FALSE}
+filenames <- list.files("02_middle-analysis_outputs/ncbi_stuff/json/", 
+                        pattern=glob2rx("GC*.json"), full.names=TRUE)
+jsonlist <- lapply(filenames, read_json) %>% sapply(., "[[", 1)
+# get just the ani for this analysis
+ani <- data.frame(spread_all(jsonlist, recursive = TRUE, sep = "."))
+biosample <- map(jsonlist, "average_nucleotide_identity")
+#%>% map(., "biosample")  %>% map(., "attributes")
+
+```
+
+I used the package "jsonlite" to do this.

@@ -7,6 +7,9 @@ output:
     toc: true
     toc_depth: 1
     keep_md: true
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{=html}
@@ -19,40 +22,108 @@ output:
 
 
 
-# EggNog-Mapper initial test analysis(2025-01-10 to 2025-01-19)
+# EggNog-Mapper initial test analyses (2025-01-10 to 2025-01-19)
 
 ## Introduction
 
-Aaron emailed me back with advice on a way to make eggNog-mapper/2.1.12 on hawk work. As i am revising for an exam i cant spend too long on this. p.s. i think i did pretty good on the exam
+Aaron emailed me back with advice on a way to make eggNog-mapper/2.1.12
+on hawk work. As i am revising for an exam i can't spend too long on
+this. p.s. i think i did pretty good on the exam. This section is
+somewhat of a proof of concept just so i can understand and play with
+the base commands for eggnogmapepr and try to get it running quickly,
+and all the trials that entails. Hawk is still running slow, so while
+those jobs from the previous section are running, i figured i would like
+to do something extra to fill time. I wanted to see just how many
+samples we are going to need to pull down and process for this and get a
+rough time estimate for that, as well as the API stuff to pull the files
+down as that is by far the easy bit
 
 ## Methods
 
-From the 10th to the 12th i tried running a **test file** i made earlier in december 2024, i may not have written about it as i didnt get anywhere at that time. This process was also hindered by hawk being very encumbered in the new year meaning it takes a good half day for any results to appear. On the 11th i managed to get a successful result with the .xlsx file i need for the heatmaps for accession 3Dt1c. Today(the 12th) i set off 3 jobs each containing 3 accessions to hopefully get the results of the remaining 9. If there are no complications i will then be in a place where i can obtain the .fastas for the online comparison accessions and then run them through eggNog-mapper. It should be noted that i used the same list of parameters i found on the web version of hawk for this, **screenshot attached.** I had some marginal success, the second set of three finished in over 3 hours, the other 2 sets are still going strong after 8, so ill let them time out over night and see what i have, maybe they will complete, i did give them 12 hours.I then discovered the command `dbmem` which could help to speed up the process. I tested with **this file** set to run over night from roughly 9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5 files, not great. I then experimented with taking out some of the arguments `--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`, that produced **this script**. Tomorrow(14th) i will have a look at recreating run 1 with `dbmem` switched on. Today(19th), i changed some criteria around so now there are 25 cpus per task, however, i believe i had already been doing this by accident in the previous runs i did. Speed has not picked up considerably, so i may have reached the limits of how fast i can make this and thus, it might be time to email Aaron to see what he thinks.
+From the 10th to the 12th i tried running a preliminary [test
+script](https://github.com/tobiasnunn/tnunn_research/blob/a962833b3ec1b2c7420fef155b526f2b330d644c/00_scripts/newnogtest.sh)
+that I made earlier in december 2024, i may not have written about it as
+i didnt get anywhere at that time. This process was also hindered by
+hawk being very encumbered in the new year meaning it takes a good half
+day for any results to appear. On the 11th i managed to get a successful
+result with the .xlsx file i need for the heatmaps for accession 3Dt1c,
+found here in a zip file to save on space:
+
+02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs
+
+Today(the 12th) i set off 3 jobs each containing 3 accessions to
+hopefully get the results of the remaining 9. If there are no
+complications i will then be in a place where i can obtain the .fastas
+for the online comparison accessions and then run them through
+eggNog-mapper. It should be noted that i used the same list of
+parameters i found on the web version of hawk for this.
+
+![Figure 1 - Screenshot of parameters used in early eggnog runs on
+hawk](04_images/eggnogparameters.png)
+
+I had some marginal success, the second set of three finished in over 3
+hours, the other 2 sets are still going strong after 8, so ill let them
+time out over night and see what i have, maybe they will complete, i did
+give them 12 hours. One of the remaining two finished just before the
+time limit, the other timed out on sample 1Dt100h, proving to be a
+difficult sample, this means i have 8 of 10, with the other missing
+being 1Dt1h(alphabetically next).
+
+I then discovered the command `dbmem` which could help to speed up the
+process. I tested with [this file called
+"anothergo.sh"](https://github.com/tobiasnunn/tnunn_research/blob/a962833b3ec1b2c7420fef155b526f2b330d644c/00_scripts/anothergo.sh).
+The version linked to is not the file at that point, as i am doing the
+linking here retroactively. This was set to run over night from roughly
+9 30 pm on the 12th to 3 30 am on the 13th, totalling 6 hours for 5
+files, not great. I then experimented with taking out some of the
+arguments
+`--evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20`.
+This did not significantly increase time and likely hindered the quality
+of the sample, so that was a dead end. Tomorrow(14th) i will have a look
+at recreating run 1 with `dbmem` switched on. Around this time i also
+tried to run two scripts in parallel, same content but different source
+fastas, being another old version of "anothergo.sh" and
+"anothergoparallel.sh". This was not successful as slurm scheduled them
+sequentially. Today(19th), i changed some criteria around so now there
+are 25 cpus per task, however, i believe i had already been doing this
+by accident in the previous runs i did. There are two files, one being
+the up-to-date version of "anothergo.sh" and one called
+[Brachyscript.sh](https://github.com/tobiasnunn/tnunn_research/blob/a962833b3ec1b2c7420fef155b526f2b330d644c/00_scripts/brachy_script.sh)
+which did multiple files in sequence but from the same script. I believe
+these were not testing any parameters and were just attempts at
+preliminary downloads to guage how long it might take. Speed has not
+picked up considerably, so i may have reached the limits of how fast i
+can make this and thus, it might be time to email Aaron to see what he
+thinks. He emailed me back with some ideas about how i could use python
+scripts to loop and that could make slurm do them in parallel.
+
+I started this by making tables based along the sets of samples i am
+going to need off of the ncbi website. I identified 3 groups of
+samples: 1. all the genera in the family sphingomonadaceae / 2. all the
+genera in the family Microbacteriaceae / 3. all the genera containing
+our flye_asm samples This fits with the specification of work i was
+given. Being 2 analyses, 1 for comparing just our genera and another
+comparing genera in families we have multiple samples in. As of now i am
+yet to do the API call. (still the 17th) I decided to run some more
+tests to try cut the time down by adding some more commands to my
+anothergo.sh script, specifically\_\_\_\_ I was having trouble with
+creating the slurm scripts on hawk, it was a lot of typing complex
+strings, so i made another script maker to automate that, which will be
+much more convenient when working at scale, here
 
 ## Results
-Run one had mixed results, 3 sets of 3 ran in parallel, set 1 completed in 3 and a half hours, good. set 2 took 8 and a half hours, bad, set 3 timed out, very bad. so dont have the outputs needed for 1Dt100h or 1Dt1h. Run 2 was more successful, with 5 solid looking outputs in 6 hours. Run 3 did not improve on that time despite the extra parameters being cut.
 
-## Conclusion
-It could have been overcrowding on hawk, however it appears that running multiple sets in parallel adversely affects the result, however, i have not tested this with `dbmem` on. The large problem is the volume of samples required, the desired output is 3 heatmaps comparing KO pathways:
-- Comparing genera inside sphingomonadaceae
-- Comparing genera inside Microbacteriaceae
-- Comparing the genera containing just our samples
-
-
-# Additional pre-eggnog analysis (2025-01-17 to 2025-01-19)
-
-## Introduction
-Hawk is still running slow, so while those jobs from the previous section are running, i figured i would like to do something extra to fill time. I wanted to see just how many samples we are going to need to pull down and process for this and get a rough time estimate for that, as well as the API stuff to pull the files down as that is by far the easy bit
-
-## Methods
-I started this by making tables based along the sets of samples i am going to need off of the ncbi website. I identified 3 groups of samples:
-1. all the genera in the family sphingomonadaceae /
-2. all the genera in the family Microbacteriaceae /
-3. all the genera containing our flye_asm samples
-This fits with the specification of work i was given. Being 2 analyses, 1 for comparing just our genera and another comparing genera in families we have multiple samples in. As of now i am yet to do the API call. (still the 17th) I decided to run some more tests to try cut the time down by adding some more commands to my anothergo.sh script, specifically____ I was having trouble with creating the slurm scripts on hawk, it was a lot of typing complex strings, so i made another script maker to automate that, which will be much more convenient when working at scale, here
-
-## Results
-
+Run one had mixed results, 3 sets of 3 ran in parallel, set 1 completed
+in 3 and a half hours, good. set 2 took 8 and a half hours, bad, set 3
+timed out, very bad. so dont have the outputs needed for 1Dt100h or
+1Dt1h. Run 2 was more successful, with 5 solid looking outputs in 6
+hours. Run 3 did not improve on that time despite the extra parameters
+being cut. As mentioned above, i managed to use `dbmem` and more
+optimised cpu and memory usage using the `seff` command. This helped get
+the average time to do a file down to roughly 27 minutes. After emailing
+Aaron he agreed that the list of accessions should be cut down to remove
+groups with low sample counts, i decided to cut at the number 30, so
+groups with 29 or below are cut, as seen in these tables:
 
 
 
@@ -62,23 +133,23 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
 
 
 ```{=html}
-<div id="uihkgyirha" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uihkgyirha table {
+<div id="mvqspgogxp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mvqspgogxp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uihkgyirha thead, #uihkgyirha tbody, #uihkgyirha tfoot, #uihkgyirha tr, #uihkgyirha td, #uihkgyirha th {
+#mvqspgogxp thead, #mvqspgogxp tbody, #mvqspgogxp tfoot, #mvqspgogxp tr, #mvqspgogxp td, #mvqspgogxp th {
   border-style: none;
 }
 
-#uihkgyirha p {
+#mvqspgogxp p {
   margin: 0;
   padding: 0;
 }
 
-#uihkgyirha .gt_table {
+#mvqspgogxp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -104,12 +175,12 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-left-color: #D5D5D5;
 }
 
-#uihkgyirha .gt_caption {
+#mvqspgogxp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uihkgyirha .gt_title {
+#mvqspgogxp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -121,7 +192,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-width: 0;
 }
 
-#uihkgyirha .gt_subtitle {
+#mvqspgogxp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -133,7 +204,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-top-width: 0;
 }
 
-#uihkgyirha .gt_heading {
+#mvqspgogxp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -145,13 +216,13 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#uihkgyirha .gt_bottom_border {
+#mvqspgogxp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#uihkgyirha .gt_col_headings {
+#mvqspgogxp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -166,7 +237,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#uihkgyirha .gt_col_heading {
+#mvqspgogxp .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -186,7 +257,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   overflow-x: hidden;
 }
 
-#uihkgyirha .gt_column_spanner_outer {
+#mvqspgogxp .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -198,15 +269,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 4px;
 }
 
-#uihkgyirha .gt_column_spanner_outer:first-child {
+#mvqspgogxp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uihkgyirha .gt_column_spanner_outer:last-child {
+#mvqspgogxp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uihkgyirha .gt_column_spanner {
+#mvqspgogxp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -218,11 +289,11 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   width: 100%;
 }
 
-#uihkgyirha .gt_spanner_row {
+#mvqspgogxp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uihkgyirha .gt_group_heading {
+#mvqspgogxp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -248,7 +319,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   text-align: left;
 }
 
-#uihkgyirha .gt_empty_group_heading {
+#mvqspgogxp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -263,15 +334,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   vertical-align: middle;
 }
 
-#uihkgyirha .gt_from_md > :first-child {
+#mvqspgogxp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uihkgyirha .gt_from_md > :last-child {
+#mvqspgogxp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uihkgyirha .gt_row {
+#mvqspgogxp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -290,7 +361,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   overflow-x: hidden;
 }
 
-#uihkgyirha .gt_stub {
+#mvqspgogxp .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -303,7 +374,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#uihkgyirha .gt_stub_row_group {
+#mvqspgogxp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -317,15 +388,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   vertical-align: top;
 }
 
-#uihkgyirha .gt_row_group_first td {
+#mvqspgogxp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uihkgyirha .gt_row_group_first th {
+#mvqspgogxp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uihkgyirha .gt_summary_row {
+#mvqspgogxp .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -335,16 +406,16 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#uihkgyirha .gt_first_summary_row {
+#mvqspgogxp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#uihkgyirha .gt_first_summary_row.thick {
+#mvqspgogxp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uihkgyirha .gt_last_summary_row {
+#mvqspgogxp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -354,7 +425,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#uihkgyirha .gt_grand_summary_row {
+#mvqspgogxp .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -364,7 +435,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#uihkgyirha .gt_first_grand_summary_row {
+#mvqspgogxp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -374,7 +445,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-top-color: #D5D5D5;
 }
 
-#uihkgyirha .gt_last_grand_summary_row_top {
+#mvqspgogxp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -384,11 +455,11 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#uihkgyirha .gt_striped {
+#mvqspgogxp .gt_striped {
   background-color: #F4F4F4;
 }
 
-#uihkgyirha .gt_table_body {
+#mvqspgogxp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -397,7 +468,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#uihkgyirha .gt_footnotes {
+#mvqspgogxp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -411,7 +482,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#uihkgyirha .gt_footnote {
+#mvqspgogxp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -420,7 +491,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#uihkgyirha .gt_sourcenotes {
+#mvqspgogxp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -434,7 +505,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#uihkgyirha .gt_sourcenote {
+#mvqspgogxp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -442,79 +513,79 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#uihkgyirha .gt_left {
+#mvqspgogxp .gt_left {
   text-align: left;
 }
 
-#uihkgyirha .gt_center {
+#mvqspgogxp .gt_center {
   text-align: center;
 }
 
-#uihkgyirha .gt_right {
+#mvqspgogxp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uihkgyirha .gt_font_normal {
+#mvqspgogxp .gt_font_normal {
   font-weight: normal;
 }
 
-#uihkgyirha .gt_font_bold {
+#mvqspgogxp .gt_font_bold {
   font-weight: bold;
 }
 
-#uihkgyirha .gt_font_italic {
+#mvqspgogxp .gt_font_italic {
   font-style: italic;
 }
 
-#uihkgyirha .gt_super {
+#mvqspgogxp .gt_super {
   font-size: 65%;
 }
 
-#uihkgyirha .gt_footnote_marks {
+#mvqspgogxp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uihkgyirha .gt_asterisk {
+#mvqspgogxp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uihkgyirha .gt_indent_1 {
+#mvqspgogxp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uihkgyirha .gt_indent_2 {
+#mvqspgogxp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uihkgyirha .gt_indent_3 {
+#mvqspgogxp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uihkgyirha .gt_indent_4 {
+#mvqspgogxp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uihkgyirha .gt_indent_5 {
+#mvqspgogxp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#uihkgyirha .katex-display {
+#mvqspgogxp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#uihkgyirha div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mvqspgogxp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
     <tr class="gt_heading">
-      <td colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 10 - count of genera in the family Sphingomonadaceae</td>
+      <td colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 1 - count of genera in the family Sphingomonadaceae</td>
     </tr>
     <tr class="gt_heading">
       <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class='gt_from_md'>accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24</span></td>
@@ -759,23 +830,23 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
 
 
 ```{=html}
-<div id="hrbtvmnocm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hrbtvmnocm table {
+<div id="ixdfrttijb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ixdfrttijb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hrbtvmnocm thead, #hrbtvmnocm tbody, #hrbtvmnocm tfoot, #hrbtvmnocm tr, #hrbtvmnocm td, #hrbtvmnocm th {
+#ixdfrttijb thead, #ixdfrttijb tbody, #ixdfrttijb tfoot, #ixdfrttijb tr, #ixdfrttijb td, #ixdfrttijb th {
   border-style: none;
 }
 
-#hrbtvmnocm p {
+#ixdfrttijb p {
   margin: 0;
   padding: 0;
 }
 
-#hrbtvmnocm .gt_table {
+#ixdfrttijb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -801,12 +872,12 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-left-color: #D5D5D5;
 }
 
-#hrbtvmnocm .gt_caption {
+#ixdfrttijb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hrbtvmnocm .gt_title {
+#ixdfrttijb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -818,7 +889,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-width: 0;
 }
 
-#hrbtvmnocm .gt_subtitle {
+#ixdfrttijb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -830,7 +901,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-top-width: 0;
 }
 
-#hrbtvmnocm .gt_heading {
+#ixdfrttijb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -842,13 +913,13 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hrbtvmnocm .gt_bottom_border {
+#ixdfrttijb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#hrbtvmnocm .gt_col_headings {
+#ixdfrttijb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -863,7 +934,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hrbtvmnocm .gt_col_heading {
+#ixdfrttijb .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -883,7 +954,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   overflow-x: hidden;
 }
 
-#hrbtvmnocm .gt_column_spanner_outer {
+#ixdfrttijb .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -895,15 +966,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 4px;
 }
 
-#hrbtvmnocm .gt_column_spanner_outer:first-child {
+#ixdfrttijb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hrbtvmnocm .gt_column_spanner_outer:last-child {
+#ixdfrttijb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hrbtvmnocm .gt_column_spanner {
+#ixdfrttijb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -915,11 +986,11 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   width: 100%;
 }
 
-#hrbtvmnocm .gt_spanner_row {
+#ixdfrttijb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hrbtvmnocm .gt_group_heading {
+#ixdfrttijb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -945,7 +1016,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   text-align: left;
 }
 
-#hrbtvmnocm .gt_empty_group_heading {
+#ixdfrttijb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -960,15 +1031,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   vertical-align: middle;
 }
 
-#hrbtvmnocm .gt_from_md > :first-child {
+#ixdfrttijb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hrbtvmnocm .gt_from_md > :last-child {
+#ixdfrttijb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hrbtvmnocm .gt_row {
+#ixdfrttijb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -987,7 +1058,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   overflow-x: hidden;
 }
 
-#hrbtvmnocm .gt_stub {
+#ixdfrttijb .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1000,7 +1071,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hrbtvmnocm .gt_stub_row_group {
+#ixdfrttijb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1014,15 +1085,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   vertical-align: top;
 }
 
-#hrbtvmnocm .gt_row_group_first td {
+#ixdfrttijb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hrbtvmnocm .gt_row_group_first th {
+#ixdfrttijb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hrbtvmnocm .gt_summary_row {
+#ixdfrttijb .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -1032,16 +1103,16 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hrbtvmnocm .gt_first_summary_row {
+#ixdfrttijb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#hrbtvmnocm .gt_first_summary_row.thick {
+#ixdfrttijb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hrbtvmnocm .gt_last_summary_row {
+#ixdfrttijb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1051,7 +1122,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#hrbtvmnocm .gt_grand_summary_row {
+#ixdfrttijb .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -1061,7 +1132,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hrbtvmnocm .gt_first_grand_summary_row {
+#ixdfrttijb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1071,7 +1142,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-top-color: #D5D5D5;
 }
 
-#hrbtvmnocm .gt_last_grand_summary_row_top {
+#ixdfrttijb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1081,11 +1152,11 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#hrbtvmnocm .gt_striped {
+#ixdfrttijb .gt_striped {
   background-color: #F4F4F4;
 }
 
-#hrbtvmnocm .gt_table_body {
+#ixdfrttijb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1094,7 +1165,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#hrbtvmnocm .gt_footnotes {
+#ixdfrttijb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1108,7 +1179,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hrbtvmnocm .gt_footnote {
+#ixdfrttijb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1117,7 +1188,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hrbtvmnocm .gt_sourcenotes {
+#ixdfrttijb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1131,7 +1202,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hrbtvmnocm .gt_sourcenote {
+#ixdfrttijb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1139,79 +1210,79 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hrbtvmnocm .gt_left {
+#ixdfrttijb .gt_left {
   text-align: left;
 }
 
-#hrbtvmnocm .gt_center {
+#ixdfrttijb .gt_center {
   text-align: center;
 }
 
-#hrbtvmnocm .gt_right {
+#ixdfrttijb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hrbtvmnocm .gt_font_normal {
+#ixdfrttijb .gt_font_normal {
   font-weight: normal;
 }
 
-#hrbtvmnocm .gt_font_bold {
+#ixdfrttijb .gt_font_bold {
   font-weight: bold;
 }
 
-#hrbtvmnocm .gt_font_italic {
+#ixdfrttijb .gt_font_italic {
   font-style: italic;
 }
 
-#hrbtvmnocm .gt_super {
+#ixdfrttijb .gt_super {
   font-size: 65%;
 }
 
-#hrbtvmnocm .gt_footnote_marks {
+#ixdfrttijb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hrbtvmnocm .gt_asterisk {
+#ixdfrttijb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hrbtvmnocm .gt_indent_1 {
+#ixdfrttijb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hrbtvmnocm .gt_indent_2 {
+#ixdfrttijb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hrbtvmnocm .gt_indent_3 {
+#ixdfrttijb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hrbtvmnocm .gt_indent_4 {
+#ixdfrttijb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hrbtvmnocm .gt_indent_5 {
+#ixdfrttijb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hrbtvmnocm .katex-display {
+#ixdfrttijb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hrbtvmnocm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ixdfrttijb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
     <tr class="gt_heading">
-      <td colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 11 - count of genera in the family Microbacteriaceae</td>
+      <td colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 2 - count of genera in the family Microbacteriaceae</td>
     </tr>
     <tr class="gt_heading">
       <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class='gt_from_md'>accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24</span></td>
@@ -1477,23 +1548,23 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
 
 
 ```{=html}
-<div id="hdtetspnay" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hdtetspnay table {
+<div id="ttgtdlpses" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ttgtdlpses table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hdtetspnay thead, #hdtetspnay tbody, #hdtetspnay tfoot, #hdtetspnay tr, #hdtetspnay td, #hdtetspnay th {
+#ttgtdlpses thead, #ttgtdlpses tbody, #ttgtdlpses tfoot, #ttgtdlpses tr, #ttgtdlpses td, #ttgtdlpses th {
   border-style: none;
 }
 
-#hdtetspnay p {
+#ttgtdlpses p {
   margin: 0;
   padding: 0;
 }
 
-#hdtetspnay .gt_table {
+#ttgtdlpses .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1519,12 +1590,12 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-left-color: #D5D5D5;
 }
 
-#hdtetspnay .gt_caption {
+#ttgtdlpses .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hdtetspnay .gt_title {
+#ttgtdlpses .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1536,7 +1607,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-width: 0;
 }
 
-#hdtetspnay .gt_subtitle {
+#ttgtdlpses .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1548,7 +1619,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-top-width: 0;
 }
 
-#hdtetspnay .gt_heading {
+#ttgtdlpses .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1560,13 +1631,13 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hdtetspnay .gt_bottom_border {
+#ttgtdlpses .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#hdtetspnay .gt_col_headings {
+#ttgtdlpses .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1581,7 +1652,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hdtetspnay .gt_col_heading {
+#ttgtdlpses .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -1601,7 +1672,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   overflow-x: hidden;
 }
 
-#hdtetspnay .gt_column_spanner_outer {
+#ttgtdlpses .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -1613,15 +1684,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 4px;
 }
 
-#hdtetspnay .gt_column_spanner_outer:first-child {
+#ttgtdlpses .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hdtetspnay .gt_column_spanner_outer:last-child {
+#ttgtdlpses .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hdtetspnay .gt_column_spanner {
+#ttgtdlpses .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -1633,11 +1704,11 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   width: 100%;
 }
 
-#hdtetspnay .gt_spanner_row {
+#ttgtdlpses .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hdtetspnay .gt_group_heading {
+#ttgtdlpses .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1663,7 +1734,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   text-align: left;
 }
 
-#hdtetspnay .gt_empty_group_heading {
+#ttgtdlpses .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1678,15 +1749,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   vertical-align: middle;
 }
 
-#hdtetspnay .gt_from_md > :first-child {
+#ttgtdlpses .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hdtetspnay .gt_from_md > :last-child {
+#ttgtdlpses .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hdtetspnay .gt_row {
+#ttgtdlpses .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1705,7 +1776,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   overflow-x: hidden;
 }
 
-#hdtetspnay .gt_stub {
+#ttgtdlpses .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1718,7 +1789,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hdtetspnay .gt_stub_row_group {
+#ttgtdlpses .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1732,15 +1803,15 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   vertical-align: top;
 }
 
-#hdtetspnay .gt_row_group_first td {
+#ttgtdlpses .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hdtetspnay .gt_row_group_first th {
+#ttgtdlpses .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hdtetspnay .gt_summary_row {
+#ttgtdlpses .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -1750,16 +1821,16 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hdtetspnay .gt_first_summary_row {
+#ttgtdlpses .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#hdtetspnay .gt_first_summary_row.thick {
+#ttgtdlpses .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hdtetspnay .gt_last_summary_row {
+#ttgtdlpses .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1769,7 +1840,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#hdtetspnay .gt_grand_summary_row {
+#ttgtdlpses .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -1779,7 +1850,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hdtetspnay .gt_first_grand_summary_row {
+#ttgtdlpses .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1789,7 +1860,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-top-color: #D5D5D5;
 }
 
-#hdtetspnay .gt_last_grand_summary_row_top {
+#ttgtdlpses .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1799,11 +1870,11 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#hdtetspnay .gt_striped {
+#ttgtdlpses .gt_striped {
   background-color: #F4F4F4;
 }
 
-#hdtetspnay .gt_table_body {
+#ttgtdlpses .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1812,7 +1883,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-bottom-color: #D5D5D5;
 }
 
-#hdtetspnay .gt_footnotes {
+#ttgtdlpses .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1826,7 +1897,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hdtetspnay .gt_footnote {
+#ttgtdlpses .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1835,7 +1906,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hdtetspnay .gt_sourcenotes {
+#ttgtdlpses .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1849,7 +1920,7 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   border-right-color: #D3D3D3;
 }
 
-#hdtetspnay .gt_sourcenote {
+#ttgtdlpses .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1857,79 +1928,79 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
   padding-right: 5px;
 }
 
-#hdtetspnay .gt_left {
+#ttgtdlpses .gt_left {
   text-align: left;
 }
 
-#hdtetspnay .gt_center {
+#ttgtdlpses .gt_center {
   text-align: center;
 }
 
-#hdtetspnay .gt_right {
+#ttgtdlpses .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hdtetspnay .gt_font_normal {
+#ttgtdlpses .gt_font_normal {
   font-weight: normal;
 }
 
-#hdtetspnay .gt_font_bold {
+#ttgtdlpses .gt_font_bold {
   font-weight: bold;
 }
 
-#hdtetspnay .gt_font_italic {
+#ttgtdlpses .gt_font_italic {
   font-style: italic;
 }
 
-#hdtetspnay .gt_super {
+#ttgtdlpses .gt_super {
   font-size: 65%;
 }
 
-#hdtetspnay .gt_footnote_marks {
+#ttgtdlpses .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hdtetspnay .gt_asterisk {
+#ttgtdlpses .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hdtetspnay .gt_indent_1 {
+#ttgtdlpses .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hdtetspnay .gt_indent_2 {
+#ttgtdlpses .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hdtetspnay .gt_indent_3 {
+#ttgtdlpses .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hdtetspnay .gt_indent_4 {
+#ttgtdlpses .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hdtetspnay .gt_indent_5 {
+#ttgtdlpses .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hdtetspnay .katex-display {
+#ttgtdlpses .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hdtetspnay div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ttgtdlpses div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
     <tr class="gt_heading">
-      <td colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 12 - count of genera from accessions produced at Bangor</td>
+      <td colspan="3" class="gt_heading gt_title gt_font_normal" style>Table 3 - count of genera from accessions produced at Bangor</td>
     </tr>
     <tr class="gt_heading">
       <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class='gt_from_md'>accessions as found in the .tree file outputted by gtdbtk analysis done on 2024-12-24</span></td>
@@ -1971,24 +2042,84 @@ This fits with the specification of work i was given. Being 2 analyses, 1 for co
 
 ###  {.unnumbered}
 
-There are 887 accession in sphingomonadaceae, 806 in microbacteriaceae and 587 in just our genera, however, there is overlap inside the genera Sphingomonas and Microbacterium, assuming those values are held inside the respective numbers before, that comes out to 128 "unique" samples from that group. This however contains the sample that could not even be given a family, 1Dt100h, so discounting this odd sample i cannot even logically analyse 127 accessions. This brings me to the total of 1,820 accessions that need to be processed. The fastest i have been able to process samples on eggnog is roughly 1 hour and 10 minutes per sample. Multiplying 1,820 by 1.1667 = 2,123.4 hours. This means that if i could do them constantly, it would take over 88 days, so 2 months to just run the samples through eggnog. Through testing i have already made a brief start, with maybe 20 done.
+There are 887 accession in sphingomonadaceae, 806 in microbacteriaceae
+and 587 in just our genera, however, there is overlap inside the genera
+Sphingomonas and Microbacterium, assuming those values are held inside
+the respective numbers before, that comes out to 128 "unique" samples
+from that group. This however contains the sample that could not even be
+given a family, 1Dt100h, so discounting this odd sample i cannot even
+logically analyse 127 accessions. This brings me to the total of 1,820
+accessions that need to be processed. The fastest i have been able to
+process samples on eggnog is roughly 1 hour and 10 minutes per sample.
+Multiplying 1,820 by 1.1667 = 2,123.4 hours. This means that if i could
+do them constantly, it would take over 88 days, so 2 months to just run
+the samples through eggnog. Through testing i have already made a brief
+start, with maybe 20 done.
 
-Right, as of 11:12 today (17th) i have managed to do a successful run using this file that gave me the output in a nice 25 minutes. I added some extra fields that i saw both on the online eggnogmapper and from a stack-overflow from someone doing a similar thing and something worked. using this new number, 1,820 x 0.4167 = 758.4 hours = 31.6 days so even now i'm down to just over a month, good stuff. This one used 10 cpus, the online one used 20, but i didnt want to overdo it with hawk, now im thinking can i get that number to half again by doubling the cpus?
+Right, as of 11:12 today (17th) i have managed to do a successful run
+using this file that gave me the output in a nice 25 minutes. I added
+some extra fields that i saw both on the online eggnogmapper and from a
+stack-overflow from someone doing a similar thing and something worked.
+using this new number, 1,820 x 0.4167 = 758.4 hours = 31.6 days so even
+now i'm down to just over a month, good stuff. This one used 10 cpus,
+the online one used 20, but i didnt want to overdo it with hawk, now im
+thinking can i get that number to half again by doubling the cpus?
+
+As of the 24th Aaron agrees with my assessment to cut down on the number
+of samples, this leaves me with \_\_\_\_ samples to run, at an average
+of 27 minutes, this would take \_\_\_\_, however, this would speed up
+dramatically if i can get his loops working.
 
 ## Conclusion
-This number of hours is not one i can logistically work with, maybe Aaron would be fine with me taking that time, but i feel i can do it faster. I am still working on improving the script to cut down on time taken, but hawk is being a pain in that regard, i have also starting thinking of alternatives or ways to cut down the list. My front-running idea is to take samples from only genera with more than 10, or 30 or some other arbitrary high number of samples. This would cut out all groups with only 1-4 accessions in them which i dont think are useful to this analysis anyway as an average cannot be calculated, it would also make the heatmaps much more legible, so i might run the numbers on what cutting down the sample size would look like. It may however, be better to group all those small genera into an "other" column to make the dataset as big as possible, but that doesnt solve my predicament.
+
+It could have been overcrowding on hawk, however it appears that running
+multiple sets in parallel adversely affects the result, however, i have
+not tested this with `dbmem` on. The large problem is the volume of
+samples required, the desired output is 3 heatmaps comparing KO
+pathways: - Comparing genera inside sphingomonadaceae - Comparing genera
+inside Microbacteriaceae - Comparing the genera containing just our
+samples. This number of hours is not one i can logistically work with,
+maybe Aaron would be fine with me taking that time, but i feel i can do
+it faster. I am still working on improving the script to cut down on
+time taken, but hawk is being a pain in that regard, i have also
+starting thinking of alternatives or ways to cut down the list. My
+front-running idea is to take samples from only genera with more than
+10, or 30 or some other arbitrary high number of samples. This would cut
+out all groups with only 1-4 accessions in them which i dont think are
+useful to this analysis anyway as an average cannot be calculated, it
+would also make the heatmaps much more legible, so i might run the
+numbers on what cutting down the sample size would look like. It may
+however, be better to group all those small genera into an "other"
+column to make the dataset as big as possible, but that doesnt solve my
+predicament. 
 
 ::: {style="background-color:yellow;"}
-📌 ?: TODO: 
-[eggnog-mapper on hawk is slow, possibly too slow to scale to where we need it to be. alternatives: 
-> what scale are we looking at - 1693 samples for the family comparison
-> could limit to genera with more than 30 samples
-> screenscrape-method
-> enlist more manpower to do online(if we have to do on web)]
+📌 ?: TODO: [eggnog-mapper on hawk is slow, possibly too slow to scale
+to where we need it to be. alternatives: \> what scale are we looking
+at - 1693 samples for the family comparison \> could limit to genera
+with more than 30 samples \> screenscrape-method \> enlist more manpower
+to do online(if we have to do on web)]
 :::
+
 ::: {style="background-color:yellow;"}
-📌 ?: TODO: trees and formatting
+📌 ?: TODO: trees and formatting (never did gtdb repeat because need
+download all the metadata to make it nice and sparkly)
 :::
 
 # A cautionary tale (2025-01-24 11:48)
-So for the past 2 weeks while i was doing exams i decided i didnt want to fully stop this project, but i didnt have enough time to do stuff and properly fill the notebook, so i decided to leave myself placeholders in multiple square brackets to make it obvious when i came back later, i can't replicate this here. For some unknown reason doing too many square brackets breaks the visual editor and busts the ability to knit. Anyway, because of that i haveant been able to knit all this time and have just lost the whole morning to trying to fix this, all over some square brackets... the shame i feel from this is immeasurable. This really does prove that there is **always** time for proper note taking.
+
+So for the past 2 weeks while i was doing exams i decided i didnt want
+to fully stop this project, but i didnt have enough time to do stuff and
+properly fill the notebook, so i decided to leave myself placeholders in
+multiple square brackets to make it obvious when i came back later, i
+can't replicate this here. For some unknown reason doing too many square
+brackets breaks the visual editor and busts the ability to knit. Anyway,
+because of that i haveant been able to knit all this time and have just
+lost the whole morning to trying to fix this, all over some square
+brackets... the shame i feel from this is immeasurable. This really does
+prove that there is **always** time for proper note taking.
+
+::: {style="background-color:yellow;"}
+📌 ?: TODO: API call for JSONS, fastas
+:::
+
