@@ -106,10 +106,10 @@ given. Being 2 analyses, 1 for comparing just our genera and another
 comparing genera in families we have multiple samples in. As of now i am
 yet to do the API call. (still the 17th) I decided to run some more
 tests to try cut the time down by adding some more commands to my
-anothergo.sh script, specifically\_\_\_\_ I was having trouble with
-creating the slurm scripts on hawk, it was a lot of typing complex
-strings, so i made another script maker to automate that, which will be
-much more convenient when working at scale, here
+anothergo.sh script. I was having trouble with creating the slurm
+scripts on hawk, it was a lot of typing complex strings, so i made
+another script maker to automate that, which will be much more
+convenient when working at scale, here
 
 ## Results
 
@@ -133,23 +133,23 @@ groups with 29 or below are cut, as seen in these tables:
 
 
 ```{=html}
-<div id="mvqspgogxp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mvqspgogxp table {
+<div id="dtrmdoyuis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dtrmdoyuis table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mvqspgogxp thead, #mvqspgogxp tbody, #mvqspgogxp tfoot, #mvqspgogxp tr, #mvqspgogxp td, #mvqspgogxp th {
+#dtrmdoyuis thead, #dtrmdoyuis tbody, #dtrmdoyuis tfoot, #dtrmdoyuis tr, #dtrmdoyuis td, #dtrmdoyuis th {
   border-style: none;
 }
 
-#mvqspgogxp p {
+#dtrmdoyuis p {
   margin: 0;
   padding: 0;
 }
 
-#mvqspgogxp .gt_table {
+#dtrmdoyuis .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -175,12 +175,12 @@ groups with 29 or below are cut, as seen in these tables:
   border-left-color: #D5D5D5;
 }
 
-#mvqspgogxp .gt_caption {
+#dtrmdoyuis .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mvqspgogxp .gt_title {
+#dtrmdoyuis .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -192,7 +192,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-width: 0;
 }
 
-#mvqspgogxp .gt_subtitle {
+#dtrmdoyuis .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -204,7 +204,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-top-width: 0;
 }
 
-#mvqspgogxp .gt_heading {
+#dtrmdoyuis .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -216,13 +216,13 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#mvqspgogxp .gt_bottom_border {
+#dtrmdoyuis .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#mvqspgogxp .gt_col_headings {
+#dtrmdoyuis .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -237,7 +237,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#mvqspgogxp .gt_col_heading {
+#dtrmdoyuis .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -257,7 +257,7 @@ groups with 29 or below are cut, as seen in these tables:
   overflow-x: hidden;
 }
 
-#mvqspgogxp .gt_column_spanner_outer {
+#dtrmdoyuis .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -269,15 +269,15 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 4px;
 }
 
-#mvqspgogxp .gt_column_spanner_outer:first-child {
+#dtrmdoyuis .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mvqspgogxp .gt_column_spanner_outer:last-child {
+#dtrmdoyuis .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mvqspgogxp .gt_column_spanner {
+#dtrmdoyuis .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -289,11 +289,11 @@ groups with 29 or below are cut, as seen in these tables:
   width: 100%;
 }
 
-#mvqspgogxp .gt_spanner_row {
+#dtrmdoyuis .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mvqspgogxp .gt_group_heading {
+#dtrmdoyuis .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -319,7 +319,7 @@ groups with 29 or below are cut, as seen in these tables:
   text-align: left;
 }
 
-#mvqspgogxp .gt_empty_group_heading {
+#dtrmdoyuis .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -334,15 +334,15 @@ groups with 29 or below are cut, as seen in these tables:
   vertical-align: middle;
 }
 
-#mvqspgogxp .gt_from_md > :first-child {
+#dtrmdoyuis .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mvqspgogxp .gt_from_md > :last-child {
+#dtrmdoyuis .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mvqspgogxp .gt_row {
+#dtrmdoyuis .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -361,7 +361,7 @@ groups with 29 or below are cut, as seen in these tables:
   overflow-x: hidden;
 }
 
-#mvqspgogxp .gt_stub {
+#dtrmdoyuis .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -374,7 +374,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#mvqspgogxp .gt_stub_row_group {
+#dtrmdoyuis .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -388,15 +388,15 @@ groups with 29 or below are cut, as seen in these tables:
   vertical-align: top;
 }
 
-#mvqspgogxp .gt_row_group_first td {
+#dtrmdoyuis .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mvqspgogxp .gt_row_group_first th {
+#dtrmdoyuis .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mvqspgogxp .gt_summary_row {
+#dtrmdoyuis .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -406,16 +406,16 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#mvqspgogxp .gt_first_summary_row {
+#dtrmdoyuis .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#mvqspgogxp .gt_first_summary_row.thick {
+#dtrmdoyuis .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mvqspgogxp .gt_last_summary_row {
+#dtrmdoyuis .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -425,7 +425,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#mvqspgogxp .gt_grand_summary_row {
+#dtrmdoyuis .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -435,7 +435,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#mvqspgogxp .gt_first_grand_summary_row {
+#dtrmdoyuis .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -445,7 +445,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-top-color: #D5D5D5;
 }
 
-#mvqspgogxp .gt_last_grand_summary_row_top {
+#dtrmdoyuis .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -455,11 +455,11 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#mvqspgogxp .gt_striped {
+#dtrmdoyuis .gt_striped {
   background-color: #F4F4F4;
 }
 
-#mvqspgogxp .gt_table_body {
+#dtrmdoyuis .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -468,7 +468,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#mvqspgogxp .gt_footnotes {
+#dtrmdoyuis .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -482,7 +482,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#mvqspgogxp .gt_footnote {
+#dtrmdoyuis .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -491,7 +491,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#mvqspgogxp .gt_sourcenotes {
+#dtrmdoyuis .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -505,7 +505,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#mvqspgogxp .gt_sourcenote {
+#dtrmdoyuis .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -513,72 +513,72 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#mvqspgogxp .gt_left {
+#dtrmdoyuis .gt_left {
   text-align: left;
 }
 
-#mvqspgogxp .gt_center {
+#dtrmdoyuis .gt_center {
   text-align: center;
 }
 
-#mvqspgogxp .gt_right {
+#dtrmdoyuis .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mvqspgogxp .gt_font_normal {
+#dtrmdoyuis .gt_font_normal {
   font-weight: normal;
 }
 
-#mvqspgogxp .gt_font_bold {
+#dtrmdoyuis .gt_font_bold {
   font-weight: bold;
 }
 
-#mvqspgogxp .gt_font_italic {
+#dtrmdoyuis .gt_font_italic {
   font-style: italic;
 }
 
-#mvqspgogxp .gt_super {
+#dtrmdoyuis .gt_super {
   font-size: 65%;
 }
 
-#mvqspgogxp .gt_footnote_marks {
+#dtrmdoyuis .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mvqspgogxp .gt_asterisk {
+#dtrmdoyuis .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mvqspgogxp .gt_indent_1 {
+#dtrmdoyuis .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mvqspgogxp .gt_indent_2 {
+#dtrmdoyuis .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mvqspgogxp .gt_indent_3 {
+#dtrmdoyuis .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mvqspgogxp .gt_indent_4 {
+#dtrmdoyuis .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mvqspgogxp .gt_indent_5 {
+#dtrmdoyuis .gt_indent_5 {
   text-indent: 25px;
 }
 
-#mvqspgogxp .katex-display {
+#dtrmdoyuis .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#mvqspgogxp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dtrmdoyuis div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -601,227 +601,33 @@ groups with 29 or below are cut, as seen in these tables:
       <th colspan="3" class="gt_group_heading" scope="colgroup" id="f__Sphingomonadaceae">f__Sphingomonadaceae</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_1 genus" class="gt_row gt_left">g__34-65-8</td>
-<td headers="f__Sphingomonadaceae stub_1_1 n" class="gt_row gt_right">1</td></tr>
+<td headers="f__Sphingomonadaceae stub_1_1 genus" class="gt_row gt_left">g__Erythrobacter</td>
+<td headers="f__Sphingomonadaceae stub_1_1 n" class="gt_row gt_right">66</td></tr>
     <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_2 genus" class="gt_row gt_left gt_striped">g__Actirhodobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_2 n" class="gt_row gt_right gt_striped">1</td></tr>
+<td headers="f__Sphingomonadaceae stub_1_2 genus" class="gt_row gt_left gt_striped">g__Novosphingobium</td>
+<td headers="f__Sphingomonadaceae stub_1_2 n" class="gt_row gt_right gt_striped">115</td></tr>
     <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_3 genus" class="gt_row gt_left">g__Alg239-R122</td>
-<td headers="f__Sphingomonadaceae stub_1_3 n" class="gt_row gt_right">1</td></tr>
+<td headers="f__Sphingomonadaceae stub_1_3 genus" class="gt_row gt_left">g__Sphingobium</td>
+<td headers="f__Sphingomonadaceae stub_1_3 n" class="gt_row gt_right">77</td></tr>
     <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_4 genus" class="gt_row gt_left gt_striped">g__Allosphingosinicella</td>
-<td headers="f__Sphingomonadaceae stub_1_4 n" class="gt_row gt_right gt_striped">20</td></tr>
+<td headers="f__Sphingomonadaceae stub_1_4 genus" class="gt_row gt_left gt_striped">g__Sphingomicrobium</td>
+<td headers="f__Sphingomonadaceae stub_1_4 n" class="gt_row gt_right gt_striped">38</td></tr>
     <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_5 genus" class="gt_row gt_left">g__Alteraurantiacibacter</td>
-<td headers="f__Sphingomonadaceae stub_1_5 n" class="gt_row gt_right">20</td></tr>
+<td headers="f__Sphingomonadaceae stub_1_5 genus" class="gt_row gt_left">g__Sphingomonas</td>
+<td headers="f__Sphingomonadaceae stub_1_5 n" class="gt_row gt_right">205</td></tr>
     <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_6 genus" class="gt_row gt_left gt_striped">g__Altererythrobacter_D</td>
-<td headers="f__Sphingomonadaceae stub_1_6 n" class="gt_row gt_right gt_striped">2</td></tr>
-    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_7 genus" class="gt_row gt_left">g__Altererythrobacter_F</td>
-<td headers="f__Sphingomonadaceae stub_1_7 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_8 genus" class="gt_row gt_left gt_striped">g__Altericroceibacterium</td>
-<td headers="f__Sphingomonadaceae stub_1_8 n" class="gt_row gt_right gt_striped">3</td></tr>
-    <tr><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_9 genus" class="gt_row gt_left">g__Altericroceibacterium_A</td>
-<td headers="f__Sphingomonadaceae stub_1_9 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_10 genus" class="gt_row gt_left gt_striped">g__Alteripontixanthobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_10 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_11 genus" class="gt_row gt_left">g__Alteriqipengyuania</td>
-<td headers="f__Sphingomonadaceae stub_1_11 n" class="gt_row gt_right">9</td></tr>
-    <tr><th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_12 genus" class="gt_row gt_left gt_striped">g__Alteriqipengyuania_A</td>
-<td headers="f__Sphingomonadaceae stub_1_12 n" class="gt_row gt_right gt_striped">2</td></tr>
-    <tr><th id="stub_1_13" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_13 genus" class="gt_row gt_left">g__Blastomonas</td>
-<td headers="f__Sphingomonadaceae stub_1_13 n" class="gt_row gt_right">8</td></tr>
-    <tr><th id="stub_1_14" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_14 genus" class="gt_row gt_left gt_striped">g__CADCVW01</td>
-<td headers="f__Sphingomonadaceae stub_1_14 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_15" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_15 genus" class="gt_row gt_left">g__CAHJWT01</td>
-<td headers="f__Sphingomonadaceae stub_1_15 n" class="gt_row gt_right">4</td></tr>
-    <tr><th id="stub_1_16" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_16 genus" class="gt_row gt_left gt_striped">g__CFH-75059</td>
-<td headers="f__Sphingomonadaceae stub_1_16 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_17" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_17 genus" class="gt_row gt_left">g__Caenibius</td>
-<td headers="f__Sphingomonadaceae stub_1_17 n" class="gt_row gt_right">5</td></tr>
-    <tr><th id="stub_1_18" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_18 genus" class="gt_row gt_left gt_striped">g__Chakrabartia</td>
-<td headers="f__Sphingomonadaceae stub_1_18 n" class="gt_row gt_right gt_striped">9</td></tr>
-    <tr><th id="stub_1_19" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_19 genus" class="gt_row gt_left">g__Croceibacterium</td>
-<td headers="f__Sphingomonadaceae stub_1_19 n" class="gt_row gt_right">15</td></tr>
-    <tr><th id="stub_1_20" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_20 genus" class="gt_row gt_left gt_striped">g__Croceicoccus</td>
-<td headers="f__Sphingomonadaceae stub_1_20 n" class="gt_row gt_right gt_striped">10</td></tr>
-    <tr><th id="stub_1_21" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_21 genus" class="gt_row gt_left">g__Erythrobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_21 n" class="gt_row gt_right">66</td></tr>
-    <tr><th id="stub_1_22" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_22 genus" class="gt_row gt_left gt_striped">g__GCA-014117445</td>
-<td headers="f__Sphingomonadaceae stub_1_22 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_23" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_23 genus" class="gt_row gt_left">g__Glacieibacterium</td>
-<td headers="f__Sphingomonadaceae stub_1_23 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_24" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_24 genus" class="gt_row gt_left gt_striped">g__Hankyongella</td>
-<td headers="f__Sphingomonadaceae stub_1_24 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_25" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_25 genus" class="gt_row gt_left">g__JACXVD01</td>
-<td headers="f__Sphingomonadaceae stub_1_25 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_26" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_26 genus" class="gt_row gt_left gt_striped">g__Novosphingobium</td>
-<td headers="f__Sphingomonadaceae stub_1_26 n" class="gt_row gt_right gt_striped">115</td></tr>
-    <tr><th id="stub_1_27" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_27 genus" class="gt_row gt_left">g__Novosphingopyxis</td>
-<td headers="f__Sphingomonadaceae stub_1_27 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_28" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_28 genus" class="gt_row gt_left gt_striped">g__Pacificimonas</td>
-<td headers="f__Sphingomonadaceae stub_1_28 n" class="gt_row gt_right gt_striped">4</td></tr>
-    <tr><th id="stub_1_29" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_29 genus" class="gt_row gt_left">g__Parapontixanthobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_29 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_30" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_30 genus" class="gt_row gt_left gt_striped">g__Parasphingopyxis</td>
-<td headers="f__Sphingomonadaceae stub_1_30 n" class="gt_row gt_right gt_striped">7</td></tr>
-    <tr><th id="stub_1_31" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_31 genus" class="gt_row gt_left">g__Parasphingorhabdus</td>
-<td headers="f__Sphingomonadaceae stub_1_31 n" class="gt_row gt_right">18</td></tr>
-    <tr><th id="stub_1_32" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_32 genus" class="gt_row gt_left gt_striped">g__Paraurantiacibacter</td>
-<td headers="f__Sphingomonadaceae stub_1_32 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_33" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_33 genus" class="gt_row gt_left">g__Parerythrobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_33 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_34" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_34 genus" class="gt_row gt_left gt_striped">g__Pelagerythrobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_34 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_35" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_35 genus" class="gt_row gt_left">g__Polymorphobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_35 n" class="gt_row gt_right">9</td></tr>
-    <tr><th id="stub_1_36" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_36 genus" class="gt_row gt_left gt_striped">g__Polymorphobacter_A</td>
-<td headers="f__Sphingomonadaceae stub_1_36 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_37" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_37 genus" class="gt_row gt_left">g__Pontixanthobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_37 n" class="gt_row gt_right">6</td></tr>
-    <tr><th id="stub_1_38" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_38 genus" class="gt_row gt_left gt_striped">g__Pseudopontixanthobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_38 n" class="gt_row gt_right gt_striped">2</td></tr>
-    <tr><th id="stub_1_39" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_39 genus" class="gt_row gt_left">g__Pseudopontixanthobacter_A</td>
-<td headers="f__Sphingomonadaceae stub_1_39 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_40" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_40 genus" class="gt_row gt_left gt_striped">g__QFOP01</td>
-<td headers="f__Sphingomonadaceae stub_1_40 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_41" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_41 genus" class="gt_row gt_left">g__Qipengyuania</td>
-<td headers="f__Sphingomonadaceae stub_1_41 n" class="gt_row gt_right">29</td></tr>
-    <tr><th id="stub_1_42" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_42 genus" class="gt_row gt_left gt_striped">g__Rhizorhabdus</td>
-<td headers="f__Sphingomonadaceae stub_1_42 n" class="gt_row gt_right gt_striped">14</td></tr>
-    <tr><th id="stub_1_43" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_43 genus" class="gt_row gt_left">g__Rhizorhapis</td>
-<td headers="f__Sphingomonadaceae stub_1_43 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_44" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_44 genus" class="gt_row gt_left gt_striped">g__SCN-67-18</td>
-<td headers="f__Sphingomonadaceae stub_1_44 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_45" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_45 genus" class="gt_row gt_left">g__Sandaracinobacter</td>
-<td headers="f__Sphingomonadaceae stub_1_45 n" class="gt_row gt_right">4</td></tr>
-    <tr><th id="stub_1_46" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_46 genus" class="gt_row gt_left gt_striped">g__Sandarakinorhabdus</td>
-<td headers="f__Sphingomonadaceae stub_1_46 n" class="gt_row gt_right gt_striped">7</td></tr>
-    <tr><th id="stub_1_47" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_47 genus" class="gt_row gt_left">g__Sphingobium</td>
-<td headers="f__Sphingomonadaceae stub_1_47 n" class="gt_row gt_right">77</td></tr>
-    <tr><th id="stub_1_48" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_48 genus" class="gt_row gt_left gt_striped">g__Sphingobium_A</td>
-<td headers="f__Sphingomonadaceae stub_1_48 n" class="gt_row gt_right gt_striped">2</td></tr>
-    <tr><th id="stub_1_49" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_49 genus" class="gt_row gt_left">g__Sphingomicrobium</td>
-<td headers="f__Sphingomonadaceae stub_1_49 n" class="gt_row gt_right">38</td></tr>
-    <tr><th id="stub_1_50" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_50 genus" class="gt_row gt_left gt_striped">g__Sphingomonas</td>
-<td headers="f__Sphingomonadaceae stub_1_50 n" class="gt_row gt_right gt_striped">205</td></tr>
-    <tr><th id="stub_1_51" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_51 genus" class="gt_row gt_left">g__Sphingomonas_B</td>
-<td headers="f__Sphingomonadaceae stub_1_51 n" class="gt_row gt_right">6</td></tr>
-    <tr><th id="stub_1_52" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_52 genus" class="gt_row gt_left gt_striped">g__Sphingomonas_D</td>
-<td headers="f__Sphingomonadaceae stub_1_52 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_53" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_53 genus" class="gt_row gt_left">g__Sphingomonas_E</td>
-<td headers="f__Sphingomonadaceae stub_1_53 n" class="gt_row gt_right">3</td></tr>
-    <tr><th id="stub_1_54" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_54 genus" class="gt_row gt_left gt_striped">g__Sphingomonas_G</td>
-<td headers="f__Sphingomonadaceae stub_1_54 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_55" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_55 genus" class="gt_row gt_left">g__Sphingomonas_H</td>
-<td headers="f__Sphingomonadaceae stub_1_55 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_56" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_56 genus" class="gt_row gt_left gt_striped">g__Sphingomonas_I</td>
-<td headers="f__Sphingomonadaceae stub_1_56 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_57" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_57 genus" class="gt_row gt_left">g__Sphingomonas_K</td>
-<td headers="f__Sphingomonadaceae stub_1_57 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_58" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_58 genus" class="gt_row gt_left gt_striped">g__Sphingomonas_L</td>
-<td headers="f__Sphingomonadaceae stub_1_58 n" class="gt_row gt_right gt_striped">2</td></tr>
-    <tr><th id="stub_1_59" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_59 genus" class="gt_row gt_left">g__Sphingomonas_M</td>
-<td headers="f__Sphingomonadaceae stub_1_59 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_60" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_60 genus" class="gt_row gt_left gt_striped">g__Sphingomonas_N</td>
-<td headers="f__Sphingomonadaceae stub_1_60 n" class="gt_row gt_right gt_striped">6</td></tr>
-    <tr><th id="stub_1_61" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_61 genus" class="gt_row gt_left">g__Sphingopyxis</td>
-<td headers="f__Sphingomonadaceae stub_1_61 n" class="gt_row gt_right">62</td></tr>
-    <tr><th id="stub_1_62" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_62 genus" class="gt_row gt_left gt_striped">g__Sphingorhabdus_B</td>
-<td headers="f__Sphingomonadaceae stub_1_62 n" class="gt_row gt_right gt_striped">25</td></tr>
-    <tr><th id="stub_1_63" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_63 genus" class="gt_row gt_left">g__Sphingorhabdus_C</td>
-<td headers="f__Sphingomonadaceae stub_1_63 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_64" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_64 genus" class="gt_row gt_left gt_striped">g__Sphingosinicella</td>
-<td headers="f__Sphingomonadaceae stub_1_64 n" class="gt_row gt_right gt_striped">4</td></tr>
-    <tr><th id="stub_1_65" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_65 genus" class="gt_row gt_left">g__Tardibacter</td>
-<td headers="f__Sphingomonadaceae stub_1_65 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_66" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_66 genus" class="gt_row gt_left gt_striped">g__Thermaurantiacus</td>
-<td headers="f__Sphingomonadaceae stub_1_66 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_67" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_67 genus" class="gt_row gt_left">g__Tsuneonella</td>
-<td headers="f__Sphingomonadaceae stub_1_67 n" class="gt_row gt_right">10</td></tr>
-    <tr><th id="stub_1_68" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_68 genus" class="gt_row gt_left gt_striped">g__UBA1936</td>
-<td headers="f__Sphingomonadaceae stub_1_68 n" class="gt_row gt_right gt_striped">3</td></tr>
-    <tr><th id="stub_1_69" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_69 genus" class="gt_row gt_left">g__UBA6174</td>
-<td headers="f__Sphingomonadaceae stub_1_69 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_70" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_70 genus" class="gt_row gt_left gt_striped">g__XMGL2</td>
-<td headers="f__Sphingomonadaceae stub_1_70 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_71" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_71 genus" class="gt_row gt_left">g__ZODW24</td>
-<td headers="f__Sphingomonadaceae stub_1_71 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_72" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Sphingomonadaceae stub_1_72 genus" class="gt_row gt_left gt_striped">g__Zymomonas</td>
-<td headers="f__Sphingomonadaceae stub_1_72 n" class="gt_row gt_right gt_striped">3</td></tr>
+<td headers="f__Sphingomonadaceae stub_1_6 genus" class="gt_row gt_left gt_striped">g__Sphingopyxis</td>
+<td headers="f__Sphingomonadaceae stub_1_6 n" class="gt_row gt_right gt_striped">62</td></tr>
     <tr><th id="summary_stub_f__Sphingomonadaceae_1" scope="row" class="gt_row gt_left gt_stub gt_summary_row gt_first_summary_row thick gt_last_summary_row">Total</th>
 <td headers="f__Sphingomonadaceae summary_stub_f__Sphingomonadaceae_1 genus" class="gt_row gt_left gt_summary_row gt_first_summary_row thick gt_last_summary_row">—</td>
-<td headers="f__Sphingomonadaceae summary_stub_f__Sphingomonadaceae_1 n" class="gt_row gt_right gt_summary_row gt_first_summary_row thick gt_last_summary_row">887</td></tr>
+<td headers="f__Sphingomonadaceae summary_stub_f__Sphingomonadaceae_1 n" class="gt_row gt_right gt_summary_row gt_first_summary_row thick gt_last_summary_row">563</td></tr>
   </tbody>
   
-  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="3"> This is a subset of the full list, filtered to those genera with more than 29 accessions.</td>
+    </tr>
+  </tfoot>
 </table>
 </div>
 ```
@@ -830,23 +636,23 @@ groups with 29 or below are cut, as seen in these tables:
 
 
 ```{=html}
-<div id="ixdfrttijb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ixdfrttijb table {
+<div id="udpxfuiszx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#udpxfuiszx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ixdfrttijb thead, #ixdfrttijb tbody, #ixdfrttijb tfoot, #ixdfrttijb tr, #ixdfrttijb td, #ixdfrttijb th {
+#udpxfuiszx thead, #udpxfuiszx tbody, #udpxfuiszx tfoot, #udpxfuiszx tr, #udpxfuiszx td, #udpxfuiszx th {
   border-style: none;
 }
 
-#ixdfrttijb p {
+#udpxfuiszx p {
   margin: 0;
   padding: 0;
 }
 
-#ixdfrttijb .gt_table {
+#udpxfuiszx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -872,12 +678,12 @@ groups with 29 or below are cut, as seen in these tables:
   border-left-color: #D5D5D5;
 }
 
-#ixdfrttijb .gt_caption {
+#udpxfuiszx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ixdfrttijb .gt_title {
+#udpxfuiszx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -889,7 +695,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-width: 0;
 }
 
-#ixdfrttijb .gt_subtitle {
+#udpxfuiszx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -901,7 +707,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-top-width: 0;
 }
 
-#ixdfrttijb .gt_heading {
+#udpxfuiszx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -913,13 +719,13 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ixdfrttijb .gt_bottom_border {
+#udpxfuiszx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#ixdfrttijb .gt_col_headings {
+#udpxfuiszx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -934,7 +740,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ixdfrttijb .gt_col_heading {
+#udpxfuiszx .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -954,7 +760,7 @@ groups with 29 or below are cut, as seen in these tables:
   overflow-x: hidden;
 }
 
-#ixdfrttijb .gt_column_spanner_outer {
+#udpxfuiszx .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -966,15 +772,15 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 4px;
 }
 
-#ixdfrttijb .gt_column_spanner_outer:first-child {
+#udpxfuiszx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ixdfrttijb .gt_column_spanner_outer:last-child {
+#udpxfuiszx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ixdfrttijb .gt_column_spanner {
+#udpxfuiszx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -986,11 +792,11 @@ groups with 29 or below are cut, as seen in these tables:
   width: 100%;
 }
 
-#ixdfrttijb .gt_spanner_row {
+#udpxfuiszx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ixdfrttijb .gt_group_heading {
+#udpxfuiszx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1016,7 +822,7 @@ groups with 29 or below are cut, as seen in these tables:
   text-align: left;
 }
 
-#ixdfrttijb .gt_empty_group_heading {
+#udpxfuiszx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1031,15 +837,15 @@ groups with 29 or below are cut, as seen in these tables:
   vertical-align: middle;
 }
 
-#ixdfrttijb .gt_from_md > :first-child {
+#udpxfuiszx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ixdfrttijb .gt_from_md > :last-child {
+#udpxfuiszx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ixdfrttijb .gt_row {
+#udpxfuiszx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1058,7 +864,7 @@ groups with 29 or below are cut, as seen in these tables:
   overflow-x: hidden;
 }
 
-#ixdfrttijb .gt_stub {
+#udpxfuiszx .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1071,7 +877,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ixdfrttijb .gt_stub_row_group {
+#udpxfuiszx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1085,15 +891,15 @@ groups with 29 or below are cut, as seen in these tables:
   vertical-align: top;
 }
 
-#ixdfrttijb .gt_row_group_first td {
+#udpxfuiszx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ixdfrttijb .gt_row_group_first th {
+#udpxfuiszx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ixdfrttijb .gt_summary_row {
+#udpxfuiszx .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -1103,16 +909,16 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ixdfrttijb .gt_first_summary_row {
+#udpxfuiszx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#ixdfrttijb .gt_first_summary_row.thick {
+#udpxfuiszx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ixdfrttijb .gt_last_summary_row {
+#udpxfuiszx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1122,7 +928,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#ixdfrttijb .gt_grand_summary_row {
+#udpxfuiszx .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -1132,7 +938,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ixdfrttijb .gt_first_grand_summary_row {
+#udpxfuiszx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1142,7 +948,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-top-color: #D5D5D5;
 }
 
-#ixdfrttijb .gt_last_grand_summary_row_top {
+#udpxfuiszx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1152,11 +958,11 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#ixdfrttijb .gt_striped {
+#udpxfuiszx .gt_striped {
   background-color: #F4F4F4;
 }
 
-#ixdfrttijb .gt_table_body {
+#udpxfuiszx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1165,7 +971,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#ixdfrttijb .gt_footnotes {
+#udpxfuiszx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1179,7 +985,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ixdfrttijb .gt_footnote {
+#udpxfuiszx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1188,7 +994,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ixdfrttijb .gt_sourcenotes {
+#udpxfuiszx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1202,7 +1008,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ixdfrttijb .gt_sourcenote {
+#udpxfuiszx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1210,72 +1016,72 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ixdfrttijb .gt_left {
+#udpxfuiszx .gt_left {
   text-align: left;
 }
 
-#ixdfrttijb .gt_center {
+#udpxfuiszx .gt_center {
   text-align: center;
 }
 
-#ixdfrttijb .gt_right {
+#udpxfuiszx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ixdfrttijb .gt_font_normal {
+#udpxfuiszx .gt_font_normal {
   font-weight: normal;
 }
 
-#ixdfrttijb .gt_font_bold {
+#udpxfuiszx .gt_font_bold {
   font-weight: bold;
 }
 
-#ixdfrttijb .gt_font_italic {
+#udpxfuiszx .gt_font_italic {
   font-style: italic;
 }
 
-#ixdfrttijb .gt_super {
+#udpxfuiszx .gt_super {
   font-size: 65%;
 }
 
-#ixdfrttijb .gt_footnote_marks {
+#udpxfuiszx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ixdfrttijb .gt_asterisk {
+#udpxfuiszx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ixdfrttijb .gt_indent_1 {
+#udpxfuiszx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ixdfrttijb .gt_indent_2 {
+#udpxfuiszx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ixdfrttijb .gt_indent_3 {
+#udpxfuiszx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ixdfrttijb .gt_indent_4 {
+#udpxfuiszx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ixdfrttijb .gt_indent_5 {
+#udpxfuiszx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ixdfrttijb .katex-display {
+#udpxfuiszx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ixdfrttijb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#udpxfuiszx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1298,248 +1104,33 @@ groups with 29 or below are cut, as seen in these tables:
       <th colspan="3" class="gt_group_heading" scope="colgroup" id="f__Microbacteriaceae">f__Microbacteriaceae</th>
     </tr>
     <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_1 genus" class="gt_row gt_left">g__73-13</td>
-<td headers="f__Microbacteriaceae stub_1_1 n" class="gt_row gt_right">2</td></tr>
+<td headers="f__Microbacteriaceae stub_1_1 genus" class="gt_row gt_left">g__Agromyces</td>
+<td headers="f__Microbacteriaceae stub_1_1 n" class="gt_row gt_right">41</td></tr>
     <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_2 genus" class="gt_row gt_left gt_striped">g__Agreia</td>
-<td headers="f__Microbacteriaceae stub_1_2 n" class="gt_row gt_right gt_striped">6</td></tr>
+<td headers="f__Microbacteriaceae stub_1_2 genus" class="gt_row gt_left gt_striped">g__Cryobacterium</td>
+<td headers="f__Microbacteriaceae stub_1_2 n" class="gt_row gt_right gt_striped">43</td></tr>
     <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_3 genus" class="gt_row gt_left">g__Agrococcus</td>
-<td headers="f__Microbacteriaceae stub_1_3 n" class="gt_row gt_right">16</td></tr>
+<td headers="f__Microbacteriaceae stub_1_3 genus" class="gt_row gt_left">g__Curtobacterium</td>
+<td headers="f__Microbacteriaceae stub_1_3 n" class="gt_row gt_right">51</td></tr>
     <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_4 genus" class="gt_row gt_left gt_striped">g__Agromyces</td>
-<td headers="f__Microbacteriaceae stub_1_4 n" class="gt_row gt_right gt_striped">41</td></tr>
+<td headers="f__Microbacteriaceae stub_1_4 genus" class="gt_row gt_left gt_striped">g__Leucobacter</td>
+<td headers="f__Microbacteriaceae stub_1_4 n" class="gt_row gt_right gt_striped">43</td></tr>
     <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_5 genus" class="gt_row gt_left">g__Agromyces_B</td>
-<td headers="f__Microbacteriaceae stub_1_5 n" class="gt_row gt_right">1</td></tr>
+<td headers="f__Microbacteriaceae stub_1_5 genus" class="gt_row gt_left">g__Microbacterium</td>
+<td headers="f__Microbacteriaceae stub_1_5 n" class="gt_row gt_right">254</td></tr>
     <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_6 genus" class="gt_row gt_left gt_striped">g__Alpinimonas</td>
-<td headers="f__Microbacteriaceae stub_1_6 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_7 genus" class="gt_row gt_left">g__Amnibacterium</td>
-<td headers="f__Microbacteriaceae stub_1_7 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_8 genus" class="gt_row gt_left gt_striped">g__Aquiluna</td>
-<td headers="f__Microbacteriaceae stub_1_8 n" class="gt_row gt_right gt_striped">15</td></tr>
-    <tr><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_9 genus" class="gt_row gt_left">g__Aurantimicrobium</td>
-<td headers="f__Microbacteriaceae stub_1_9 n" class="gt_row gt_right">3</td></tr>
-    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_10 genus" class="gt_row gt_left gt_striped">g__CAIOLM01</td>
-<td headers="f__Microbacteriaceae stub_1_10 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_11 genus" class="gt_row gt_left">g__Canibacter</td>
-<td headers="f__Microbacteriaceae stub_1_11 n" class="gt_row gt_right">4</td></tr>
-    <tr><th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_12 genus" class="gt_row gt_left gt_striped">g__Chryseoglobus</td>
-<td headers="f__Microbacteriaceae stub_1_12 n" class="gt_row gt_right gt_striped">8</td></tr>
-    <tr><th id="stub_1_13" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_13 genus" class="gt_row gt_left">g__Clavibacter</td>
-<td headers="f__Microbacteriaceae stub_1_13 n" class="gt_row gt_right">17</td></tr>
-    <tr><th id="stub_1_14" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_14 genus" class="gt_row gt_left gt_striped">g__Cnuibacter</td>
-<td headers="f__Microbacteriaceae stub_1_14 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_15" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_15 genus" class="gt_row gt_left">g__Compostimonas</td>
-<td headers="f__Microbacteriaceae stub_1_15 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_16" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_16 genus" class="gt_row gt_left gt_striped">g__Conyzicola</td>
-<td headers="f__Microbacteriaceae stub_1_16 n" class="gt_row gt_right gt_striped">3</td></tr>
-    <tr><th id="stub_1_17" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_17 genus" class="gt_row gt_left">g__Cryobacterium</td>
-<td headers="f__Microbacteriaceae stub_1_17 n" class="gt_row gt_right">43</td></tr>
-    <tr><th id="stub_1_18" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_18 genus" class="gt_row gt_left gt_striped">g__Cryobacterium_C</td>
-<td headers="f__Microbacteriaceae stub_1_18 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_19" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_19 genus" class="gt_row gt_left">g__Curtobacterium</td>
-<td headers="f__Microbacteriaceae stub_1_19 n" class="gt_row gt_right">51</td></tr>
-    <tr><th id="stub_1_20" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_20 genus" class="gt_row gt_left gt_striped">g__Cx-87</td>
-<td headers="f__Microbacteriaceae stub_1_20 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_21" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_21 genus" class="gt_row gt_left">g__Diaminobutyricibacter</td>
-<td headers="f__Microbacteriaceae stub_1_21 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_22" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_22 genus" class="gt_row gt_left gt_striped">g__Diaminobutyricimonas</td>
-<td headers="f__Microbacteriaceae stub_1_22 n" class="gt_row gt_right gt_striped">2</td></tr>
-    <tr><th id="stub_1_23" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_23 genus" class="gt_row gt_left">g__Frigoribacterium</td>
-<td headers="f__Microbacteriaceae stub_1_23 n" class="gt_row gt_right">15</td></tr>
-    <tr><th id="stub_1_24" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_24 genus" class="gt_row gt_left gt_striped">g__Frondihabitans</td>
-<td headers="f__Microbacteriaceae stub_1_24 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_25" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_25 genus" class="gt_row gt_left">g__Galbitalea</td>
-<td headers="f__Microbacteriaceae stub_1_25 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_26" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_26 genus" class="gt_row gt_left gt_striped">g__Glaciibacter</td>
-<td headers="f__Microbacteriaceae stub_1_26 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_27" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_27 genus" class="gt_row gt_left">g__Glaciihabitans</td>
-<td headers="f__Microbacteriaceae stub_1_27 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_28" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_28 genus" class="gt_row gt_left gt_striped">g__Gryllotalpicola</td>
-<td headers="f__Microbacteriaceae stub_1_28 n" class="gt_row gt_right gt_striped">3</td></tr>
-    <tr><th id="stub_1_29" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_29 genus" class="gt_row gt_left">g__Gulosibacter</td>
-<td headers="f__Microbacteriaceae stub_1_29 n" class="gt_row gt_right">9</td></tr>
-    <tr><th id="stub_1_30" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_30 genus" class="gt_row gt_left gt_striped">g__Herbiconiux</td>
-<td headers="f__Microbacteriaceae stub_1_30 n" class="gt_row gt_right gt_striped">7</td></tr>
-    <tr><th id="stub_1_31" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_31 genus" class="gt_row gt_left">g__Homoserinimonas</td>
-<td headers="f__Microbacteriaceae stub_1_31 n" class="gt_row gt_right">4</td></tr>
-    <tr><th id="stub_1_32" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_32 genus" class="gt_row gt_left gt_striped">g__Humibacter</td>
-<td headers="f__Microbacteriaceae stub_1_32 n" class="gt_row gt_right gt_striped">4</td></tr>
-    <tr><th id="stub_1_33" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_33 genus" class="gt_row gt_left">g__JAAFHU01</td>
-<td headers="f__Microbacteriaceae stub_1_33 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_34" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_34 genus" class="gt_row gt_left gt_striped">g__JAFIQW01</td>
-<td headers="f__Microbacteriaceae stub_1_34 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_35" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_35 genus" class="gt_row gt_left">g__Klugiella</td>
-<td headers="f__Microbacteriaceae stub_1_35 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_36" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_36 genus" class="gt_row gt_left gt_striped">g__Labedella</td>
-<td headers="f__Microbacteriaceae stub_1_36 n" class="gt_row gt_right gt_striped">4</td></tr>
-    <tr><th id="stub_1_37" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_37 genus" class="gt_row gt_left">g__Lacisediminihabitans</td>
-<td headers="f__Microbacteriaceae stub_1_37 n" class="gt_row gt_right">5</td></tr>
-    <tr><th id="stub_1_38" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_38 genus" class="gt_row gt_left gt_striped">g__Leifsonia</td>
-<td headers="f__Microbacteriaceae stub_1_38 n" class="gt_row gt_right gt_striped">19</td></tr>
-    <tr><th id="stub_1_39" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_39 genus" class="gt_row gt_left">g__Leifsonia_A</td>
-<td headers="f__Microbacteriaceae stub_1_39 n" class="gt_row gt_right">4</td></tr>
-    <tr><th id="stub_1_40" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_40 genus" class="gt_row gt_left gt_striped">g__Leifsonia_B</td>
-<td headers="f__Microbacteriaceae stub_1_40 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_41" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_41 genus" class="gt_row gt_left">g__Leucobacter</td>
-<td headers="f__Microbacteriaceae stub_1_41 n" class="gt_row gt_right">43</td></tr>
-    <tr><th id="stub_1_42" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_42 genus" class="gt_row gt_left gt_striped">g__Lumbricidophila</td>
-<td headers="f__Microbacteriaceae stub_1_42 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_43" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_43 genus" class="gt_row gt_left">g__Lysinibacter</td>
-<td headers="f__Microbacteriaceae stub_1_43 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_44" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_44 genus" class="gt_row gt_left gt_striped">g__MWH-TA3</td>
-<td headers="f__Microbacteriaceae stub_1_44 n" class="gt_row gt_right gt_striped">7</td></tr>
-    <tr><th id="stub_1_45" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_45 genus" class="gt_row gt_left">g__Marinisubtilis</td>
-<td headers="f__Microbacteriaceae stub_1_45 n" class="gt_row gt_right">3</td></tr>
-    <tr><th id="stub_1_46" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_46 genus" class="gt_row gt_left gt_striped">g__Marisediminicola</td>
-<td headers="f__Microbacteriaceae stub_1_46 n" class="gt_row gt_right gt_striped">4</td></tr>
-    <tr><th id="stub_1_47" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_47 genus" class="gt_row gt_left">g__Microbacterium</td>
-<td headers="f__Microbacteriaceae stub_1_47 n" class="gt_row gt_right">254</td></tr>
-    <tr><th id="stub_1_48" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_48 genus" class="gt_row gt_left gt_striped">g__Microbacterium_A</td>
-<td headers="f__Microbacteriaceae stub_1_48 n" class="gt_row gt_right gt_striped">4</td></tr>
-    <tr><th id="stub_1_49" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_49 genus" class="gt_row gt_left">g__Microcella</td>
-<td headers="f__Microbacteriaceae stub_1_49 n" class="gt_row gt_right">3</td></tr>
-    <tr><th id="stub_1_50" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_50 genus" class="gt_row gt_left gt_striped">g__Microterricola</td>
-<td headers="f__Microbacteriaceae stub_1_50 n" class="gt_row gt_right gt_striped">7</td></tr>
-    <tr><th id="stub_1_51" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_51 genus" class="gt_row gt_left">g__Mycetocola</td>
-<td headers="f__Microbacteriaceae stub_1_51 n" class="gt_row gt_right">3</td></tr>
-    <tr><th id="stub_1_52" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_52 genus" class="gt_row gt_left gt_striped">g__Mycetocola_A</td>
-<td headers="f__Microbacteriaceae stub_1_52 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_53" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_53 genus" class="gt_row gt_left">g__Mycetocola_B</td>
-<td headers="f__Microbacteriaceae stub_1_53 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_54" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_54 genus" class="gt_row gt_left gt_striped">g__NC76-1</td>
-<td headers="f__Microbacteriaceae stub_1_54 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_55" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_55 genus" class="gt_row gt_left">g__Naasia</td>
-<td headers="f__Microbacteriaceae stub_1_55 n" class="gt_row gt_right">4</td></tr>
-    <tr><th id="stub_1_56" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_56 genus" class="gt_row gt_left gt_striped">g__OACT-916</td>
-<td headers="f__Microbacteriaceae stub_1_56 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_57" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_57 genus" class="gt_row gt_left">g__Okibacterium</td>
-<td headers="f__Microbacteriaceae stub_1_57 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_58" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_58 genus" class="gt_row gt_left gt_striped">g__Planctomonas</td>
-<td headers="f__Microbacteriaceae stub_1_58 n" class="gt_row gt_right gt_striped">2</td></tr>
-    <tr><th id="stub_1_59" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_59 genus" class="gt_row gt_left">g__Plantibacter</td>
-<td headers="f__Microbacteriaceae stub_1_59 n" class="gt_row gt_right">6</td></tr>
-    <tr><th id="stub_1_60" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_60 genus" class="gt_row gt_left gt_striped">g__Pontimonas</td>
-<td headers="f__Microbacteriaceae stub_1_60 n" class="gt_row gt_right gt_striped">10</td></tr>
-    <tr><th id="stub_1_61" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_61 genus" class="gt_row gt_left">g__Protaetiibacter</td>
-<td headers="f__Microbacteriaceae stub_1_61 n" class="gt_row gt_right">9</td></tr>
-    <tr><th id="stub_1_62" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_62 genus" class="gt_row gt_left gt_striped">g__Pseudoclavibacter</td>
-<td headers="f__Microbacteriaceae stub_1_62 n" class="gt_row gt_right gt_striped">9</td></tr>
-    <tr><th id="stub_1_63" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_63 genus" class="gt_row gt_left">g__Pseudoclavibacter_A</td>
-<td headers="f__Microbacteriaceae stub_1_63 n" class="gt_row gt_right">3</td></tr>
-    <tr><th id="stub_1_64" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_64 genus" class="gt_row gt_left gt_striped">g__Pseudolysinimonas</td>
-<td headers="f__Microbacteriaceae stub_1_64 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_65" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_65 genus" class="gt_row gt_left">g__RFQD01</td>
-<td headers="f__Microbacteriaceae stub_1_65 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_66" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_66 genus" class="gt_row gt_left gt_striped">g__Rathayibacter</td>
-<td headers="f__Microbacteriaceae stub_1_66 n" class="gt_row gt_right gt_striped">22</td></tr>
-    <tr><th id="stub_1_67" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_67 genus" class="gt_row gt_left">g__Rhodoglobus</td>
-<td headers="f__Microbacteriaceae stub_1_67 n" class="gt_row gt_right">15</td></tr>
-    <tr><th id="stub_1_68" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_68 genus" class="gt_row gt_left gt_striped">g__Rhodoluna</td>
-<td headers="f__Microbacteriaceae stub_1_68 n" class="gt_row gt_right gt_striped">35</td></tr>
-    <tr><th id="stub_1_69" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_69 genus" class="gt_row gt_left">g__Root112D2</td>
-<td headers="f__Microbacteriaceae stub_1_69 n" class="gt_row gt_right">1</td></tr>
-    <tr><th id="stub_1_70" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_70 genus" class="gt_row gt_left gt_striped">g__SCRE01</td>
-<td headers="f__Microbacteriaceae stub_1_70 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_71" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_71 genus" class="gt_row gt_left">g__Schumannella</td>
-<td headers="f__Microbacteriaceae stub_1_71 n" class="gt_row gt_right">4</td></tr>
-    <tr><th id="stub_1_72" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_72 genus" class="gt_row gt_left gt_striped">g__Subtercola</td>
-<td headers="f__Microbacteriaceae stub_1_72 n" class="gt_row gt_right gt_striped">9</td></tr>
-    <tr><th id="stub_1_73" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_73 genus" class="gt_row gt_left">g__Terrimesophilobacter</td>
-<td headers="f__Microbacteriaceae stub_1_73 n" class="gt_row gt_right">3</td></tr>
-    <tr><th id="stub_1_74" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_74 genus" class="gt_row gt_left gt_striped">g__Tropheryma</td>
-<td headers="f__Microbacteriaceae stub_1_74 n" class="gt_row gt_right gt_striped">1</td></tr>
-    <tr><th id="stub_1_75" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_75 genus" class="gt_row gt_left">g__UBA3913</td>
-<td headers="f__Microbacteriaceae stub_1_75 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_76" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_76 genus" class="gt_row gt_left gt_striped">g__UBA963</td>
-<td headers="f__Microbacteriaceae stub_1_76 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_77" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_77 genus" class="gt_row gt_left">g__WSTA01</td>
-<td headers="f__Microbacteriaceae stub_1_77 n" class="gt_row gt_right">2</td></tr>
-    <tr><th id="stub_1_78" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_78 genus" class="gt_row gt_left gt_striped">g__Yonghaparkia</td>
-<td headers="f__Microbacteriaceae stub_1_78 n" class="gt_row gt_right gt_striped">5</td></tr>
-    <tr><th id="stub_1_79" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="f__Microbacteriaceae stub_1_79 genus" class="gt_row gt_left">g__ZJ450</td>
-<td headers="f__Microbacteriaceae stub_1_79 n" class="gt_row gt_right">2</td></tr>
+<td headers="f__Microbacteriaceae stub_1_6 genus" class="gt_row gt_left gt_striped">g__Rhodoluna</td>
+<td headers="f__Microbacteriaceae stub_1_6 n" class="gt_row gt_right gt_striped">35</td></tr>
     <tr><th id="summary_stub_f__Microbacteriaceae_1" scope="row" class="gt_row gt_left gt_stub gt_summary_row gt_first_summary_row thick gt_last_summary_row">Total</th>
 <td headers="f__Microbacteriaceae summary_stub_f__Microbacteriaceae_1 genus" class="gt_row gt_left gt_summary_row gt_first_summary_row thick gt_last_summary_row">—</td>
-<td headers="f__Microbacteriaceae summary_stub_f__Microbacteriaceae_1 n" class="gt_row gt_right gt_summary_row gt_first_summary_row thick gt_last_summary_row">806</td></tr>
+<td headers="f__Microbacteriaceae summary_stub_f__Microbacteriaceae_1 n" class="gt_row gt_right gt_summary_row gt_first_summary_row thick gt_last_summary_row">467</td></tr>
   </tbody>
   
-  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="3"> This is a subset of the full list, filtered to those genera with more than 29 accessions.</td>
+    </tr>
+  </tfoot>
 </table>
 </div>
 ```
@@ -1548,23 +1139,23 @@ groups with 29 or below are cut, as seen in these tables:
 
 
 ```{=html}
-<div id="ttgtdlpses" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ttgtdlpses table {
+<div id="swlbbwvkun" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#swlbbwvkun table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ttgtdlpses thead, #ttgtdlpses tbody, #ttgtdlpses tfoot, #ttgtdlpses tr, #ttgtdlpses td, #ttgtdlpses th {
+#swlbbwvkun thead, #swlbbwvkun tbody, #swlbbwvkun tfoot, #swlbbwvkun tr, #swlbbwvkun td, #swlbbwvkun th {
   border-style: none;
 }
 
-#ttgtdlpses p {
+#swlbbwvkun p {
   margin: 0;
   padding: 0;
 }
 
-#ttgtdlpses .gt_table {
+#swlbbwvkun .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1590,12 +1181,12 @@ groups with 29 or below are cut, as seen in these tables:
   border-left-color: #D5D5D5;
 }
 
-#ttgtdlpses .gt_caption {
+#swlbbwvkun .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ttgtdlpses .gt_title {
+#swlbbwvkun .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1607,7 +1198,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-width: 0;
 }
 
-#ttgtdlpses .gt_subtitle {
+#swlbbwvkun .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1619,7 +1210,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-top-width: 0;
 }
 
-#ttgtdlpses .gt_heading {
+#swlbbwvkun .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1631,13 +1222,13 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ttgtdlpses .gt_bottom_border {
+#swlbbwvkun .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#ttgtdlpses .gt_col_headings {
+#swlbbwvkun .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1652,7 +1243,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ttgtdlpses .gt_col_heading {
+#swlbbwvkun .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -1672,7 +1263,7 @@ groups with 29 or below are cut, as seen in these tables:
   overflow-x: hidden;
 }
 
-#ttgtdlpses .gt_column_spanner_outer {
+#swlbbwvkun .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -1684,15 +1275,15 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 4px;
 }
 
-#ttgtdlpses .gt_column_spanner_outer:first-child {
+#swlbbwvkun .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ttgtdlpses .gt_column_spanner_outer:last-child {
+#swlbbwvkun .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ttgtdlpses .gt_column_spanner {
+#swlbbwvkun .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -1704,11 +1295,11 @@ groups with 29 or below are cut, as seen in these tables:
   width: 100%;
 }
 
-#ttgtdlpses .gt_spanner_row {
+#swlbbwvkun .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ttgtdlpses .gt_group_heading {
+#swlbbwvkun .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1734,7 +1325,7 @@ groups with 29 or below are cut, as seen in these tables:
   text-align: left;
 }
 
-#ttgtdlpses .gt_empty_group_heading {
+#swlbbwvkun .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1749,15 +1340,15 @@ groups with 29 or below are cut, as seen in these tables:
   vertical-align: middle;
 }
 
-#ttgtdlpses .gt_from_md > :first-child {
+#swlbbwvkun .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ttgtdlpses .gt_from_md > :last-child {
+#swlbbwvkun .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ttgtdlpses .gt_row {
+#swlbbwvkun .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1776,7 +1367,7 @@ groups with 29 or below are cut, as seen in these tables:
   overflow-x: hidden;
 }
 
-#ttgtdlpses .gt_stub {
+#swlbbwvkun .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1789,7 +1380,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ttgtdlpses .gt_stub_row_group {
+#swlbbwvkun .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1803,15 +1394,15 @@ groups with 29 or below are cut, as seen in these tables:
   vertical-align: top;
 }
 
-#ttgtdlpses .gt_row_group_first td {
+#swlbbwvkun .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ttgtdlpses .gt_row_group_first th {
+#swlbbwvkun .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ttgtdlpses .gt_summary_row {
+#swlbbwvkun .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -1821,16 +1412,16 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ttgtdlpses .gt_first_summary_row {
+#swlbbwvkun .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#ttgtdlpses .gt_first_summary_row.thick {
+#swlbbwvkun .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ttgtdlpses .gt_last_summary_row {
+#swlbbwvkun .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1840,7 +1431,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#ttgtdlpses .gt_grand_summary_row {
+#swlbbwvkun .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -1850,7 +1441,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ttgtdlpses .gt_first_grand_summary_row {
+#swlbbwvkun .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1860,7 +1451,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-top-color: #D5D5D5;
 }
 
-#ttgtdlpses .gt_last_grand_summary_row_top {
+#swlbbwvkun .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1870,11 +1461,11 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#ttgtdlpses .gt_striped {
+#swlbbwvkun .gt_striped {
   background-color: #F4F4F4;
 }
 
-#ttgtdlpses .gt_table_body {
+#swlbbwvkun .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1883,7 +1474,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-bottom-color: #D5D5D5;
 }
 
-#ttgtdlpses .gt_footnotes {
+#swlbbwvkun .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1897,7 +1488,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ttgtdlpses .gt_footnote {
+#swlbbwvkun .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1906,7 +1497,7 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ttgtdlpses .gt_sourcenotes {
+#swlbbwvkun .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1920,7 +1511,7 @@ groups with 29 or below are cut, as seen in these tables:
   border-right-color: #D3D3D3;
 }
 
-#ttgtdlpses .gt_sourcenote {
+#swlbbwvkun .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1928,72 +1519,72 @@ groups with 29 or below are cut, as seen in these tables:
   padding-right: 5px;
 }
 
-#ttgtdlpses .gt_left {
+#swlbbwvkun .gt_left {
   text-align: left;
 }
 
-#ttgtdlpses .gt_center {
+#swlbbwvkun .gt_center {
   text-align: center;
 }
 
-#ttgtdlpses .gt_right {
+#swlbbwvkun .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ttgtdlpses .gt_font_normal {
+#swlbbwvkun .gt_font_normal {
   font-weight: normal;
 }
 
-#ttgtdlpses .gt_font_bold {
+#swlbbwvkun .gt_font_bold {
   font-weight: bold;
 }
 
-#ttgtdlpses .gt_font_italic {
+#swlbbwvkun .gt_font_italic {
   font-style: italic;
 }
 
-#ttgtdlpses .gt_super {
+#swlbbwvkun .gt_super {
   font-size: 65%;
 }
 
-#ttgtdlpses .gt_footnote_marks {
+#swlbbwvkun .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ttgtdlpses .gt_asterisk {
+#swlbbwvkun .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ttgtdlpses .gt_indent_1 {
+#swlbbwvkun .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ttgtdlpses .gt_indent_2 {
+#swlbbwvkun .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ttgtdlpses .gt_indent_3 {
+#swlbbwvkun .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ttgtdlpses .gt_indent_4 {
+#swlbbwvkun .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ttgtdlpses .gt_indent_5 {
+#swlbbwvkun .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ttgtdlpses .katex-display {
+#swlbbwvkun .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ttgtdlpses div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#swlbbwvkun div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2066,9 +1657,10 @@ the online one used 20, but i didnt want to overdo it with hawk, now im
 thinking can i get that number to half again by doubling the cpus?
 
 As of the 24th Aaron agrees with my assessment to cut down on the number
-of samples, this leaves me with \_\_\_\_ samples to run, at an average
-of 27 minutes, this would take \_\_\_\_, however, this would speed up
-dramatically if i can get his loops working.
+of samples, this leaves me with 1158 samples to run, at an average of 27
+minutes, this would take 21.7 days, however, this would speed up
+dramatically if i can get his loops working so parallel stuff can
+happen.
 
 ## Conclusion
 
@@ -2091,7 +1683,9 @@ would also make the heatmaps much more legible, so i might run the
 numbers on what cutting down the sample size would look like. It may
 however, be better to group all those small genera into an "other"
 column to make the dataset as big as possible, but that doesnt solve my
-predicament. 
+predicament. The total time continues to shrink, with the filter in
+place and hopefully with the loops working it could take less than 10
+days
 
 ::: {style="background-color:yellow;"}
 📌 ?: TODO: [eggnog-mapper on hawk is slow, possibly too slow to scale
@@ -2123,3 +1717,69 @@ prove that there is **always** time for proper note taking.
 📌 ?: TODO: API call for JSONS, fastas
 :::
 
+# Prototype Heatmap Creation Run, end-to-end 2025-01-24 onwards
+
+## introduction
+
+Ok, i am done with the eggnog testing, i am in a place now where i am
+happy to begin actually doing stuff with this. I figured that i should
+start with the less intensive analysis, being the genera comparison of
+just the ones our samples are in, seen in Table 3: [Our Genera]. This is
+so that i don't have to think about automation to the same degree yet,
+thus, i can create the pipeline in a more crude way and add "fancy code
+stuff" to make it better later so i'm not wondering whats causing
+problems. Even then, i am still going to start smaller, taking only 10
+from each genus so that i can create a prototype of sorts, hopefully to
+show Aaron when i am back in Bangor. Here is my plan for this section:
+
+1.  Download the metadata for the chosen genera, this is going to use
+    the
+    [dataset_report](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/dataset_report)
+    API for the NCBI website. These will serve multiple purposes, for
+    example they will tell me which samples have a high quality metric,
+    they will also help with the generation of trees from gtdb-tk
+    de_novo_wf done in Notebook 1, but not output because of this exact
+    reason.
+
+2.  Choose 10 accessions per genus to use in my prototype pipeline. All
+    groups will total 10 samples, our own Bangor-made accession will be
+    included in this number, excluding 1Dt100h, as gtdb-tk could not
+    classify it into a family.
+
+3.  Download the genomic .fasta files for all of these. This will use
+    the [Download
+    API](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/download)
+    to pull them from the NCBI website.
+
+4.  Annotate all those fastas using eggNog-mapper on hawk.
+
+5.  create the file(s) that turn the annotation file into a heatmap
+
+## Methods
+
+Using the httr2 package in R, i created . A useful command of not is
+"req_dry_run" which allows one to view what the API request looks like.
+From the first downloaded JSON(though im sure its in all others this is
+the place i first found it) i found the concept of an "ANI" or Average
+Nucleotide Identity analysis that the NCBI had performed, this is
+interesting, can i do it on mine? One thing i forgot to do was remove
+the local samples from the list i passed to NCBI, so those ones
+obviously failed but it didn't affect the rest, so if this need be done
+again, remember to take the local accessions out of the list.
+
+## Results
+
+The API call itself took around 2 minutes to get 587 samples, very fast,
+but also just slow enough to avoid the limit NCBI imposes on download
+volume. The ANI stuff in the JSON files was very intriguing for me, i
+decided i wanted to output a summary of the JSON files by their ANI
+statuses:
+
+#### JSON ANI analysis
+
+![](Notebook2_files/figure-html/ANI and JSON-1.png)<!-- -->
+
+I used the package "jsonlite" to do this. This does not exist as a code
+file, as i did all the coding inside this document. The function
+`hoist()` from the package tidyr was also very helpful in drawing out
+the lower levels of the JSON files

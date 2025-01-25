@@ -30,6 +30,7 @@ library(gt)
 library(knitr)
 library(jsonlite)
 library(tidyjson)
+library(patchwork)
 ```
 
 # EggNog-Mapper initial test analyses (2025-01-10 to 2025-01-19)
@@ -363,12 +364,61 @@ statuses:
 ```{r ANI and JSON, echo=FALSE, warning=FALSE}
 filenames <- list.files("02_middle-analysis_outputs/ncbi_stuff/json/", 
                         pattern=glob2rx("GC*.json"), full.names=TRUE)
-jsonlist <- lapply(filenames, read_json) %>% sapply(., "[[", 1)
-# get just the ani for this analysis
-ani <- data.frame(spread_all(jsonlist, recursive = TRUE, sep = "."))
-biosample <- map(jsonlist, "average_nucleotide_identity")
-#%>% map(., "biosample")  %>% map(., "attributes")
+jsonlist <- lapply(filenames, jsonlite::read_json) %>% sapply(., "[[", 1)
+reports <- tibble(report=jsonlist)
+# get the fields i want to see
+expand <- reports %>%
+  hoist(report, 
+        "accession", 
+        "average_nucleotide_identity",
+        "assembly_info",
+        "checkm_info") %>%
+  hoist(assembly_info, 
+        "assembly_status",
+        "refseq_category") %>%
+  hoist(average_nucleotide_identity,
+        "taxonomy_check_status",
+        "match_status") %>%
+  hoist(checkm_info,
+        "completeness",
+        "completeness_percentile") %>%
+  select(c("accession", "assembly_status", "refseq_category", "taxonomy_check_status", "match_status", "completeness", "completeness_percentile"))
 
+# ani count of taxomony_check_status table
+results <- expand %>% group_by(taxonomy_check_status) %>% summarise(countofsamples = n()) %>% ungroup() %>% 
+  arrange(desc(countofsamples))
+results[is.na(results$taxonomy_check_status),1] <- "Absent"
+
+Taxchektab <- results %>%
+  gt()  %>%
+  tab_source_note(source_note = md("Source: API call to the NCBI website <br> done on 2025-01-25")) %>%
+  opt_row_striping() %>%
+   opt_stylize(style = 5, color = "blue") %>%
+   tab_header(
+     title = md("Table 4 - Analysis of <br> Taxonomy Check Status"),
+     subtitle = md("as a part of analysis for <br> Average Nuleotide Identity(ANI)")
+   ) %>%
+  cols_label(taxonomy_check_status = "Taxonomy Check Status",
+             countofsamples = "Count") 
+
+
+# graph of same thing
+aj <- c("OK", "Inconclusive", "Absent", "Failed")
+Taxchekgraph <- results %>% ggplot() +
+  geom_col(aes(x = factor(taxonomy_check_status, aj), y = countofsamples, fill = countofsamples), stat = "identity", show.legend = TRUE) + scale_fill_viridis_c() + ylim(0,500) +
+  labs(x = "ANI Taxonomy Check Status", y = "Count of samples",
+       caption = "Source: NCBI REST API done on 2025-01-24") + 
+  geom_text(
+    aes(x = factor(taxonomy_check_status, aj), y = countofsamples, label = countofsamples),
+    position = position_dodge(width = 1),
+    vjust = -1)
+# combine all the charts into one
+
+wrap_table(Taxchektab, panel = "full") + Taxchekgraph
+#+ plot_layout(ncol = 2, widths = c(1,2))
 ```
 
-I used the package "jsonlite" to do this.
+I used the package "jsonlite" to do this. This does not exist as a code
+file, as i did all the coding inside this document. The function
+`hoist()` from the package tidyr was also very helpful in drawing out
+the lower levels of the JSON files
