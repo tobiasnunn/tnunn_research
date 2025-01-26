@@ -1,0 +1,588 @@
+accession	family	genus	species	sample_type	assembly_status	refseq_category	taxonomy_check_status	match_status	completeness	completeness_percentile	contamination
+GCA_003248605.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003248605	ncbi	current	NA	OK	genus_match	91.38	54.6875	1.45
+GCA_003476465.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003476465	ncbi	current	NA	Inconclusive	low_coverage	NA	NA	NA
+GCF_002812725.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002812725	ncbi	current	NA	OK	genus_match	97.79	100	4.81
+GCF_002812805.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium lacus	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.02	100	1.46
+GCF_006715145.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp006715145	ncbi	current	NA	OK	genus_match	98.96	100	2.09
+GCF_013409465.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium pumilum	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_001427525.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001427525	ncbi	current	NA	OK	genus_match	98.99	100	2.5
+GCF_003991875.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium lemovicicum	ncbi	current	reference genome	OK	species_match	98	66.666664	2.59
+GCF_008710745.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium rhizomatis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.93	100	4.05
+GCA_018895315.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp018895315	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCF_900100885.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium pygmaeum	ncbi	current	reference genome	OK	below_threshold_mismatch	99.11	100	1.09
+GCF_013408285.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp013408285	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCA_011620715.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp011620715	ncbi	current	NA	OK	genus_match	93.88	61.71875	0.95
+GCF_900114345.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900114345	ncbi	current	NA	OK	genus_match	99.2	100	1.1
+GCF_000304335.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium yannicii_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	96.49	25	0.24
+GCF_012524205.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp012524205	ncbi	current	reference genome	OK	below_threshold_mismatch	98.89	100	1.63
+GCF_004010105.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp004010105	ncbi	current	NA	OK	genus_match	92.96	100	2.03
+GCF_015277855.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015277855	ncbi	current	reference genome	OK	below_threshold_mismatch	98.75	100	1.19
+GCF_015277815.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015277815	ncbi	current	reference genome	OK	below_threshold_mismatch	98.51	100	0.8
+GCF_000380605.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000380605	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_014779795.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium helvum	ncbi	current	reference genome	OK	below_threshold_mismatch	99.58	100	0.45
+GCF_006783905.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium kyungheense	ncbi	current	reference genome	OK	species_match	98.04	50	1.96
+GCF_014873155.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp014873155	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_000956465.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium trichothecenolyticum	ncbi	current	reference genome	OK	below_threshold_mismatch	98.93	83.333336	1.55
+GCF_001422925.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001422925	ncbi	current	NA	OK	genus_match	98.93	100	3.21
+GCF_003386735.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium trichothecenolyticum_A	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_009858275.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp009858275	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_010634855.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp010634855	ncbi	current	NA	OK	genus_match	99.07	100	1.55
+GCF_015278355.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium yannicii_B	ncbi	current	NA	OK	species_match	98.9	75	2.04
+GCF_015278255.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hibisci	ncbi	current	reference genome	OK	below_threshold_mismatch	96.49	100	1.46
+GCF_015278315.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium ureisolvens	ncbi	current	reference genome	OK	below_threshold_mismatch	98.72	100	4.16
+GCF_900292075.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium timonense	ncbi	current	reference genome	OK	below_threshold_mismatch	98.93	100	0.71
+GCF_001428485.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001428485	ncbi	current	NA	OK	genus_match	98.57	100	NA
+GCF_012847295.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp012847295	ncbi	current	NA	OK	genus_match	98.75	100	NA
+GCF_016907635.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium insulae	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_014837165.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp014837165	ncbi	current	reference genome	OK	below_threshold_mismatch	98.39	100	0.71
+GCF_018588945.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium flavescens	ncbi	current	reference genome	OK	below_threshold_mismatch	98.39	100	1.28
+GCF_001427145.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001427145	ncbi	current	NA	OK	genus_match	98.51	100	0.83
+GCF_003999995.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003999995	ncbi	current	reference genome	OK	below_threshold_mismatch	98.75	100	0.36
+GCF_005502885.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp005502885	ncbi	current	NA	OK	genus_match	97.68	100	3.04
+GCF_013409015.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp013409015	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_014208045.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium thalassium	ncbi	current	reference genome	OK	species_match	98.93	100	3.23
+GCF_013282805.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hominis_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	96.89	37.5	1.5
+GCF_017831975.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium terrae	ncbi	current	reference genome	OK	species_match	99.11	100	0.71
+GCF_004362195.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp004362195	ncbi	current	NA	OK	genus_match	98.69	100	0.24
+GCF_006715675.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp006715675	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_011046485.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp011046485	ncbi	current	NA	OK	genus_match	95.76	100	1.58
+GCF_011759705.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium ulmi	ncbi	current	reference genome	OK	species_match	98.04	66.666664	2.95
+GCF_900155915.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900155915	ncbi	current	NA	OK	genus_match	99.2	100	1.34
+GCF_013409785.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium immunditiarum	ncbi	current	reference genome	OK	below_threshold_mismatch	98.6	100	3.24
+GCF_013410955.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp013410955	ncbi	current	NA	OK	genus_match	98.12	100	1.12
+GCF_003850245.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003850245	ncbi	current	NA	OK	genus_match	97.74	100	0.89
+GCF_006715565.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp006715565	ncbi	current	NA	OK	genus_match	98.33	100	0.83
+GCF_015565955.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium schleiferi	ncbi	current	NA	Inconclusive	below_threshold_match	84.71	16.666666	1.54
+GCA_001898325.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001898325	ncbi	current	NA	OK	genus_match	98.1	100	3.19
+GCA_002313585.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002313585	ncbi	current	NA	OK	genus_match	98.16	100	1.89
+GCF_003931875.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003931875	ncbi	current	NA	OK	genus_match	98.39	100	1.52
+GCF_004564355.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium wangchenii	ncbi	current	reference genome	OK	below_threshold_mismatch	97.38	100	0.71
+GCF_008727775.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium lushaniae	ncbi	current	reference genome	OK	below_threshold_mismatch	94.94	100	0.87
+GCF_003635115.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003635115	ncbi	current	NA	OK	genus_match	98.57	100	2.95
+GCF_003095395.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003095395	ncbi	current	NA	OK	genus_match	98.51	100	2.14
+GCF_008017415.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hatanonis	ncbi	current	reference genome	OK	species_match	98.57	100	1.49
+GCF_005774735.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp005774735	ncbi	current	NA	OK	genus_match	99.64	100	1.82
+GCF_004022425.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium enclense_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	98.8	100	1.96
+GCF_001984105.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001984105	ncbi	current	NA	OK	genus_match	99.46	100	2.56
+GCF_004366135.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp004366135	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_000333395.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000333395	ncbi	current	NA	OK	genus_match	88.2	100	3.36
+GCF_001619615.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001619615	ncbi	current	NA	OK	genus_match	99.29	100	1.52
+GCF_900156455.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900156455	ncbi	current	NA	OK	genus_match	99.64	100	0.67
+GCA_016870695.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp016870695	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCF_001476285.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium testaceum_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	98.57	37.5	0.57
+GCF_000202635.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium testaceum_F	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.46	75	NA
+GCF_001476655.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium testaceum_C	ncbi	current	NA	Inconclusive	below_threshold_mismatch	96.91	12.5	0.62
+GCF_001792815.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001792815	ncbi	current	NA	OK	genus_match	99.04	33.333332	0.54
+GCF_007679045.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp007679045	ncbi	current	NA	OK	genus_match	99.35	66.666664	1.25
+GCF_900104345.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium testaceum_A	ncbi	current	NA	Inconclusive	below_threshold_match	99.64	95.833336	2.23
+GCF_008763945.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium testaceum_G	ncbi	current	NA	Inconclusive	below_threshold_match	99.7	100	1.19
+GCF_017833635.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017833635	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_003386675.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium chocolatum_A	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_006539145.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium testaceum	ncbi	current	reference genome	OK	species_match	99.46	75	2.53
+GCF_001456955.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium enclense	ncbi	current	NA	OK	species_match	98.39	71.42857	1.49
+GCF_001424225.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001424225	ncbi	current	NA	OK	genus_match	99.29	100	0.8
+GCF_014192415.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium proteolyticum	ncbi	current	reference genome	OK	below_threshold_mismatch	98.75	33.333332	1.1
+GCF_003075375.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium testaceum_E	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.07	45.833332	2.86
+GCF_004854025.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hydrothermale	ncbi	current	reference genome	OK	species_match	99.39	100	0.89
+GCF_900156435.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900156435	ncbi	current	NA	OK	genus_match	99.11	100	1.16
+3Dt2h	f__Microbacteriaceae	g__Microbacterium	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_001652465.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium chocolatum	ncbi	current	reference genome	OK	species_match	98.58	33.333332	1.88
+GCA_002703245.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002703245	ncbi	current	NA	OK	genus_match	NA	NA	NA
+GCF_015277875.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900098805	ncbi	current	reference genome	OK	below_threshold_mismatch	98.18	100	1.96
+GCF_014836535.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp014836535	ncbi	current	reference genome	OK	below_threshold_mismatch	98.39	100	1.43
+GCF_001314225.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001314225	ncbi	current	NA	OK	genus_match	98.07	50	3.9
+GCA_014197265.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium invictum	ncbi	current	NA	OK	species_match	99.02	100	0.77
+GCA_900078385.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900078385	ncbi	current	NA	OK	genus_match	98.87	84.375	0.83
+GCF_007992455.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium saccharophilum	ncbi	current	reference genome	OK	species_match	99.38	100	0.36
+GCF_003651225.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium telephonicum	ncbi	current	reference genome	OK	below_threshold_mismatch	98.45	100	0.17
+GCF_015350795.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015350795	ncbi	current	NA	OK	genus_match	98.84	100	1.9
+GCF_001592125.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hominis	ncbi	current	NA	OK	species_match	98.75	50	1.34
+GCF_000411455.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000411455	ncbi	current	NA	OK	genus_match	99.46	100	NA
+GCF_003293595.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003293595	ncbi	current	NA	OK	genus_match	99.29	100	1.49
+GCF_016907555.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium laevaniformans	ncbi	current	reference genome	OK	species_match	99.46	100	0.8
+GCF_016907815.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium aurum	ncbi	current	NA	OK	species_match	98.81	100	3.15
+GCA_003248655.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003248655	ncbi	current	NA	OK	genus_match	NA	NA	NA
+GCF_016907295.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium dextranolyticum	ncbi	current	reference genome	OK	species_match	98.5	100	2.95
+GCA_001724425.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001724425	ncbi	current	NA	OK	genus_match	92.54	100	1.16
+GCF_018717645.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium flavum	ncbi	current	reference genome	OK	species_match	97.5	100	0.71
+GCA_003248845.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003248845	ncbi	current	NA	OK	genus_match	87.36	38.28125	1.66
+GCA_017305435.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017305435	ncbi	current	NA	OK	genus_match	97.68	82.8125	2.23
+GCF_006716815.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium lacticum	ncbi	current	reference genome	OK	species_match	98.57	100	3.04
+GCF_015707995.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015707995	ncbi	current	reference genome	OK	below_threshold_mismatch	98.83	100	2.08
+GCA_001898315.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001898315	ncbi	current	NA	OK	genus_match	98.88	100	2.42
+GCA_011620665.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp011620665	ncbi	current	NA	OK	genus_match	94.85	63.28125	1.19
+GCF_016807485.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp016807485	ncbi	suppressed	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_001620065.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001620065	ncbi	current	NA	OK	genus_match	97.42	100	1.58
+GCF_007828185.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp007828185	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_014201255.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp014201255	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_008710705.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium radiodurans	ncbi	current	reference genome	OK	below_threshold_mismatch	99.46	100	1.91
+GCF_013389665.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oleivorans_C	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.23	50	1.67
+GCF_017876655.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium imperiale	ncbi	current	NA	OK	species_match	99.11	100	1.92
+GCF_900102175.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900102175	ncbi	current	NA	OK	genus_match	98.69	100	0.83
+GCF_003610405.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003610405	ncbi	current	NA	OK	genus_match	98.87	100	2.93
+GCF_003289625.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003289625	ncbi	current	NA	OK	genus_match	98.57	100	1.9
+GCF_002245215.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002245215	ncbi	current	NA	OK	genus_match	98.87	100	2.27
+GCF_003339645.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium arborescens	ncbi	suppressed	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_014204835.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium marinum	ncbi	current	reference genome	OK	below_threshold_mismatch	98.04	100	0.36
+GCF_001644225.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oleivorans_A	ncbi	current	NA	Failed	mismatch	99.26	66.666664	NA
+GCF_001552475.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oleivorans	ncbi	current	NA	OK	below_threshold_mismatch	99.38	100	0.57
+GCF_000383475.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000383475	ncbi	current	NA	OK	genus_match	99.34	100	NA
+GCF_900102005.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900102005	ncbi	current	NA	OK	genus_match	99.25	100	0.12
+GCF_001691565.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oleivorans_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.29	75	0.24
+GCF_000956535.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium ginsengisoli	ncbi	current	reference genome	OK	below_threshold_mismatch	98.18	100	8.18
+GCA_015654575.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015654575	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_005347485.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp005347485	ncbi	current	NA	OK	genus_match	98.93	100	2.21
+GCF_008727755.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium caowuchunii	ncbi	current	reference genome	OK	below_threshold_mismatch	98.39	100	0.71
+GCF_000799385.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000799385	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_902706225.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp902706225	ncbi	current	NA	OK	genus_match	99.35	100	1.61
+GCF_011047135.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium endophyticum	ncbi	current	reference genome	OK	species_match	98.57	100	0.36
+GCF_011761265.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium halimionae	ncbi	current	NA	OK	species_match	98.99	100	1.07
+GCA_017306415.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001897105	ncbi	current	NA	OK	genus_match	98.72	92.1875	3.01
+GCF_000802305.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium mangrovi	ncbi	current	reference genome	OK	below_threshold_mismatch	99.82	100	3.07
+GCF_004135285.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium protaetiae	ncbi	current	reference genome	OK	below_threshold_mismatch	98.09	100	2.61
+GCF_000422405.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium luticocti	ncbi	current	reference genome	OK	below_threshold_mismatch	99.29	100	NA
+GCF_009649635.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp009649635	ncbi	current	NA	OK	genus_match	98.39	100	NA
+GCF_003626735.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003626735	ncbi	current	NA	OK	genus_match	98.61	100	1.22
+GCF_004794465.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp004794465	ncbi	current	NA	OK	genus_match	98.56	100	3.68
+GCF_003075395.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003075395	ncbi	current	NA	OK	genus_match	98.75	100	1.87
+GCF_000967865.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000967865	ncbi	current	NA	OK	genus_match	99.42	100	1.76
+GCF_008868005.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium algeriense	ncbi	current	reference genome	OK	below_threshold_mismatch	97.86	82.35294	0.83
+GCF_008271365.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp008271365	ncbi	current	NA	OK	genus_match	97.43	100	0.08
+GCF_017939615.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017939615	ncbi	current	NA	OK	genus_match	98.04	100	0.2
+GCF_002848265.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002848265	ncbi	current	NA	Inconclusive	below_threshold_mismatch	91.77	100	2.83
+GCF_904066215.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002456035	ncbi	current	NA	OK	genus_match	97.86	100	0.54
+GCF_019056515.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001595495	ncbi	current	NA	Inconclusive	below_threshold_match	96.96	25	0.47
+GCF_001866135.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001866135	ncbi	current	NA	OK	genus_match	97.92	100	0.24
+GCF_900105335.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium paraoxydans	ncbi	current	reference genome	OK	species_match	97.62	35	NA
+GCF_004794315.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp004794315	ncbi	current	NA	OK	genus_match	97.32	100	1.82
+GCF_018224615.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium paraoxydans_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	97.32	30	0.21
+GCF_007954505.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000800925	ncbi	current	NA	OK	genus_match	97.17	100	1.13
+GCF_000425985.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000425985	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_002979435.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002979435	ncbi	current	NA	OK	genus_match	97.23	100	2.99
+GCF_002979475.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002979475	ncbi	current	NA	OK	genus_match	99.46	100	0.86
+GCF_014171575.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp014171575	ncbi	current	NA	OK	genus_match	71.07	100	1.37
+GCF_004794515.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp004794515	ncbi	current	NA	OK	genus_match	98.96	100	0.18
+GCF_002979655.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002979655	ncbi	current	NA	OK	genus_match	99.41	100	1.31
+GCF_900095745.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oxydans_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.58	92.30769	0.71
+GCA_008868125.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium maritypicum	ncbi	current	NA	OK	species_match	99.41	70.588234	0.6
+GCF_000455825.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium maritypicum_A	ncbi	current	NA	Inconclusive	below_threshold_match	99.41	70.588234	NA
+GCF_006540085.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oxydans	ncbi	current	reference genome	OK	species_match	99.29	42.307693	2.68
+GCF_000956405.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oxydans_C	ncbi	current	NA	Inconclusive	below_threshold_match	90.12	7.6923075	1.07
+GCF_000956525.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oxydans_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.8	100	1.16
+GCF_006716345.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium saperdae	ncbi	current	reference genome	OK	below_threshold_mismatch	99.11	100	1.67
+GCA_017405925.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017405925	ncbi	current	NA	OK	genus_match	86.84	35.15625	1.19
+GCF_017355365.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017355365	ncbi	current	NA	OK	genus_match	98.96	100	1.28
+GCF_002979415.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002979415	ncbi	current	NA	OK	genus_match	99.29	100	1.34
+GCF_000956475.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hydrocarbonoxydans_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	98.75	33.333332	3.69
+GCF_004216995.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp004216995	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCA_017744855.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017744855	ncbi	current	NA	OK	genus_match	78.69	21.09375	1.74
+GCF_001513675.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001513675	ncbi	current	NA	OK	genus_match	97.68	100	1.28
+GCF_011752045.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001639925	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.11	83.333336	2.21
+GCF_001262495.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001262495	ncbi	current	NA	OK	genus_match	99.1	100	3.66
+GCF_002362255.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002362255	ncbi	current	NA	OK	genus_match	99.11	100	1.1
+GCF_007667425.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp007667425	ncbi	current	NA	OK	genus_match	99.04	50	1.55
+GCF_001049495.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001049495	ncbi	current	NA	OK	genus_match	98.89	100	1.07
+GCF_001650405.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001650405	ncbi	current	NA	OK	genus_match	98.21	100	3.99
+GCF_015354505.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015354505	ncbi	current	NA	OK	genus_match	99.32	100	2.29
+GCF_904831005.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hydrocarbonoxydans_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	98.86	50	1.43
+GCF_900105205.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium hydrocarbonoxydans	ncbi	current	NA	OK	species_match	98.19	16.666666	1.19
+GCF_018613995.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp018613995	ncbi	current	NA	OK	genus_match	88.46	100	2.85
+GCF_001889265.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001889265	ncbi	current	NA	OK	genus_match	99.39	100	1.25
+GCF_002024885.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium foliorum_A	ncbi	current	NA	Failed	mismatch	98.86	41.666668	0.74
+GCF_006385575.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium foliorum_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.21	66.666664	1.07
+GCF_017876435.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium phyllosphaerae	ncbi	current	reference genome	OK	species_match	98.85	100	1.16
+GCF_001423485.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001423485	ncbi	current	NA	OK	genus_match	99.41	100	0.66
+GCF_001423615.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001423615	ncbi	current	NA	OK	genus_match	99.08	100	1.28
+GCF_001426995.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001426995	ncbi	current	NA	OK	genus_match	99	100	0.96
+GCF_003367705.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium foliorum	ncbi	current	reference genome	OK	species_match	98.68	33.333332	0.96
+GCF_002872075.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium kitamiense	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.11	100	3.01
+GCF_003610275.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium ginsengiterrae_A	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_014205075.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium ginsengiterrae	ncbi	current	NA	OK	species_match	97.14	100	1.22
+2Dt1l	f__Microbacteriaceae	g__Microbacterium	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_903645325.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp903645325	ncbi	current	reference genome	Inconclusive	mismatch	94.31	100	3.78
+GCF_007988825.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium aerolatum	ncbi	current	reference genome	OK	species_match	98.93	100	0.39
+GCF_015277895.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015277895	ncbi	current	reference genome	OK	below_threshold_mismatch	96.96	100	1.58
+GCF_000763375.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium profundi	ncbi	current	reference genome	OK	below_threshold_mismatch	98.93	100	1.98
+GCF_014635185.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium murale	ncbi	current	reference genome	OK	below_threshold_mismatch	98.81	100	NA
+GCA_003524435.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003524435	ncbi	current	NA	OK	genus_match	83.9	30.46875	0.85
+GCF_000685355.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp000685355	ncbi	current	NA	OK	genus_match	77.66	100	2.14
+GCA_015655255.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015655255	ncbi	current	NA	Inconclusive	low_coverage	NA	NA	NA
+GCF_003387575.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp003387575	ncbi	current	reference genome	OK	below_threshold_mismatch	99.21	100	4.37
+GCF_009758255.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp009758255	ncbi	current	NA	OK	genus_match	99.29	100	3.45
+GCF_002705755.3	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium esteraromaticum_A	ncbi	suppressed	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_014084045.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium esteraromaticum_D	ncbi	current	NA	Inconclusive	below_threshold_match	94.72	8.333333	1.49
+GCF_016907315.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium esteraromaticum	ncbi	current	reference genome	OK	species_match	97.54	25	1.43
+GCF_001878835.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001878835	ncbi	current	NA	OK	genus_match	95.38	100	0.6
+GCA_002837415.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002837415	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_900163815.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium esteraromaticum_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	98.52	91.666664	3.9
+GCF_013408055.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium esteraromaticum_C	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCA_001897945.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001897945	ncbi	current	NA	OK	genus_match	93.86	100	3.05
+GCF_015040615.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp015040615	ncbi	current	NA	OK	genus_match	98.99	100	2.03
+GCF_016907255.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium keratanolyticum	ncbi	current	NA	OK	species_match	96.79	100	2.38
+GCF_013409745.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium pseudoresistens	ncbi	current	reference genome	OK	below_threshold_mismatch	98.92	100	0.8
+GCF_001552355.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium resistens	ncbi	current	NA	OK	below_threshold_mismatch	97.85	16.666666	1.44
+GCA_018268455.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp018268455	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCA_018268435.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp018268435	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCA_017306305.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017306305	ncbi	current	NA	OK	genus_match	98.87	93.75	1.93
+GCA_018268515.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp018268515	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCA_002257455.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp002257455	ncbi	current	NA	OK	genus_match	95.84	100	3.84
+GCF_000956505.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium azadirachtae_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.46	100	2.8
+GCF_902506375.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp902506375	ncbi	current	NA	OK	genus_match	99.29	100	2.98
+GCF_000956545.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium azadirachtae	ncbi	current	NA	OK	below_threshold_mismatch	99.08	28.571428	2.59
+GCA_017968845.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017968845	ncbi	current	NA	OK	genus_match	46.93	100	0.67
+GCF_000826185.2	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium gorillae	ncbi	current	reference genome	OK	below_threshold_mismatch	96.82	100	3.04
+GCF_008017445.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium mitrae	ncbi	current	reference genome	OK	species_match	96.01	100	2.31
+GCF_019061125.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp019061125	ncbi	current	NA	OK	genus_match	96.37	100	2.83
+GCF_001426925.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp001426925	ncbi	current	NA	OK	genus_match	99.11	100	1.43
+GCF_015235415.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium paludicola_A	ncbi	current	NA	OK	species_match	98.75	57.142857	1.9
+GCF_017592545.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp017592545	ncbi	current	reference genome	OK	below_threshold_mismatch	97.98	100	13.91
+GCF_016805985.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp016805985	ncbi	current	NA	OK	genus_match	97.55	100	0.83
+GCF_014643695.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium album	ncbi	current	reference genome	OK	below_threshold_mismatch	97.68	100	1.21
+GCF_009735645.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium oryzae	ncbi	current	reference genome	OK	species_match	97.68	100	1.96
+GCF_004564075.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sediminis	ncbi	current	reference genome	OK	species_match	98.12	100	0.15
+GCF_002970975.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium halophytorum	ncbi	current	reference genome	OK	below_threshold_mismatch	97.47	100	3.14
+GCF_003569805.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium halotolerans	ncbi	current	reference genome	OK	below_threshold_mismatch	97.47	100	1.67
+GCF_900163665.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sp900163665	ncbi	suppressed	NA	Inconclusive	below_threshold_mismatch	98.84	100	1.84
+GCF_011046975.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium amylolyticum	ncbi	current	reference genome	OK	species_match	97.58	100	2.73
+GCF_000422385.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium indicum	ncbi	current	reference genome	OK	below_threshold_mismatch	99.82	100	NA
+GCF_014640975.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium faecale	ncbi	current	reference genome	OK	below_threshold_mismatch	97.35	100	1.55
+GCF_003327285.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium sorbitolivorans	ncbi	current	reference genome	OK	species_match	96.93	100	2.88
+GCF_014646015.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium nanhaiense	ncbi	current	reference genome	OK	below_threshold_mismatch	95.36	100	2.71
+GCA_019117025.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium stercoravium	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_000422745.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium gubbeenense	ncbi	current	reference genome	OK	below_threshold_mismatch	98.33	100	1.92
+GCF_003254645.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium suaedae	ncbi	current	reference genome	OK	below_threshold_mismatch	99.11	100	1.86
+GCF_009745985.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium karelineae	ncbi	current	reference genome	OK	below_threshold_mismatch	99.11	100	3.36
+GCF_011326725.1	f__Microbacteriaceae	g__Microbacterium	s__Microbacterium excoecariae	ncbi	current	reference genome	OK	below_threshold_mismatch	98.23	100	0.96
+GCF_000426445.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium album	ncbi	current	reference genome	OK	below_threshold_mismatch	92.73	100	9.19
+GCA_019117325.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium intestinigallinarum	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_000285835.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium senegalense	ncbi	current	reference genome	OK	below_threshold_mismatch	91.83	100	8.86
+GCF_016107685.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium yomogidense	ncbi	current	reference genome	OK	species_match	89.1	66.666664	7.05
+GCF_900163715.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium yomogidense_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	90.72	100	6.24
+GCF_900169175.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium jeotgali	ncbi	current	NA	OK	species_match	90.55	100	5.03
+GCF_009857845.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium rongguiense	ncbi	current	reference genome	OK	below_threshold_mismatch	90.87	100	3.12
+GCF_001584615.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium ravenspurgense	ncbi	current	reference genome	OK	species_match	86.43	87.5	3.6
+GCF_001815905.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp001815905	ncbi	current	NA	OK	genus_match	86.1	100	4.18
+GCF_000178455.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium mcbrellneri	ncbi	current	reference genome	OK	below_threshold_mismatch	98.75	100	0.16
+GCF_016907735.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium paucivorans	ncbi	current	reference genome	Inconclusive	below_threshold_match	94.27	25	0.51
+GCF_013004595.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium luteolum	ncbi	current	NA	OK	species_match	92.6	88.23529	6.62
+GCF_013359525.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium luteolum_A	ncbi	suppressed	NA	Failed	mismatch	81.84	11.764706	2.26
+GCF_005280295.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp005280295	ncbi	current	NA	OK	genus_match	90.18	100	8.84
+GCF_900184225.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium ihuae	ncbi	current	reference genome	OK	below_threshold_mismatch	92.33	100	7.19
+GCF_003315415.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium celere_A	ncbi	current	NA	Inconclusive	below_threshold_match	94.4	50	8.28
+GCF_900169275.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium casei	ncbi	current	NA	OK	species_match	97.29	51.515152	5.8
+GCF_006489205.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp006489205	ncbi	previous	NA	NA	NA	NA	NA	NA
+GCF_018137945.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp018137945	ncbi	current	NA	OK	genus_match	97.06	100	2.25
+GCF_011927955.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium marinum	ncbi	current	reference genome	OK	species_match	94.77	50	6.98
+GCF_900105045.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sandarakinum	ncbi	current	reference genome	Inconclusive	mismatch	97.65	100	6.86
+GCF_900169145.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium antiquum_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	95.25	25	3.57
+GCF_016107655.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium antiquum	ncbi	current	reference genome	OK	species_match	98.45	100	5.32
+GCF_007558825.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium aurantiacum_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	97.18	20	9.33
+GCF_016892625.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp016892625	ncbi	current	NA	OK	genus_match	96.89	100	7.6
+GCF_900169365.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp900169365	ncbi	current	NA	OK	genus_match	96.55	100	5.31
+GCF_900169065.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium aurantiacum	ncbi	current	NA	OK	species_match	97.6	73.333336	3.22
+1Dt1h	f__Brevibacteriaceae	g__Brevibacterium	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_011617245.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp011617245	ncbi	current	reference genome	OK	below_threshold_mismatch	94.96	100	5.96
+GCF_013623835.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium oceani	ncbi	current	NA	OK	below_threshold_mismatch	95.98	100	7.73
+GCA_019117545.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium intestinavium	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_017808105.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium renqingii	ncbi	current	NA	Inconclusive	below_threshold_mismatch	94.11	50	4.26
+GCF_004745075.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp004745075	ncbi	current	NA	OK	genus_match	93.73	100	3.72
+GCF_004745485.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp004745485	ncbi	current	NA	OK	genus_match	94.59	100	7.04
+GCF_001570805.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium epidermidis	ncbi	current	reference genome	OK	below_threshold_mismatch	96.62	80	3.04
+GCF_013623905.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sediminis	ncbi	current	NA	OK	species_match	97.16	100	5.79
+GCF_013280495.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium permense	ncbi	current	reference genome	OK	species_match	97.11	66.666664	4.57
+GCF_900169265.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium iodinum	ncbi	current	NA	OK	below_threshold_mismatch	94.93	100	2.5
+GCF_012844365.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp012844365	ncbi	current	NA	OK	genus_match	97.29	100	8.43
+GCF_900169165.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium linens	ncbi	current	NA	OK	species_match	96.62	62.5	3.87
+GCF_900105315.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium siliguriense	ncbi	current	reference genome	OK	below_threshold_mismatch	94.72	100	5.08
+GCF_011617465.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp011617465	ncbi	current	reference genome	OK	below_threshold_mismatch	94.86	100	5.5
+GCF_011617705.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp011617705	ncbi	current	reference genome	OK	below_threshold_mismatch	95.81	100	5.97
+1Dt100h	f__	g__	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_900163655.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium nesterenkovii	ncbi	current	reference genome	OK	below_threshold_mismatch	88.81	100	10.63
+GCF_900258505.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium timonense	ncbi	current	reference genome	OK	below_threshold_mismatch	87.74	100	8.95
+GCF_015209585.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp015209585	ncbi	current	reference genome	OK	below_threshold_mismatch	90.26	50	9.94
+GCF_016907455.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium muris	ncbi	current	NA	OK	species_match	93.21	70	10.5
+GCF_000225825.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium squillarum	ncbi	current	reference genome	OK	below_threshold_mismatch	91.57	100	11.64
+GCF_005490785.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp005490785	ncbi	current	NA	OK	genus_match	90.44	100	14.44
+GCA_019118275.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium merdavium	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCA_019115335.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium merdigallinarum	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_002871795.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp002871795	ncbi	current	NA	OK	genus_match	87.74	100	11.76
+GCF_014204755.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium aquaticum	ncbi	current	reference genome	OK	below_threshold_mismatch	93.78	100	11.67
+GCF_003711805.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium intestinipullorum	ncbi	current	NA	OK	genus_match	96.22	100	14.65
+GCF_003994255.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium paraconglomeratum	ncbi	current	reference genome	Inconclusive	mismatch	97.01	57.142857	10.33
+GCF_003347015.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp003347015	ncbi	current	NA	OK	genus_match	94.09	100	15.89
+GCF_017876545.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sacelli	ncbi	current	reference genome	OK	species_match	93.95	100	28.15
+GCF_001969445.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp001969445	ncbi	current	NA	OK	genus_match	95.16	100	18.36
+GCF_017876515.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium fresconis	ncbi	current	reference genome	OK	species_match	92.18	66.666664	21.14
+GCF_014897705.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp014897705	ncbi	current	NA	OK	genus_match	94.61	100	24.08
+GCF_002332425.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium alimentarium	ncbi	current	reference genome	OK	species_match	93.6	63.636364	10.78
+GCF_014897585.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium tyrofermentans	ncbi	current	NA	OK	species_match	95.9	33.333332	18.14
+GCF_900184245.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium massiliense	ncbi	current	reference genome	OK	below_threshold_mismatch	93.74	100	13.61
+GCA_012799425.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp012799425	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCA_014400405.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp014400405	ncbi	current	NA	OK	genus_match	62.75	100	7.23
+GCF_002407065.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium ginsengisoli	ncbi	current	reference genome	OK	below_threshold_mismatch	95.18	100	14.61
+GCF_002216795.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium avium	ncbi	current	reference genome	OK	below_threshold_mismatch	89.72	100	12.57
+GCF_002407185.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium vulturis	ncbi	current	reference genome	OK	below_threshold_mismatch	94.22	33.333332	16.77
+GCF_000023405.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium faecium	ncbi	suppressed	NA	OK	below_threshold_mismatch	99.27	100	0.14
+GCF_003355475.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium saurashtrense	ncbi	current	reference genome	OK	species_match	95	100	10.5
+GCF_000576425.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium phenoliresistens	ncbi	current	NA	OK	species_match	93.88	50	18.91
+GCF_003130585.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium endophyticum	ncbi	current	reference genome	OK	below_threshold_mismatch	85.96	100	13.69
+GCF_016623465.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium halotolerans	ncbi	current	NA	OK	derived_species_match	87.54	50	18.41
+GCF_009299795.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium subflavum	ncbi	current	reference genome	OK	below_threshold_mismatch	89.86	100	16.69
+2Dt1e	f__Dermabacteraceae	g__Brachybacterium	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_003515075.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas gilva	ncbi	current	reference genome	OK	below_threshold_mismatch	99.21	100	0.65
+3Dt2j	f__Sphingomonadaceae	g__Sphingomonas	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+1Dt100g	f__Sphingomonadaceae	g__Sphingomonas	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_003345355.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003345355	ncbi	current	reference genome	OK	below_threshold_mismatch	98.66	100	1.91
+GCF_001598455.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas pruni	ncbi	current	reference genome	OK	below_threshold_mismatch	98.56	100	3.4
+GCF_001598355.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas asaccharolytica	ncbi	current	reference genome	OK	below_threshold_mismatch	98.15	100	3.25
+GCF_001598415.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas mali	ncbi	current	reference genome	OK	below_threshold_mismatch	98.88	100	5.13
+GCA_017304635.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp017304635	ncbi	current	NA	OK	genus_match	97.39	76.073616	1.38
+GCA_004799495.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004799495	ncbi	current	NA	OK	genus_match	98.16	83.435585	1.02
+GCA_018240825.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp018240825	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCA_017304615.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp017304615	ncbi	current	NA	OK	genus_match	97.88	80.368095	1.12
+GCF_007859635.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas panacisoli	ncbi	current	reference genome	OK	below_threshold_mismatch	95.64	100	0.91
+GCF_903644135.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp903644135	ncbi	current	NA	OK	genus_match	76.51	43.47826	2.5
+GCF_903643065.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp903643065	ncbi	current	NA	OK	genus_match	65.24	21.73913	1.52
+GCF_903643035.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp903643035	ncbi	current	NA	OK	genus_match	77.05	56.52174	2.37
+GCF_902498785.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp902498785	ncbi	current	NA	OK	genus_match	98.39	100	1.42
+GCF_006438955.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas oligophenolica	ncbi	current	NA	Inconclusive	below_threshold_mismatch	99.09	100	1.33
+GCF_903642285.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp903642285	ncbi	current	NA	OK	genus_match	94.74	95.652176	1.31
+GCF_001421505.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421505	ncbi	current	NA	OK	genus_match	98.77	100	1.24
+GCF_007995065.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas ginsenosidivorax	ncbi	current	reference genome	OK	below_threshold_mismatch	98.86	100	2.45
+GCF_001421415.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421415	ncbi	current	NA	OK	genus_match	99.22	100	3.37
+GCF_001421745.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421745	ncbi	current	NA	OK	genus_match	98.92	100	0.99
+GCF_003053745.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas faeni	ncbi	current	reference genome	OK	below_threshold_mismatch	99.19	83.333336	1.33
+GCF_004795835.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004795835	ncbi	current	NA	OK	genus_match	98.86	100	1.59
+GCF_003610375.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003610375	ncbi	current	NA	OK	genus_match	99.22	100	1.24
+GCF_004340965.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004340965	ncbi	current	NA	OK	genus_match	99.07	100	1.24
+GCF_900115295.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp900115295	ncbi	current	NA	OK	genus_match	99.1	100	2.82
+GCF_004341085.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004341085	ncbi	current	NA	OK	genus_match	99.12	100	2.38
+GCF_001422045.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001422045	ncbi	current	NA	OK	genus_match	99.14	100	2.08
+GCF_003688625.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003688625	ncbi	current	NA	OK	genus_match	99.09	100	2.38
+GCF_001424005.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001424005	ncbi	current	NA	OK	genus_match	99.11	100	2.38
+GCF_003688595.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003688595	ncbi	current	NA	OK	genus_match	98.84	100	2.5
+GCF_003050745.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003050745	ncbi	current	NA	OK	genus_match	98.99	100	2.47
+GCF_004340945.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004340945	ncbi	current	NA	OK	genus_match	98.64	100	1.39
+GCA_003240625.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas taxi_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_014358075.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas albertensis	ncbi	current	NA	OK	species_match	94.89	50	1.05
+GCF_001421805.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421805	ncbi	current	NA	OK	genus_match	99.12	100	0.93
+GCF_003050705.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas aurantiaca	ncbi	current	reference genome	OK	below_threshold_mismatch	98.93	66.666664	1.99
+GCF_004101245.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004101245	ncbi	current	NA	OK	genus_match	99.06	100	1.8
+GCF_013374115.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp013374115	ncbi	current	NA	OK	genus_match	99.19	100	1.38
+GCF_001421535.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421535	ncbi	current	NA	OK	genus_match	98.55	100	1.49
+GCF_003046295.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas aerolata	ncbi	current	NA	OK	below_threshold_mismatch	99.19	66.666664	0.76
+GCA_005773165.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp005773165	ncbi	current	NA	Inconclusive	low_coverage	NA	NA	NA
+GCF_014641735.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas metalli	ncbi	current	reference genome	OK	below_threshold_mismatch	98.69	100	2.83
+GCF_900115745.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas rubra	ncbi	current	reference genome	OK	below_threshold_mismatch	98.87	100	1.02
+GCF_001423765.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001423765	ncbi	current	NA	OK	genus_match	99.55	100	0.52
+GCF_018139225.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp018139225	ncbi	suppressed	NA	Inconclusive	below_threshold_mismatch	53.88	100	25.73
+GCF_014841615.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp014841615	ncbi	current	NA	OK	genus_match	98.93	100	3.03
+GCF_001426195.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001426195	ncbi	current	NA	OK	genus_match	99.32	100	0.95
+GCF_016427505.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp016427505	ncbi	current	reference genome	Inconclusive	below_threshold_mismatch	99.52	100	1.02
+GCF_003951315.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003951315	ncbi	current	NA	OK	genus_match	99.19	100	2.48
+GCF_014199625.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas abaci	ncbi	current	reference genome	OK	below_threshold_mismatch	99.14	100	3.26
+GCF_014197105.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas jinjuensis	ncbi	current	reference genome	OK	below_threshold_mismatch	99.42	100	1.1
+GCF_014199305.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas aerophila	ncbi	current	reference genome	OK	below_threshold_mismatch	98.93	100	2
+GCF_900110035.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas gellani	ncbi	current	reference genome	OK	below_threshold_mismatch	99.05	100	2.6
+GCF_009789535.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas carotinifaciens	ncbi	current	reference genome	OK	species_match	99.71	75	2.63
+GCF_000739895.2	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas paucimobilis	ncbi	current	NA	OK	species_match	99.42	22.222221	2.4
+GCF_014196255.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas pseudosanguinis	ncbi	current	NA	OK	species_match	99.52	100	0.85
+GCF_014197135.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas zeae	ncbi	current	reference genome	OK	species_match	99.23	100	1.84
+GCF_001476905.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sanguinis_B	ncbi	current	NA	OK	species_match	97.99	23.076923	1.9
+GCF_001591005.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sanguinis	ncbi	current	reference genome	OK	below_threshold_mismatch	99.46	84.61539	2.23
+GCA_019112965.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas excrementigallinarum	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_000787715.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas parapaucimobilis	ncbi	current	reference genome	OK	below_threshold_mismatch	99.46	100	2.18
+GCF_001477495.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas yabuuchiae_A	ncbi	current	NA	Inconclusive	below_threshold_match	98.22	33.333332	2.08
+GCF_014199595.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas yabuuchiae	ncbi	current	NA	OK	species_match	99.46	100	1.42
+GCF_016107325.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp016107325	ncbi	current	NA	OK	genus_match	99.57	100	1.77
+GCF_003355005.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003355005	ncbi	current	NA	OK	genus_match	99.29	100	2.07
+GCF_016820445.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp016820445	ncbi	current	reference genome	Inconclusive	below_threshold_mismatch	99.19	100	0.9
+GCA_003075315.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003075315	ncbi	current	NA	Inconclusive	below_threshold_mismatch	65.88	100	9.32
+GCF_014196115.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas aquatilis	ncbi	current	NA	OK	species_match	99.57	100	0.67
+GCF_000632225.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000632225	ncbi	current	NA	OK	genus_match	98.91	100	2.54
+GCF_000764535.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas taxi	ncbi	current	reference genome	OK	below_threshold_mismatch	99.53	100	1.51
+GCF_013409985.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas melonis_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	78.83	13.333333	11.4
+GCA_002292295.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002292295	ncbi	current	NA	OK	genus_match	98.96	100	1.25
+GCF_010450875.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas insulae	ncbi	current	reference genome	OK	species_match	96.79	33.333332	1.39
+GCF_002288825.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas lenta	ncbi	current	reference genome	OK	below_threshold_mismatch	98.54	100	2.17
+GCF_002374835.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas ginsenosidimutans	ncbi	current	reference genome	OK	below_threshold_mismatch	99.76	100	1.4
+GCF_002374855.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas adhaesiva	ncbi	current	reference genome	OK	species_match	99.67	100	1.95
+GCF_004345855.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004345855	ncbi	current	NA	OK	genus_match	99.74	100	1.67
+GCF_014193845.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp014193845	ncbi	current	NA	OK	genus_match	99.83	100	1.47
+GCF_014194975.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp014194975	ncbi	current	NA	OK	genus_match	99.64	100	1.93
+GCA_003243195.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas taxi_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_000419605.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas phyllosphaerae_B	ncbi	current	NA	Inconclusive	below_threshold_match	98.26	75	1.52
+GCF_001421995.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421995	ncbi	current	NA	OK	genus_match	99.37	100	0.73
+GCF_001476895.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas endophytica_A	ncbi	current	NA	Inconclusive	below_threshold_match	97.84	25	3.25
+GCF_902506455.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp902506455	ncbi	current	NA	OK	genus_match	99.67	100	1.02
+GCF_000427645.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas phyllosphaerae	ncbi	current	reference genome	OK	below_threshold_mismatch	99.21	100	1.67
+GCF_014199415.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas endophytica	ncbi	current	NA	OK	species_match	99.62	75	1.26
+GCF_001425405.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001425405	ncbi	current	NA	OK	genus_match	99.07	100	0.67
+GCF_012035195.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp012035195	ncbi	current	reference genome	OK	below_threshold_mismatch	99.56	100	1.65
+GCF_013328205.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas hominis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.76	100	1.31
+GCF_000382485.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000382485	ncbi	current	NA	OK	genus_match	98.52	100	1.35
+GCF_900109565.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas palmae	ncbi	current	reference genome	OK	below_threshold_mismatch	98.92	100	0.99
+GCF_005502745.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp005502745	ncbi	current	NA	OK	genus_match	99	100	1.91
+GCA_017304125.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp017304125	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCF_014204695.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001897045	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCA_001897375.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001897375	ncbi	current	NA	OK	genus_match	98.54	100	1.99
+GCF_013344685.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp013344685	ncbi	current	NA	OK	genus_match	99.15	100	2.78
+GCF_002117915.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002117915	ncbi	current	NA	OK	genus_match	99.37	100	1.17
+GCF_014217605.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp014217605	ncbi	current	NA	OK	genus_match	99.37	100	0.82
+GCF_001981525.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas jeddahensis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.42	100	1.6
+GCF_000980895.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas olei	ncbi	current	NA	OK	genus_match	98.58	100	3.08
+GCF_900109205.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp900109205	ncbi	current	NA	OK	genus_match	99.03	100	2.52
+GCF_002197665.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas mucosissima	ncbi	current	reference genome	OK	below_threshold_mismatch	98.77	100	1.82
+GCF_002197685.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas dokdonensis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.8	100	1.39
+GCA_903884945.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp903884945	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_001423845.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001423845	ncbi	current	NA	OK	genus_match	99.62	100	1.24
+GCF_016743815.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp016743815	ncbi	current	reference genome	OK	below_threshold_mismatch	90.33	100	2.6
+GCF_014171475.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas alpina_A	ncbi	current	NA	OK	genus_match	98.78	100	2.78
+GCF_000803065.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000803065	ncbi	current	NA	OK	genus_match	98.47	100	3.98
+GCF_014490665.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas alpina	ncbi	current	NA	OK	species_match	94.19	50	2.3
+GCF_000251145.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000251145	ncbi	current	NA	OK	genus_match	94.58	100	1.86
+GCF_000241465.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas echinoides	ncbi	current	NA	OK	species_match	97.77	33.333332	4.25
+GCF_000797515.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000797515	ncbi	current	NA	OK	genus_match	73.37	100	4
+GCF_013374095.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp013374095	ncbi	current	NA	OK	genus_match	98.59	100	1.16
+GCF_014636175.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas psychrolutea	ncbi	current	reference genome	OK	below_threshold_mismatch	97.55	100	1.92
+GCF_000241485.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000241485	ncbi	current	NA	OK	genus_match	97.95	100	3.33
+GCF_006439055.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas glacialis_A	ncbi	current	NA	Inconclusive	below_threshold_match	98.56	50	3.8
+GCF_014653575.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas glacialis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.93	100	2.82
+GCF_900103265.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp900103265	ncbi	current	NA	OK	genus_match	98.39	100	2.73
+GCF_001717955.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas panacis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.67	100	5.02
+GCF_004208535.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas populi	ncbi	current	reference genome	OK	below_threshold_mismatch	97.91	100	6.22
+GCA_002281485.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002281485	ncbi	current	NA	OK	genus_match	80.07	100	3.82
+GCA_002083655.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002083655	ncbi	current	NA	Inconclusive	low_coverage	NA	NA	NA
+GCA_002280555.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002280555	ncbi	current	NA	OK	genus_match	94.09	100	1.07
+GCA_001464615.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001464615	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCA_002281535.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002281535	ncbi	current	NA	OK	genus_match	94.37	100	1.5
+GCA_002083435.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002083435	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCA_002083475.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002083475	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCA_002403415.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002403415	ncbi	current	NA	OK	genus_match	87.99	100	1.97
+GCA_013822915.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp013822915	ncbi	current	NA	OK	genus_match	81.02	27.607363	3.54
+GCA_002863155.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002863155	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCF_001556185.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001556185	ncbi	current	NA	OK	genus_match	97.31	100	2.02
+GCA_006438735.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas koreensis_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_003550065.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas caeni	ncbi	current	reference genome	OK	below_threshold_mismatch	99.18	100	3.34
+GCF_001555965.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001555965	ncbi	current	NA	OK	genus_match	98.67	100	1.49
+GCF_000786205.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000786205	ncbi	current	NA	OK	genus_match	98.04	100	2.78
+GCF_006346325.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas japonica	ncbi	current	NA	OK	species_match	98.87	100	0.46
+GCF_005144715.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp005144715	ncbi	current	reference genome	OK	below_threshold_mismatch	98.65	100	1.7
+GCF_002351485.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas spermidinifaciens	ncbi	current	reference genome	OK	below_threshold_mismatch	99	100	1.64
+GCF_014199325.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas yantingensis	ncbi	current	reference genome	OK	below_threshold_mismatch	99.42	100	1.48
+GCF_004135605.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas desiccabilis	ncbi	current	reference genome	OK	species_match	99.28	33.333332	1.52
+GCF_004341505.2	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004341505	ncbi	current	NA	OK	genus_match	99.28	100	4.7
+GCF_014842075.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp014842075	ncbi	current	NA	OK	genus_match	98.4	100	1.64
+GCF_001425385.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001425385	ncbi	current	NA	OK	genus_match	98.13	100	1.28
+GCF_001421715.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421715	ncbi	current	NA	OK	genus_match	98.93	100	0.88
+GCF_001421965.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421965	ncbi	current	NA	OK	genus_match	98.93	100	1.05
+GCF_001421245.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421245	ncbi	current	NA	OK	genus_match	98.68	100	1.41
+3Dt2c	f__Sphingomonadaceae	g__Sphingomonas	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCA_003240755.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas hengshuiensis_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_003946805.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003946805	ncbi	suppressed	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCF_001619955.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas hankookensis	ncbi	current	NA	Inconclusive	below_threshold_mismatch	98.85	100	0.85
+GCF_001421765.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421765	ncbi	current	NA	OK	genus_match	98.85	100	0.78
+GCF_001421355.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421355	ncbi	current	NA	OK	genus_match	98.47	100	0.63
+3Dt1c	f__Sphingomonadaceae	g__Sphingomonas	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_902506605.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp902506605	ncbi	current	NA	OK	genus_match	98.93	100	0.66
+GCA_902826325.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp902826325	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCF_007833215.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp007833215	ncbi	current	reference genome	OK	below_threshold_mismatch	97.53	100	1
+GCA_002280565.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002280565	ncbi	current	NA	OK	genus_match	82.74	100	0.88
+GCF_001557215.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001557215	ncbi	current	NA	OK	genus_match	94.71	100	2.37
+GCF_002797435.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas koreensis	ncbi	current	NA	OK	species_match	98.8	2.6666667	2.56
+GCF_001721295.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas turrisvirgatae	ncbi	current	reference genome	OK	below_threshold_mismatch	99	100	2.62
+GCA_017745215.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp017745215	ncbi	current	NA	OK	genus_match	95.69	68.711655	1.43
+GCF_000226955.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas elodea_A	ncbi	current	reference genome	Inconclusive	below_threshold_mismatch	99.12	100	1.68
+GCF_011927635.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas trueperi	ncbi	current	reference genome	OK	species_match	99.36	100	3.1
+GCF_012650175.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp012650175	ncbi	current	NA	OK	genus_match	99.07	100	2.81
+GCF_006716975.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas trueperi_A	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_001598435.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas pituitosa	ncbi	current	reference genome	OK	below_threshold_mismatch	99.36	100	2.66
+GCF_900114095.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp900114095	ncbi	current	NA	OK	genus_match	99.36	100	3.36
+GCF_001650735.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001650735	ncbi	current	NA	OK	genus_match	99.16	100	3.58
+GCF_002091475.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas azotifigens	ncbi	current	reference genome	OK	below_threshold_mismatch	99.06	100	2.93
+GCF_000282895.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000282895	ncbi	current	NA	OK	genus_match	98.86	100	2.18
+GCF_003096275.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas pokkalii	ncbi	current	reference genome	OK	below_threshold_mismatch	98.45	100	2.24
+GCF_005503355.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp005503355	ncbi	current	NA	OK	genus_match	99.07	100	2.46
+GCF_011761945.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas leidyi	ncbi	current	reference genome	OK	below_threshold_mismatch	99.29	100	3.06
+GCF_002127225.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002127225	ncbi	current	NA	OK	genus_match	99.23	100	2.07
+GCA_017418975.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp017418975	ncbi	current	NA	OK	genus_match	99.05	92.63804	3.15
+GCF_014196745.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas kyeonggiensis	ncbi	current	reference genome	OK	below_threshold_mismatch	99.43	100	3.02
+GCF_014204495.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas kyeonggiensis_A	ncbi	current	NA	Inconclusive	below_threshold_match	99.07	33.333332	1.78
+GCF_003096895.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp003096895	ncbi	suppressed	NA	NA	NA	NA	NA	NA
+GCF_013416555.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp013416555	ncbi	current	NA	OK	genus_match	99.07	100	1.42
+GCF_000935025.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas hengshuiensis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.65	100	2.36
+GCF_014489075.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp014489075	ncbi	current	NA	OK	genus_match	99.03	100	3.75
+GCF_018449795.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp018449795	ncbi	current	NA	OK	genus_match	96.83	100	3.47
+GCF_004792695.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas naasensis	ncbi	current	reference genome	OK	species_match	99.36	100	1.92
+GCF_000712135.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp000712135	ncbi	current	NA	OK	genus_match	99.53	100	2.95
+GCF_001428865.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001428865	ncbi	current	NA	OK	genus_match	99.01	100	1.62
+GCF_002002925.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002002925	ncbi	current	NA	OK	genus_match	99.23	100	2.16
+GCF_002796605.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002796605	ncbi	current	reference genome	Inconclusive	below_threshold_mismatch	98.78	50	3.59
+GCF_004792685.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas gei	ncbi	current	reference genome	OK	below_threshold_mismatch	98.84	100	1.9
+GCF_014199255.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas xinjiangensis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.83	100	3.35
+GCA_017744835.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp017744835	ncbi	current	NA	OK	genus_match	98.56	87.11656	1.54
+GCF_012927115.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp012927115	ncbi	current	NA	OK	genus_match	99.15	100	1.26
+GCA_004173185.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp004173185	ncbi	current	NA	Inconclusive	below_threshold_lineage_match	NA	NA	NA
+GCF_001591025.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas soli	ncbi	current	reference genome	OK	below_threshold_mismatch	98.58	100	1.16
+GCF_014334115.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp014334115	ncbi	current	NA	Inconclusive	below_threshold_mismatch	98.82	100	NA
+GCF_011057975.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp011057975	ncbi	current	reference genome	OK	below_threshold_mismatch	99.56	100	NA
+GCA_002707985.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp002707985	ncbi	current	NA	Failed	below_threshold_mismatch	NA	NA	NA
+GCF_003171655.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas portus	ncbi	current	reference genome	OK	below_threshold_mismatch	99.64	100	1.12
+GCF_014199335.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sediminis	ncbi	current	reference genome	OK	species_match	99.45	100	1.25
+GCF_004361835.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas pacifica	ncbi	current	reference genome	OK	species_match	99.64	100	0.67
+GCA_018122655.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp018122655	ncbi	current	NA	OK	below_threshold_mismatch	99.52	100	0.61
+GCF_900199185.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas guangdongensis	ncbi	current	reference genome	OK	below_threshold_mismatch	98.88	100	1.33
+GCA_016937575.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas aeriglobus	ncbi	current	NA	Inconclusive	below_threshold_mismatch	63.25	100	18.45
+GCF_001421785.1	f__Sphingomonadaceae	g__Sphingomonas	s__Sphingomonas sp001421785	ncbi	current	NA	OK	genus_match	99.48	100	0.6
+GCF_008801695.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea stewartii	ncbi	current	NA	OK	species_match	98.74	25	1.16
+GCF_000710035.2	f__Enterobacteriaceae	g__Pantoea	s__Pantoea ananatis	ncbi	current	NA	OK	species_match	98	22.222221	1.72
+GCF_002307475.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea allii	ncbi	current	NA	OK	species_match	99.58	89.47369	5.73
+GCA_002434205.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp002434205	ncbi	current	NA	OK	below_threshold_mismatch	98.37	100	1.52
+GCF_002095315.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea conspicua	ncbi	current	reference genome	OK	below_threshold_mismatch	88.99	100	1.09
+GCA_002095305.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea brenneri	ncbi	current	NA	OK	below_threshold_mismatch	88.95	3.3333333	1.34
+GCA_009830035.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp009830035	ncbi	current	NA	OK	genus_match	66.82	100	0.51
+GCF_008632075.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp008632075	ncbi	current	reference genome	OK	below_threshold_mismatch	99.12	100	0.63
+GCF_004792415.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea vagans	ncbi	current	reference genome	OK	below_threshold_mismatch	99.16	45.714287	0.51
+GCF_009905795.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp003512445	ncbi	suppressed	NA	Failed	mismatch	95.22	14.285714	0.69
+GCF_001598475.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea agglomerans	ncbi	current	NA	OK	species_match	98.33	37.72242	0.28
+GCF_009646115.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea eucalypti	ncbi	current	reference genome	OK	species_match	99.87	60	0.66
+GCF_013415305.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp002419935	ncbi	current	NA	OK	genus_match	98.68	100	0.51
+GCF_900115075.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp900115075	ncbi	current	reference genome	OK	below_threshold_mismatch	99.32	100	0.91
+GCF_006494375.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea anthophila	ncbi	current	NA	OK	below_threshold_mismatch	99.46	37.5	0.78
+GCF_003236715.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp003236715	ncbi	current	NA	OK	genus_match	99.41	100	0.65
+GCF_006494415.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea deleyi	ncbi	current	NA	OK	species_match	99.45	75	0.51
+GCA_018842655.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp018842655	ncbi	current	NA	OK	below_threshold_mismatch	66.74	100	0.75
+GCF_018842675.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp018842675	ncbi	current	reference genome	Inconclusive	below_threshold_mismatch	77.83	100	1.01
+GCF_014946725.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea mediterraneensis_A	ncbi	current	NA	Inconclusive	below_threshold_mismatch	100	100	NA
+GCF_003813865.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp003813865	ncbi	current	reference genome	OK	below_threshold_mismatch	97.65	100	4.37
+GCF_003612015.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea piersonii	ncbi	current	reference genome	OK	below_threshold_mismatch	97.84	100	1.76
+GCF_002077695.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea latae	ncbi	current	reference genome	OK	below_threshold_mismatch	97.37	100	3.95
+GCA_001485295.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp001485295	ncbi	current	NA	Inconclusive	below_threshold_mismatch	97.51	100	NA
+GCF_002095575.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea septica	ncbi	current	NA	OK	below_threshold_mismatch	93.13	50	3.03
+GCF_002920175.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp002920175	ncbi	suppressed	NA	Inconclusive	below_threshold_mismatch	NA	NA	NA
+GCA_013753875.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea persica	ncbi	current	NA	Inconclusive	below_threshold_mismatch	53.3	100	0.18
+GCF_000295955.2	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp000295955	ncbi	current	NA	OK	genus_match	93.32	100	4.04
+GCF_002095535.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea cypripedii	ncbi	current	reference genome	OK	below_threshold_mismatch	98.65	42.857143	3.48
+GCF_011395035.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea cypripedii_A	ncbi	current	NA	Inconclusive	below_threshold_match	99.66	100	2.99
+GCF_000175935.2	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp000175935	ncbi	current	NA	OK	genus_match	99.63	100	0.28
+GCF_000468095.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp000468095	ncbi	current	NA	OK	genus_match	92.79	100	1.57
+GCF_007833795.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea dispersa_B	ncbi	current	reference genome	OK	below_threshold_mismatch	97.64	100	1.75
+GCF_002095485.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea wallisii	ncbi	current	reference genome	OK	below_threshold_mismatch	86.85	100	1.19
+GCA_900215435.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp900215435	ncbi	current	NA	OK	below_threshold_mismatch	98.68	100	3.05
+GCF_001187905.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp001187905	ncbi	current	NA	OK	genus_match	98.92	100	0.86
+GCF_900068845.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea ludwigii_A	ncbi	suppressed	NA	Failed	below_threshold_mismatch	NA	NA	NA
+GCF_002858935.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea endophytica	ncbi	current	reference genome	Inconclusive	mismatch	99.22	83.333336	0.75
+GCF_900068835.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea ludwigii_B	ncbi	suppressed	NA	Failed	mismatch	NA	NA	NA
+GCF_016625195.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp016625195	ncbi	current	NA	Inconclusive	below_threshold_mismatch	96.2	100	8.46
+GCF_000759475.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea rwandensis_B	ncbi	current	NA	Inconclusive	below_threshold_mismatch	93.39	50	1.09
+GCF_000773965.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea cancerogena_A	ncbi	current	NA	Failed	mismatch	90.68	9.090909	3.6
+1Dt2d	f__Enterobacteriaceae	g__Pantoea	s__	bangor	NA	NA	NA	NA	NA	NA	NA
+GCF_002095465.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea rodasii	ncbi	current	NA	OK	species_match	84.59	25	1.57
+GCF_002095475.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea rwandensis	ncbi	current	reference genome	OK	below_threshold_mismatch	94.52	100	6.06
+GCF_011752625.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp011752625	ncbi	current	reference genome	OK	below_threshold_mismatch	98.92	100	5.52
+GCF_001506165.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea vagans_C	ncbi	current	NA	Inconclusive	below_threshold_mismatch	93.84	11.428572	0.79
+GCF_001691555.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea eucrina_A	ncbi	current	NA	Inconclusive	mismatch	94.8	94.44444	0.94
+GCF_002095385.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea eucrina	ncbi	current	NA	OK	below_threshold_mismatch	91.64	22.222221	1.24
+GCF_014155765.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea dispersa	ncbi	current	NA	OK	species_match	98.35	16.393442	0.97
+GCA_002359495.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea sp002359495	ncbi	current	NA	Failed	mismatch	NA	NA	NA
+GCF_900604315.1	f__Enterobacteriaceae	g__Pantoea	s__Pantoea mediterraneensis	ncbi	current	reference genome	OK	below_threshold_mismatch	93.6	100	3.9

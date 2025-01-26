@@ -23,10 +23,15 @@ treetax <- read.delim('02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_
 # find Bangor genera:
 bangor <- filter(treetax, grepl("flye", accession))
 genera <- filter(treetax, genus %in% bangor$genus)
+genera$sample_type <- "ncbi"
+genera[genera$accession %in% bangor$accession,]$sample_type <- "bangor"
 
 # get rid of extra text "GB/RS_" and "flye_asm_/_part2":
 genera$accession <- gsub("GB_|RS_|flye_asm_|_part2", "", genera$accession)
 
+#write this to a file
+genera <- select(genera, c("accession", "family","genus","species","sample_type"))
+write_delim(genera, "02_middle-analysis_outputs/analysis_tables/genera_analysis.tsv", delim = "\t")
 #-----------------------------3. API time---------------------
 urlstring <- 'https://api.ncbi.nlm.nih.gov/datasets/v2/'
 api_header <- 'd4f921c91015c68f48f656a99ad5bcf84a08'

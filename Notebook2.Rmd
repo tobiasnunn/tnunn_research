@@ -31,6 +31,7 @@ library(knitr)
 library(jsonlite)
 library(tidyjson)
 library(patchwork)
+library(gtExtras)
 ```
 
 # EggNog-Mapper initial test analyses (2025-01-10 to 2025-01-19)
@@ -362,63 +363,53 @@ statuses:
 #### JSON ANI analysis
 
 ```{r ANI and JSON, echo=FALSE, warning=FALSE}
-filenames <- list.files("02_middle-analysis_outputs/ncbi_stuff/json/", 
-                        pattern=glob2rx("GC*.json"), full.names=TRUE)
-jsonlist <- lapply(filenames, jsonlite::read_json) %>% sapply(., "[[", 1)
-reports <- tibble(report=jsonlist)
-# get the fields i want to see
-expand <- reports %>%
-  hoist(report, 
-        "accession", 
-        "average_nucleotide_identity",
-        "assembly_info",
-        "checkm_info") %>%
-  hoist(assembly_info, 
-        "assembly_status",
-        "refseq_category") %>%
-  hoist(average_nucleotide_identity,
-        "taxonomy_check_status",
-        "match_status") %>%
-  hoist(checkm_info,
-        "completeness",
-        "completeness_percentile") %>%
-  select(c("accession", "assembly_status", "refseq_category", "taxonomy_check_status", "match_status", "completeness", "completeness_percentile"))
+
+combi <- read.delim("02_middle-analysis_outputs/analysis_tables/genera_analysis_combined.tsv")
 
 # ani count of taxomony_check_status table
-results <- expand %>% group_by(taxonomy_check_status) %>% summarise(countofsamples = n()) %>% ungroup() %>% 
-  arrange(desc(countofsamples))
-results[is.na(results$taxonomy_check_status),1] <- "Absent"
+anibase <- combi %>% 
+  group_by(taxonomy_check_status) %>% 
+  summarise(countofsamples = n()) %>% 
+  ungroup() %>% 
+  arrange(desc(countofsamples)) %>% 
+  replace_na(list(taxonomy_check_status = "Absent"))
 
-Taxchektab <- results %>%
+Taxchektab <- anibase %>%
   gt()  %>%
-  tab_source_note(source_note = md("Source: API call to the NCBI website <br> done on 2025-01-25")) %>%
+  tab_source_note(source_note = md("Source: API call to the NCBI website <br> done on 2025-01-24")) %>%
   opt_row_striping() %>%
    opt_stylize(style = 5, color = "blue") %>%
    tab_header(
      title = md("Table 4 - Analysis of <br> Taxonomy Check Status"),
      subtitle = md("as a part of analysis for <br> Average Nuleotide Identity(ANI)")
    ) %>%
+  gt_plt_bar(column = countofsamples, keep_column = TRUE, color = "#2565AB") %>%
   cols_label(taxonomy_check_status = "Taxonomy Check Status",
-             countofsamples = "Count") 
-
+             countofsamples = "Count",
+             DUPE_COLUMN_PLT = "Visual") 
+Taxchektab
 
 # graph of same thing
-aj <- c("OK", "Inconclusive", "Absent", "Failed")
-Taxchekgraph <- results %>% ggplot() +
-  geom_col(aes(x = factor(taxonomy_check_status, aj), y = countofsamples, fill = countofsamples), stat = "identity", show.legend = TRUE) + scale_fill_viridis_c() + ylim(0,500) +
-  labs(x = "ANI Taxonomy Check Status", y = "Count of samples",
-       caption = "Source: NCBI REST API done on 2025-01-24") + 
-  geom_text(
-    aes(x = factor(taxonomy_check_status, aj), y = countofsamples, label = countofsamples),
-    position = position_dodge(width = 1),
-    vjust = -1)
-# combine all the charts into one
-
-wrap_table(Taxchektab, panel = "full") + Taxchekgraph
-#+ plot_layout(ncol = 2, widths = c(1,2))
+# Taxchekgraph <- ggplot(anibase, aes(x = forcats::fct_reorder(taxonomy_check_status, desc(countofsamples)), y = countofsamples)) +
+#   geom_col(aes(fill = countofsamples)) + scale_fill_viridis_c() + ylim(0,500) +
+#   labs(x = "ANI Taxonomy Check Status", y = "Count of samples",
+#        caption = "Source: NCBI REST API done on 2025-01-24") + 
+#   geom_text(
+#     aes(label = countofsamples),
+#     position = position_dodge(width = 1),
+#     vjust = -1)
+# # combine all the charts into one
+# 
+# wrap_table(Taxchektab, panel = "full") + Taxchekgraph + plot_annotation(title = "Analysis of Taxonomy Check Status")
+  
 ```
 
 I used the package "jsonlite" to do this. This does not exist as a code
 file, as i did all the coding inside this document. The function
 `hoist()` from the package tidyr was also very helpful in drawing out
 the lower levels of the JSON files
+
+
+::: {style="background-color:yellow;"}
+📌 ?: TODO: have a look back at checkm and ANI(if it exists) analysis for the local samples to add to the combi table in "jsonataexplorationprep.R" next graphs up are going to be more simple ones like the one for ANI, and then i also had the idea of doing a sort of "megagraph" for completeness against contamination, where the colour is the "refseq category" as for some reason, the accession with the highest contamination is a reference genome,  I can also modify the column to include "bangor" as the category for ours so I know where they place.
+:::
