@@ -302,7 +302,7 @@ prove that there is **always** time for proper note taking.
 📌 ?: TODO: API call for JSONS, fastas
 :::
 
-# Prototype Heatmap Creation Run, end-to-end 2025-01-24 onwards
+# Prototype Heatmap Creation Run, end-to-end: step 1 2025-01-24 to 2025-01-26
 
 ## introduction
 
@@ -350,7 +350,19 @@ Nucleotide Identity analysis that the NCBI had performed, this is
 interesting, can i do it on mine? One thing i forgot to do was remove
 the local samples from the list i passed to NCBI, so those ones
 obviously failed but it didn't affect the rest, so if this need be done
-again, remember to take the local accessions out of the list.
+again, remember to take the local accessions out of the list. I created
+two files for this section of the project:
+[NCBImetadatacollector.R](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/00_scripts/NCBImetadatacollector.R)
+and
+[jsondataexplorationprep.R](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/00_scripts/jsondataexplorationprep.R).
+The former file creates two tables, one containing the genera of
+interest to the Bangor genera-genera comparison, and the other results
+from using this to call the REST API to the NCBI website and save the
+metadata for all the accessions in the aforementioned table. The latter
+file manipulates this second table to pull out interesting fields from
+the lower levels, combines it with the first to create a sort of
+combined table of species and genus information from gtdb-tk combined
+with quality metrics from the ncbi.
 
 ## Results
 
@@ -359,6 +371,8 @@ but also just slow enough to avoid the limit NCBI imposes on download
 volume. The ANI stuff in the JSON files was very intriguing for me, i
 decided i wanted to output a summary of the JSON files by their ANI
 statuses:
+
+### All tables {.tabset .tabset-pills}
 
 #### JSON ANI analysis
 
@@ -404,12 +418,146 @@ Taxchektab
   
 ```
 
+#### ANI match status analysis
+
+```{r Match_Status, echo=FALSE, warning=FALSE}
+
+# ani count of taxomony_check_status table
+animatchbase <- combi %>% 
+  group_by(taxonomy_check_status, match_status) %>% 
+  summarise(countofsamples = n()) %>% 
+  ungroup() %>% 
+  arrange(desc(countofsamples)) %>% 
+  replace_na(list(taxonomy_check_status = "Absent", match_status = "Absent"))
+animatchbase$match_status <- factor(animatchbase$match_status, levels = c("species_match", "derived_species_match", "genus_match", 
+                                                                          "below_threshold_match", "low_coverage", "below_threshold_lineage_match",
+                                                                          "mismatch", "below_threshold_mismatch"))
+
+# #pivot table
+# animatchbase %>% pivot_wider(names_from = taxonomy_check_status, values_from = countofsamples)
+
+# stacked graph
+
+ggplot(filter(animatchbase, !taxonomy_check_status == "Absent"), aes(fill= match_status, y=countofsamples, x=taxonomy_check_status)) + 
+    geom_bar(position="dodge", stat="identity") + scale_fill_viridis_d() + 
+  ylim(0,240) +
+  labs(x = "ANI Match Status", y = "Count of samples",
+       caption = md("Figure 1: rough analysis of ANI Match Status by \n each stage of the Taxonomy Check Status. \n Source: NCBI REST API done on 2025-01-24"),
+       title = "Analysis of ANI Match Status") +
+  geom_text(
+    aes(label = countofsamples),
+    position = position_dodge(width = 1),
+    vjust = -1)
+
+
+```
+
+#### Completeness histogram
+
+```{r completeness hist, echo=FALSE, warning=FALSE}
+
+ggplot(combi) +
+  geom_histogram(aes(x = combi$completeness), binwidth = 10, fill = "#2565AB", color = "white") +
+  ylim(0,450) +
+  labs(x = "Checkm Completeness", y = "Count of samples",
+       caption = md("Figure 2: histogram of checkm completeness from analysis done by the NCBI at an undisclosed date"),
+       title = "Analysis Checkm Completeness")
+
+ +
+  geom_text(
+    aes(label = completeness),
+    position = position_dodge(width = 1),
+    vjust = -1)
+```
+
+#### Contamination histogram
+
+```{r contamination hist, echo=FALSE, warning=FALSE}
+
+ggplot(combi) +
+  geom_histogram(aes(x = combi$contamination), binwidth = 3, fill = "#2565AB", color = "white") +
+  ylim(0,450) +
+  labs(x = "Checkm Completeness", y = "Count of samples",
+       caption = md("Figure 3: histogram of checkm contamination from analysis done by the NCBI at an undisclosed date"),
+       title = "Analysis Checkm Completeness")
+
+ +
+  geom_text(
+    aes(label = completeness),
+    position = position_dodge(width = 1),
+    vjust = -1)
+```
+
+###  {.unnumbered}
+
+The first file, "NCBImetadatacollector.R" creates a directory with all
+of the JSON files in it
+[here](https://github.com/tobiasnunn/tnunn_research/tree/be8100b850eea50a9e3132806623b4f1d1d08956/02_middle-analysis_outputs/ncbi_stuff/json)
+and a file containing the table derived from gtdb-tk,
+[here](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/02_middle-analysis_outputs/analysis_tables/genera_analysis.tsv).
+The second file, "jsondataexplorationprep.R" combines these into
+[genera_analysis_combined.R](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/02_middle-analysis_outputs/analysis_tables/genera_analysis_combined.tsv).
 I used the package "jsonlite" to do this. This does not exist as a code
 file, as i did all the coding inside this document. The function
 `hoist()` from the package tidyr was also very helpful in drawing out
-the lower levels of the JSON files
+the lower levels of the JSON files.
 
+I had many attempts at visualising all of the interesting columns but
+possibly from messy data, possibly from a lack of understanding the
+fields i did not make much progress on that. When trying to display the
+information from the "match_status" column i ran into issues relating to
+obscure scientific terms. One point of confusion was the reference
+genomes, put in the "OK" taxonomy_check_status having a
+"below_threshold_mismatch" in the former column. This is the lowest, or
+"worst" on the hierarchy listed
+[here.](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/policies-annotation/quality/ani/)
+This field was especially cryptic, with the hierarchy not working as
+this page said it should.
+
+## Conclusion
+
+I do not believe the graphs from this section show anything too
+spectacular, however it was good practice at graphing and the main
+purpose, being downloading the JSON files so i can make an informed
+choice on which accessions will go in my prototype heatmap was a
+success. I will be honest, i spent a little too much effort on these
+graphs, there were many challanges with doing these things, but i learnt
+a lot from that struggle. The next section should however be more
+interesting.
 
 ::: {style="background-color:yellow;"}
-📌 ?: TODO: have a look back at checkm and ANI(if it exists) analysis for the local samples to add to the combi table in "jsonataexplorationprep.R" next graphs up are going to be more simple ones like the one for ANI, and then i also had the idea of doing a sort of "megagraph" for completeness against contamination, where the colour is the "refseq category" as for some reason, the accession with the highest contamination is a reference genome,  I can also modify the column to include "bangor" as the category for ours so I know where they place.
+📌 ?: TODO: have a look back at checkm and ANI(if it exists) analysis
+for the local samples to add to the combi table in
+"jsonataexplorationprep.R" next graphs up are going to be more simple
+ones like the one for ANI, and then i also had the idea of doing a sort
+of "megagraph" for completeness against contamination, where the colour
+is the "refseq category" as for some reason, the accession with the
+highest contamination is a reference genome, I can also modify the
+column to include "bangor" as the category for ours so I know where they
+place.
 :::
+
+# Prototype Heatmap Creation Run, end-to-end: step 2 2025-01-24 to 2025-01-26
+
+## Introduction
+
+In part 1, i generated the metadata table that will help me choose "high
+quality" samples(and maybe go on to make the phylogenetic trees from
+gtdb-tk a bit more flashy later). This section will focus on specifying
+a set of samples so that each "group" (a subset of samples for each
+relevent genus) will total 10 samples, for 50 total (4 samples are
+*Sphingomonas,* 2 are *Microbacterium,* there are 1 each for
+*Brachybacterium, Brevibacterium* and *Pantoea*). This only totals 9
+samples, this is because I am excluding 1Dt100h due to it not being
+given a genus by gtdb-tk de_novo_wf. This means i need to select 41 more
+samples to download the .fasta file for and copy to hawk.
+
+## Methods
+
+This process will use another command in the NCBI REST API library
+called
+[-accessions-/download](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/download).
+This will utilise the combined table made in step 1 to filter to 41
+online reference samples of good quality to make the list i will pass to
+the API call. My list will not include reference samples because I do
+not find that as "organic"
