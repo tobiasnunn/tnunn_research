@@ -537,7 +537,7 @@ column to include "bangor" as the category for ours so I know where they
 place.
 :::
 
-# Prototype Heatmap Creation Run, end-to-end: step 2 2025-01-24 to 2025-01-26
+# Prototype Heatmap Creation Run, end-to-end: step 2 2025-01-26 to 2025-01-2\_
 
 ## Introduction
 
