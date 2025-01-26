@@ -23,7 +23,7 @@ final <- rbind(final, slice_sample(filter(subset, genus == "g__Brachybacterium")
 fastalist <- filter(subset, 1 == 0)
 
 for (i in 1:nrow(countbygenus)) {
-  numberofsamples <- 10-countbygenus[i,"n"].astype(numeric)
-  fastalist <- rbind(fastalist, slice_sample(filter(subset, genus == countbygenus[i,"genus"]), n=numberofsamples))
+  fastalist <- rbind(fastalist, slice_sample(filter(subset, genus == countbygenus[i,"genus"]), n=10-countbygenus$n[i]))
 }
+
 
