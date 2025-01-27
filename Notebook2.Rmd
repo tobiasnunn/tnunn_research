@@ -560,4 +560,22 @@ called
 This will utilise the combined table made in step 1 to filter to 41
 online reference samples of good quality to make the list i will pass to
 the API call. My list will not include reference samples because I do
-not find that as "organic"
+not find that as "organic". On the morning, of the 27th at 8:40 i ran
+the NCBI REST API to download the subset of the fastas, using the same
+document i started yesterday,
+[NCBIfastacollectorprototype.R](https://github.com/tobiasnunn/tnunn_research/blob/c23c334f1fc9acfc10b05f66a0474d6ce3600d3a/00_scripts/NCBIfastacollectorprototype.R).
+The code therein place the .fastas in a directory in
+02_middle-analysis_outputs/ncbi_stuff. However, this will not show on
+github because there are many and fasta files are very large and i have
+a limited space allowance in the repo. I then modified this file to
+include another for loop to unzip the files and give me the .fastas.
+
+## Results
+
+As mentioned above: the directory containing the .fastas is part of the
+.gitignore, so there are no visible results, but trust me, they are
+there.
+
+## Conclusion
+
+Non Applicable, this is just a quick intermediary

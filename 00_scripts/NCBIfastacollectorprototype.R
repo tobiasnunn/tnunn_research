@@ -36,3 +36,24 @@ for (i in 1:nrow(fastalist)) {
 }
 
 
+# the files come out as .zip files, this is good for space, but we can't pass them into eggnogmapper
+# especially as the .fastas are not alone in the .zip, so here is a for loop to unzip:
+
+# right, so to do this one i need a way of saying the "fasta_file_name" while iterating on it
+# hmm, the .fna includes that random "ASM709345" string, so i need to make a list of those names?
+#but how do i do that without just unzipping all the files?
+listed <- list.files("02_middle-analysis_outputs/ncbi_stuff/fasta/", 
+           pattern=glob2rx("GC*.zip"), full.names=TRUE)
+
+# now the unzipping
+
+for (i in 1:length(listed)) {
+  zipped_fasta_names <- grep('\\.fna$', unzip(listed[i], list=TRUE)$Name, 
+                             ignore.case=TRUE, value=TRUE)
+  
+  unzip(listed[i],
+        files=zipped_fasta_names,
+        exdir = "02_middle-analysis_outputs/ncbi_stuff/fasta/",
+        junkpaths = TRUE)
+}
+
