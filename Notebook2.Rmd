@@ -537,7 +537,7 @@ column to include "bangor" as the category for ours so I know where they
 place.
 :::
 
-# Prototype Heatmap Creation Run, end-to-end: step 2 2025-01-26 to 2025-01-2\_
+# Prototype Heatmap Creation Run, end-to-end: step 2 2025-01-26 to 2025-01-27
 
 ## Introduction
 
@@ -568,7 +568,47 @@ The code therein place the .fastas in a directory in
 02_middle-analysis_outputs/ncbi_stuff. However, this will not show on
 github because there are many and fasta files are very large and i have
 a limited space allowance in the repo. I then modified this file to
-include another for loop to unzip the files and give me the .fastas.
+include another for loop to unzip the files and give me the .fastas,
+[here.](https://github.com/tobiasnunn/tnunn_research/blob/2827ddaa51c73370b0d1b4a7ca847dfc634acff6/00_scripts/NCBIfastacollectorprototype.R)
+
+## Results
+
+As mentioned above: the directory containing the .fastas is part of the
+.gitignore, so there are no visible results, but trust me, they are
+there.
+
+## Conclusion
+
+Non Applicable, this is just a quick intermediary
+
+# Prototype Heatmap Creation Run, end-to-end: step 3 2025-01-27 to 2025-01-2\_
+
+## Introduction
+
+I have the 41 fastas, the job of uploading them to hawk was easy enough.
+Now i need to think automation, i could manually input all these files
+into a slurm script, but that is not very fun, and more practically,
+very error prone. This means i need to think how i might automate a
+script to sort of iterate over a directory of files.
+
+## Methods
+
+From my testing earlier this month, i have [this bash
+script](https://github.com/tobiasnunn/tnunn_research/blob/2827ddaa51c73370b0d1b4a7ca847dfc634acff6/00_scripts/anothergo_morecpu.sh).
+It is the best i have so far, but it is still manual. Noteable
+improvements i made were the mailing parameters so i can see when a job
+is done from my phone, and some general messing about with `seff` to
+optimise things like cpus and memory. I decided to use this as a
+template to make [this
+script](https://github.com/tobiasnunn/tnunn_research/blob/2827ddaa51c73370b0d1b4a7ca847dfc634acff6/00_scripts/prototypebatch1.sh).
+This will run 3 accessions, alphabetically descending so i can keep
+track. I originally was going to run three of these, but trying to
+manually copy + paste in all those complex alphanumeric strings was
+difficult. Thus, proving the need for automation. This file will run
+hopefully while i'm in lectures this afternoon, and i can then work on
+making the script better (hopefully without breaking it), after that.
+There was no real reason to do it this way, i just wanted something to
+be happening while i was in lectures as i had the .fastas anyway.
 
 ## Results
 
