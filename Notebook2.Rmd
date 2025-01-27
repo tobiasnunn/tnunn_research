@@ -537,7 +537,7 @@ column to include "bangor" as the category for ours so I know where they
 place.
 :::
 
-# Prototype Heatmap Creation Run, end-to-end: step 2 2025-01-26 to 2025-01-27
+# Prototype Heatmap Creation Run, end-to-end: steps 2 + 3 2025-01-26 to 2025-01-27
 
 ## Introduction
 
@@ -581,7 +581,7 @@ there.
 
 Non Applicable, this is just a quick intermediary
 
-# Prototype Heatmap Creation Run, end-to-end: step 3 2025-01-27 to 2025-01-2\_
+# Prototype Heatmap Creation Run, end-to-end: step 4 2025-01-27 to 2025-01-2\_
 
 ## Introduction
 
@@ -608,7 +608,10 @@ difficult. Thus, proving the need for automation. This file will run
 hopefully while i'm in lectures this afternoon, and i can then work on
 making the script better (hopefully without breaking it), after that.
 There was no real reason to do it this way, i just wanted something to
-be happening while i was in lectures as i had the .fastas anyway.
+be happening while i was in lectures as i had the .fastas anyway. In the
+evening, i attempted to begin using parameters to automate some of the
+naming to speed up (and make less error prone) the process. Using help
+from an email from Aaron.
 
 ## Results
 

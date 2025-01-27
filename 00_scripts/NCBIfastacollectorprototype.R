@@ -57,3 +57,10 @@ for (i in 1:length(listed)) {
         junkpaths = TRUE)
 }
 
+#--------------------------------create the control files------------------------
+fna_list <- data.frame(filename = list.files("02_middle-analysis_outputs/ncbi_stuff/fasta/", 
+                     pattern=glob2rx("GC*.fna"), full.names=FALSE))
+# create another column called accession using the content in filename
+# reorder the columns so accession is first (a select statement)
+# order alphabetically descending so can remove 4 ive already done (maybe a desc())
+# save what is left into 3 tsvs, two with 12 and one with 13(manually)
