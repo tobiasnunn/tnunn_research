@@ -581,7 +581,7 @@ there.
 
 Non Applicable, this is just a quick intermediary
 
-# Prototype Heatmap Creation Run, end-to-end: step 4 2025-01-27 to 2025-01-2\_
+# Prototype Heatmap Creation Run, end-to-end: step 4 2025-01-27 to 2025-01-28
 
 ## Introduction
 
@@ -640,14 +640,40 @@ for it to warrant paralleling. Once that set is done, i will then run
 the next, then the next.
 
 Ok, while those are doing, i need to think about how i am going to get
-the .xlsx files off of hawk once they are done.
+the .xlsx files off of hawk once they are done. This lead me to generate
+[eggnog_annotation_getter.sh](https://github.com/tobiasnunn/tnunn_research/blob/d3597774d45daa4bf2a76fcb46b114aac9ac5e6d/00_scripts/eggnog_annotation_getter.sh).
+An easy-peasy little file that pulls out all the .xlsx files and slaps
+them into a directory. Once more are done, i will manually pull them off
+of hawk, maybe i should zip them first? we'll see. Anyway, i might as
+well get to work on the pipeline to turn these into a heatmap so it is
+ready for when all 41 have downloaded.
 
 ## Results
 
 As mentioned above: the directory containing the .fastas is part of the
 .gitignore, so there are no visible results, but trust me, they are
-there.
+there. I am guessing the same will go for the directory containing the
+xlsx files, but they are a fair ways smaller so maybe for the prototype
+stage they will be alright.
 
 ## Conclusion
 
 Non Applicable, this is just a quick intermediary
+
+# Prototype Heatmap Creation Run, end-to-end: step 5 2025-01-27 to 2025-01-2\_
+
+## Introduction
+
+So, the 41 accessions are going through eggnog, good. This is however
+going to take time, under or around 20 hours total if they do not do in
+parallel, which i do not think is likely. So, i might as well get to
+work creating the file(s) that go into turning the .xlsx files from hawk
+into a metadata file into a heatmap. I want to get this in one file for
+simplicity, but two might be necessary / more optimal in ways i don't
+quite understand yet.
+
+## Methods
+
+## Results
+
+## Conclusion
