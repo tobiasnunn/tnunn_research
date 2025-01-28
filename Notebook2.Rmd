@@ -674,6 +674,11 @@ quite understand yet.
 
 ## Methods
 
+After pulling down the annotations that had been run by 20:37 on the
+28th, 20 total with the local samples, i started by making the metadata
+file needed to begin the pipeline to the heatmap. This involved two
+columns, mag_id and bac_taxon. I used the file
+
 ## Results
 
 ## Conclusion
