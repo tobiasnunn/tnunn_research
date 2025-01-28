@@ -613,6 +613,28 @@ evening, i attempted to begin using parameters to automate some of the
 naming to speed up (and make less error prone) the process. Using help
 from an email from Aaron.
 
+I decided to add another section on the bottom of my
+"NCBIfastacollectorprototye.R" script called "create the control files".
+These are the files that will run other files in slurm. The first step
+uses regular expressions (regex), which i discovered while using stack
+overflow to solve the `separate()` statement. It is very weird and kind
+of bananas, but it feels like the type of thing a professional with
+standards would use, so i feel the need to at least use them correctly,
+if not fully understand them, because, as i say "bananas". I found
+[regex101.com](https://regex101.com/) and using several stack overflow
+articles. Once this was done, 3 files were outputted, 1 with a group
+size of 13, 2 with 12. These will be the files the hawk script will use
+to set parameters so the .fastas, which i manually brought up to hawk
+will be run upon. On hawk i created a script called "slurmsquared.sh". I
+also created a modified version of my testing file called
+"eggnogslurmrunner.sh", this is the file that sets what i want slurm to
+do. Using these scripts, i managed to get 13 jobs (1 accession per job)
+to occur automatically. One of the proposed benefits of doing it this
+way was that jobs could be run in parallel, however, thusfar, slurm is
+denying me this, i have not gotten it to run any of these eggnog jobs in
+parallel before, so i shall see if it does it here, i think that the
+individual jobs are too large for it to warrant paralleling.
+
 ## Results
 
 As mentioned above: the directory containing the .fastas is part of the
