@@ -678,6 +678,18 @@ After pulling down the annotations that had been run by 20:37 on the
 28th, 20 total with the local samples, i started by making the metadata
 file needed to begin the pipeline to the heatmap. This involved two
 columns, mag_id and bac_taxon. I used the file
+[metadata_maker.R](https://github.com/tobiasnunn/tnunn_research/blob/89bf0cdd5086df2c75bef487b98ff9c530e4ef12/00_scripts/metadata_maker.R)
+to do this, very simple, brings in files i already had, combines them
+and cuts out excess so what is output is just the file as per
+specifications of the example Aaron gave me months ago when i did the
+fly stuff(not relevant to this project). This output i then feed into my
+[KEGG_pipeline_pt1.R](https://github.com/tobiasnunn/tnunn_research/blob/89bf0cdd5086df2c75bef487b98ff9c530e4ef12/00_scripts/KEGG_pipeline_pt1.R)
+file to turn into the intermediary. I am using two files for this part,
+because i realised the reason Aaron did two files was that it would be
+heavily inconvenient having to do all the stuff in pt1 every time you
+wanted to run pt2, so it is much simpler to save the outputs to a file
+that can easily be read in as much as you want. Progress is kind of now
+halted until all 50 are completed.
 
 ## Results
 
