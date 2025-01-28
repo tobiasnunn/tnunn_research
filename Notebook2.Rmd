@@ -625,15 +625,22 @@ if not fully understand them, because, as i say "bananas". I found
 articles. Once this was done, 3 files were outputted, 1 with a group
 size of 13, 2 with 12. These will be the files the hawk script will use
 to set parameters so the .fastas, which i manually brought up to hawk
-will be run upon. On hawk i created a script called "slurmsquared.sh". I
-also created a modified version of my testing file called
-"eggnogslurmrunner.sh", this is the file that sets what i want slurm to
-do. Using these scripts, i managed to get 13 jobs (1 accession per job)
-to occur automatically. One of the proposed benefits of doing it this
-way was that jobs could be run in parallel, however, thusfar, slurm is
-denying me this, i have not gotten it to run any of these eggnog jobs in
-parallel before, so i shall see if it does it here, i think that the
-individual jobs are too large for it to warrant paralleling.
+will be run upon. On hawk i created a script called
+[slurmsquared.sh](https://github.com/tobiasnunn/tnunn_research/blob/88f05f800e18df832c875992534faf4778c9bfbd/00_scripts/slurmsquared.sh)(because
+it is a script that works on scripts and .tsv files). I also created a
+modified version of my testing file called
+[eggnogslurmrunner.sh](https://github.com/tobiasnunn/tnunn_research/blob/88f05f800e18df832c875992534faf4778c9bfbd/00_scripts/eggnogslurmrunner.sh),
+this is the file that sets what i want slurm to do. Using these scripts,
+i managed to get 13 jobs (1 accession per job) to occur automatically.
+One of the proposed benefits of doing it this way was that jobs could be
+run in parallel, however, thusfar, slurm is denying me this, i have not
+gotten it to run any of these eggnog jobs in parallel before, so i shall
+see if it does it here, i think that the individual jobs are too large
+for it to warrant paralleling. Once that set is done, i will then run
+the next, then the next.
+
+Ok, while those are doing, i need to think about how i am going to get
+the .xlsx files off of hawk once they are done.
 
 ## Results
 
