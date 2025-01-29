@@ -689,7 +689,20 @@ because i realised the reason Aaron did two files was that it would be
 heavily inconvenient having to do all the stuff in pt1 every time you
 wanted to run pt2, so it is much simpler to save the outputs to a file
 that can easily be read in as much as you want. Progress is kind of now
-halted until all 50 are completed.
+halted until all 50 are completed. Right, overnight between the 28th and
+the 29th (about 2pm to 6:30am) all 41 ran on hawk, some of them even
+went in parallel, i suppose that in the night there is less burden on
+hawk so it is more availiable to do two at once, all but one of these
+were successful, so now, i have to figure out which accession i don't
+have so i can run that one again. i have downloaded the 40 other files
+to my landing pad so they can both go through the pipeline. However, i
+need the extra one to generate output without changing the list. This
+leads to the importance of inputting error handling, i still do not know
+why it messed up the first time ((occasionally it just happens) but
+after that it kept crashing because files already existed, so i added
+the `--override` command to override any existing files, so hopefully
+this run should be the last and i will have my prototype dataset by the
+end of today.
 
 ## Results
 
