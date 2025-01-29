@@ -728,9 +728,21 @@ sure what this means, but i think it is alright that they are being
 excluded, because i am looking for map ids. With that, my file
 [KEGG_pipeline_pt1.R](https://github.com/tobiasnunn/tnunn_research/blob/004feb0c0e62718a3783ef77a4934af373fdfd39/00_scripts/KEGG_pipeline_pt1.R)
 is done, i have the pivot table with the genera and map ids. Now i just
-have to turn those into heatmaps.
+have to turn those into heatmaps. Not too long later, i had part 2 done,
+[KEGG_pipeline_pt2.R](https://github.com/tobiasnunn/tnunn_research/blob/3c07ec738628981557eb98173b99e99ad7412c39/00_scripts/KEGG_pipeline_pt2.R).
+This is a simple little file that reads in the output from 1, turns all
+the columns into proportions, pivots and other clever stuff until i have
+the thing to heatmap, then gives multiple possible aesthetic choices,
+very good.
 
 ## Results
+
+I don't think i can infer anything from the prototype heatmap, there are
+many map values, but i should wait until the whole dataset is done
+before just saying "these are the map values of interest". Still, as a
+prototype it serves as perfect proof that I can scale up. I am going for
+dinner now, but i'll try remember to put the sample heatmaps here after,
+tomorrow morning at the latest.
 
 ## Conclusion
 
@@ -746,3 +758,6 @@ vis:
     number of samples per genera
 
 4.  dashboard of progress (super-special secret potential proj)
+
+I am still missing that one that still hasn't been eggnog'ed on hawk,
+must be a busy day.
