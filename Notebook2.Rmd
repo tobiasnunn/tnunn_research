@@ -660,7 +660,7 @@ stage they will be alright.
 
 Non Applicable, this is just a quick intermediary
 
-# Prototype Heatmap Creation Run, end-to-end: step 5 2025-01-27 to 2025-01-2\_
+# Prototype Heatmap Creation Run, end-to-end: step 5 2025-01-27 to 2025-01-2\_ 💎
 
 ## Introduction
 
@@ -703,6 +703,29 @@ after that it kept crashing because files already existed, so i added
 the `--override` command to override any existing files, so hopefully
 this run should be the last and i will have my prototype dataset by the
 end of today.
+
+I should mention how useful the R packages tidyverse and dplyr have been
+in all of these processes. One step of note is that oddly i found that
+sometimes, eggnogmapper would output multiple KO pathways in the same
+cell (i.e. "ko:KO1234" vs "ko:KO1234,ko:KO4321,ko:KO3241"). I am unsure
+why it does this, maybe it can't determine which of the three is
+present. Anyway, i decided to cut the list to seperate and keep all
+three as separate arguments, because why not, it may be that these
+should have been left in the same cell, but onward i go. Another issue i
+then ran into was `enrichko()` when i first tried to run a KO value
+through it, it crashed reporting
+
+"--\> No gene can be mapped....
+
+--\> Expected input gene ID: K13952,K00128,K08074,K01837,K00175,K02777
+
+--\> return NULL..."
+
+I tried another one and it gave a result, so is it possible enrichko
+just does not know about some pathways? Doing a check on the KEGG
+website i found that the ones returning NULL do not have a map id, not
+sure what this means, but i think it is alright that they are being
+excluded, because i am looking for map ids. With that, my file
 
 ## Results
 
