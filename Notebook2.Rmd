@@ -660,7 +660,7 @@ stage they will be alright.
 
 Non Applicable, this is just a quick intermediary
 
-# Prototype Heatmap Creation Run, end-to-end: step 5 2025-01-27 to 2025-01-2\_ 💎
+# Prototype Heatmap Creation Run, end-to-end: step 5 2025-01-27 to 2025-01-29 💎🦍🗿
 
 ## Introduction
 
@@ -726,7 +726,23 @@ just does not know about some pathways? Doing a check on the KEGG
 website i found that the ones returning NULL do not have a map id, not
 sure what this means, but i think it is alright that they are being
 excluded, because i am looking for map ids. With that, my file
+[KEGG_pipeline_pt1.R](https://github.com/tobiasnunn/tnunn_research/blob/004feb0c0e62718a3783ef77a4934af373fdfd39/00_scripts/KEGG_pipeline_pt1.R)
+is done, i have the pivot table with the genera and map ids. Now i just
+have to turn those into heatmaps.
 
 ## Results
 
 ## Conclusion
+
+There is still some more work to go before i can begin in proper, vis a
+vis:
+
+1.   how to monitor that many slurm jobs and resubmit failed ones
+
+2.  how to perform koenrich() only once per excel file and store the
+    results for later use
+
+3.  how to make the proportions proportionate when there are a different
+    number of samples per genera
+
+4.  dashboard of progress (super-special secret potential proj)
