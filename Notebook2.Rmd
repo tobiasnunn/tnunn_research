@@ -757,7 +757,8 @@ tomorrow morning at the latest.
 
 This section of the project has been a resounding success, the pipeline
 is largely where it needs to be, i have the prototype heatmap to
-hopefully impress Aaron with.
+hopefully impress Aaron with. Aaron said his preference was style 3
+(figure 6)
 
 There is still some more work to go before i can begin in proper, vis a
 vis:
@@ -778,3 +779,17 @@ must be a busy day.
 I also need to remember i still haven't gotten around to doing the
 remodels of the gtdb-tk phylogenetic trees, keep putting them off
 because i want to use the .JSON files to do flashy stuff
+
+::: {style="background-color:yellow;"}
+📌 ?: TODO: the notebooks are having trouble knitting. something to look
+at tomorrow morning, get on with crab stuff while fresh(not relevent to
+this work), finish that paper and do the special KOenrich thing.
+:::
+
+::: {style="background-color:yellow;"}
+📌 ?: LONGTERM HEATMAP TODO: Sphingomonas and Pantoea dominate the
+heatmap, i wonder what a little secondary heatmap might look like if i
+take those genera out and just compare the 3 lesser ones. Remember, i
+still have to do the heatmaps for family stuff and do the proper for
+genera-genera
+:::
