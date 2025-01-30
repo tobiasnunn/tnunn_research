@@ -755,6 +755,10 @@ tomorrow morning at the latest.
 
 ## Conclusion
 
+This section of the project has been a resounding success, the pipeline
+is largely where it needs to be, i have the prototype heatmap to
+hopefully impress Aaron with.
+
 There is still some more work to go before i can begin in proper, vis a
 vis:
 

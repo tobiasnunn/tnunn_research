@@ -1,0 +1,34 @@
+---
+title: "Literature"
+author: "Tobias Nunn"
+date: "2025-01-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction to notebook
+
+For the introduction and conclusion section for ENS2002 i need to prove that i have read the literature and understand the area of science i am opperating in and why this project is significant in the advancement of science. With a specific focus on "what is my research question". So this document is where i am going to put my notes when i read a scientific paper in or around "Host-Microbiome interactions with an emphesis on genetics". I will put the full list in a zotero folder, i wonder if i can somehow get them onto the github repot?
+
+# Papers
+
+## Plant–microbiome interactions under a changing world: responses, consequences and perspectives
+
+### How does this paper relate to me?
+
+I chose this paper because it is modern, It was published on the 4th of February 2022 within the last 3 years as of today (2025-01-30) and covers the main area of interest, host-microbe interactions. I read the abstract and it seemed perfectly relevant to this study. In their summary, they mention the importance of the microbiome of plants to adapting to their environment and thus, their role in mitigating the effect of climate change, as well as mentioning analysis at the genomic level (Trivedi et al. 2022). Whilst plants are not amphibians I believe this is wholly relevant to my work. My aim is to learn more about genetic composition of amphibian skin microbiomes and thus how they might interact with their host, but also environmental factors such as chitrid fungus, which, much like climate change, is a very large threat to biodiversity at this time, and interacts consistently with the ever mysterious microbiomes.
+
+### Summaries, notes, etc
+
+<!-- notes on content of paper -->
+
+### Thoughts and discussion
+
+### reference + link for tracing
+
+(Trivedi et al. 2022)
+
+[(Trivedi et al. 2022)](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.18016)
