@@ -744,12 +744,21 @@ prototype it serves as perfect proof that I can scale up. I am going for
 dinner now, but i'll try remember to put the sample heatmaps here after,
 tomorrow morning at the latest.
 
+![Figure 4 - Prototype Heatmap aesthetic style
+1](03_final_outputs/prototype_heatmaps/sample1.png)
+
+![Figure 5 - Prototype Heatmap aesthetic style
+2](03_final_outputs/prototype_heatmaps/sample2.png)
+
+![Figure 6 - Prototype Heatmap aesthetic style
+3](03_final_outputs/prototype_heatmaps/sample3.png)
+
 ## Conclusion
 
 There is still some more work to go before i can begin in proper, vis a
 vis:
 
-1.   how to monitor that many slurm jobs and resubmit failed ones
+1.  how to monitor that many slurm jobs and resubmit failed ones
 
 2.  how to perform koenrich() only once per excel file and store the
     results for later use
@@ -761,3 +770,7 @@ vis:
 
 I am still missing that one that still hasn't been eggnog'ed on hawk,
 must be a busy day.
+
+I also need to remember i still haven't gotten around to doing the
+remodels of the gtdb-tk phylogenetic trees, keep putting them off
+because i want to use the .JSON files to do flashy stuff

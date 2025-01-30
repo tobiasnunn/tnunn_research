@@ -1,5 +1,7 @@
 library(ggplot2)
 library(purrr)
+library(tidyverse)
+
 # read in output from pt1
 heatmapbase <- read_delim("02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/kegg_enriched_pathways.tsv", delim = "\t")
 
@@ -62,8 +64,20 @@ gill_KOenrich_heatmap3 <- ggplot(data = proportionbase, mapping = aes(x = map_id
   labs(y="bacterial genera", x = "KO pathway", fill = "proportion\nenriched\ngenomes")
 gill_KOenrich_heatmap3
 
+# write them out so they can be read in in notebook
+png(filename="03_final_outputs/prototype_heatmaps/sample1.png", width = 1080, height = 720)
+plot(gill_KOenrich_heatmap)
+dev.off()
 
+png(filename="03_final_outputs/prototype_heatmaps/sample2.png", width = 1080, height = 720)
+plot(gill_KOenrich_heatmap2)
+dev.off()
 
+png(filename="03_final_outputs/prototype_heatmaps/sample3.png", width = 1080, height = 720)
+plot(gill_KOenrich_heatmap3)
+dev.off()
+
+?png
 # what <- heatmapbase %>% 
 #   filter(if_any(where(is.numeric), ~ .x >= 600))
 
