@@ -60,29 +60,3 @@ for (i in 1:length(listed)) {
 }
 
 # REMINDER: backup .zip files to onedrive
-#--------------------------------create the control files------------------------
-fna_list <- data.frame(filename = list.files("02_middle-analysis_outputs/ncbi_stuff/fasta/", 
-                     pattern=glob2rx("GC*.fna"), full.names=FALSE))
-
-# which fastas have already been eggnog'ed
-eggnogfiles <- data.frame(filename = list.files("02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/", pattern = "*.xlsx"))
-eggnogfiles$accession <- sub("\\.(emapper).*", "", eggnogfiles$filename)
-
-# accession column ~BUT FANCY~
-testfna_list <- data.frame(filename = list.files("02_middle-analysis_outputs/ncbi_stuff/fasta/", 
-                                             pattern=glob2rx("GC*.fna"), full.names=FALSE))
-testfna_list <- testfna_list %>% separate_wider_regex(cols = filename, 
-                                      cols_remove = FALSE, patterns = c(accession = "^(?:.*?_.*?)", "_", rest = ".*"))
-testfna_list$rest <- NULL
-
-# saving the list to a file in case i have to delete the variables
-write_delim(testfna_list, "02_middle-analysis_outputs/analysis_tables/prototypelist.tsv", delim = "\t")
-
-# order alphabetically descending so can remove 4 ive already done (maybe a desc())
-testfna_list <- testfna_list %>% arrange(desc(accession))
-# manually done the top 4, so now i gotta cut them out of the list
-# so i can break the remainder into groups
-# save what is left into 3 tsvs, two with 12 and one with 13(manually)
-write_delim(testfna_list[5:17,], "02_middle-analysis_outputs/analysis_tables/prototypedatafile1.tsv", delim = "\t", col_names = FALSE)
-write_delim(testfna_list[18:29,], "02_middle-analysis_outputs/analysis_tables/prototypedatafile2.tsv", delim = "\t", col_names = FALSE)
-write_delim(testfna_list[30:41,], "02_middle-analysis_outputs/analysis_tables/prototypedatafile3.tsv", delim = "\t", col_names = FALSE)

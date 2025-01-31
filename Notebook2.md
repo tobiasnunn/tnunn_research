@@ -2632,3 +2632,50 @@ This is better because in the old way, i had to run the whole file, and
 wait 10-15 minutes for it to enrich, just so i could output the
 aggregate file, so now i only need do it once and then read in the
 files. So now the enriched files are much more available for analysis.
+
+# Analysis 1: full genera-to-genera comparison (2025-01-31 to 2025-02-\_\_)
+
+## Introduction
+
+Now that the pipeline is where i want it, all that is left to do is
+download somewhere north of 500 more accessions, put them on hawk,
+eggnog them and bring them down to be heatmapped.
+
+## Methods
+
+I started by creating a non-prototype version of
+"NCBIfastacollectorprototype", called
+[NCBIfastacollector.R](https://github.com/tobiasnunn/tnunn_research/blob/7dc52b5c9490c2174cb5271cea988ef9beafabf8/00_scripts/Rscripts/NCBIfastacollector.R).
+This is largely only different in so far as it includes filters based
+around not repeating the fasta files i have already done. This is when i
+ran into my first roadblock concerning how i create the control files
+that feed my "slurmsquared.sh" file on hawk. Mainly, how to exclude the
+fastas that have already been processed in a way that doesn't rely on a
+file further down the pipeline. A possible solution i am going to try
+later is downloading all of the fastas now, create all of the control
+files now and then apart from the files done in the prototype i don't
+have to do any exclusions. I separated "NCBIfastacollector" into it's
+major components, this created the script "fasta_control_files.R". I
+then modified this file so it would take outputs from the former (and a
+few other earlier scripts) and cluster the accessions into output
+directories i can then pass up to hawk, the aim is to create the control
+script at the same time, but it is late and i could not get there today.
+
+## Results
+
+PUT HEATMAP HERE
+
+(and then also the table that explains all of the map ids, can i use the
+KEGG API to help me there?)
+
+(also: compare with prototype, are the map ids the same, are there
+differences?)
+
+## Conclusion
+
+The screen i am using is burning my eyes now i'm putting in more
+consecutive hours, so i am changing the mode to "Gob", the "tools" tab
+under global and appearance. I have chosen this dark mode purely for the
+name Gob, i find it humorous.
+
+![](images/clipboard-3109512063.png)

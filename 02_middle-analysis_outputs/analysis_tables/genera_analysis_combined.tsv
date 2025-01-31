@@ -296,7 +296,6 @@ GCF_900169165.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium linens	
 GCF_900105315.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium siliguriense	ncbi	current	reference genome	OK	below_threshold_mismatch	94.72	100	5.08
 GCF_011617465.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp011617465	ncbi	current	reference genome	OK	below_threshold_mismatch	94.86	100	5.5
 GCF_011617705.1	f__Brevibacteriaceae	g__Brevibacterium	s__Brevibacterium sp011617705	ncbi	current	reference genome	OK	below_threshold_mismatch	95.81	100	5.97
-1Dt100h	f__	g__	s__	bangor	NA	NA	NA	NA	NA	NA	NA
 GCF_900163655.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium nesterenkovii	ncbi	current	reference genome	OK	below_threshold_mismatch	88.81	100	10.63
 GCF_900258505.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium timonense	ncbi	current	reference genome	OK	below_threshold_mismatch	87.74	100	8.95
 GCF_015209585.1	f__Dermabacteraceae	g__Brachybacterium	s__Brachybacterium sp015209585	ncbi	current	reference genome	OK	below_threshold_mismatch	90.26	50	9.94

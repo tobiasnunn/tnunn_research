@@ -25,7 +25,7 @@ bangor <- filter(treetax, grepl("flye", accession))
 genera <- filter(treetax, genus %in% bangor$genus)
 genera$sample_type <- "ncbi"
 genera[genera$accession %in% bangor$accession,]$sample_type <- "bangor"
-
+genera <- filter(genera, family != "f__")
 # get rid of extra text "GB/RS_" and "flye_asm_/_part2":
 genera$accession <- gsub("GB_|RS_|flye_asm_|_part2", "", genera$accession)
 
