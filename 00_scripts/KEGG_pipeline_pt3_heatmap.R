@@ -3,7 +3,7 @@ library(purrr)
 library(tidyverse)
 
 # read in output from pt1
-heatmapbase <- read_delim("02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/kegg_enriched_pathways.tsv", delim = "\t")
+heatmapbase <- read_delim("02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/prototype_kegg_enriched_pathways.tsv", delim = "\t")
 
 # change to proportions rather than number of genomes:
 # dplyr and tidyverse do be good :gorilla emoji: :moai emoji: :diamond emoji:

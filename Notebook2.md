@@ -1717,7 +1717,7 @@ prove that there is **always** time for proper note taking.
 📌 ?: TODO: API call for JSONS, fastas
 :::
 
-# Prototype Heatmap Creation Run, end-to-end 2025-01-24 onwards
+# Prototype Heatmap Creation Run, end-to-end: step 1 2025-01-24 to 2025-01-26
 
 ## introduction
 
@@ -1765,7 +1765,19 @@ Nucleotide Identity analysis that the NCBI had performed, this is
 interesting, can i do it on mine? One thing i forgot to do was remove
 the local samples from the list i passed to NCBI, so those ones
 obviously failed but it didn't affect the rest, so if this need be done
-again, remember to take the local accessions out of the list.
+again, remember to take the local accessions out of the list. I created
+two files for this section of the project:
+[NCBImetadatacollector.R](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/00_scripts/NCBImetadatacollector.R)
+and
+[jsondataexplorationprep.R](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/00_scripts/jsondataexplorationprep.R).
+The former file creates two tables, one containing the genera of
+interest to the Bangor genera-genera comparison, and the other results
+from using this to call the REST API to the NCBI website and save the
+metadata for all the accessions in the aforementioned table. The latter
+file manipulates this second table to pull out interesting fields from
+the lower levels, combines it with the first to create a sort of
+combined table of species and genus information from gtdb-tk combined
+with quality metrics from the ncbi.
 
 ## Results
 
@@ -1775,11 +1787,848 @@ volume. The ANI stuff in the JSON files was very intriguing for me, i
 decided i wanted to output a summary of the JSON files by their ANI
 statuses:
 
+### All tables {.tabset .tabset-pills}
+
 #### JSON ANI analysis
 
-![](Notebook2_files/figure-html/ANI and JSON-1.png)<!-- -->
 
+```{=html}
+<div id="dpoxojwghg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dpoxojwghg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dpoxojwghg thead, #dpoxojwghg tbody, #dpoxojwghg tfoot, #dpoxojwghg tr, #dpoxojwghg td, #dpoxojwghg th {
+  border-style: none;
+}
+
+#dpoxojwghg p {
+  margin: 0;
+  padding: 0;
+}
+
+#dpoxojwghg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 3px;
+  border-right-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #D5D5D5;
+}
+
+#dpoxojwghg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dpoxojwghg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dpoxojwghg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dpoxojwghg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dpoxojwghg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#dpoxojwghg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dpoxojwghg .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dpoxojwghg .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dpoxojwghg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dpoxojwghg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dpoxojwghg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dpoxojwghg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dpoxojwghg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dpoxojwghg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: middle;
+}
+
+#dpoxojwghg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dpoxojwghg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dpoxojwghg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #D5D5D5;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dpoxojwghg .gt_stub {
+  color: #FFFFFF;
+  background-color: #929292;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D5D5D5;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dpoxojwghg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dpoxojwghg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dpoxojwghg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dpoxojwghg .gt_summary_row {
+  color: #FFFFFF;
+  background-color: #5F5F5F;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dpoxojwghg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D5D5D5;
+}
+
+#dpoxojwghg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dpoxojwghg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#dpoxojwghg .gt_grand_summary_row {
+  color: #FFFFFF;
+  background-color: #929292;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dpoxojwghg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D5D5D5;
+}
+
+#dpoxojwghg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D5D5D5;
+}
+
+#dpoxojwghg .gt_striped {
+  background-color: #F4F4F4;
+}
+
+#dpoxojwghg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#dpoxojwghg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dpoxojwghg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dpoxojwghg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dpoxojwghg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dpoxojwghg .gt_left {
+  text-align: left;
+}
+
+#dpoxojwghg .gt_center {
+  text-align: center;
+}
+
+#dpoxojwghg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dpoxojwghg .gt_font_normal {
+  font-weight: normal;
+}
+
+#dpoxojwghg .gt_font_bold {
+  font-weight: bold;
+}
+
+#dpoxojwghg .gt_font_italic {
+  font-style: italic;
+}
+
+#dpoxojwghg .gt_super {
+  font-size: 65%;
+}
+
+#dpoxojwghg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dpoxojwghg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dpoxojwghg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dpoxojwghg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dpoxojwghg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dpoxojwghg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dpoxojwghg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dpoxojwghg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dpoxojwghg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="3" class="gt_heading gt_title gt_font_normal" style><span class='gt_from_md'>Table 4 - Analysis of <br> Taxonomy Check Status</span></td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class='gt_from_md'>as a part of analysis for <br> Average Nuleotide Identity(ANI)</span></td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="taxonomy_check_status">Taxonomy Check Status</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="countofsamples">Count</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="DUPE_COLUMN_PLT">Visual</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="taxonomy_check_status" class="gt_row gt_left">OK</td>
+<td headers="countofsamples" class="gt_row gt_right">445</td>
+<td headers="DUPE_COLUMN_PLT" class="gt_row gt_left"><?xml version='1.0' encoding='UTF-8' ?><svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='113.39pt' height='14.17pt' viewBox='0 0 113.39 14.17'><defs>  <style type='text/css'><![CDATA[    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  ]]></style></defs><rect width='100%' height='100%' style='stroke: none; fill: none;'/><defs>  <clipPath id='cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw=='>    <rect x='0.00' y='0.00' width='113.39' height='14.17' />  </clipPath></defs><g clip-path='url(#cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw==)'><rect x='5.02' y='0.89' width='98.37' height='12.40' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2565AB;' /><line x1='5.02' y1='14.17' x2='5.02' y2='0.0000000000000018' style='stroke-width: 1.07; stroke-linecap: butt;' /></g></svg></td></tr>
+    <tr><td headers="taxonomy_check_status" class="gt_row gt_left gt_striped">Inconclusive</td>
+<td headers="countofsamples" class="gt_row gt_right gt_striped">100</td>
+<td headers="DUPE_COLUMN_PLT" class="gt_row gt_left gt_striped"><?xml version='1.0' encoding='UTF-8' ?><svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='113.39pt' height='14.17pt' viewBox='0 0 113.39 14.17'><defs>  <style type='text/css'><![CDATA[    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  ]]></style></defs><rect width='100%' height='100%' style='stroke: none; fill: none;'/><defs>  <clipPath id='cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw=='>    <rect x='0.00' y='0.00' width='113.39' height='14.17' />  </clipPath></defs><g clip-path='url(#cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw==)'><rect x='5.02' y='0.89' width='22.11' height='12.40' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2565AB;' /><line x1='5.02' y1='14.17' x2='5.02' y2='0.0000000000000018' style='stroke-width: 1.07; stroke-linecap: butt;' /></g></svg></td></tr>
+    <tr><td headers="taxonomy_check_status" class="gt_row gt_left">Absent</td>
+<td headers="countofsamples" class="gt_row gt_right">33</td>
+<td headers="DUPE_COLUMN_PLT" class="gt_row gt_left"><?xml version='1.0' encoding='UTF-8' ?><svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='113.39pt' height='14.17pt' viewBox='0 0 113.39 14.17'><defs>  <style type='text/css'><![CDATA[    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  ]]></style></defs><rect width='100%' height='100%' style='stroke: none; fill: none;'/><defs>  <clipPath id='cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw=='>    <rect x='0.00' y='0.00' width='113.39' height='14.17' />  </clipPath></defs><g clip-path='url(#cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw==)'><rect x='5.02' y='0.89' width='7.30' height='12.40' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2565AB;' /><line x1='5.02' y1='14.17' x2='5.02' y2='0.0000000000000018' style='stroke-width: 1.07; stroke-linecap: butt;' /></g></svg></td></tr>
+    <tr><td headers="taxonomy_check_status" class="gt_row gt_left gt_striped">Failed</td>
+<td headers="countofsamples" class="gt_row gt_right gt_striped">9</td>
+<td headers="DUPE_COLUMN_PLT" class="gt_row gt_left gt_striped"><?xml version='1.0' encoding='UTF-8' ?><svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='113.39pt' height='14.17pt' viewBox='0 0 113.39 14.17'><defs>  <style type='text/css'><![CDATA[    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  ]]></style></defs><rect width='100%' height='100%' style='stroke: none; fill: none;'/><defs>  <clipPath id='cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw=='>    <rect x='0.00' y='0.00' width='113.39' height='14.17' />  </clipPath></defs><g clip-path='url(#cpMC4wMHwxMTMuMzl8MC4wMHwxNC4xNw==)'><rect x='5.02' y='0.89' width='1.99' height='12.40' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2565AB;' /><line x1='5.02' y1='14.17' x2='5.02' y2='0.0000000000000018' style='stroke-width: 1.07; stroke-linecap: butt;' /></g></svg></td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="3"><span class='gt_from_md'>Source: API call to the NCBI website <br> done on 2025-01-24</span></td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+```
+
+#### ANI match status analysis
+
+
+```
+## `summarise()` has grouped output by 'taxonomy_check_status'. You can override
+## using the `.groups` argument.
+```
+
+![](Notebook2_files/figure-html/Match_Status-1.png)<!-- -->
+
+#### Completeness histogram
+
+![](Notebook2_files/figure-html/completeness hist-1.png)<!-- -->
+
+#### Contamination histogram
+
+![](Notebook2_files/figure-html/contamination hist-1.png)<!-- -->
+
+###  {.unnumbered}
+
+The first file, "NCBImetadatacollector.R" creates a directory with all
+of the JSON files in it
+[here](https://github.com/tobiasnunn/tnunn_research/tree/be8100b850eea50a9e3132806623b4f1d1d08956/02_middle-analysis_outputs/ncbi_stuff/json)
+and a file containing the table derived from gtdb-tk,
+[here](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/02_middle-analysis_outputs/analysis_tables/genera_analysis.tsv).
+The second file, "jsondataexplorationprep.R" combines these into
+[genera_analysis_combined.R](https://github.com/tobiasnunn/tnunn_research/blob/be8100b850eea50a9e3132806623b4f1d1d08956/02_middle-analysis_outputs/analysis_tables/genera_analysis_combined.tsv).
 I used the package "jsonlite" to do this. This does not exist as a code
 file, as i did all the coding inside this document. The function
 `hoist()` from the package tidyr was also very helpful in drawing out
-the lower levels of the JSON files
+the lower levels of the JSON files.
+
+I had many attempts at visualising all of the interesting columns but
+possibly from messy data, possibly from a lack of understanding the
+fields i did not make much progress on that. When trying to display the
+information from the "match_status" column i ran into issues relating to
+obscure scientific terms. One point of confusion was the reference
+genomes, put in the "OK" taxonomy_check_status having a
+"below_threshold_mismatch" in the former column. This is the lowest, or
+"worst" on the hierarchy listed
+[here.](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/policies-annotation/quality/ani/)
+This field was especially cryptic, with the hierarchy not working as
+this page said it should.
+
+## Conclusion
+
+I do not believe the graphs from this section show anything too
+spectacular, however it was good practice at graphing and the main
+purpose, being downloading the JSON files so i can make an informed
+choice on which accessions will go in my prototype heatmap was a
+success. I will be honest, i spent a little too much effort on these
+graphs, there were many challanges with doing these things, but i learnt
+a lot from that struggle. The next section should however be more
+interesting.
+
+::: {style="background-color:yellow;"}
+📌 ?: TODO: have a look back at checkm and ANI(if it exists) analysis
+for the local samples to add to the combi table in
+"jsonataexplorationprep.R" next graphs up are going to be more simple
+ones like the one for ANI, and then i also had the idea of doing a sort
+of "megagraph" for completeness against contamination, where the colour
+is the "refseq category" as for some reason, the accession with the
+highest contamination is a reference genome, I can also modify the
+column to include "bangor" as the category for ours so I know where they
+place.
+:::
+
+# Prototype Heatmap Creation Run, end-to-end: steps 2 + 3 2025-01-26 to 2025-01-27
+
+## Introduction
+
+In part 1, i generated the metadata table that will help me choose "high
+quality" samples(and maybe go on to make the phylogenetic trees from
+gtdb-tk a bit more flashy later). This section will focus on specifying
+a set of samples so that each "group" (a subset of samples for each
+relevent genus) will total 10 samples, for 50 total (4 samples are
+*Sphingomonas,* 2 are *Microbacterium,* there are 1 each for
+*Brachybacterium, Brevibacterium* and *Pantoea*). This only totals 9
+samples, this is because I am excluding 1Dt100h due to it not being
+given a genus by gtdb-tk de_novo_wf. This means i need to select 41 more
+samples to download the .fasta file for and copy to hawk.
+
+## Methods
+
+This process will use another command in the NCBI REST API library
+called
+[-accessions-/download](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/download).
+This will utilise the combined table made in step 1 to filter to 41
+online reference samples of good quality to make the list i will pass to
+the API call. My list will not include reference samples because I do
+not find that as "organic". On the morning, of the 27th at 8:40 i ran
+the NCBI REST API to download the subset of the fastas, using the same
+document i started yesterday,
+[NCBIfastacollectorprototype.R](https://github.com/tobiasnunn/tnunn_research/blob/c23c334f1fc9acfc10b05f66a0474d6ce3600d3a/00_scripts/NCBIfastacollectorprototype.R).
+The code therein place the .fastas in a directory in
+02_middle-analysis_outputs/ncbi_stuff. However, this will not show on
+github because there are many and fasta files are very large and i have
+a limited space allowance in the repo. I then modified this file to
+include another for loop to unzip the files and give me the .fastas,
+[here.](https://github.com/tobiasnunn/tnunn_research/blob/2827ddaa51c73370b0d1b4a7ca847dfc634acff6/00_scripts/NCBIfastacollectorprototype.R)
+
+## Results
+
+As mentioned above: the directory containing the .fastas is part of the
+.gitignore, so there are no visible results, but trust me, they are
+there.
+
+## Conclusion
+
+Non Applicable, this is just a quick intermediary
+
+# Prototype Heatmap Creation Run, end-to-end: step 4 2025-01-27 to 2025-01-28
+
+## Introduction
+
+I have the 41 fastas, the job of uploading them to hawk was easy enough.
+Now i need to think automation, i could manually input all these files
+into a slurm script, but that is not very fun, and more practically,
+very error prone. This means i need to think how i might automate a
+script to sort of iterate over a directory of files.
+
+## Methods
+
+From my testing earlier this month, i have [this bash
+script](https://github.com/tobiasnunn/tnunn_research/blob/2827ddaa51c73370b0d1b4a7ca847dfc634acff6/00_scripts/anothergo_morecpu.sh).
+It is the best i have so far, but it is still manual. Noteable
+improvements i made were the mailing parameters so i can see when a job
+is done from my phone, and some general messing about with `seff` to
+optimise things like cpus and memory. I decided to use this as a
+template to make [this
+script](https://github.com/tobiasnunn/tnunn_research/blob/2827ddaa51c73370b0d1b4a7ca847dfc634acff6/00_scripts/prototypebatch1.sh).
+This will run 3 accessions, alphabetically descending so i can keep
+track. I originally was going to run three of these, but trying to
+manually copy + paste in all those complex alphanumeric strings was
+difficult. Thus, proving the need for automation. This file will run
+hopefully while i'm in lectures this afternoon, and i can then work on
+making the script better (hopefully without breaking it), after that.
+There was no real reason to do it this way, i just wanted something to
+be happening while i was in lectures as i had the .fastas anyway. In the
+evening, i attempted to begin using parameters to automate some of the
+naming to speed up (and make less error prone) the process. Using help
+from an email from Aaron.
+
+I decided to add another section on the bottom of my
+"NCBIfastacollectorprototye.R" script called "create the control files".
+These are the files that will run other files in slurm. The first step
+uses regular expressions (regex), which i discovered while using stack
+overflow to solve the `separate()` statement. It is very weird and kind
+of bananas, but it feels like the type of thing a professional with
+standards would use, so i feel the need to at least use them correctly,
+if not fully understand them, because, as i say "bananas". I found
+[regex101.com](https://regex101.com/) and using several stack overflow
+articles. Once this was done, 3 files were outputted, 1 with a group
+size of 13, 2 with 12. These will be the files the hawk script will use
+to set parameters so the .fastas, which i manually brought up to hawk
+will be run upon. On hawk i created a script called
+[slurmsquared.sh](https://github.com/tobiasnunn/tnunn_research/blob/88f05f800e18df832c875992534faf4778c9bfbd/00_scripts/slurmsquared.sh)(because
+it is a script that works on scripts and .tsv files). I also created a
+modified version of my testing file called
+[eggnogslurmrunner.sh](https://github.com/tobiasnunn/tnunn_research/blob/88f05f800e18df832c875992534faf4778c9bfbd/00_scripts/eggnogslurmrunner.sh),
+this is the file that sets what i want slurm to do. Using these scripts,
+i managed to get 13 jobs (1 accession per job) to occur automatically.
+One of the proposed benefits of doing it this way was that jobs could be
+run in parallel, however, thusfar, slurm is denying me this, i have not
+gotten it to run any of these eggnog jobs in parallel before, so i shall
+see if it does it here, i think that the individual jobs are too large
+for it to warrant paralleling. Once that set is done, i will then run
+the next, then the next.
+
+Ok, while those are doing, i need to think about how i am going to get
+the .xlsx files off of hawk once they are done. This lead me to generate
+[eggnog_annotation_getter.sh](https://github.com/tobiasnunn/tnunn_research/blob/d3597774d45daa4bf2a76fcb46b114aac9ac5e6d/00_scripts/eggnog_annotation_getter.sh).
+An easy-peasy little file that pulls out all the .xlsx files and slaps
+them into a directory. Once more are done, i will manually pull them off
+of hawk, maybe i should zip them first? we'll see. Anyway, i might as
+well get to work on the pipeline to turn these into a heatmap so it is
+ready for when all 41 have downloaded.
+
+## Results
+
+As mentioned above: the directory containing the .fastas is part of the
+.gitignore, so there are no visible results, but trust me, they are
+there. I am guessing the same will go for the directory containing the
+xlsx files, but they are a fair ways smaller so maybe for the prototype
+stage they will be alright.
+
+## Conclusion
+
+Non Applicable, this is just a quick intermediary
+
+# Prototype Heatmap Creation Run, end-to-end: step 5 2025-01-27 to 2025-01-29 💎🦍🗿
+
+## Introduction
+
+So, the 41 accessions are going through eggnog, good. This is however
+going to take time, under or around 20 hours total if they do not do in
+parallel, which i do not think is likely. So, i might as well get to
+work creating the file(s) that go into turning the .xlsx files from hawk
+into a metadata file into a heatmap. I want to get this in one file for
+simplicity, but two might be necessary / more optimal in ways i don't
+quite understand yet.
+
+## Methods
+
+After pulling down the annotations that had been run by 20:37 on the
+28th, 20 total with the local samples, i started by making the metadata
+file needed to begin the pipeline to the heatmap. This involved two
+columns, mag_id and bac_taxon. I used the file
+[metadata_maker.R](https://github.com/tobiasnunn/tnunn_research/blob/89bf0cdd5086df2c75bef487b98ff9c530e4ef12/00_scripts/metadata_maker.R)
+to do this, very simple, brings in files i already had, combines them
+and cuts out excess so what is output is just the file as per
+specifications of the example Aaron gave me months ago when i did the
+fly stuff(not relevant to this project). This output i then feed into my
+[KEGG_pipeline_pt1.R](https://github.com/tobiasnunn/tnunn_research/blob/89bf0cdd5086df2c75bef487b98ff9c530e4ef12/00_scripts/KEGG_pipeline_pt1.R)
+file to turn into the intermediary. I am using two files for this part,
+because i realised the reason Aaron did two files was that it would be
+heavily inconvenient having to do all the stuff in pt1 every time you
+wanted to run pt2, so it is much simpler to save the outputs to a file
+that can easily be read in as much as you want. Progress is kind of now
+halted until all 50 are completed. Right, overnight between the 28th and
+the 29th (about 2pm to 6:30am) all 41 ran on hawk, some of them even
+went in parallel, i suppose that in the night there is less burden on
+hawk so it is more availiable to do two at once, all but one of these
+were successful, so now, i have to figure out which accession i don't
+have so i can run that one again. i have downloaded the 40 other files
+to my landing pad so they can both go through the pipeline. However, i
+need the extra one to generate output without changing the list. This
+leads to the importance of inputting error handling, i still do not know
+why it messed up the first time ((occasionally it just happens) but
+after that it kept crashing because files already existed, so i added
+the `--override` command to override any existing files, so hopefully
+this run should be the last and i will have my prototype dataset by the
+end of today.
+
+I should mention how useful the R packages tidyverse and dplyr have been
+in all of these processes. One step of note is that oddly i found that
+sometimes, eggnogmapper would output multiple KO pathways in the same
+cell (i.e. "ko:KO1234" vs "ko:KO1234,ko:KO4321,ko:KO3241"). I am unsure
+why it does this, maybe it can't determine which of the three is
+present. Anyway, i decided to cut the list to seperate and keep all
+three as separate arguments, because why not, it may be that these
+should have been left in the same cell, but onward i go. Another issue i
+then ran into was `enrichko()` when i first tried to run a KO value
+through it, it crashed reporting
+
+"--\> No gene can be mapped....
+
+--\> Expected input gene ID: K13952,K00128,K08074,K01837,K00175,K02777
+
+--\> return NULL..."
+
+I tried another one and it gave a result, so is it possible enrichko
+just does not know about some pathways? Doing a check on the KEGG
+website i found that the ones returning NULL do not have a map id, not
+sure what this means, but i think it is alright that they are being
+excluded, because i am looking for map ids. With that, my file
+[KEGG_pipeline_pt1.R](https://github.com/tobiasnunn/tnunn_research/blob/004feb0c0e62718a3783ef77a4934af373fdfd39/00_scripts/KEGG_pipeline_pt1.R)
+is done, i have the pivot table with the genera and map ids. Now i just
+have to turn those into heatmaps. Not too long later, i had part 2 done,
+[KEGG_pipeline_pt2.R](https://github.com/tobiasnunn/tnunn_research/blob/3c07ec738628981557eb98173b99e99ad7412c39/00_scripts/KEGG_pipeline_pt2.R).
+This is a simple little file that reads in the output from 1, turns all
+the columns into proportions, pivots and other clever stuff until i have
+the thing to heatmap, then gives multiple possible aesthetic choices,
+very good.
+
+## Results
+
+I don't think i can infer anything from the prototype heatmap, there are
+many map values, but i should wait until the whole dataset is done
+before just saying "these are the map values of interest". Still, as a
+prototype it serves as perfect proof that I can scale up. I am going for
+dinner now, but i'll try remember to put the sample heatmaps here after,
+tomorrow morning at the latest.
+
+![Figure 4 - Prototype Heatmap aesthetic style
+1](03_final_outputs/prototype_heatmaps/sample1.png)
+
+![Figure 5 - Prototype Heatmap aesthetic style
+2](03_final_outputs/prototype_heatmaps/sample2.png)
+
+![Figure 6 - Prototype Heatmap aesthetic style
+3](03_final_outputs/prototype_heatmaps/sample3.png)
+
+## Conclusion
+
+This section of the project has been a resounding success, the pipeline
+is largely where it needs to be, i have the prototype heatmap to
+hopefully impress Aaron with. Aaron said his preference was style 3
+(figure 6)
+
+There is still some more work to go before i can begin in proper, vis a
+vis:
+
+1.  how to monitor that many slurm jobs and resubmit failed ones
+
+2.  how to perform koenrich() only once per excel file and store the
+    results for later use
+
+3.  how to make the proportions proportionate when there are a different
+    number of samples per genera
+
+4.  dashboard of progress (super-special secret potential proj)
+
+I am still missing that one that still hasn't been eggnog'ed on hawk,
+must be a busy day.
+
+I also need to remember i still haven't gotten around to doing the
+remodels of the gtdb-tk phylogenetic trees, keep putting them off
+because i want to use the .JSON files to do flashy stuff
+
+::: {style="background-color:yellow;"}
+📌 ?: TODO: the notebooks are having trouble knitting. something to look
+at tomorrow morning, get on with crab stuff while fresh(not relevent to
+this work), finish that paper and do the special KOenrich thing.
+:::
+
+::: {style="background-color:yellow;"}
+📌 ?: LONGTERM HEATMAP TODO: Sphingomonas and Pantoea dominate the
+heatmap, i wonder what a little secondary heatmap might look like if i
+take those genera out and just compare the 3 lesser ones. Remember, i
+still have to do the heatmaps for family stuff and do the proper for
+genera-genera
+:::
+
+# Pipeline optimisation ahead of running the full thing ☠️ 🍽️ (2025-01-31)
+
+## Introduction
+
+The main focus of this bit is making sure that once the files have been
+brought down from eggnog, they get turned into heatmaps as fast as
+possible. This mainly focuses on the enrichment process, which is very
+time consuming when doing files in bulk. The ideal would be for each
+eggnogmapper output file to be enriched only once.
+
+## Methods
+
+I have done this by separating my pt1 script in the pipeline into 2, so
+now there are 3 parts total. The new
+[part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/c93c32fbe35286862eeda7db9ca09371296f24a4/00_scripts/KEGG_pipeline_pt1_enrich.R)
+focuses purely on enriching the output files and sending those outputs
+into .tsv files that
+[part2_aggregate](https://github.com/tobiasnunn/tnunn_research/blob/c93c32fbe35286862eeda7db9ca09371296f24a4/00_scripts/KEGG_pipeline_pt2_aggregate.R)
+can now read in and aggregate, producing the output table needed in the
+unmodified (but renamed)
+[part3_heatmap](https://github.com/tobiasnunn/tnunn_research/blob/c93c32fbe35286862eeda7db9ca09371296f24a4/00_scripts/KEGG_pipeline_pt3_heatmap.R).
+
+## Conclusion
+
+This is better because in the old way, i had to run the whole file, and
+wait 10-15 minutes for it to enrich, just so i could output the
+aggregate file, so now i only need do it once and then read in the
+files. So now the enriched files are much more available for analysis.

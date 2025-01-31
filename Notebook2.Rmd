@@ -456,36 +456,24 @@ ggplot(filter(animatchbase, !taxonomy_check_status == "Absent"), aes(fill= match
 
 ```{r completeness hist, echo=FALSE, warning=FALSE}
 
-ggplot(combi) +
-  geom_histogram(aes(x = combi$completeness), binwidth = 10, fill = "#2565AB", color = "white") +
-  ylim(0,450) +
-  labs(x = "Checkm Completeness", y = "Count of samples",
+ggplot(combi, aes(x = completeness)) +
+  stat_bin(colour = "white", fill = "#2565AB", binwidth=3) + ylim(c(0, 450)) +  
+  stat_bin(binwidth=3, geom="text", aes(label=..count..), vjust=-1.5) +
+  labs(x = "CheckM Completeness", y = "Count of samples",
        caption = md("Figure 2: histogram of checkm completeness from analysis done by the NCBI at an undisclosed date"),
-       title = "Analysis Checkm Completeness")
-
- +
-  geom_text(
-    aes(label = completeness),
-    position = position_dodge(width = 1),
-    vjust = -1)
+       title = "Analysis CheckM Completeness")
 ```
 
 #### Contamination histogram
 
 ```{r contamination hist, echo=FALSE, warning=FALSE}
 
-ggplot(combi) +
-  geom_histogram(aes(x = combi$contamination), binwidth = 3, fill = "#2565AB", color = "white") +
-  ylim(0,450) +
-  labs(x = "Checkm Completeness", y = "Count of samples",
+ggplot(combi, aes(x = contamination)) +
+  stat_bin(colour = "white", fill = "#2565AB", binwidth=3) + ylim(c(0, 450)) +  
+  stat_bin(binwidth=3, geom="text", aes(label=..count..), vjust=-1.5) +
+  labs(x = "CheckM Contamination", y = "Count of samples",
        caption = md("Figure 3: histogram of checkm contamination from analysis done by the NCBI at an undisclosed date"),
-       title = "Analysis Checkm Completeness")
-
- +
-  geom_text(
-    aes(label = completeness),
-    position = position_dodge(width = 1),
-    vjust = -1)
+       title = "Analysis CheckM Contamination")
 ```
 
 ###  {.unnumbered}
@@ -793,3 +781,32 @@ take those genera out and just compare the 3 lesser ones. Remember, i
 still have to do the heatmaps for family stuff and do the proper for
 genera-genera
 :::
+
+# Pipeline optimisation ahead of running the full thing ☠️ 🍽️ (2025-01-31)
+
+## Introduction
+
+The main focus of this bit is making sure that once the files have been
+brought down from eggnog, they get turned into heatmaps as fast as
+possible. This mainly focuses on the enrichment process, which is very
+time consuming when doing files in bulk. The ideal would be for each
+eggnogmapper output file to be enriched only once.
+
+## Methods
+
+I have done this by separating my pt1 script in the pipeline into 2, so
+now there are 3 parts total. The new
+[part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/c93c32fbe35286862eeda7db9ca09371296f24a4/00_scripts/KEGG_pipeline_pt1_enrich.R)
+focuses purely on enriching the output files and sending those outputs
+into .tsv files that
+[part2_aggregate](https://github.com/tobiasnunn/tnunn_research/blob/c93c32fbe35286862eeda7db9ca09371296f24a4/00_scripts/KEGG_pipeline_pt2_aggregate.R)
+can now read in and aggregate, producing the output table needed in the
+unmodified (but renamed)
+[part3_heatmap](https://github.com/tobiasnunn/tnunn_research/blob/c93c32fbe35286862eeda7db9ca09371296f24a4/00_scripts/KEGG_pipeline_pt3_heatmap.R).
+
+## Conclusion
+
+This is better because in the old way, i had to run the whole file, and
+wait 10-15 minutes for it to enrich, just so i could output the
+aggregate file, so now i only need do it once and then read in the
+files. So now the enriched files are much more available for analysis.
