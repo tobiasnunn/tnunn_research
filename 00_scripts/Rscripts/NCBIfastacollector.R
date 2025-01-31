@@ -17,7 +17,11 @@ existingfastas$rest <- NULL
 list_to_process <- filter(analysis_accession_list, !analysis_accession_list$accession %in% existingfastas$accession & 
                             !analysis_accession_list$accession %in% excluded_accessions$accession)
 
-number_to_process <- 30
+if(nrow(list_to_process) < 50){
+number_to_process <- nrow(list_to_process)
+} else{
+number_to_process <- 50
+}
 
 # call the API, get .fastas
 urlstring <- 'https://api.ncbi.nlm.nih.gov/datasets/v2/'
