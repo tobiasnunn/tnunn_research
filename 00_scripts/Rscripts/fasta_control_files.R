@@ -42,6 +42,29 @@ for (i in 1:total_loops) {
   file.rename(paste0(current.folder, batch$filename), paste0(new.folder, batch$filename))
 } 
 
+# i did an oopsie and put them all in directories before i created the control scripts
+# now i have to code a way to create the files by itterating over the directories
+# bit of a hastle but ok in the long run
+# this file wants to by a tsv of two columns, the accession, then the full name
+directory_list <- data.frame(directory = list.dirs(path = "02_middle-analysis_outputs/ncbi_stuff/fasta/"),
+                             name_dir = list.dirs(path = "02_middle-analysis_outputs/ncbi_stuff/fasta/", full.names = FALSE)) %>% 
+  filter(grepl("*batch*", directory))
+
+for (i in 1:nrow(directory_list)) {
+  #i <- 1
+  file_list <- data.frame(file_name = list.files(path = directory_list$directory[i]))
+  file_list <- file_list %>% separate_wider_regex(cols = file_name, 
+                                                  cols_remove = FALSE, patterns = c(accession = "^(?:.*?_.*?)", "_", rest = ".*"))
+  file_list$rest <- NULL
+  write_delim(file_list, paste0("02_middle-analysis_outputs/eggnog_stuff/control_files/genera_control_file_", directory_list$name_dir[i], ".tsv"), 
+              delim = "\t", col_names = FALSE)
+}
+
+
+
+
+
+
 #dir.create(file.path("02_middle-analysis_outputs/ncbi_stuff/fasta", paste0("batch_", i)), showWarnings = FALSE)
 #OUTMODED CODE
 # manually done the top 4, so now i gotta cut them out of the list
