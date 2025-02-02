@@ -2,10 +2,10 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(readxl)
-if (!require("BiocManager")){
-  install.packages("BiocManager")
-BiocManager::install("MicrobiomeProfiler")
-}
+# if (!require("BiocManager")){
+#   install.packages("BiocManager")
+# BiocManager::install("MicrobiomeProfiler")
+# }
 library(MicrobiomeProfiler)
 
 #check which eggnog files have not been enriched and work through those
