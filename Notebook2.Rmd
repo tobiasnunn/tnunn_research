@@ -863,7 +863,13 @@ slurm time. It could end up scheduling them faster because they are now
 seemingly less intensive, but this does raise the question, what happens
 if one randonmly goes back to 40 gigs? i suppose it just means more will
 fail and have to be redone, all i can really do here is cross my
-fingers.
+fingers. Well, that was an abject failure, both crashed due to too
+little memory, bananas as "seff" said they were still under budget, so
+now i am thinking it can not be trusted and i am going back to the
+original parameters, i am just going to have to accept that when its
+busy there will be no parallel action and they are sometimes going to
+take an age to schedule, because whenever i try reducing the parameters,
+something stupid happens.
 
 ## Results
 
