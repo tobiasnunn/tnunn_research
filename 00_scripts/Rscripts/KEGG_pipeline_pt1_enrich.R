@@ -2,11 +2,10 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(readxl)
-# if (!require("BiocManager")){
+# if (!require("BiocManager", quietly = TRUE))
 #   install.packages("BiocManager")
 # BiocManager::install("MicrobiomeProfiler")
-# }
-library(MicrobiomeProfiler)
+library("MicrobiomeProfiler")
 
 #check which eggnog files have not been enriched and work through those
 eggnogfiles <- data.frame(filename = list.files("02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/", pattern = "*.xlsx"))
