@@ -94,7 +94,8 @@ busy there will be no parallel action and they are sometimes going to
 take an age to schedule, because whenever i try reducing the parameters,
 something stupid happens.
 
-On Sunday, batches 2,3 and 4 were done in good time. On some occasions i even saw hawk running 4 of my jobs at a time.
+On Sunday, batches 2,3 and 4 were done in good time. On some occasions i
+even saw hawk running 4 of my jobs at a time.
 
 ## Results
 
@@ -108,30 +109,65 @@ differences?)
 
 ## Conclusion
 
-# Miscelaneous projects whilst in "eggnog limbo" (2025-02-01 to 2025_____)
+# Miscelaneous projects whilst in "eggnog limbo" (2025-02-01 to 2025\_\_\_\_\_)
 
 ## Introduction
-While i am waiting for eggnog to process all of those files, i figured i should get on with other things that need doing. I created a summary mindmap that can be found in tnunn_research -> 04_images under the same name as the title here. Many of these steps are in service of increasing the transparancy of the opperation, so that when others view it, they can have help to understand all the obscure files, and also so that i can keep track in my head.
+
+While i am waiting for eggnog to process all of those files, i figured i
+should get on with other things that need doing. I created a summary
+mindmap that can be found in tnunn_research -\> 04_images under the same
+name as the title here. Many of these steps are in service of increasing
+the transparancy of the opperation, so that when others view it, they
+can have help to understand all the obscure files, and also so that i
+can keep track in my head.
 
 ## Methods
-I am not doing these tasks in any particular order, and some, for example the literature reading will be a long-term process. This started with my investigations into the 43gig vs 9gig problem, however, as that is directly tied to the eggnog process, i will leave that in the above section. I have also begun work on the "HELP.pptx" file that one can use to lookup what files do and where they fit into the pipeline. I have begun a new workbook titled NotebookA_literature_review.Rmd" where I have begun putting notes about the first paper i am reading. I used powershell to zip directories of fastas where these have been sent to hawk already, to save space, these are the commands i used:
 
-<code>
-$folders = @("batch_1", "batch_2", "batch_3")
-foreach ($folder in $folders) {
->>     Compress-Archive -Path ".\$folder" -DestinationPath ".\$folder.zip" -Force
->>     Remove-Item -Path ".\$folder" -Recurse
->> }
-</code>
+I am not doing these tasks in any particular order, and some, for
+example the literature reading will be a long-term process. This started
+with my investigations into the 43gig vs 9gig problem, however, as that
+is directly tied to the eggnog process, i will leave that in the above
+section. I have also begun work on the "HELP.pptx" file that one can use
+to lookup what files do and where they fit into the pipeline. I have
+begun a new workbook titled NotebookA_literature_review.Rmd" where I
+have begun putting notes about the first paper i am reading. I used
+powershell to zip directories of fastas where these have been sent to
+hawk already, to save space, these are the commands i used:
 
-I also did something similar on hawk, using the commands:
-<code>
-find ./ -maxdepth 1 -type d -name "GC*" -exec bash -c 'zip -r "${1%/}.zip" "$1"' _ {} \;
-rm -R "*_annotations"
-</code>
+<code> $folders = @("batch_1", "batch_2", "batch_3")
+foreach ($folder in \$folders) { \>\> Compress-Archive -Path ".\$folder"
+-DestinationPath ".\$folder.zip" -Force \>\> Remove-Item -Path
+".\$folder" -Recurse \>\> } </code>
+
+I also did something similar on hawk, using the commands: <code> find ./
+-maxdepth 1 -type d -name "GC*" -exec bash -c 'zip -r "\${1%/}.zip"
+"\$1"' \_ {} ; rm -R "*\_annotations" </code>
 
 I plan to dashboard
 
+Before my meeting with Aaron tomorrow (2025-02-04) i wanted to do some
+more sample heatmaps with different parameters, for example, the
+comparison of difference exluding Sphingomonas and Pantoea, as they seem
+to dominate the heatmap. I also, wanted to do an analysis of similarity,
+as common genes could give me an idea of what "requirements" a bacteria
+may need to have to live in the skin Microbiome.
+
+::: {style="background-color:yellow;"}
+📌 ?: TODO: I think there is a way to group by pathway using the "class"
+of the pathway. I want to look into that too.
+:::
+
+## Results
+
+![](images/clipboard-2512701318.png)
+
+![](images/clipboard-3485064394.png)
+
+These heatmaps are interesting, but using a heatmap to visualise
+commonality is slightly odd. I will admit, the time is 21:46 and my
+notebooking skills may not be the best right now.
+
+## Conclusions 
 
 The screen i am using is burning my eyes now i'm putting in more
 consecutive hours, so i am changing the mode to "Gob", the "tools" tab

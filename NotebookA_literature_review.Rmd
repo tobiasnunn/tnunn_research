@@ -25,7 +25,7 @@ I chose this paper because it is modern, It was published on the 4th of February
 
 Potential disaster climate change will have / have had on plants and agriculture. Microbiome all over plants, very linked. Past studies (Naylor & Coleman-Derr, 2018; Singh et al., 2020a; Trivedi et al., 2020, 2021) found that these links help protect from environmental changes. warming and drought. how microbiomes might change under stess.
 
-There is then a section on plant-pathogen interactions, interesting. They mention abiotic stresses on the relationships. They then talk about beneficial host-microbe relationships
+There is then a section on plant-pathogen interactions, interesting. They mention abiotic stresses on the relationships. They then talk about beneficial host-microbe relationships. They talk of communication systems between host and microbiome
 
 ### Thoughts and discussion
 
@@ -38,6 +38,8 @@ unrelated, kind of, but i just had the thought, has anyone sequenced the genome 
 try and relate what the microbiome does both to defense and other benefits to host.
 
 bit of a morbid thought, but could we sample frogs that have died from chitrid, if we know what bacteria have survived, maybe we know what bacteria are most likely to be probiotic if introduced.
+
+maybe there is some future work that could be done on the frogs themselves, do they produce probiotic secretions or otherwise influence what happens on their skin? This could be a genetic analysis, "what genes are not methylated in dyeing poison dart frog skin cells and what is their function" or a chemical analysis of the mucus, something like that. They mention a paper about how drought causes hormone changes that can change the nature of host-virus relationships, worth a read.
 
 ### reference + link for tracing
 
