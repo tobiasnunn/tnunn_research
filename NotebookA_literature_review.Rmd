@@ -23,9 +23,21 @@ I chose this paper because it is modern, It was published on the 4th of February
 
 ### Summaries, notes, etc
 
-<!-- notes on content of paper -->
+Potential disaster climate change will have / have had on plants and agriculture. Microbiome all over plants, very linked. Past studies (Naylor & Coleman-Derr, 2018; Singh et al., 2020a; Trivedi et al., 2020, 2021) found that these links help protect from environmental changes. warming and drought. how microbiomes might change under stess.
+
+There is then a section on plant-pathogen interactions, interesting. They mention abiotic stresses on the relationships. They then talk about beneficial host-microbe relationships
 
 ### Thoughts and discussion
+
+They talk about how the host and the bacteria "coevolve" - try to think of this, the bacteria will have evolved to suit the frog, they must do something beneficial or at least neutral to it, so what happens if i find something potentially harmful?
+
+The importance of variation among the bacteria, this is the point of the heatmaps. But, the heatmaps rule out ubiquitous map IDs, so what if there are genes that all the groups express near equally, ones that are a sort of "requirement" to have to be able to live on the frog skin? Those would be filtered out by the analysis
+
+unrelated, kind of, but i just had the thought, has anyone sequenced the genome of Bd, the fungus causing chitrid? that might be useful, maybe knowing what it does and doesnt have can help figure out a way to kill it.
+
+try and relate what the microbiome does both to defense and other benefits to host.
+
+bit of a morbid thought, but could we sample frogs that have died from chitrid, if we know what bacteria have survived, maybe we know what bacteria are most likely to be probiotic if introduced.
 
 ### reference + link for tracing
 
