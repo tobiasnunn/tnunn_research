@@ -123,10 +123,11 @@ commonbase <- heatmapbase %>%
   ungroup() %>% 
   mutate(across(Brachybacterium:Sphingomonas, ~ . / total)) %>%
   mutate(across(Brachybacterium:Sphingomonas, ~ abs(. - 0.2))) %>%
+  mutate(across(Brachybacterium:Sphingomonas, ~ abs(1 - .))) %>%
   select(!total) %>%
   rowwise(map_id) %>%
   mutate(total = sum(c_across(Brachybacterium:Sphingomonas))) %>%
-  filter(total < 0.1) %>%
+  filter(total > 4.9) %>%
   select(!total) %>%
   pivot_longer(cols = !map_id, names_to = "genus", values_to = "prop")
 
@@ -137,7 +138,7 @@ commonKOenrich_heatmap <- ggplot(data = commonbase, mapping = aes(x = map_id, y 
             lwd = 0.5,
             linetype = 1) +
   coord_fixed(ratio = 5) +
-  scale_fill_viridis_c(limits = c(0,0.04), option = "plasma", direction = -1) +
+  scale_fill_viridis_c(limits = c(0.95,1), option = "plasma", direction = 1) +
   theme_classic() +
   theme(
     axis.title.x = element_text(vjust = 0.5)) +
@@ -150,7 +151,7 @@ commonKOenrich_heatmap
 
 
 
-#copy
+#copies
 # commonbase <- heatmapbase %>% 
 #   rowwise(map_id) %>%
 #   mutate(total = sum(c_across(Brachybacterium:Sphingomonas))) %>% 
@@ -163,3 +164,17 @@ commonKOenrich_heatmap
 #   select(!difference) %>%
 #   pivot_longer(cols = !map_id, names_to = "genus", values_to = "prop")
 
+
+# commonKOenrich_heatmap <- ggplot(data = commonbase, mapping = aes(x = map_id, y = fct_rev(genus), fill = prop)) +
+#   geom_tile(color = "lightgrey",
+#             lwd = 0.5,
+#             linetype = 1) +
+#   coord_fixed(ratio = 5) +
+#   scale_fill_viridis_c(limits = c(0,0.04), option = "plasma", direction = -1) +
+#   theme_classic() +
+#   theme(
+#     axis.title.x = element_text(vjust = 0.5)) +
+#   ggtitle(label = "coconut") +
+#   theme(axis.text.x = element_text(angle = 90, vjust = 0.5))+
+#   labs(y="bacterial genera", x = "KO pathway", fill = "proportion\nenriched\ngenomes")
+# commonKOenrich_heatmap

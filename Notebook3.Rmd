@@ -165,7 +165,12 @@ of the pathway. I want to look into that too.
 
 These heatmaps are interesting, but using a heatmap to visualise
 commonality is slightly odd. I will admit, the time is 21:46 and my
-notebooking skills may not be the best right now.
+notebooking skills may not be the best right now. After my meeting with
+Aaron, i rejigged the code and now have this:
+
+![](images/clipboard-2835470568.png)
+
+It looks almost identical, but the scale is much more sane this time.
 
 ## Conclusions 
 
