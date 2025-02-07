@@ -157,20 +157,36 @@ may need to have to live in the skin Microbiome.
 of the pathway. I want to look into that too.
 :::
 
+I had a play around with the different aesthetic themes i could add to
+the regular prototype heatmap. I used the keggrest package to pull down
+metadata about each KEGG pathway from the KEGG website. I also added a
+facet grid to the heatmap to group by "class" a classification system
+found on the KEGG website.
+
 ## Results
 
-![](images/clipboard-2512701318.png)
+![Figure 1 - heatmap comparing the three "lesser" genera. Meaning that
+in the first prototype Sphingomonas and Pantoea dominated the heatmap
+with the most amount of hits by far, so i figured a more in depth
+comparison of these three would be
+beneficial](images/clipboard-2512701318.png)
 
-![](images/clipboard-3485064394.png)
+![Figure 2 - First heatmap showing the map ids that were almost equally
+expressed between all groups. The scale is inverted due to non-optimised
+code](images/clipboard-3485064394.png)
 
 These heatmaps are interesting, but using a heatmap to visualise
 commonality is slightly odd. I will admit, the time is 21:46 and my
 notebooking skills may not be the best right now. After my meeting with
 Aaron, i rejigged the code and now have this:
 
-![](images/clipboard-2835470568.png)
+![Figure 3 - Same as above, but fixing the errors so now perfect
+similarity is 100% or 1](images/clipboard-2835470568.png)
 
 It looks almost identical, but the scale is much more sane this time.
+
+![Figure 4 - Latest themes on the prototype
+heatmap](02_middle-analysis_outputs/KEGG_stuff/prototypeheatmapformat.png)
 
 ## Conclusions
 
