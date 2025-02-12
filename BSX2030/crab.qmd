@@ -1,0 +1,169 @@
+---
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+title: "Oxygen uptake rates in a typical gill-breather"
+format: docx
+editor: visual
+---
+
+## Practical 1: Assessment
+
+## BSX-2030 Integrated Zoology
+
+## Student number: 500690571
+
+![© Hans Hillewaert [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)](1024px-Carcinus_maenas.jpg){fig-align="center"}
+
+{{< pagebreak >}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(flextable)
+```
+
+## Task 1
+
+Task 1: Present the data in 4 tables i.e. Tables 6, 7, 8 and 9 from the practical handout. Each table needs a caption. Table titles go above the table
+
+```{r rawdata, echo=FALSE}
+crab_data <- data.frame(crab_name = c("A1", "A2", "A1", "A2", "A1", "A2"),
+                        treatment = c("Submerged", "Submerged", "Aerial Exposure", "Aerial Exposure", "Resubmerged","Resubmerged"),
+                        po_diff = c(13.3, 14.3, 0.9, -1, 15.2, 7.8),
+                        time_diff = c(19, 19, 61, 61, 15, 15),
+                        mass = c(0.02691, 0.02773,0.02691, 0.02773,0.02691, 0.02773)) 
+# then add calculated columns
+crab_data$solubility <-  crab_data$po_diff * 0.0000387
+crab_data$solubility_by_volume <- crab_data$solubility * 800
+crab_data$solubility_by_time <- crab_data$solubility_by_volume * (60 / crab_data$time_diff)
+crab_data$oxygen_by_mass <- crab_data$solubility_by_time / crab_data$mass
+```
+
+### Table 6
+
+```{r table6, echo=FALSE}
+
+table6_data <- filter(crab_data, !treatment == "Aerial Exposure") %>% 
+  mutate(across(-c(crab_name, treatment), ~ signif(.x, digits = 2))) %>%
+  select(-c(mass, oxygen_by_mass))
+table6 <- flextable(table6_data )
+
+table6 <- set_header_labels(table6,
+                            crab_name = "Crab\nName",
+                            treatment = "Treatment",
+                            time_diff = "Difference in time (min)") %>% 
+  mk_par(
+    part = "header", j = "solubility_by_volume",
+    value = as_paragraph("C", as_equation("\\times"), " vol of water (ml)") 
+  ) %>%
+  mk_par(
+    part = "header", j = "po_diff",
+    value = as_paragraph("Difference in ", as_i("p"), "O", as_sub("2"), "\n", as_i("mmHg"))
+  ) %>% 
+  mk_par(
+    part = "header", j = "solubility",
+    value = as_paragraph("A", as_equation("\\times"), " solubility coefficient (3.87", as_equation("\\times"), " 10", as_sup("-5"), ")")
+  ) %>% 
+  mk_par(
+    part = "header", j = "solubility_by_time",
+    value = as_paragraph("D" , as_equation("\\times"), " (", as_equation(x = "{60 \\over B}"), ")\n ml", as_sup("-1"), " O", as_sub("2"), " h", as_sup("-1"))
+  )
+table6 <- theme_vanilla(table6)
+table6 <- add_footer_lines(table6, "Daily air quality measurements in New York May to September 1973.")
+table6 <- color(table6, part = "footer", color = "#666666")
+table6 <- set_caption(table6, caption = "New York Air Quality Measurements")
+table6 <- add_header_row(table6,
+  colwidths = c(2, 1, 1, 1, 1, 1),
+  values = c("", "A", "B", "C", "D","E")
+)
+table6 <- set_table_properties(table6, width = 1, layout = "autofit")
+table6
+```
+
+### Table 7
+
+```{r table7, echo=FALSE}
+# can we avoid mutating the columns in thedata frame? this should bea display feature
+# mutate(across(-c(crab_name, treatment), ~ signif(.x, digits = 2)))
+
+aerial_data <- filter(crab_data, treatment == "Aerial Exposure") %>% 
+  mutate(rt = 17969) %>%
+  mutate(vol_of_air = po_diff / rt) %>%
+  mutate(per_hour = vol_of_air * (60/61)) %>%
+  mutate(across(-c(crab_name, treatment), ~ signif(.x, digits = 2))) %>%
+  select(crab_name, treatment, po_diff, rt, vol_of_air, per_hour)
+
+table7 <- flextable(aerial_data )
+
+table7 <- set_header_labels(table7,
+                            crab_name = "Crab\nName",
+                            treatment = "Treatment",
+                            rt = "R x T (62.36 x 288.15)") %>% 
+  mk_par(
+    part = "header", j = "po_diff",
+    value = as_paragraph("Difference in ", as_i("p"), "O", as_sub("2"), "\n", as_i("mmHg"))
+  ) %>% 
+  mk_par(
+    part = "header", j = "vol_of_air",
+    value = as_paragraph(as_equation(x = "{B \\over A}"), "x vol of air (litres)", as_i("mmol O"), as_sub("2"))
+  ) %>% 
+  mk_par(
+    part = "header", j = "per_hour",
+    value = as_paragraph("C x (", as_equation(x = "{60 \\over time interval}"), as_i("mmol O"), as_sub("2"), " h", as_sup("-1"), ")")
+  )
+table7 <- theme_vanilla(table7)
+table7 <- add_footer_lines(table7, "Crabs in air")
+table7 <- color(table7, part = "footer", color = "#666666")
+table7 <- set_caption(table7, caption = "Crabs in the air")
+table7 <- add_header_row(table7,
+  colwidths = c(2, 1, 1, 1, 1),
+  values = c("", "A", "B", "C", "D")
+)
+table7 <- set_table_properties(table7, width = 1, layout = "autofit")
+table7
+
+```
+
+### Table 8
+
+```{r table8, echo=FALSE}
+table8_data <- filter(crab_data, !treatment == "Aerial Exposure") %>% 
+  mutate(column_c = oxygen_by_mass / 22.414) %>%
+  select(crab_name, treatment, solubility_by_time, oxygen_by_mass, column_c) %>%
+  mutate(across(-c(crab_name, treatment), \(x) round(x, 2)))
+
+table8 <- flextable(table8_data)
+table8 <- set_header_labels(table8,
+                            crab_name = "Crab\nName",
+                            treatment = "Treatment") %>% 
+  mk_par(
+    part = "header", j = "solubility_by_time",
+    value = as_paragraph("Oxygen uptake \nml", as_sup("-1"), " O", as_sub("2"), " h", as_sup("-1"))
+  ) %>%
+  mk_par(
+    part = "header", j = "oxygen_by_mass",
+    value = as_paragraph("A / body mass in KG \n(ml O", as_sub("2"), " KG",  as_sup("-1"), " h", as_sup("-1"), ")")
+  ) %>%
+  mk_par(
+    part = "header", j = "column_c",
+    value = as_paragraph("B / 22.41 \n(mmol O", as_sub("2"), " KG",  as_sup("-1"), " h", as_sup("-1"), ")")
+  )
+
+
+table8 <- theme_vanilla(table8)
+table8 <- add_footer_lines(table8, "Some stuff")
+table8 <- color(table8, part = "footer", color = "#666666")
+table8 <- set_caption(table8, caption = "God knows")
+table8 <- add_header_row(table8,
+  colwidths = c(2, 1, 1, 1),
+  values = c("", "A", "B", "C")
+)
+table8 <- set_table_properties(table8, width = 1, layout = "autofit") %>%
+footnote(i = 2, j = 4, 
+           part = "header",
+           ref_symbols = "1", value = as_paragraph("Calculated as Oxygen uptake / body mass in kg")) # %>% 
+  # footnote(i = 3, j = 1, 
+  #          part = "header",
+  #          ref_symbols = "2", value = as_paragraph("Standard Deviation")) 
+table8
+
+```
