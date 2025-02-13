@@ -77,7 +77,7 @@ table6 <- set_table_properties(table6, width = 1, layout = "autofit") %>%
 footnote(i = 2, j = 5, 
            part = "header",
            ref_symbols = "*", value = as_paragraph("value from column A ", as_equation("\\times"), " solubility coefficient (3.87", as_equation("\\times"), " 10", as_sup("-5"), ")"))
-table6 %>% 
+table6 <- table6 %>% 
   set_formatter(solubility = function(x) {
     formatC(x, format = "e", digits = 2)
   })
