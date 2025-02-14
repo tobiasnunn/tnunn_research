@@ -55,7 +55,7 @@ table6 <- set_header_labels(table6,
                             solubility = "pO2 difference in water (mmHg)") %>% 
   mk_par(
     part = "header", j = "solubility_by_volume",
-    value = as_paragraph("C ", as_equation("\\times"), " vol of water (ml)") 
+    value = as_paragraph("Difference accounting for volume (mL)") 
   ) %>%
   mk_par(
     part = "header", j = "po_diff",
@@ -63,8 +63,7 @@ table6 <- set_header_labels(table6,
   ) %>% 
   mk_par(
     part = "header", j = "solubility_by_time",
-    value = as_paragraph("D " , as_equation("\\times"), " (", as_equation(x = "{60 \\over B}"), ")\n ml", as_sup("-1"), " O", as_sub("2"), " h", as_sup("-1"))
-  )
+    value = as_paragraph("Oxygen Uptake (ml", as_sup("-1"), " O", as_sub("2"), " h", as_sup("-1")))
 table6 <- theme_vanilla(table6)
 table6 <- add_footer_lines(table6, "Daily air quality measurements in New York May to September 1973.")
 table6 <- color(table6, part = "footer", color = "#666666")
@@ -76,12 +75,19 @@ table6 <- add_header_row(table6,
 table6 <- set_table_properties(table6, width = 1, layout = "autofit") %>%
 footnote(i = 2, j = 5, 
            part = "header",
-           ref_symbols = "*", value = as_paragraph("value from column A ", as_equation("\\times"), " solubility coefficient (3.87", as_equation("\\times"), " 10", as_sup("-5"), ")"))
+           ref_symbols = "*", value = as_paragraph("value from column A ", as_equation("\\times"), " solubility coefficient (3.87", as_equation("\\times"), " 10", as_sup("-5"), ")")) %>%
+footnote(i = 2, j = 6, 
+           part = "header",
+           ref_symbols = "†", value = as_paragraph("value from column C ", as_equation("\\times"), " vol of water (ml)")) %>%
+footnote(i = 2, j = 7, 
+           part = "header",
+           ref_symbols = "‡", value = as_paragraph("value from column D " , as_equation("\\times"), " (", as_equation(x = "{60 \\over B}"), ")\n ml", as_sup("-1"), " O", as_sub("2"), " h", as_sup("-1")))
+
 table6 <- table6 %>% 
   set_formatter(solubility = function(x) {
     formatC(x, format = "e", digits = 2)
   })
-# poss options for format
+# poss options for format 
 # e = "e-5" / f = "0".00" / E = "E-5" / g = normal / G = normal but no trailing 0s # / fg apparantly does same as G / s is weird 
 table6
 ```
