@@ -8,7 +8,7 @@ analysis_accession_list <- read.delim("02_middle-analysis_outputs/analysis_table
 
 excluded_accessions <- rbind(filter(analysis_accession_list, sample_type == "bangor"), filter(analysis_accession_list, assembly_status == "suppressed"))
 
-existingfastas <- data.frame(filename = list.files("02_middle-analysis_outputs/ncbi_stuff/fasta/", pattern = "*.fna"))
+existingfastas <- data.frame(filename = list.files("02_middle-analysis_outputs/ncbi_stuff/fasta/", pattern = "*.fna", recursive = TRUE))
 existingfastas <- existingfastas %>% separate_wider_regex(cols = filename, 
                                                           cols_remove = FALSE, patterns = c(accession = "^(?:.*?_.*?)", "_", rest = ".*"))
 existingfastas$rest <- NULL
