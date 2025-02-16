@@ -1,0 +1,466 @@
+map_id	genus	prop	name	class	subclass
+map00540	Brachybacterium	0.002193854421772153	Lipopolysaccharide biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00540	Brevibacterium	0.007016851841064903	Lipopolysaccharide biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00540	Microbacterium	0.010697018890574467	Lipopolysaccharide biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00540	Pantoea	0.9285184138147615	Lipopolysaccharide biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00540	Sphingomonas	0.05157386103182703	Lipopolysaccharide biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00944	Brachybacterium	0.8529585075072349	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00944	Brevibacterium	0	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00944	Microbacterium	0.10174781619133921	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00944	Pantoea	0.030603835338801247	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00944	Sphingomonas	0.0146898409626246	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map05020	Brachybacterium	0.008320603290564471	Prion disease	Human Diseases	Neurodegenerative disease
+map05020	Brevibacterium	0.006141397666845205	Prion disease	Human Diseases	Neurodegenerative disease
+map05020	Microbacterium	0.0027915443940205475	Prion disease	Human Diseases	Neurodegenerative disease
+map05020	Pantoea	0.14509051987921798	Prion disease	Human Diseases	Neurodegenerative disease
+map05020	Sphingomonas	0.8376559347693517	Prion disease	Human Diseases	Neurodegenerative disease
+map05100	Brachybacterium	0.03401373065100955	Bacterial invasion of epithelial cells	Human Diseases	Infectious disease: bacterial
+map05100	Brevibacterium	0.08786880418177467	Bacterial invasion of epithelial cells	Human Diseases	Infectious disease: bacterial
+map05100	Microbacterium	0.043363825440356336	Bacterial invasion of epithelial cells	Human Diseases	Infectious disease: bacterial
+map05100	Pantoea	0.8347536397268595	Bacterial invasion of epithelial cells	Human Diseases	Infectious disease: bacterial
+map05100	Sphingomonas	0	Bacterial invasion of epithelial cells	Human Diseases	Infectious disease: bacterial
+map05135	Brachybacterium	0.038308854776687155	Yersinia infection	Human Diseases	Infectious disease: bacterial
+map05135	Brevibacterium	0.09896454150644181	Yersinia infection	Human Diseases	Infectious disease: bacterial
+map05135	Microbacterium	0.04626913628872604	Yersinia infection	Human Diseases	Infectious disease: bacterial
+map05135	Pantoea	0.816457467428145	Yersinia infection	Human Diseases	Infectious disease: bacterial
+map05135	Sphingomonas	0	Yersinia infection	Human Diseases	Infectious disease: bacterial
+map00062	Brachybacterium	0	Fatty acid elongation	Metabolism	Lipid metabolism
+map00062	Brevibacterium	0.8312866049499338	Fatty acid elongation	Metabolism	Lipid metabolism
+map00062	Microbacterium	0.03778575477045154	Fatty acid elongation	Metabolism	Lipid metabolism
+map00062	Pantoea	0	Fatty acid elongation	Metabolism	Lipid metabolism
+map00062	Sphingomonas	0.1309276402796146	Fatty acid elongation	Metabolism	Lipid metabolism
+map00591	Brachybacterium	0	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00591	Brevibacterium	0.1379310344827586	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00591	Microbacterium	0	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00591	Pantoea	0.8620689655172413	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00591	Sphingomonas	0	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00901	Brachybacterium	0	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00901	Brevibacterium	0.14438853642528987	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00901	Microbacterium	0.8050754758258587	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00901	Pantoea	0	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00901	Sphingomonas	0.05053598774885146	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map01522	Brachybacterium	0	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map01522	Brevibacterium	1	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map01522	Microbacterium	0	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map01522	Pantoea	0	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map01522	Sphingomonas	0	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map04510	Brachybacterium	0	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map04510	Brevibacterium	1	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map04510	Microbacterium	0	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map04510	Pantoea	0	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map04510	Sphingomonas	0	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map00100	Brachybacterium	0	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00100	Brevibacterium	0	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00100	Microbacterium	0.17204301075268819	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00100	Pantoea	0.8279569892473119	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00100	Sphingomonas	0	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00404	Brachybacterium	0	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00404	Brevibacterium	0	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00404	Microbacterium	0.01393226596695731	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00404	Pantoea	0	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00404	Sphingomonas	0.9860677340330427	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Brachybacterium	0	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Brevibacterium	0	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Microbacterium	0.034818941504178275	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Pantoea	0	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Sphingomonas	0.9651810584958217	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map03013	Brachybacterium	0	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map03013	Brevibacterium	0	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map03013	Microbacterium	1	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map03013	Pantoea	0	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map03013	Sphingomonas	0	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map04014	Brachybacterium	0	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04014	Brevibacterium	0	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04014	Microbacterium	0.024597220514081912	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04014	Pantoea	0.9469929897921535	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04014	Sphingomonas	0.028409789693764606	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04115	Brachybacterium	0	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04115	Brevibacterium	0	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04115	Microbacterium	0.003550316865780271	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04115	Pantoea	0	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04115	Sphingomonas	0.9964496831342198	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04215	Brachybacterium	0	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04215	Brevibacterium	0	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04215	Microbacterium	0.0035430525168959315	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04215	Pantoea	0	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04215	Sphingomonas	0.9964569474831041	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04260	Brachybacterium	0	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04260	Brevibacterium	0	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04260	Microbacterium	0.0028352908654016547	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04260	Pantoea	0	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04260	Sphingomonas	0.9971647091345983	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04320	Brachybacterium	0	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04320	Brevibacterium	0	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04320	Microbacterium	1	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04320	Pantoea	0	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04320	Sphingomonas	0	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04550	Brachybacterium	0	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04550	Brevibacterium	0	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04550	Microbacterium	1	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04550	Pantoea	0	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04550	Sphingomonas	0	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04623	Brachybacterium	0	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04623	Brevibacterium	0	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04623	Microbacterium	1	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04623	Pantoea	0	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04623	Sphingomonas	0	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04624	Brachybacterium	0	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04624	Brevibacterium	0	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04624	Microbacterium	1	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04624	Pantoea	0	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04624	Sphingomonas	0	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04666	Brachybacterium	0	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04666	Brevibacterium	0	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04666	Microbacterium	0.024597220514081912	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04666	Pantoea	0.9469929897921535	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04666	Sphingomonas	0.028409789693764606	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04725	Brachybacterium	0	Cholinergic synapse	Organismal Systems	Nervous system
+map04725	Brevibacterium	0	Cholinergic synapse	Organismal Systems	Nervous system
+map04725	Microbacterium	0.17793594306049823	Cholinergic synapse	Organismal Systems	Nervous system
+map04725	Pantoea	0	Cholinergic synapse	Organismal Systems	Nervous system
+map04725	Sphingomonas	0.8220640569395018	Cholinergic synapse	Organismal Systems	Nervous system
+map04912	Brachybacterium	0	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04912	Brevibacterium	0	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04912	Microbacterium	0.024597220514081912	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04912	Pantoea	0.9469929897921535	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04912	Sphingomonas	0.028409789693764606	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04932	Brachybacterium	0	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map04932	Brevibacterium	0	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map04932	Microbacterium	0.003129976173056383	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map04932	Pantoea	0	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map04932	Sphingomonas	0.9968700238269437	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map05017	Brachybacterium	0	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05017	Brevibacterium	0	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05017	Microbacterium	0.0034352751225963808	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05017	Pantoea	0.016532261527495082	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05017	Sphingomonas	0.9800324633499087	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05110	Brachybacterium	0	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05110	Brevibacterium	0	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05110	Microbacterium	0.020237282133009536	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05110	Pantoea	0.8278313222534214	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05110	Sphingomonas	0.1519313956135691	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05133	Brachybacterium	0	Pertussis	Human Diseases	Infectious disease: bacterial
+map05133	Brevibacterium	0	Pertussis	Human Diseases	Infectious disease: bacterial
+map05133	Microbacterium	0.010527098396130764	Pertussis	Human Diseases	Infectious disease: bacterial
+map05133	Pantoea	0.8675809451623706	Pertussis	Human Diseases	Infectious disease: bacterial
+map05133	Sphingomonas	0.1218919564414986	Pertussis	Human Diseases	Infectious disease: bacterial
+map05140	Brachybacterium	0	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05140	Brevibacterium	0	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05140	Microbacterium	1	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05140	Pantoea	0	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05140	Sphingomonas	0	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05145	Brachybacterium	0	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05145	Brevibacterium	0	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05145	Microbacterium	0.0035430525168959315	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05145	Pantoea	0	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05145	Sphingomonas	0.9964569474831041	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05150	Brachybacterium	0	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05150	Brevibacterium	0	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05150	Microbacterium	0.029736460617774973	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05150	Pantoea	0	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05150	Sphingomonas	0.9702635393822251	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05160	Brachybacterium	0	Hepatitis C	Human Diseases	Infectious disease: viral
+map05160	Brevibacterium	0	Hepatitis C	Human Diseases	Infectious disease: viral
+map05160	Microbacterium	0.003520243600857179	Hepatitis C	Human Diseases	Infectious disease: viral
+map05160	Pantoea	0.008470586164562586	Hepatitis C	Human Diseases	Infectious disease: viral
+map05160	Sphingomonas	0.9880091702345802	Hepatitis C	Human Diseases	Infectious disease: viral
+map05161	Brachybacterium	0	Hepatitis B	Human Diseases	Infectious disease: viral
+map05161	Brevibacterium	0	Hepatitis B	Human Diseases	Infectious disease: viral
+map05161	Microbacterium	0.003550316865780271	Hepatitis B	Human Diseases	Infectious disease: viral
+map05161	Pantoea	0	Hepatitis B	Human Diseases	Infectious disease: viral
+map05161	Sphingomonas	0.9964496831342198	Hepatitis B	Human Diseases	Infectious disease: viral
+map05162	Brachybacterium	0	Measles	Human Diseases	Infectious disease: viral
+map05162	Brevibacterium	0	Measles	Human Diseases	Infectious disease: viral
+map05162	Microbacterium	0.003550316865780271	Measles	Human Diseases	Infectious disease: viral
+map05162	Pantoea	0	Measles	Human Diseases	Infectious disease: viral
+map05162	Sphingomonas	0.9964496831342198	Measles	Human Diseases	Infectious disease: viral
+map05163	Brachybacterium	0	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05163	Brevibacterium	0	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05163	Microbacterium	0.003550316865780271	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05163	Pantoea	0	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05163	Sphingomonas	0.9964496831342198	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05164	Brachybacterium	0	Influenza A	Human Diseases	Infectious disease: viral
+map05164	Brevibacterium	0	Influenza A	Human Diseases	Infectious disease: viral
+map05164	Microbacterium	0.003505988666891634	Influenza A	Human Diseases	Infectious disease: viral
+map05164	Pantoea	0.008436285229707994	Influenza A	Human Diseases	Infectious disease: viral
+map05164	Sphingomonas	0.9880577261034004	Influenza A	Human Diseases	Infectious disease: viral
+map05167	Brachybacterium	0	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05167	Brevibacterium	0	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05167	Microbacterium	0.008810805571953443	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05167	Pantoea	0	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05167	Sphingomonas	0.9911891944280465	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05168	Brachybacterium	0	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05168	Brevibacterium	0	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05168	Microbacterium	0.003550316865780271	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05168	Pantoea	0	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05168	Sphingomonas	0.9964496831342198	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05169	Brachybacterium	0	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05169	Brevibacterium	0	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05169	Microbacterium	0.003520243600857179	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05169	Pantoea	0.008470586164562586	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05169	Sphingomonas	0.9880091702345802	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05170	Brachybacterium	0	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05170	Brevibacterium	0	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05170	Microbacterium	0.003550316865780271	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05170	Pantoea	0	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05170	Sphingomonas	0.9964496831342198	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05210	Brachybacterium	0	Colorectal cancer	Human Diseases	Cancer: specific types
+map05210	Brevibacterium	0	Colorectal cancer	Human Diseases	Cancer: specific types
+map05210	Microbacterium	0.003520243600857179	Colorectal cancer	Human Diseases	Cancer: specific types
+map05210	Pantoea	0.008470586164562586	Colorectal cancer	Human Diseases	Cancer: specific types
+map05210	Sphingomonas	0.9880091702345802	Colorectal cancer	Human Diseases	Cancer: specific types
+map05212	Brachybacterium	0	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05212	Brevibacterium	0	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05212	Microbacterium	0.021993731786440866	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05212	Pantoea	0.95260350800022	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05212	Sphingomonas	0.0254027602133392	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05222	Brachybacterium	0	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05222	Brevibacterium	0	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05222	Microbacterium	0.003520243600857179	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05222	Pantoea	0.008470586164562586	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05222	Sphingomonas	0.9880091702345802	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05416	Brachybacterium	0	Viral myocarditis	Human Diseases	Cardiovascular disease
+map05416	Brevibacterium	0	Viral myocarditis	Human Diseases	Cardiovascular disease
+map05416	Microbacterium	0.003550316865780271	Viral myocarditis	Human Diseases	Cardiovascular disease
+map05416	Pantoea	0	Viral myocarditis	Human Diseases	Cardiovascular disease
+map05416	Sphingomonas	0.9964496831342198	Viral myocarditis	Human Diseases	Cardiovascular disease
+map03266	Brachybacterium	0	Virion - Herpesvirus	Genetic Information Processing	Information processing in viruses
+map03266	Brevibacterium	0	Virion - Herpesvirus	Genetic Information Processing	Information processing in viruses
+map03266	Microbacterium	0	Virion - Herpesvirus	Genetic Information Processing	Information processing in viruses
+map03266	Pantoea	1	Virion - Herpesvirus	Genetic Information Processing	Information processing in viruses
+map03266	Sphingomonas	0	Virion - Herpesvirus	Genetic Information Processing	Information processing in viruses
+map03460	Brachybacterium	0	Fanconi anemia pathway	Genetic Information Processing	Replication and repair
+map03460	Brevibacterium	0	Fanconi anemia pathway	Genetic Information Processing	Replication and repair
+map03460	Microbacterium	0	Fanconi anemia pathway	Genetic Information Processing	Replication and repair
+map03460	Pantoea	1	Fanconi anemia pathway	Genetic Information Processing	Replication and repair
+map03460	Sphingomonas	0	Fanconi anemia pathway	Genetic Information Processing	Replication and repair
+map04015	Brachybacterium	0	Rap1 signaling pathway	Environmental Information Processing	Signal transduction
+map04015	Brevibacterium	0	Rap1 signaling pathway	Environmental Information Processing	Signal transduction
+map04015	Microbacterium	0	Rap1 signaling pathway	Environmental Information Processing	Signal transduction
+map04015	Pantoea	1	Rap1 signaling pathway	Environmental Information Processing	Signal transduction
+map04015	Sphingomonas	0	Rap1 signaling pathway	Environmental Information Processing	Signal transduction
+map04075	Brachybacterium	0	Plant hormone signal transduction	Environmental Information Processing	Signal transduction
+map04075	Brevibacterium	0	Plant hormone signal transduction	Environmental Information Processing	Signal transduction
+map04075	Microbacterium	0	Plant hormone signal transduction	Environmental Information Processing	Signal transduction
+map04075	Pantoea	1	Plant hormone signal transduction	Environmental Information Processing	Signal transduction
+map04075	Sphingomonas	0	Plant hormone signal transduction	Environmental Information Processing	Signal transduction
+map04110	Brachybacterium	0	Cell cycle	Cellular Processes	Cell growth and death
+map04110	Brevibacterium	0	Cell cycle	Cellular Processes	Cell growth and death
+map04110	Microbacterium	0	Cell cycle	Cellular Processes	Cell growth and death
+map04110	Pantoea	1	Cell cycle	Cellular Processes	Cell growth and death
+map04110	Sphingomonas	0	Cell cycle	Cellular Processes	Cell growth and death
+map04139	Brachybacterium	0	Mitophagy - yeast	Cellular Processes	Transport and catabolism
+map04139	Brevibacterium	0	Mitophagy - yeast	Cellular Processes	Transport and catabolism
+map04139	Microbacterium	0	Mitophagy - yeast	Cellular Processes	Transport and catabolism
+map04139	Pantoea	1	Mitophagy - yeast	Cellular Processes	Transport and catabolism
+map04139	Sphingomonas	0	Mitophagy - yeast	Cellular Processes	Transport and catabolism
+map04310	Brachybacterium	0	Wnt signaling pathway	Environmental Information Processing	Signal transduction
+map04310	Brevibacterium	0	Wnt signaling pathway	Environmental Information Processing	Signal transduction
+map04310	Microbacterium	0	Wnt signaling pathway	Environmental Information Processing	Signal transduction
+map04310	Pantoea	1	Wnt signaling pathway	Environmental Information Processing	Signal transduction
+map04310	Sphingomonas	0	Wnt signaling pathway	Environmental Information Processing	Signal transduction
+map04330	Brachybacterium	0	Notch signaling pathway	Environmental Information Processing	Signal transduction
+map04330	Brevibacterium	0	Notch signaling pathway	Environmental Information Processing	Signal transduction
+map04330	Microbacterium	0	Notch signaling pathway	Environmental Information Processing	Signal transduction
+map04330	Pantoea	1	Notch signaling pathway	Environmental Information Processing	Signal transduction
+map04330	Sphingomonas	0	Notch signaling pathway	Environmental Information Processing	Signal transduction
+map04371	Brachybacterium	0	Apelin signaling pathway	Environmental Information Processing	Signal transduction
+map04371	Brevibacterium	0	Apelin signaling pathway	Environmental Information Processing	Signal transduction
+map04371	Microbacterium	0	Apelin signaling pathway	Environmental Information Processing	Signal transduction
+map04371	Pantoea	0.9358288770053476	Apelin signaling pathway	Environmental Information Processing	Signal transduction
+map04371	Sphingomonas	0.0641711229946524	Apelin signaling pathway	Environmental Information Processing	Signal transduction
+map04390	Brachybacterium	0	Hippo signaling pathway	Environmental Information Processing	Signal transduction
+map04390	Brevibacterium	0	Hippo signaling pathway	Environmental Information Processing	Signal transduction
+map04390	Microbacterium	0	Hippo signaling pathway	Environmental Information Processing	Signal transduction
+map04390	Pantoea	1	Hippo signaling pathway	Environmental Information Processing	Signal transduction
+map04390	Sphingomonas	0	Hippo signaling pathway	Environmental Information Processing	Signal transduction
+map04520	Brachybacterium	0	Adherens junction	Cellular Processes	Cellular community - eukaryotes
+map04520	Brevibacterium	0	Adherens junction	Cellular Processes	Cellular community - eukaryotes
+map04520	Microbacterium	0	Adherens junction	Cellular Processes	Cellular community - eukaryotes
+map04520	Pantoea	1	Adherens junction	Cellular Processes	Cellular community - eukaryotes
+map04520	Sphingomonas	0	Adherens junction	Cellular Processes	Cellular community - eukaryotes
+map04713	Brachybacterium	0	Circadian entrainment	Organismal Systems	Environmental adaptation
+map04713	Brevibacterium	0	Circadian entrainment	Organismal Systems	Environmental adaptation
+map04713	Microbacterium	0	Circadian entrainment	Organismal Systems	Environmental adaptation
+map04713	Pantoea	1	Circadian entrainment	Organismal Systems	Environmental adaptation
+map04713	Sphingomonas	0	Circadian entrainment	Organismal Systems	Environmental adaptation
+map04723	Brachybacterium	0	Retrograde endocannabinoid signaling	Organismal Systems	Nervous system
+map04723	Brevibacterium	0	Retrograde endocannabinoid signaling	Organismal Systems	Nervous system
+map04723	Microbacterium	0	Retrograde endocannabinoid signaling	Organismal Systems	Nervous system
+map04723	Pantoea	0.9640102827763496	Retrograde endocannabinoid signaling	Organismal Systems	Nervous system
+map04723	Sphingomonas	0.03598971722365039	Retrograde endocannabinoid signaling	Organismal Systems	Nervous system
+map04935	Brachybacterium	0	Growth hormone synthesis, secretion and action	Organismal Systems	Endocrine system
+map04935	Brevibacterium	0	Growth hormone synthesis, secretion and action	Organismal Systems	Endocrine system
+map04935	Microbacterium	0	Growth hormone synthesis, secretion and action	Organismal Systems	Endocrine system
+map04935	Pantoea	1	Growth hormone synthesis, secretion and action	Organismal Systems	Endocrine system
+map04935	Sphingomonas	0	Growth hormone synthesis, secretion and action	Organismal Systems	Endocrine system
+map05032	Brachybacterium	0	Morphine addiction	Human Diseases	Substance dependence
+map05032	Brevibacterium	0	Morphine addiction	Human Diseases	Substance dependence
+map05032	Microbacterium	0	Morphine addiction	Human Diseases	Substance dependence
+map05032	Pantoea	1	Morphine addiction	Human Diseases	Substance dependence
+map05032	Sphingomonas	0	Morphine addiction	Human Diseases	Substance dependence
+map05202	Brachybacterium	0	Transcriptional misregulation in cancer	Human Diseases	Cancer: overview
+map05202	Brevibacterium	0	Transcriptional misregulation in cancer	Human Diseases	Cancer: overview
+map05202	Microbacterium	0	Transcriptional misregulation in cancer	Human Diseases	Cancer: overview
+map05202	Pantoea	1	Transcriptional misregulation in cancer	Human Diseases	Cancer: overview
+map05202	Sphingomonas	0	Transcriptional misregulation in cancer	Human Diseases	Cancer: overview
+map05213	Brachybacterium	0	Endometrial cancer	Human Diseases	Cancer: specific types
+map05213	Brevibacterium	0	Endometrial cancer	Human Diseases	Cancer: specific types
+map05213	Microbacterium	0	Endometrial cancer	Human Diseases	Cancer: specific types
+map05213	Pantoea	1	Endometrial cancer	Human Diseases	Cancer: specific types
+map05213	Sphingomonas	0	Endometrial cancer	Human Diseases	Cancer: specific types
+map05214	Brachybacterium	0	Glioma	Human Diseases	Cancer: specific types
+map05214	Brevibacterium	0	Glioma	Human Diseases	Cancer: specific types
+map05214	Microbacterium	0	Glioma	Human Diseases	Cancer: specific types
+map05214	Pantoea	1	Glioma	Human Diseases	Cancer: specific types
+map05214	Sphingomonas	0	Glioma	Human Diseases	Cancer: specific types
+map05216	Brachybacterium	0	Thyroid cancer	Human Diseases	Cancer: specific types
+map05216	Brevibacterium	0	Thyroid cancer	Human Diseases	Cancer: specific types
+map05216	Microbacterium	0	Thyroid cancer	Human Diseases	Cancer: specific types
+map05216	Pantoea	1	Thyroid cancer	Human Diseases	Cancer: specific types
+map05216	Sphingomonas	0	Thyroid cancer	Human Diseases	Cancer: specific types
+map05217	Brachybacterium	0	Basal cell carcinoma	Human Diseases	Cancer: specific types
+map05217	Brevibacterium	0	Basal cell carcinoma	Human Diseases	Cancer: specific types
+map05217	Microbacterium	0	Basal cell carcinoma	Human Diseases	Cancer: specific types
+map05217	Pantoea	1	Basal cell carcinoma	Human Diseases	Cancer: specific types
+map05217	Sphingomonas	0	Basal cell carcinoma	Human Diseases	Cancer: specific types
+map05218	Brachybacterium	0	Melanoma	Human Diseases	Cancer: specific types
+map05218	Brevibacterium	0	Melanoma	Human Diseases	Cancer: specific types
+map05218	Microbacterium	0	Melanoma	Human Diseases	Cancer: specific types
+map05218	Pantoea	1	Melanoma	Human Diseases	Cancer: specific types
+map05218	Sphingomonas	0	Melanoma	Human Diseases	Cancer: specific types
+map05220	Brachybacterium	0	Chronic myeloid leukemia	Human Diseases	Cancer: specific types
+map05220	Brevibacterium	0	Chronic myeloid leukemia	Human Diseases	Cancer: specific types
+map05220	Microbacterium	0	Chronic myeloid leukemia	Human Diseases	Cancer: specific types
+map05220	Pantoea	1	Chronic myeloid leukemia	Human Diseases	Cancer: specific types
+map05220	Sphingomonas	0	Chronic myeloid leukemia	Human Diseases	Cancer: specific types
+map05223	Brachybacterium	0	Non-small cell lung cancer	Human Diseases	Cancer: specific types
+map05223	Brevibacterium	0	Non-small cell lung cancer	Human Diseases	Cancer: specific types
+map05223	Microbacterium	0	Non-small cell lung cancer	Human Diseases	Cancer: specific types
+map05223	Pantoea	1	Non-small cell lung cancer	Human Diseases	Cancer: specific types
+map05223	Sphingomonas	0	Non-small cell lung cancer	Human Diseases	Cancer: specific types
+map05224	Brachybacterium	0	Breast cancer	Human Diseases	Cancer: specific types
+map05224	Brevibacterium	0	Breast cancer	Human Diseases	Cancer: specific types
+map05224	Microbacterium	0	Breast cancer	Human Diseases	Cancer: specific types
+map05224	Pantoea	1	Breast cancer	Human Diseases	Cancer: specific types
+map05224	Sphingomonas	0	Breast cancer	Human Diseases	Cancer: specific types
+map00073	Brachybacterium	0	Cutin, suberine and wax biosynthesis	Metabolism	Lipid metabolism
+map00073	Brevibacterium	0	Cutin, suberine and wax biosynthesis	Metabolism	Lipid metabolism
+map00073	Microbacterium	0	Cutin, suberine and wax biosynthesis	Metabolism	Lipid metabolism
+map00073	Pantoea	0	Cutin, suberine and wax biosynthesis	Metabolism	Lipid metabolism
+map00073	Sphingomonas	1	Cutin, suberine and wax biosynthesis	Metabolism	Lipid metabolism
+map00196	Brachybacterium	0	Photosynthesis - antenna proteins	Metabolism	Energy metabolism
+map00196	Brevibacterium	0	Photosynthesis - antenna proteins	Metabolism	Energy metabolism
+map00196	Microbacterium	0	Photosynthesis - antenna proteins	Metabolism	Energy metabolism
+map00196	Pantoea	0	Photosynthesis - antenna proteins	Metabolism	Energy metabolism
+map00196	Sphingomonas	1	Photosynthesis - antenna proteins	Metabolism	Energy metabolism
+map00534	Brachybacterium	0	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	Metabolism	Glycan biosynthesis and metabolism
+map00534	Brevibacterium	0	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	Metabolism	Glycan biosynthesis and metabolism
+map00534	Microbacterium	0	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	Metabolism	Glycan biosynthesis and metabolism
+map00534	Pantoea	0	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	Metabolism	Glycan biosynthesis and metabolism
+map00534	Sphingomonas	1	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	Metabolism	Glycan biosynthesis and metabolism
+map00563	Brachybacterium	0	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00563	Brevibacterium	0	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00563	Microbacterium	0	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00563	Pantoea	0	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00563	Sphingomonas	1	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	Metabolism	Glycan biosynthesis and metabolism
+map00902	Brachybacterium	0	Monoterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00902	Brevibacterium	0	Monoterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00902	Microbacterium	0	Monoterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00902	Pantoea	0	Monoterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00902	Sphingomonas	1	Monoterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00909	Brachybacterium	0	Sesquiterpenoid and triterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00909	Brevibacterium	0	Sesquiterpenoid and triterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00909	Microbacterium	0	Sesquiterpenoid and triterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00909	Pantoea	0	Sesquiterpenoid and triterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map00909	Sphingomonas	1	Sesquiterpenoid and triterpenoid biosynthesis	Metabolism	Metabolism of terpenoids and polyketides
+map03040	Brachybacterium	0	Spliceosome	Genetic Information Processing	Transcription
+map03040	Brevibacterium	0	Spliceosome	Genetic Information Processing	Transcription
+map03040	Microbacterium	0	Spliceosome	Genetic Information Processing	Transcription
+map03040	Pantoea	0	Spliceosome	Genetic Information Processing	Transcription
+map03040	Sphingomonas	1	Spliceosome	Genetic Information Processing	Transcription
+map04020	Brachybacterium	0	Calcium signaling pathway	Environmental Information Processing	Signal transduction
+map04020	Brevibacterium	0	Calcium signaling pathway	Environmental Information Processing	Signal transduction
+map04020	Microbacterium	0	Calcium signaling pathway	Environmental Information Processing	Signal transduction
+map04020	Pantoea	0	Calcium signaling pathway	Environmental Information Processing	Signal transduction
+map04020	Sphingomonas	1	Calcium signaling pathway	Environmental Information Processing	Signal transduction
+map04022	Brachybacterium	0	cGMP-PKG signaling pathway	Environmental Information Processing	Signal transduction
+map04022	Brevibacterium	0	cGMP-PKG signaling pathway	Environmental Information Processing	Signal transduction
+map04022	Microbacterium	0	cGMP-PKG signaling pathway	Environmental Information Processing	Signal transduction
+map04022	Pantoea	0	cGMP-PKG signaling pathway	Environmental Information Processing	Signal transduction
+map04022	Sphingomonas	1	cGMP-PKG signaling pathway	Environmental Information Processing	Signal transduction
+map04140	Brachybacterium	0	Autophagy - animal	Cellular Processes	Transport and catabolism
+map04140	Brevibacterium	0	Autophagy - animal	Cellular Processes	Transport and catabolism
+map04140	Microbacterium	0	Autophagy - animal	Cellular Processes	Transport and catabolism
+map04140	Pantoea	0	Autophagy - animal	Cellular Processes	Transport and catabolism
+map04140	Sphingomonas	1	Autophagy - animal	Cellular Processes	Transport and catabolism
+map04145	Brachybacterium	0	Phagosome	Cellular Processes	Transport and catabolism
+map04145	Brevibacterium	0	Phagosome	Cellular Processes	Transport and catabolism
+map04145	Microbacterium	0	Phagosome	Cellular Processes	Transport and catabolism
+map04145	Pantoea	0	Phagosome	Cellular Processes	Transport and catabolism
+map04145	Sphingomonas	1	Phagosome	Cellular Processes	Transport and catabolism
+map04380	Brachybacterium	0	Osteoclast differentiation	Organismal Systems	Development and regeneration
+map04380	Brevibacterium	0	Osteoclast differentiation	Organismal Systems	Development and regeneration
+map04380	Microbacterium	0	Osteoclast differentiation	Organismal Systems	Development and regeneration
+map04380	Pantoea	0	Osteoclast differentiation	Organismal Systems	Development and regeneration
+map04380	Sphingomonas	1	Osteoclast differentiation	Organismal Systems	Development and regeneration
+map04530	Brachybacterium	0	Tight junction	Cellular Processes	Cellular community - eukaryotes
+map04530	Brevibacterium	0	Tight junction	Cellular Processes	Cellular community - eukaryotes
+map04530	Microbacterium	0	Tight junction	Cellular Processes	Cellular community - eukaryotes
+map04530	Pantoea	0	Tight junction	Cellular Processes	Cellular community - eukaryotes
+map04530	Sphingomonas	1	Tight junction	Cellular Processes	Cellular community - eukaryotes
+map04613	Brachybacterium	0	Neutrophil extracellular trap formation	Organismal Systems	Immune system
+map04613	Brevibacterium	0	Neutrophil extracellular trap formation	Organismal Systems	Immune system
+map04613	Microbacterium	0	Neutrophil extracellular trap formation	Organismal Systems	Immune system
+map04613	Pantoea	0	Neutrophil extracellular trap formation	Organismal Systems	Immune system
+map04613	Sphingomonas	1	Neutrophil extracellular trap formation	Organismal Systems	Immune system
+map04710	Brachybacterium	0	Circadian rhythm	Organismal Systems	Environmental adaptation
+map04710	Brevibacterium	0	Circadian rhythm	Organismal Systems	Environmental adaptation
+map04710	Microbacterium	0	Circadian rhythm	Organismal Systems	Environmental adaptation
+map04710	Pantoea	0	Circadian rhythm	Organismal Systems	Environmental adaptation
+map04710	Sphingomonas	1	Circadian rhythm	Organismal Systems	Environmental adaptation
+map04721	Brachybacterium	0	Synaptic vesicle cycle	Organismal Systems	Nervous system
+map04721	Brevibacterium	0	Synaptic vesicle cycle	Organismal Systems	Nervous system
+map04721	Microbacterium	0	Synaptic vesicle cycle	Organismal Systems	Nervous system
+map04721	Pantoea	0	Synaptic vesicle cycle	Organismal Systems	Nervous system
+map04721	Sphingomonas	1	Synaptic vesicle cycle	Organismal Systems	Nervous system
+map04921	Brachybacterium	0	Oxytocin signaling pathway	Organismal Systems	Endocrine system
+map04921	Brevibacterium	0	Oxytocin signaling pathway	Organismal Systems	Endocrine system
+map04921	Microbacterium	0	Oxytocin signaling pathway	Organismal Systems	Endocrine system
+map04921	Pantoea	0	Oxytocin signaling pathway	Organismal Systems	Endocrine system
+map04921	Sphingomonas	1	Oxytocin signaling pathway	Organismal Systems	Endocrine system
+map04924	Brachybacterium	0	Renin secretion	Organismal Systems	Endocrine system
+map04924	Brevibacterium	0	Renin secretion	Organismal Systems	Endocrine system
+map04924	Microbacterium	0	Renin secretion	Organismal Systems	Endocrine system
+map04924	Pantoea	0	Renin secretion	Organismal Systems	Endocrine system
+map04924	Sphingomonas	1	Renin secretion	Organismal Systems	Endocrine system
+map04962	Brachybacterium	0	Vasopressin-regulated water reabsorption	Organismal Systems	Excretory system
+map04962	Brevibacterium	0	Vasopressin-regulated water reabsorption	Organismal Systems	Excretory system
+map04962	Microbacterium	0	Vasopressin-regulated water reabsorption	Organismal Systems	Excretory system
+map04962	Pantoea	0	Vasopressin-regulated water reabsorption	Organismal Systems	Excretory system
+map04962	Sphingomonas	1	Vasopressin-regulated water reabsorption	Organismal Systems	Excretory system
+map05171	Brachybacterium	0	Coronavirus disease - COVID-19	Human Diseases	Infectious disease: viral
+map05171	Brevibacterium	0	Coronavirus disease - COVID-19	Human Diseases	Infectious disease: viral
+map05171	Microbacterium	0	Coronavirus disease - COVID-19	Human Diseases	Infectious disease: viral
+map05171	Pantoea	0	Coronavirus disease - COVID-19	Human Diseases	Infectious disease: viral
+map05171	Sphingomonas	1	Coronavirus disease - COVID-19	Human Diseases	Infectious disease: viral
+map05322	Brachybacterium	0	Systemic lupus erythematosus	Human Diseases	Immune disease
+map05322	Brevibacterium	0	Systemic lupus erythematosus	Human Diseases	Immune disease
+map05322	Microbacterium	0	Systemic lupus erythematosus	Human Diseases	Immune disease
+map05322	Pantoea	0	Systemic lupus erythematosus	Human Diseases	Immune disease
+map05322	Sphingomonas	1	Systemic lupus erythematosus	Human Diseases	Immune disease
+map05323	Brachybacterium	0	Rheumatoid arthritis	Human Diseases	Immune disease
+map05323	Brevibacterium	0	Rheumatoid arthritis	Human Diseases	Immune disease
+map05323	Microbacterium	0	Rheumatoid arthritis	Human Diseases	Immune disease
+map05323	Pantoea	0	Rheumatoid arthritis	Human Diseases	Immune disease
+map05323	Sphingomonas	1	Rheumatoid arthritis	Human Diseases	Immune disease
+map05410	Brachybacterium	0	Hypertrophic cardiomyopathy	Human Diseases	Cardiovascular disease
+map05410	Brevibacterium	0	Hypertrophic cardiomyopathy	Human Diseases	Cardiovascular disease
+map05410	Microbacterium	0	Hypertrophic cardiomyopathy	Human Diseases	Cardiovascular disease
+map05410	Pantoea	0	Hypertrophic cardiomyopathy	Human Diseases	Cardiovascular disease
+map05410	Sphingomonas	1	Hypertrophic cardiomyopathy	Human Diseases	Cardiovascular disease
+map05414	Brachybacterium	0	Dilated cardiomyopathy	Human Diseases	Cardiovascular disease
+map05414	Brevibacterium	0	Dilated cardiomyopathy	Human Diseases	Cardiovascular disease
+map05414	Microbacterium	0	Dilated cardiomyopathy	Human Diseases	Cardiovascular disease
+map05414	Pantoea	0	Dilated cardiomyopathy	Human Diseases	Cardiovascular disease
+map05414	Sphingomonas	1	Dilated cardiomyopathy	Human Diseases	Cardiovascular disease

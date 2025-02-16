@@ -3,8 +3,8 @@ library(tidyr)
 library(tidyverse)
 
 # parameters
-metadatafile <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/prototype_metadata.tsv"
-outputfilename <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/prototype_kegg_enriched_pathways.tsv"
+metadatafile <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_metadata.tsv"
+outputfilename <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_pathways.tsv"
 
 # read in metadata file
 metadata <- read_delim(metadatafile, delim = "\t", show_col_types = FALSE)

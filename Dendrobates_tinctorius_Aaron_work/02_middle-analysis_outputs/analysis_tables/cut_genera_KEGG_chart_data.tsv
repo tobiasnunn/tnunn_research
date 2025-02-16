@@ -1,0 +1,196 @@
+map_id	genus	prop	name	class	subclass
+map00944	Brachybacterium	0.8934250107434465	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00944	Brevibacterium	0	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00944	Microbacterium	0.1065749892565535	Flavone and flavonol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map04072	Brachybacterium	0.9867577958137548	Phospholipase D signaling pathway	Environmental Information Processing	Signal transduction
+map04072	Brevibacterium	0	Phospholipase D signaling pathway	Environmental Information Processing	Signal transduction
+map04072	Microbacterium	0.013242204186245193	Phospholipase D signaling pathway	Environmental Information Processing	Signal transduction
+map04210	Brachybacterium	0.09349387837701102	Apoptosis	Cellular Processes	Cell growth and death
+map04210	Brevibacterium	0.03450369321056359	Apoptosis	Cellular Processes	Cell growth and death
+map04210	Microbacterium	0.8720024284124255	Apoptosis	Cellular Processes	Cell growth and death
+map04214	Brachybacterium	0.12242194055558007	Apoptosis - fly	Cellular Processes	Cell growth and death
+map04214	Brevibacterium	0.8282913041558096	Apoptosis - fly	Cellular Processes	Cell growth and death
+map04214	Microbacterium	0.049286755288610165	Apoptosis - fly	Cellular Processes	Cell growth and death
+map04612	Brachybacterium	0.14917662253793995	Antigen processing and presentation	Organismal Systems	Immune system
+map04612	Brevibacterium	0	Antigen processing and presentation	Organismal Systems	Immune system
+map04612	Microbacterium	0.85082337746206	Antigen processing and presentation	Organismal Systems	Immune system
+map04657	Brachybacterium	0.14917662253793995	IL-17 signaling pathway	Organismal Systems	Immune system
+map04657	Brevibacterium	0	IL-17 signaling pathway	Organismal Systems	Immune system
+map04657	Microbacterium	0.85082337746206	IL-17 signaling pathway	Organismal Systems	Immune system
+map04659	Brachybacterium	0.14917662253793995	Th17 cell differentiation	Organismal Systems	Immune system
+map04659	Brevibacterium	0	Th17 cell differentiation	Organismal Systems	Immune system
+map04659	Microbacterium	0.85082337746206	Th17 cell differentiation	Organismal Systems	Immune system
+map04914	Brachybacterium	0.14917662253793995	Progesterone-mediated oocyte maturation	Organismal Systems	Endocrine system
+map04914	Brevibacterium	0	Progesterone-mediated oocyte maturation	Organismal Systems	Endocrine system
+map04914	Microbacterium	0.85082337746206	Progesterone-mediated oocyte maturation	Organismal Systems	Endocrine system
+map04915	Brachybacterium	0.14917662253793995	Estrogen signaling pathway	Organismal Systems	Endocrine system
+map04915	Brevibacterium	0	Estrogen signaling pathway	Organismal Systems	Endocrine system
+map04915	Microbacterium	0.85082337746206	Estrogen signaling pathway	Organismal Systems	Endocrine system
+map05207	Brachybacterium	0.17416436290525256	Chemical carcinogenesis - receptor activation	Human Diseases	Cancer: overview
+map05207	Brevibacterium	0	Chemical carcinogenesis - receptor activation	Human Diseases	Cancer: overview
+map05207	Microbacterium	0.8258356370947474	Chemical carcinogenesis - receptor activation	Human Diseases	Cancer: overview
+map05215	Brachybacterium	0.14917662253793995	Prostate cancer	Human Diseases	Cancer: specific types
+map05215	Brevibacterium	0	Prostate cancer	Human Diseases	Cancer: specific types
+map05215	Microbacterium	0.85082337746206	Prostate cancer	Human Diseases	Cancer: specific types
+map05231	Brachybacterium	0.9879471228615863	Choline metabolism in cancer	Human Diseases	Cancer: overview
+map05231	Brevibacterium	0	Choline metabolism in cancer	Human Diseases	Cancer: overview
+map05231	Microbacterium	0.012052877138413685	Choline metabolism in cancer	Human Diseases	Cancer: overview
+map00062	Brachybacterium	0	Fatty acid elongation	Metabolism	Lipid metabolism
+map00062	Brevibacterium	0.9565217391304347	Fatty acid elongation	Metabolism	Lipid metabolism
+map00062	Microbacterium	0.043478260869565216	Fatty acid elongation	Metabolism	Lipid metabolism
+map00591	Brachybacterium	0	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00591	Brevibacterium	1	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00591	Microbacterium	0	Linoleic acid metabolism	Metabolism	Lipid metabolism
+map00901	Brachybacterium	0	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00901	Brevibacterium	0.152073732718894	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00901	Microbacterium	0.847926267281106	Indole alkaloid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map01522	Brachybacterium	0	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map01522	Brevibacterium	1	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map01522	Microbacterium	0	Endocrine resistance	Human Diseases	Drug resistance: antineoplastic
+map04510	Brachybacterium	0	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map04510	Brevibacterium	1	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map04510	Microbacterium	0	Focal adhesion	Cellular Processes	Cellular community - eukaryotes
+map04512	Brachybacterium	0	ECM-receptor interaction	Environmental Information Processing	Signaling molecules and interaction
+map04512	Brevibacterium	1	ECM-receptor interaction	Environmental Information Processing	Signaling molecules and interaction
+map04512	Microbacterium	0	ECM-receptor interaction	Environmental Information Processing	Signaling molecules and interaction
+map05226	Brachybacterium	0	Gastric cancer	Human Diseases	Cancer: specific types
+map05226	Brevibacterium	1	Gastric cancer	Human Diseases	Cancer: specific types
+map05226	Microbacterium	0	Gastric cancer	Human Diseases	Cancer: specific types
+map00100	Brachybacterium	0	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00100	Brevibacterium	0	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00100	Microbacterium	1	Steroid biosynthesis	Metabolism	Lipid metabolism
+map00404	Brachybacterium	0	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00404	Brevibacterium	0	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00404	Microbacterium	1	Staurosporine biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00522	Brachybacterium	0	Biosynthesis of 12-, 14- and 16-membered macrolides	Metabolism	Metabolism of terpenoids and polyketides
+map00522	Brevibacterium	0	Biosynthesis of 12-, 14- and 16-membered macrolides	Metabolism	Metabolism of terpenoids and polyketides
+map00522	Microbacterium	1	Biosynthesis of 12-, 14- and 16-membered macrolides	Metabolism	Metabolism of terpenoids and polyketides
+map00532	Brachybacterium	0	Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate	Metabolism	Glycan biosynthesis and metabolism
+map00532	Brevibacterium	0	Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate	Metabolism	Glycan biosynthesis and metabolism
+map00532	Microbacterium	1	Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate	Metabolism	Glycan biosynthesis and metabolism
+map00941	Brachybacterium	0	Flavonoid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00941	Brevibacterium	0	Flavonoid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00941	Microbacterium	1	Flavonoid biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00945	Brachybacterium	0	Stilbenoid, diarylheptanoid and gingerol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00945	Brevibacterium	0	Stilbenoid, diarylheptanoid and gingerol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00945	Microbacterium	1	Stilbenoid, diarylheptanoid and gingerol biosynthesis	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Brachybacterium	0	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Brevibacterium	0	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map00996	Microbacterium	1	Biosynthesis of various alkaloids	Metabolism	Biosynthesis of other secondary metabolites
+map03013	Brachybacterium	0	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map03013	Brevibacterium	0	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map03013	Microbacterium	1	Nucleocytoplasmic transport	Genetic Information Processing	Translation
+map04014	Brachybacterium	0	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04014	Brevibacterium	0	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04014	Microbacterium	1	Ras signaling pathway	Environmental Information Processing	Signal transduction
+map04115	Brachybacterium	0	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04115	Brevibacterium	0	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04115	Microbacterium	1	p53 signaling pathway	Cellular Processes	Cell growth and death
+map04120	Brachybacterium	0	Ubiquitin mediated proteolysis	Genetic Information Processing	Folding, sorting and degradation
+map04120	Brevibacterium	0	Ubiquitin mediated proteolysis	Genetic Information Processing	Folding, sorting and degradation
+map04120	Microbacterium	1	Ubiquitin mediated proteolysis	Genetic Information Processing	Folding, sorting and degradation
+map04137	Brachybacterium	0	Mitophagy - animal	Cellular Processes	Transport and catabolism
+map04137	Brevibacterium	0	Mitophagy - animal	Cellular Processes	Transport and catabolism
+map04137	Microbacterium	1	Mitophagy - animal	Cellular Processes	Transport and catabolism
+map04144	Brachybacterium	0	Endocytosis	Cellular Processes	Transport and catabolism
+map04144	Brevibacterium	0	Endocytosis	Cellular Processes	Transport and catabolism
+map04144	Microbacterium	1	Endocytosis	Cellular Processes	Transport and catabolism
+map04215	Brachybacterium	0	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04215	Brevibacterium	0	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04215	Microbacterium	1	Apoptosis - multiple species	Cellular Processes	Cell growth and death
+map04260	Brachybacterium	0	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04260	Brevibacterium	0	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04260	Microbacterium	1	Cardiac muscle contraction	Organismal Systems	Circulatory system
+map04320	Brachybacterium	0	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04320	Brevibacterium	0	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04320	Microbacterium	1	Dorso-ventral axis formation	Organismal Systems	Development and regeneration
+map04514	Brachybacterium	0	Cell adhesion molecules	Environmental Information Processing	Signaling molecules and interaction
+map04514	Brevibacterium	0	Cell adhesion molecules	Environmental Information Processing	Signaling molecules and interaction
+map04514	Microbacterium	1	Cell adhesion molecules	Environmental Information Processing	Signaling molecules and interaction
+map04550	Brachybacterium	0	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04550	Brevibacterium	0	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04550	Microbacterium	1	Signaling pathways regulating pluripotency of stem cells	Cellular Processes	Cellular community - eukaryotes
+map04623	Brachybacterium	0	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04623	Brevibacterium	0	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04623	Microbacterium	1	Cytosolic DNA-sensing pathway	Organismal Systems	Immune system
+map04624	Brachybacterium	0	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04624	Brevibacterium	0	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04624	Microbacterium	1	Toll and Imd signaling pathway	Organismal Systems	Immune system
+map04666	Brachybacterium	0	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04666	Brevibacterium	0	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04666	Microbacterium	1	Fc gamma R-mediated phagocytosis	Organismal Systems	Immune system
+map04725	Brachybacterium	0	Cholinergic synapse	Organismal Systems	Nervous system
+map04725	Brevibacterium	0	Cholinergic synapse	Organismal Systems	Nervous system
+map04725	Microbacterium	1	Cholinergic synapse	Organismal Systems	Nervous system
+map04912	Brachybacterium	0	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04912	Brevibacterium	0	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04912	Microbacterium	1	GnRH signaling pathway	Organismal Systems	Endocrine system
+map04916	Brachybacterium	0	Melanogenesis	Organismal Systems	Endocrine system
+map04916	Brevibacterium	0	Melanogenesis	Organismal Systems	Endocrine system
+map04916	Microbacterium	1	Melanogenesis	Organismal Systems	Endocrine system
+map04919	Brachybacterium	0	Thyroid hormone signaling pathway	Organismal Systems	Endocrine system
+map04919	Brevibacterium	0	Thyroid hormone signaling pathway	Organismal Systems	Endocrine system
+map04919	Microbacterium	1	Thyroid hormone signaling pathway	Organismal Systems	Endocrine system
+map04932	Brachybacterium	0	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map04932	Brevibacterium	0	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map04932	Microbacterium	1	Non-alcoholic fatty liver disease	Human Diseases	Endocrine and metabolic disease
+map05017	Brachybacterium	0	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05017	Brevibacterium	0	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05017	Microbacterium	1	Spinocerebellar ataxia	Human Diseases	Neurodegenerative disease
+map05110	Brachybacterium	0	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05110	Brevibacterium	0	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05110	Microbacterium	1	Vibrio cholerae infection	Human Diseases	Infectious disease: bacterial
+map05131	Brachybacterium	0	Shigellosis	Human Diseases	Infectious disease: bacterial
+map05131	Brevibacterium	0	Shigellosis	Human Diseases	Infectious disease: bacterial
+map05131	Microbacterium	1	Shigellosis	Human Diseases	Infectious disease: bacterial
+map05133	Brachybacterium	0	Pertussis	Human Diseases	Infectious disease: bacterial
+map05133	Brevibacterium	0	Pertussis	Human Diseases	Infectious disease: bacterial
+map05133	Microbacterium	1	Pertussis	Human Diseases	Infectious disease: bacterial
+map05140	Brachybacterium	0	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05140	Brevibacterium	0	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05140	Microbacterium	1	Leishmaniasis	Human Diseases	Infectious disease: parasitic
+map05145	Brachybacterium	0	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05145	Brevibacterium	0	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05145	Microbacterium	1	Toxoplasmosis	Human Diseases	Infectious disease: parasitic
+map05150	Brachybacterium	0	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05150	Brevibacterium	0	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05150	Microbacterium	1	Staphylococcus aureus infection	Human Diseases	Infectious disease: bacterial
+map05160	Brachybacterium	0	Hepatitis C	Human Diseases	Infectious disease: viral
+map05160	Brevibacterium	0	Hepatitis C	Human Diseases	Infectious disease: viral
+map05160	Microbacterium	1	Hepatitis C	Human Diseases	Infectious disease: viral
+map05161	Brachybacterium	0	Hepatitis B	Human Diseases	Infectious disease: viral
+map05161	Brevibacterium	0	Hepatitis B	Human Diseases	Infectious disease: viral
+map05161	Microbacterium	1	Hepatitis B	Human Diseases	Infectious disease: viral
+map05162	Brachybacterium	0	Measles	Human Diseases	Infectious disease: viral
+map05162	Brevibacterium	0	Measles	Human Diseases	Infectious disease: viral
+map05162	Microbacterium	1	Measles	Human Diseases	Infectious disease: viral
+map05163	Brachybacterium	0	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05163	Brevibacterium	0	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05163	Microbacterium	1	Human cytomegalovirus infection	Human Diseases	Infectious disease: viral
+map05164	Brachybacterium	0	Influenza A	Human Diseases	Infectious disease: viral
+map05164	Brevibacterium	0	Influenza A	Human Diseases	Infectious disease: viral
+map05164	Microbacterium	1	Influenza A	Human Diseases	Infectious disease: viral
+map05167	Brachybacterium	0	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05167	Brevibacterium	0	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05167	Microbacterium	1	Kaposi sarcoma-associated herpesvirus infection	Human Diseases	Infectious disease: viral
+map05168	Brachybacterium	0	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05168	Brevibacterium	0	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05168	Microbacterium	1	Herpes simplex virus 1 infection	Human Diseases	Infectious disease: viral
+map05169	Brachybacterium	0	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05169	Brevibacterium	0	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05169	Microbacterium	1	Epstein-Barr virus infection	Human Diseases	Infectious disease: viral
+map05170	Brachybacterium	0	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05170	Brevibacterium	0	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05170	Microbacterium	1	Human immunodeficiency virus 1 infection	Human Diseases	Infectious disease: viral
+map05210	Brachybacterium	0	Colorectal cancer	Human Diseases	Cancer: specific types
+map05210	Brevibacterium	0	Colorectal cancer	Human Diseases	Cancer: specific types
+map05210	Microbacterium	1	Colorectal cancer	Human Diseases	Cancer: specific types
+map05212	Brachybacterium	0	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05212	Brevibacterium	0	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05212	Microbacterium	1	Pancreatic cancer	Human Diseases	Cancer: specific types
+map05222	Brachybacterium	0	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05222	Brevibacterium	0	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05222	Microbacterium	1	Small cell lung cancer	Human Diseases	Cancer: specific types
+map05416	Brachybacterium	0	Viral myocarditis	Human Diseases	Cardiovascular disease
+map05416	Brevibacterium	0	Viral myocarditis	Human Diseases	Cardiovascular disease
+map05416	Microbacterium	1	Viral myocarditis	Human Diseases	Cardiovascular disease
