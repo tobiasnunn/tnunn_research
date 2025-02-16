@@ -18,6 +18,7 @@ editor: visual
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
+library(tidyr)
 library(flextable)
 library(equatags)
 library(officer)
@@ -268,6 +269,35 @@ table9 <- crab_data %>% select(
   "crab_name", "treatment"
 ) 
 
+# data
 table9 <- table9 %>% left_join(table7_data, by = join_by(crab_name, treatment))
 
+table9 <- left_join(table9, aerial_data, by = c("crab_name", "treatment")) %>%
+  select(crab_name, treatment, column_c, per_hour)
+table9$piv_value <- coalesce(table9$column_c, table9$per_hour)
+table9 <- table9 %>% select(crab_name, treatment, piv_value)
+
+pivot9 <- pivot_wider(data = table9, names_from = treatment, values_from = piv_value)
+
+# plot
+flex9 <- flextable(pivot9)
+# headers
+flex9 <- set_header_labels(flex9,
+                            crab_name = "Crab\nName") 
+
+# theming and styling
+flex9 <- theme_vanilla(flex9)
+flex9 <- add_footer_lines(flex9, "Data collected on 2025-01-30 at Deiniol Road, Brambell Building, 1st Floor Lab B1")
+flex9 <- color(flex9, part = "footer", color = "#666666")
+flex9 <- set_caption(flex9, caption = "Crabs in the air")
+
+# extra things
+flex9 <- set_formatter(
+  x = flex9,
+  'Aerial Exposure' = function(x) {
+    formatC(x, format = "e", digits = 2)
+  })
+
+  #output
+  flex9
 ```
