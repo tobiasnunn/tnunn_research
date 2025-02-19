@@ -78,15 +78,22 @@ topten %>%
 
 reqname <- request(base_url = urlstring) %>% 
   req_url_path_append("ref", "taxonomy", "ebird") %>%
-  req_url_query(fmt = "csv") %>%
+  req_url_query(fmt = "json") %>%
   req_headers('X-eBirdApiToken' = api_key) %>%
   req_headers(Accept = 'application/json') %>%
-  req_perform(path = paste0("data/", Sys.Date(), "_name.csv"))
+  req_perform(path = paste0("data/", Sys.Date(), "_name.json"))
 
-namecsv <- list.files(path = "data/", pattern = "*name.csv", full.names = TRUE)
+namejson <- list.files(path = "data/", pattern = "*name.json", full.names = TRUE)
 
-code <- read_delim(file = namecsv, delim = ",") %>% 
-  filter(COMMON_NAME == "Great Tit") %>% select(SPECIES_CODE)
+names <- jsonlite::read_json(path = namejson[2], simplifyVector = TRUE)
+
+names <- as.data.frame(names) %>% 
+  mutate(across(c(bandingCodes, comNameCodes, sciNameCodes),
+                ~sapply(., paste, collapse = ", ")))
+
+code <- names %>% 
+  filter(comName == "Great Tit") %>% select(speciesCode)
+
 # gretit1, but i can prob just pass in code
 
 # TODO: try and get it working for JSON format
@@ -131,3 +138,16 @@ hotspots <- bind_rows(read_json(hotfiles[1]))
 #hmm, i can get *something* from this, though i am not sure what, it can give me codes, latitudes, maybe i can cross-reference
 # the two lists? so that i get the hotspots where Great Tits were found then either bubble it or filter it so only the like top
 # 30 locations in all the UK are shown on the map, call it the "candidate map" with the "candidate table" or something
+
+# create a subset of the highest frequency places
+
+subset <- gretit %>% 
+  filter(howMany >= 20)
+
+mapview(subset, xcol = "lng", ycol = "lat", crs = 4269, grid = FALSE)
+
+#------------------------------------final touches--------------------
+
+                      ###choropleth###
+
+                  ###post code to filter###

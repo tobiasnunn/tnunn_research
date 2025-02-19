@@ -1,0 +1,28 @@
+---
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+title: "Aaron_wolbachia_miniproj"
+format: docx
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyr)
+library(flextable)
+```
+
+# Wolbachia stuff for Aaron's fly work
+
+##
+
+```{r eggnoging, include=FALSE}
+# so part 1 is the eggnoging of Aaron's Wolbachia samples
+# so i need to download those from Aaron, hopefully they are already fastas, but them in a batch and upload them, then just run the stuff i did for the others but on this batch, should be easy, hopefully
+```
+
+## Phylogenetic trees
+
+```{r API call, include=FALSE}
+# so first thing first i need to get the ncbi Wolbachia samples
+```

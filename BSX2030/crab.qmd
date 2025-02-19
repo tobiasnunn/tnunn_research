@@ -235,7 +235,7 @@ footnote(i = 2, j = 6,
 footnote(i = 2, j = 7,
            part = "header",
            ref_symbols = "¶",
-         value = as_paragraph("The value in column C ", as_equation("\\times {60 \\over time interval}"), "(mmol O", as_sub("2"), " kg",  as_sup("-1"), " h", as_sup("-1"), "). Time interval recorded for both as 61 minutes"))
+         value = as_paragraph("The value in column D ", as_equation("\\times {60 \\over time interval}"), "(mmol O", as_sub("2"), " kg",  as_sup("-1"), " h", as_sup("-1"), "). Time interval recorded for both as 61 minutes"))
 
 
 table8 <- table8 %>% style(
@@ -315,7 +315,8 @@ flex9 <- align(flex9, i = 1, j = 2, align = "center", part = "header") %>%
 
 ## Task 2
 
-### Table 10 - rates of Oxygen uptake (mmol 02 kg^-1 h^-1) with percentage changes compared to innitial "submerged" reading.
+### Table 10 - rates of Oxygen uptake (mmol 02 kg\^-1 h\^-1) with percentage changes compared to innitial "submerged" reading.
+
 ```{r table10, echo=FALSE}
 
 pivot9$sub_vs_air <- (pivot9$`Aerial Exposure` - pivot9$Submerged) / pivot9$Submerged
@@ -388,16 +389,21 @@ table10 <- flextable(pivot9, cwidth = 1, col_keys = c("crab_name", "Submerged", 
 table10
 ```
 
-Upon initial submersion of the crabs in seawater for 19 minutes, crab A1 experienced an Oxygen uptake of 2.14 mmol 02 kg^-1 h^-1 and crab A2 experienced an Oxygen uptake of 2.25 mmol 02 kg^-1 h^-1, i take these as baselines to compare the other readings with. A2 was heavier, with a weight of 0.0277 kg compared with crab A1's weight of 0.0269 kg, it should also be noted the volume of the tank for A1 was smaller by 5 ml at 795ml compared with 800ml for A2. Upon aerial exposure, crab A1 was found to have an Oxygen uptake rate of -1.46e-03 (mmol 02 kg^-1 h^-1), this is because an increase of PO2 was measured in the tank for A1, the PO2 for the tank of A2 was found to decrease, leading to an oxygen uptake rate being measured as 1.58e-03 (mmol 02 kg^-1 h^-1), both recordings were calculated over 61 minutes, as shown in Table 8. As shown in Table 10, these values are 100.1% and 99.9% decreases respectively. Compared with initial submersion, crab A1 was found to have in increased rate at 3.10 mmol 02 kg^-1 h^-1, a 45% increase, however, A2 was found to have a rate of 1.55 mmol 02 kg^-1 h^-1, a 31% decrease.
+Upon initial submersion of the crabs in seawater for 19 minutes, crab A1 experienced an Oxygen uptake of 2.14 mmol 02 kg\^-1 h\^-1 and crab A2 experienced an Oxygen uptake of 2.25 mmol 02 kg\^-1 h\^-1, i take these as baselines to compare the other readings with. A2 was heavier, with a weight of 0.0277 kg compared with crab A1's weight of 0.0269 kg, it should also be noted the volume of the tank for A1 was smaller by 5 ml at 795ml compared with 800ml for A2. Upon aerial exposure, crab A1 was found to have an Oxygen uptake rate of -1.46e-03 (mmol 02 kg\^-1 h\^-1), this is because an increase of PO2 was measured in the tank for A1, the PO2 for the tank of A2 was found to decrease, leading to an oxygen uptake rate being measured as 1.58e-03 (mmol 02 kg\^-1 h\^-1), both recordings were calculated over 61 minutes, as shown in Table 8. As shown in Table 10, these values are 100.1% and 99.9% decreases respectively. Compared with initial submersion, crab A1 was found to have in increased rate at 3.10 mmol 02 kg\^-1 h\^-1, a 45% increase, however, A2 was found to have a rate of 1.55 mmol 02 kg\^-1 h\^-1, a 31% decrease.
 
 ## Task 3
 
 ### Discussion
-The initial higher reading for A2 can be explained by its bigger size... 
-The negative value is my interpretation assuming the container was air tight, the oxygen came from the crab, it however could be an erroneous reading (give specific numbers)... 
-crabs breathe much worse in air, only able to get one hundredth the amount of oxygen ... if my readings can be believed (do the math again)...
-one crab breathed better, the other worse, perhaps an error in machinery, loose seal means the O2 increased in air and water got more aerated for submersion. or maybe the crabs just reacted differently by chance, with only these samples who knows (have a look at literature to see which is more likely, is better or worse breathing after air more common?)...
-possible stress...
-gender not taken...
-i recommend pooling the class data so statistical analysis can be done on it... (rule out errors, find significance, that sort of stuff)
-i created a 10th table on my own time using R to calculate the percentage change with the values as I hope this is a transparrent way of displaying the information. (not exactly this, but mention 10 and the use of R)...
+
+```{r notes, include=FALSE}
+# The initial higher reading for A2 can be explained by its bigger size... The negative value is my interpretation assuming the container was air tight, the oxygen came from the crab, it however could be an erroneous reading (give specific numbers)... crabs breathe much worse in air, only able to get one hundredth the amount of oxygen ... if my readings can be believed (do the math again)... one crab breathed better, the other worse, perhaps an error in machinery, loose seal means the O2 increased in air and water got more aerated for submersion. or maybe the crabs just reacted differently by chance, with only these samples who knows (have a look at literature to see which is more likely, is better or worse breathing after air more common?)... possible stress... gender not taken... i recommend pooling the class data so statistical analysis can be done on it... (rule out errors, find significance, that sort of stuff) i created a 10th table on my own time using R to calculate the percentage change with the values as I hope this is a transparrent way of displaying the information. (not exactly this, but mention 10 and the use of R)...
+
+```
+
+A previous study (Simonik & Henry. 2014) found a decrease from control to aerial emersion of 50% in the Oxygen uptake rate, this contrasts to this study, where a decrease of over 99% was found. Both prove that the Shore Crab (*Carcinus maenas*) is capable of oxygen uptake in an aerated environment, however the capacity to do so were distinct between the studies. The methods followed were similar but distinct, the same species was used for both, however (Simonik & Henry, 2014) used much larger timescales for study, keeping the crabs in air for 6 hours, opposed to just over 1 in this experiment, it is possible it takes time for the crabs to truly adjust to an aerated environment. Another study (Hill et al. 1991) found that shore crabs can respire anaerobically in hypoxic conditions, it is possible this could account for the distinct drop. Finally, it is possible these values are anomalous, as it should not be possible for one value to increase, it should be noted, due to time constraints this experiment was less thorough than the one by (Simonik & Henry. 2014), taking fewer metrics. Shore crabs have been found to be very plastic, able to withstand changing environmental conditions. For example, pollution, fluctuations in temperature and aerial exposure, and this has helped it find success in it's environment (McGaw and Whiteley. 2024). In light of this, it is improbable that the results seen in this study differ from the past evidence because the crabs selected were not able to adjust to the adverse conditions. 
+
+Another possible explanation is that the crabs experienced stress from the experiment. Allowing for settling time between tests was not conducted in this study, a limitation due to time. A recent study on *Carcinus maenas* found that stress due to handling can cause Oxygen uptake to stay elevated for over 10 hours, expecially so with physical touch. This explains why the Oxygen uptake rate for crab A1 was found to be 45% elevated from control after the emersion(Wilson et al. 2021). [something on the anatomy of shore crab gills]
+
+[another paragraph about the crabs generally, why are they important / climate change]
+
+In conclusion, [*Carcinus maenas* is an important species to understand in a time of changing climate. They can act to help us understand how changing oceanic conditions might effect other gill breathers]
