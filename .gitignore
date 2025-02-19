@@ -54,3 +54,5 @@ rsconnect/
 # fasta folder
 02_middle-analysis_outputs/ncbi_stuff/fasta/
 
+# tif files
+*.tif
