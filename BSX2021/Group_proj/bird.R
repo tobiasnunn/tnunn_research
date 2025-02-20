@@ -139,6 +139,8 @@ hotspots <- bind_rows(read_json(hotfiles[1]))
 # the two lists? so that i get the hotspots where Great Tits were found then either bubble it or filter it so only the like top
 # 30 locations in all the UK are shown on the map, call it the "candidate map" with the "candidate table" or something
 
+
+
 # create a subset of the highest frequency places
 
 subset <- gretit %>% 
@@ -146,8 +148,4 @@ subset <- gretit %>%
 
 mapview(subset, xcol = "lng", ycol = "lat", crs = 4269, grid = FALSE)
 
-#------------------------------------final touches--------------------
-
-                      ###choropleth###
-
-                  ###post code to filter###
+# completed in other file

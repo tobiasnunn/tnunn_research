@@ -5,7 +5,7 @@ library(sf)
 library(jsonlite)
 
 
-bird <- read_json(path = "C:/Users/nancy/source/repos/tnunn_research/BSX2021/Group_proj/data/2025-02-17_hotspot.json", simplifyVector = TRUE)
+bird <- read_json(path = "data/2025-02-17_tit.json", simplifyVector = TRUE)
 
 # Download WorldPop UK 2020 data (100m resolution)
 # URL from WorldPop website - this is an example, verify the exact URL
@@ -16,7 +16,7 @@ bird <- read_json(path = "C:/Users/nancy/source/repos/tnunn_research/BSX2021/Gro
 # )
 
 # Read the raster
-pop_raster <- rast("C:/Users/nancy/Downloads/gbr_ppp_2020.tif")
+pop_raster <- rast("data/gbr_ppp_2020.tif")
 
 
 # Convert to spatial points
@@ -37,4 +37,15 @@ print(results)
 
 # Basic summary
 summary(results$population)
+
+#------------------------------------final touches--------------------
+
+###post code to filter###
+#atm i pull straight from the other doc
+postcode <- results %>% 
+  filter(population <= 0.5 & howMany >= 10)
+
+postcode$bazinga <- postcode$howMany/10
+
+mapview(postcode, xcol = "lng", ycol = "lat", crs = 4269, grid = FALSE, cex = "bazinga")
 

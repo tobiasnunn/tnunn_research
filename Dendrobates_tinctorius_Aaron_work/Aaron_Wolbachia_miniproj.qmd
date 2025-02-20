@@ -14,11 +14,14 @@ library(flextable)
 
 # Wolbachia stuff for Aaron's fly work
 
-##
+## eggnogging
 
 ```{r eggnoging, include=FALSE}
 # so part 1 is the eggnoging of Aaron's Wolbachia samples
 # so i need to download those from Aaron, hopefully they are already fastas, but them in a batch and upload them, then just run the stuff i did for the others but on this batch, should be easy, hopefully
+# it was genome, those are done, just need to pull down
+
+#pt 2. got to go to the email from paper and see what specific map IDs they are looking for so i can isolate and identify.
 ```
 
 ## Phylogenetic trees

@@ -251,6 +251,49 @@ differences?)
 
 ## Conclusion
 
+i showed them to Aaron, and he echoed my concerns that they look
+slightly odd. NOTE: change the proportionising so the across is only a
+filter (the reason these things look so weird is because even if 1
+column only has 0.0001 in a cell, as long as the others are 0, that
+column is 100%, aka. its too black and white due to bad code, my B.)
+
+# Aaron's Wolbachia mini-project(c. 2025-02-18 to 2025-02-\_\_)
+
+Im going to break format for this one as it doesnt really relate to my
+work, it is just a favour im doing for Aaron about his paper hes trying
+to publish, but he gave me Approval to write about it.
+
+So, his requests can be broken into two pieces:
+
+1.  eggnog 2 local samples, look for specific genes in the list of KEGG
+    IDs
+2.  do the gtdb-tk de-novo_wf to make some trees using data from the
+    NCBI
+
+ironic i know, the two things for his project are the two things ive
+spent 80% of this project doing. Anyway, yesterday or the day
+before(18th/19th) i uploaded the 2 samples he emailed me to hawk and
+created modified versions of existing files to run them through
+eggNOG-mapper/2.1.12. I did this twice because i wanted to test a run of
+"metagenomic" instead of "genomic" just so i had both in case (this is
+just a parameter one needs to feed into eggnog). Those are now waiting
+review as i have to go back to the email to see what the paper-people
+want to see. So i decided to start on the trees, this follows a similar
+methodology to my first section of notebook 1 and the section after
+this, another irony. i modified a slurm file to run the wolbachia, this
+started about 15:50 2025-02-20. This will produce the tree file that i
+can use to construct the phylograms, the code for that should be around
+somewhere, ill have a look at "Notebook.Rmd" (NOTE: aint it cute how i
+thought thered only be one, Aaron said ive done a "monster amount of
+coding", is nice). Then ill try and upgrade them like i did for the
+heatmaps, because im guessing if i did them before christmas there is
+room for improvement, and these upgrades will then feed what i do in the
+next section, again, ironic. Im putting all this in a .qmd (Quarto is
+just the next version of Rmd, i dont know enough to know if it is a
+direct improvememt, but i like it, fun name), called
+"Aaron_Wolbachia_miniproj.qmd". This is so that he gets his outputs but
+also the code i used for at least the direct tree and table making.
+
 # GTDB-TK De-Novo phylogenetic trees (2025-02-05 to 2025-02-\_\_)
 
 ## Introduction
