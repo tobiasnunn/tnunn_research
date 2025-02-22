@@ -1,0 +1,64 @@
+[2025-02-20 17:51:03] INFO: GTDB-Tk v2.1.1
+[2025-02-20 17:51:03] INFO: gtdbtk de_novo_wf --genome_dir /home/b.tbn23vlc/wolbachia --bacteria --outgroup_taxon p__Chloroflexota --out_dir /home/b.tbn23vlc/wolbachia_out -x .fa --cpus 10
+[2025-02-20 17:51:03] INFO: Using GTDB-Tk reference data version r207: /apps/genomics/gtdb-tk/2.1.1/refdb/release207_v2
+[2025-02-20 17:51:03] INFO: Identifying markers in 2 genomes with 10 threads.
+[2025-02-20 17:51:03] TASK: Running Prodigal V2.6.3 to identify genes.
+[2025-02-20 17:51:16] INFO: Completed 2 genomes in 12.49 seconds (6.24 seconds/genome).
+[2025-02-20 17:51:16] TASK: Identifying TIGRFAM protein families.
+[2025-02-20 17:51:21] INFO: Completed 2 genomes in 4.71 seconds (2.35 seconds/genome).
+[2025-02-20 17:51:21] TASK: Identifying Pfam protein families.
+[2025-02-20 17:51:21] INFO: Completed 2 genomes in 0.29 seconds (6.93 genomes/second).
+[2025-02-20 17:51:21] INFO: Annotations done using HMMER 3.2 (June 2018).
+[2025-02-20 17:51:21] TASK: Summarising identified marker genes.
+[2025-02-20 17:51:21] INFO: Completed 2 genomes in 0.04 seconds (47.64 genomes/second).
+[2025-02-20 17:51:21] INFO: Done.
+[2025-02-20 17:51:22] INFO: Aligning markers in 2 genomes with 10 CPUs.
+[2025-02-20 17:51:22] INFO: Processing 2 genomes identified as bacterial.
+[2025-02-20 17:51:34] INFO: Read concatenated alignment for 62,291 GTDB genomes.
+[2025-02-20 17:51:34] TASK: Generating concatenated alignment for each marker.
+[2025-02-20 17:51:34] INFO: Completed 2 genomes in 0.03 seconds (72.07 genomes/second).
+[2025-02-20 17:51:35] TASK: Aligning 110 identified markers using hmmalign 3.2 (June 2018).
+[2025-02-20 17:51:39] INFO: Completed 110 markers in 3.27 seconds (33.63 markers/second).
+[2025-02-20 17:51:39] TASK: Masking columns of bacterial multiple sequence alignment using canonical mask.
+[2025-02-20 17:53:43] INFO: Completed 62,293 sequences in 2.06 minutes (30,189.74 sequences/minute).
+[2025-02-20 17:53:43] INFO: Masked bacterial alignment from 41,084 to 5,036 AAs.
+[2025-02-20 17:53:43] INFO: 0 bacterial user genomes have amino acids in <10.0% of columns in filtered MSA.
+[2025-02-20 17:53:43] INFO: Creating concatenated alignment for 62,293 bacterial GTDB and user genomes.
+[2025-02-20 17:54:03] INFO: Creating concatenated alignment for 2 bacterial user genomes.
+[2025-02-20 17:54:03] INFO: Done.
+[2025-02-20 17:54:03] INFO: Inferring FastTree (WAG, SH support values) using a maximum of 10 CPUs.
+[2025-02-20 22:42:43] INFO: FastTree version: (version unavailable)
+[2025-02-20 22:42:43] INFO: Done.
+[2025-02-20 22:42:43] INFO: Reading GTDB taxonomy for representative genomes.
+[2025-02-20 22:42:44] INFO: Read taxonomy for 65,703 genomes.
+[2025-02-20 22:42:44] INFO: Identifying genomes from the specified outgroup: p__Chloroflexota
+[2025-02-20 22:42:53] INFO: Identified 1,387 outgroup taxa in the tree.
+[2025-02-20 22:42:53] INFO: Identified 60,906 ingroup taxa in the tree.
+[2025-02-20 22:43:10] INFO: Outgroup is monophyletic.
+[2025-02-20 22:43:10] INFO: Rerooting tree.
+[2025-02-20 22:43:11] INFO: Rerooted tree written to: /home/b.tbn23vlc/wolbachia_out/infer/intermediate_results/gtdbtk.bac120.rooted.tree
+[2025-02-20 22:43:11] INFO: Done.
+[2025-02-20 22:43:11] INFO: Reading GTDB taxonomy for representative genomes.
+[2025-02-20 22:43:11] INFO: Read taxonomy for 65,703 genomes.
+[2025-02-20 22:43:11] INFO: Reading tree.
+[2025-02-20 22:43:19] INFO: Removing any previous internal node labels.
+[2025-02-20 22:43:19] INFO: Calculating F-measure statistic for each taxa.
+[2025-02-20 22:43:20] INFO: Calculating taxa within each lineage.
+[2025-02-20 22:43:36] INFO: Processing 1 taxa at Domain rank.
+[2025-02-20 22:43:36] INFO: Processing 169 taxa at Phylum rank.
+[2025-02-20 22:48:51] INFO: Processing 428 taxa at Class rank.
+[2025-02-20 22:48:56] INFO: Processing 1,460 taxa at Order rank.
+[2025-02-20 22:50:32] INFO: Processing 3,650 taxa at Family rank.
+[2025-02-20 22:51:17] INFO: Processing 15,342 taxa at Genus rank.
+[2025-02-20 22:52:18] INFO: Processing 62,291 taxa at Species rank.
+[2025-02-20 22:54:03] WARNING: There are 1 taxa with multiple placements of equal quality.
+[2025-02-20 22:54:03] WARNING: These were resolved by placing the label at the most terminal position.
+[2025-02-20 22:54:03] WARNING: Ideally, taxonomic assignment of all genomes should be established before tree decoration.
+[2025-02-20 22:54:03] INFO: Placing labels on tree.
+[2025-02-20 22:54:04] INFO: Writing out statistics for taxa.
+[2025-02-20 22:54:04] INFO: Writing out inferred taxonomy for each genome.
+[2025-02-20 22:54:07] INFO: Writing out decorated tree.
+[2025-02-20 22:54:08] INFO: Done.
+[2025-02-20 22:54:08] INFO: Removing intermediate files.
+[2025-02-20 22:54:08] INFO: Intermediate files removed.
+[2025-02-20 22:54:08] INFO: Done.
