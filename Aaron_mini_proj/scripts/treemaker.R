@@ -1,20 +1,46 @@
 library(tidyverse)
 library(ape)
 library(ggtree)
+library(ggtext)
 
 metabase <- read_delim("outputs/Wolbachia_combined.tsv", delim = "\t")
-metabase <- metabase %>% select(accession, species, sample_type)
+metabase <- metabase %>% select(accession, species, sample_type, cutacc)
+metabase$species <- gsub("s__", "", metabase$species)
 
-wolbachia_tree <- ggtree::read.tree("outputs/g_Wolbachia.tree")
+treebase <- ape::read.tree("hawk_outputs/wolbachia_out/gtdbtk.bac120.decorated.tree")
 
-tree_output <- ggtree(wolbachia_tree)
-tree_output$data$label <- gsub("GB_|RS_|flye_asm_|_part2", "", tree_output$data$label)
-tree_output$data <- left_join(tree_output$data, metabase, by = join_by("label" == "accession"))
-tree_output$data$label <- paste0(tree_output$data$label, "\n", tree_output$data$species)
+tree <- keep.tip(treebase, metabase$accession)
+rm(treebase)
 
-tree_output +
-  geom_tiplab()
+metabase$display_label <- ifelse(
+  metabase$sample_type == "bangor",
+  paste0("**", metabase$cutacc, "**"),  # Just bold accession for bangor
+  paste0(metabase$cutacc, "  *", metabase$species, "*")  # Accession and italic species for others
+)
 
-root_test <- root(wolbachia_tree, outgroup = "RS_GCF_001752665.1", edgelabel = TRUE)
+# style stuff
+style_data <- data.frame(
+  sample_type = c("bangor", "reference", "ncbi"),
+  color = c("black", "darkgreen", "blue"),  # Example colors
+  shape = c(20, 8, 18)  # Different point shapes: circle, triangle, square
+)
 
-ggtree(root_test, branch.length = "none")
+p <- ggtree(tree) %<+% metabase %<+% style_data + 
+  geom_tippoint(aes(shape = sample_type), size = 2.5) +
+  geom_richtext(
+    aes(label = display_label), 
+    size = 3, 
+    hjust = -0.03,
+    label.padding = grid::unit(0, "pt"),
+    fill = NA,           
+    label.color = NA,     
+    label.r = unit(0, "pt")  
+  ) +
+  scale_shape_manual(values = setNames(style_data$shape, style_data$sample_type)) +
+  hexpand(0.2, direction = 1) +
+  geom_treescale(x = 0, y = 28) +
+  theme_tree2(legend.position = c(0.1, 0.5)) 
+  
+p
+  
+  

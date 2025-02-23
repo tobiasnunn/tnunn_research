@@ -28,7 +28,7 @@ treetax <- read.delim('hawk_outputs/wolbachia_out/infer/gtdbtk.bac120.decorated.
 treetax <- treetax %>% 
   filter(genus == "g__Wolbachia")
 # get rid of extra text "GB/RS_" and "flye_asm_/_part2":
-treetax$accession <- gsub("GB_|RS_|flye_asm_|_part2", "", treetax$accession)
+treetax$cutacc <- gsub("GB_|RS_|flye_asm_|_part2", "", treetax$accession)
 ncbi_samples <- treetax %>% 
   filter(species != "s__")
 #-----------------------------3. API time---------------------
@@ -36,7 +36,7 @@ urlstring <- 'https://api.ncbi.nlm.nih.gov/datasets/v2/'
 api_header <- 'd4f921c91015c68f48f656a99ad5bcf84a08'
 
 for (i in 1:nrow(ncbi_samples)) {
-  accession <- ncbi_samples$accession[i]
+  accession <- ncbi_samples$cutacc[i]
   req <- request(base_url = urlstring) %>% 
     req_auth_bearer_token(api_header) %>%
     req_url_path_append("genome", "accession", accession, "dataset_report") %>%
@@ -92,7 +92,7 @@ metadata <- reports %>%
            "completeness", "completeness_percentile", "contamination"))
 
 Wolbachia_combined <- treetax %>% 
-  left_join(metadata, by = "accession")
+  left_join(metadata, by = join_by(cutacc == accession))
 
 Wolbachia_combined$sample_type <- "ncbi"
 
