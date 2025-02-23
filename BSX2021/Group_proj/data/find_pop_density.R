@@ -7,6 +7,8 @@ library(tidyverse)
 library(dplyr)
 library(mapview)
 library(ggplot2)
+library(psych)
+library(RVAideMemoire)
 
 bird <- read_json(path = "data/2025-02-17_tit.json", simplifyVector = TRUE)
 
@@ -110,6 +112,81 @@ box <- read_delim("data/box.csv", delim = ",")
 box2 <- box %>% pivot_longer(cols = everything(),names_to = "site")
 
 ggplot(box2) + 
-  geom_boxplot(aes(x = site, y = value), fill = "#215F9A") +
+  geom_boxplot(aes(x = site, y = value, alpha = 0.5), fill = "#215F9A") +
   theme_minimal() +
   stat_boxplot(aes(x = site, y = value), geom = "errorbar", width = 0.2)
+
+#-------------------------extra plots-----------------------------
+# violin
+ggplot(box2, aes(x = site, y = value)) +
+  geom_violin(aes(fill = after_stat(density))) +
+  scale_fill_viridis_c() +
+  geom_boxplot(width = 0.2, fill = "white", alpha = 0.5) +
+  theme_minimal() +
+  labs(title = "Frequency of song by Site",
+       x = "Site",
+       y = "Frequency (Hz)",
+       fill = "Density") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# ridgeline
+library(ggridges)
+ggplot(box2, aes(x = value, y = site, fill = site)) +
+  geom_density_ridges(alpha = 0.6, scale = 0.9) +
+  scale_fill_viridis_d() +  # Using viridis discrete color palette
+  theme_ridges() +
+  labs(title = "Average Highest Frequency by Site",
+       x = "Frequency",
+       y = "Site") +
+  theme(legend.position = "none")  # Remove legend since fill color matches y-axis
+#-------------------------stats--------------------------------------
+#https://rcompanion.org/rcompanion/d_06.html
+library(lattice)
+
+# little weird stacked histogram, i like it
+histogram(~ value | site,
+          data=box2,
+          layout=c(1,7)) #  columns and rows of individual plots
+
+byf.shapiro(value~site, box2)
+# right yeah, they all rather wildly differ from a normal distribution because that isnt a parameter i can set in fucking Mockaroo
+
+# so test, para = 1-way ANOVA / non-para = Kruskal-Wallis
+# the data here is weird so K-W
+
+#3: Kruskal-Wallis
+# again, according to https://www.sthda.com/english/wiki/kruskal-wallis-test-in-r
+kruskal.test(value ~ site, data = box2)
+# the above link says the Dunn test works for this
+#If there are several values to compare, it can be beneficial to have R convert this table to a compact letter display for you.  The cldList function in the rcompanion package can do this.
+
+### Dunn test
+
+library(FSA)
+
+PT = dunnTest(value ~ site,
+              data=box2,
+              method="bh")    # Can adjust p-values;
+# See ?p.adjust for options
+
+PT
+
+PTD = PT$res
+
+library(rcompanion)
+
+cldList(comparison = PTD$Comparison,
+        p.value    = PTD$P.adj,
+        threshold  = 0.05)
+
+### Order groups by median
+
+Data$Health = factor(Data$Health,
+                     levels=c("OAD", "Normal", "Asbestosis"))
+
+
+# 1: (1 way ANOVA);
+anova <- aov(Diametermm~Site, bat_data)
+summary(anova)
+
+# post hoc Tukey test
+TukeyHSD(anova)
