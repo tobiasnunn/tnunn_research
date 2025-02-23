@@ -3,6 +3,8 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 title: "Oxygen uptake rates in a typical gill-breather"
 format: docx
 editor: visual
+bibliography: references.bib
+csl: harvard-university-of-leeds.csl
 ---
 
 ## Practical 1: Assessment
@@ -315,7 +317,7 @@ flex9 <- align(flex9, i = 1, j = 2, align = "center", part = "header") %>%
 
 ## Task 2
 
-### Table 10 - rates of Oxygen uptake (mmol 02 kg\^-1 h\^-1) with percentage changes compared to innitial "submerged" reading.
+### Table 10 - rates of Oxygen uptake (mmolO~2~ kg\^-1 h\^-1) with percentage changes compared to innitial "submerged" reading.
 
 ```{r table10, echo=FALSE}
 
@@ -389,7 +391,7 @@ table10 <- flextable(pivot9, cwidth = 1, col_keys = c("crab_name", "Submerged", 
 table10
 ```
 
-Upon initial submersion of the crabs in seawater for 19 minutes, crab A1 experienced an Oxygen uptake of 2.14 mmol 02 kg\^-1 h\^-1 and crab A2 experienced an Oxygen uptake of 2.25 mmol 02 kg\^-1 h\^-1, i take these as baselines to compare the other readings with. A2 was heavier, with a weight of 0.0277 kg compared with crab A1's weight of 0.0269 kg, it should also be noted the volume of the tank for A1 was smaller by 5 ml at 795ml compared with 800ml for A2. Upon aerial exposure, crab A1 was found to have an Oxygen uptake rate of -1.46e-03 (mmol 02 kg\^-1 h\^-1), this is because an increase of PO2 was measured in the tank for A1, the PO2 for the tank of A2 was found to decrease, leading to an oxygen uptake rate being measured as 1.58e-03 (mmol 02 kg\^-1 h\^-1), both recordings were calculated over 61 minutes, as shown in Table 8. As shown in Table 10, these values are 100.1% and 99.9% decreases respectively. Compared with initial submersion, crab A1 was found to have in increased rate at 3.10 mmol 02 kg\^-1 h\^-1, a 45% increase, however, A2 was found to have a rate of 1.55 mmol 02 kg\^-1 h\^-1, a 31% decrease.
+Upon initial submersion of the crabs in seawater for 19 minutes, crab A1 experienced an Oxygen uptake of 2.14 mmolO~2~ kg^-1^ h^-1^ and crab A2 experienced an Oxygen uptake of 2.25 mmolO~2~ kg^-1^ h^-1^, i take these as baselines to compare the other readings with. A2 was heavier, with a weight of 0.0277 kg compared with crab A1's weight of 0.0269 kg, it should also be noted the volume of the tank for A1 was smaller by 5 ml at 795ml compared with 800ml for A2. Upon aerial exposure, crab A1 was found to have an Oxygen uptake rate of -1.46e-03 (mmolO~2~ kg^-1^ h^-1^), this is because an increase of PO2 was measured in the tank for A1, the PO2 for the tank of A2 was found to decrease, leading to an oxygen uptake rate being measured as 1.58e-03 (mmolO~2~ kg^-1^ h^-1^), both recordings were calculated over 61 minutes, as shown in Table 8. As shown in Table 10, these values are 100.1% and 99.9% decreases respectively. Compared with initial submersion, crab A1 was found to have in increased rate at 3.10 mmolO~2~ kg^-1^ h^-1^, a 45% increase, however, A2 was found to have a rate of 1.55 mmolO~2~ kg^-1^ h^-1^, a 31% decrease.
 
 ## Task 3
 
@@ -400,10 +402,14 @@ Upon initial submersion of the crabs in seawater for 19 minutes, crab A1 experie
 
 ```
 
-A previous study (Simonik & Henry. 2014) found a decrease from control to aerial emersion of 50% in the Oxygen uptake rate, this contrasts to this study, where a decrease of over 99% was found. Both prove that the Shore Crab (*Carcinus maenas*) is capable of oxygen uptake in an aerated environment, however the capacity to do so were distinct between the studies. The methods followed were similar but distinct, the same species was used for both, however (Simonik & Henry, 2014) used much larger timescales for study, keeping the crabs in air for 6 hours, opposed to just over 1 in this experiment, it is possible it takes time for the crabs to truly adjust to an aerated environment. Another study (Hill et al. 1991) found that shore crabs can respire anaerobically in hypoxic conditions, it is possible this could account for the distinct drop. Finally, it is possible these values are anomalous, as it should not be possible for one value to increase, it should be noted, due to time constraints this experiment was less thorough than the one by (Simonik & Henry. 2014), taking fewer metrics. Shore crabs have been found to be very plastic, able to withstand changing environmental conditions. For example, pollution, fluctuations in temperature and aerial exposure, and this has helped it find success in it's environment (McGaw and Whiteley. 2024). In light of this, it is improbable that the results seen in this study differ from the past evidence because the crabs selected were not able to adjust to the adverse conditions.
+A previous study found a decrease from control to aerial emersion of 50% in the Oxygen uptake rate[@simonik2014]. This contrasts to the current study, where a decrease of over 99% was found. Both prove that the Shore Crab (*Carcinus maenas*) is capable of oxygen uptake in an aerated environment, however the capacity to do so were distinct between the studies. The methods followed were similar but distinct, *Carcinus maenas* was used for both, however the previous study used much larger timescales for study, keeping the crabs in air for 6 hours, opposed to just over 1 in this experiment, it is possible it takes time for the crabs to truly adjust to an aerated environment[@simonik2014]. Fewer metrics were measured in the current experiment. Another study found that shore crabs can respire anaerobically in hypoxic conditions, it is possible this could account for the distinct drop [@hill1991]. Finally, it is possible these values are anomalous, as it should not be possible for one value to increase. Shore crabs have been found to be very plastic, able to withstand changing environmental conditions. For example, pollution, fluctuations in temperature and aerial exposure, and this has helped it find success in it's environment [@mcgaw2024]. In light of this, it is improbable that the results seen in this study differ from the past evidence because the crabs selected were not able to adjust to the adverse conditions.
 
-Another possible explanation is that the crabs experienced stress from the experiment. Allowing for settling time between tests was not conducted in this study, a limitation due to time. A recent study on *Carcinus maenas* found that stress due to handling can cause Oxygen uptake to stay elevated for over 10 hours, expecially so with physical touch. This explains why the Oxygen uptake rate for crab A1 was found to be 45% elevated from control after the emersion(Wilson et al. 2021). \[something on the anatomy of shore crab gills\]
+Another possible explanation is that the crabs experienced stress from the experiment. Allowing for settling time between tests was not conducted in this study, a limitation due to time. A recent study on *Carcinus maenas* found that stress due to handling can cause Oxygen uptake to stay elevated for over 10 hours, especially so with physical touch. This explains why the Oxygen uptake rate for crab A1 was found to be 45% elevated from control after the emersion [@wilson2021]. The gills of *Carcinus maenas* are not typical of water-breathing animals, they were found to have a layer of chitin surrounding their gill filaments. This was believed to help with support in the air, at the cost of less efficient oxygen exchange with water. However, in spite of the gills not collapsing in air their ability to diffuse oxygen is not efficient, a decrease of 75% Pa~O2~ was measured during emersion, with a value of 19 mmHg [@taylor].
 
-\[another paragraph about the crabs generally, why are they important / climate change\]
+In conclusion, *Carcinus maenas* have a strong ability to respire in air, albeit worse than in water, and can survive anoxic aqueous environments this way. This is important to understand because of the species status as invasive in the southern hemisphere, namely Argentina. They might be able to out-compete native species, especially considering climate change [@vera-escalona2023a]. An understanding of the processes of respiration can help with conservation efforts and understanding how the species will react to changing oceanic conditions. The ability this species has to adapt to different environments, outcompeting native species, makes the mechanisms of the way in which it does this interesting for study. It is known that as the temperature of water increases, the Oxygen content decreases, this species has an advantage that other more typical gill breathers will not have to these changing conditions, by having the ability to spend prolonged periods of time in possibly anoxic environments. The gills of other species rely on the density and viscosity of water to exchange Oxygen [@omahoney1984].
 
-In conclusion, \[*Carcinus maenas* is an important species to understand in a time of changing climate. They can act to help us understand how changing oceanic conditions might effect other gill breathers\]
+(word count: 584)
+
+## Task 4
+
+### Bibliography
