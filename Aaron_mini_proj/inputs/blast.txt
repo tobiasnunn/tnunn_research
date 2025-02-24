@@ -20,3 +20,25 @@ Maximum file size: 3000000000B
 Adding sequences from FASTA; added 1 sequences in 0.192013 seconds.
 
 
+
+
+Building a new DB, current time: 02/24/2025 20:26:48
+New DB name:   C:\Users\tobyn\source\tnunn_research\Aaron_mini_proj\inputs\ztaro_01
+New DB title:  ztaro blast database
+Sequence type: Nucleotide
+Keep MBits: T
+Maximum file size: 3000000000B
+Adding sequences from FASTA; added 1 sequences in 0.144555 seconds.
+
+
+
+
+Building a new DB, current time: 02/24/2025 20:27:09
+New DB name:   C:\Users\tobyn\source\tnunn_research\Aaron_mini_proj\inputs\ztsac_09
+New DB title:  ztsac blast database
+Sequence type: Nucleotide
+Keep MBits: T
+Maximum file size: 3000000000B
+Adding sequences from FASTA; added 1 sequences in 0.18634 seconds.
+
+
