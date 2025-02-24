@@ -26,6 +26,8 @@ library(equatags)
 library(officer)
 ```
 
+# Results
+
 ## Task 1
 
 Task 1: Present the data in 4 tables i.e. Tables 6, 7, 8 and 9 from the practical handout. Each table needs a caption. Table titles go above the table
@@ -114,6 +116,8 @@ table6 <- fontsize(table6, size = 10, part = "header")
 table6
 ```
 
+{{< pagebreak >}}
+
 ### Table 7 - Oxygen uptake rate accounting for weight and converting to mmol for shore crabs in two aqueous conditions
 
 ```{r table7, echo=FALSE}
@@ -163,6 +167,8 @@ table7 <- fontsize(table7, size = 10, part = "header")
 table7
 
 ```
+
+{{< pagebreak >}}
 
 ### Table 8 - Calculating Oxygen uptake for shore crabs exposed to air
 
@@ -264,6 +270,8 @@ table8
 
 ```
 
+{{< pagebreak >}}
+
 ### Table 9 - Rates of oxygen uptake expressed as mmol O~2~ kg^-1^ h^-1^ in crabs submerged in seawater, exposed to roughly one hour aerial exposure and then resubmerged
 
 ```{r table9, echo=FALSE}
@@ -311,13 +319,15 @@ flex9 <- align(flex9, i = 1, j = 2, align = "center", part = "header") %>%
   bg(j = c("crab_name"), bg = "grey90", part = "body") %>%
   bg(j = c("crab_name"), bg = "grey90", part = "header")
 
+flex9 <- set_table_properties(flex9, width = 1, layout = "autofit")
+
   #output
   flex9
 ```
 
 ## Task 2
 
-### Table 10 - rates of Oxygen uptake (mmolO~2~ kg\^-1 h\^-1) with percentage changes compared to innitial "submerged" reading.
+### Table 10 - rates of Oxygen uptake (mmolO~2~ kg^-1^ h^-1^) with percentage changes compared to initial "submerged" reading.
 
 ```{r table10, echo=FALSE}
 
@@ -391,11 +401,11 @@ table10 <- flextable(pivot9, cwidth = 1, col_keys = c("crab_name", "Submerged", 
 table10
 ```
 
-Upon initial submersion of the crabs in seawater for 19 minutes, crab A1 experienced an Oxygen uptake of 2.14 mmolO~2~ kg^-1^ h^-1^ and crab A2 experienced an Oxygen uptake of 2.25 mmolO~2~ kg^-1^ h^-1^, i take these as baselines to compare the other readings with. A2 was heavier, with a weight of 0.0277 kg compared with crab A1's weight of 0.0269 kg, it should also be noted the volume of the tank for A1 was smaller by 5 ml at 795ml compared with 800ml for A2. Upon aerial exposure, crab A1 was found to have an Oxygen uptake rate of -1.46e-03 (mmolO~2~ kg^-1^ h^-1^), this is because an increase of PO2 was measured in the tank for A1, the PO2 for the tank of A2 was found to decrease, leading to an oxygen uptake rate being measured as 1.58e-03 (mmolO~2~ kg^-1^ h^-1^), both recordings were calculated over 61 minutes, as shown in Table 8. As shown in Table 10, these values are 100.1% and 99.9% decreases respectively. Compared with initial submersion, crab A1 was found to have in increased rate at 3.10 mmolO~2~ kg^-1^ h^-1^, a 45% increase, however, A2 was found to have a rate of 1.55 mmolO~2~ kg^-1^ h^-1^, a 31% decrease.
+Upon initial submersion of the crabs in seawater for 19 minutes, crab A1 experienced an Oxygen uptake of 2.14 mmol O~2~ kg^-1^ h^-1^ and crab A2 experienced an Oxygen uptake of 2.25 mmol O~2~ kg^-1^ h^-1^, these values are considered baselines to compare the other readings with. A2 was heavier, with a weight of 0.0277 kg compared with crab A1's weight of 0.0269 kg, it should also be noted the volume of the tank for A1 was smaller by 5 ml at 795ml compared with 800ml for A2. Upon aerial exposure, crab A1 was found to have an Oxygen uptake rate of -1.46e^-03^ mmol O~2~ kg^-1^ h^-1^, this is because an increase of PO~2~ was measured in the tank for A1, the PO~2~ for the tank of A2 was found to decrease, leading to an oxygen uptake rate being measured as 1.58e-03 mmol O~2~ kg^-1^ h^-1^, both recordings were calculated over 61 minutes, as shown in Table 8. As shown in Table 10, these values are 100.1% and 99.9% decreases respectively. Compared with initial submersion, crab A1 was found to have in increased rate at 3.10 mmol O~2~ kg^-1^ h^-1^, a 44.9% increase, however, A2 was found to have a rate of 1.55 mmol O~2~ kg^-1^ h^-1^, a 31.1% decrease.
 
 ## Task 3
 
-### Discussion
+# Discussion
 
 ```{r notes, include=FALSE}
 # The initial higher reading for A2 can be explained by its bigger size... The negative value is my interpretation assuming the container was air tight, the oxygen came from the crab, it however could be an erroneous reading (give specific numbers)... crabs breathe much worse in air, only able to get one hundredth the amount of oxygen ... if my readings can be believed (do the math again)... one crab breathed better, the other worse, perhaps an error in machinery, loose seal means the O2 increased in air and water got more aerated for submersion. or maybe the crabs just reacted differently by chance, with only these samples who knows (have a look at literature to see which is more likely, is better or worse breathing after air more common?)... possible stress... gender not taken... i recommend pooling the class data so statistical analysis can be done on it... (rule out errors, find significance, that sort of stuff) i created a 10th table on my own time using R to calculate the percentage change with the values as I hope this is a transparrent way of displaying the information. (not exactly this, but mention 10 and the use of R)...
@@ -412,4 +422,4 @@ In conclusion, *Carcinus maenas* have a strong ability to respire in air, albeit
 
 ## Task 4
 
-### Bibliography
+# Bibliography

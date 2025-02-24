@@ -1,0 +1,22 @@
+
+
+Building a new DB, current time: 02/24/2025 19:38:10
+New DB name:   C:\Users\tobyn\source\tnunn_research\Aaron_mini_proj\inputs\ztaro_01
+New DB title:  ztaro blast database
+Sequence type: Protein
+Keep MBits: T
+Maximum file size: 3000000000B
+Adding sequences from FASTA; added 1 sequences in 0.155151 seconds.
+
+
+
+
+Building a new DB, current time: 02/24/2025 19:50:48
+New DB name:   C:\Users\tobyn\source\tnunn_research\Aaron_mini_proj\inputs\ztsac_09
+New DB title:  ztsac blast database
+Sequence type: Protein
+Keep MBits: T
+Maximum file size: 3000000000B
+Adding sequences from FASTA; added 1 sequences in 0.192013 seconds.
+
+

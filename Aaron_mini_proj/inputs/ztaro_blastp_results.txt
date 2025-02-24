@@ -1,0 +1,154 @@
+BLASTP 2.16.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: ztaro blast database
+           1 sequences; 1,413,953 total letters
+
+
+
+Query= WP_317050345.1 cytoplasmic incompatibility factor CifB [Wolbachia
+endosymbiont of Zaprionus tsacasi]
+
+Length=1128
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.320    0.138    0.403    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 1457685536
+
+
+Query= WP_317585880.1 cytoplasmic incompatibility factor CifB [Wolbachia
+endosymbiont of Zaprionus taronus]
+
+Length=1529
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.136    0.390    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 2021811220
+
+
+Query= QQM00308.1 cytoplasmic incompatibility factor CifB [Wolbachia
+endosymbiont of Drosophila melanogaster]
+
+Length=1166
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.320    0.138    0.407    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 1511412064
+
+
+Query= QQM00850.1 cytoplasmic incompatibility factor CifA [Wolbachia
+endosymbiont of Drosophila melanogaster]
+
+Length=474
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.319    0.138    0.411    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 542923392
+
+
+Query= WOE63960.1 cytoplasmic incompatibility factor CifA [Wolbachia
+endosymbiont of Zaprionus tsacasi]
+
+Length=474
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.138    0.409    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 542923392
+
+
+Query= WP_317585881.1 cytoplasmic incompatibility factor CifA [Wolbachia
+endosymbiont of Zaprionus taronus]
+
+Length=482
+
+
+***** No hits found *****
+
+
+
+Lambda      K        H        a         alpha
+   0.317    0.136    0.406    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 554234296
+
+
+  Database: ztaro blast database
+    Posted date:  Feb 24, 2025  7:38 PM
+  Number of letters in database: 1,413,953
+  Number of sequences in database:  1
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40

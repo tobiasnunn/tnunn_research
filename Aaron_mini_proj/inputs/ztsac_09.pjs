@@ -1,0 +1,24 @@
+{
+  "version": "1.2",
+  "dbname": "ztsac_09",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "ztsac blast database",
+  "number-of-letters": 1278042,
+  "number-of-sequences": 1,
+  "last-updated": "2025-02-24T19:50:00",
+  "number-of-volumes": 1,
+  "bytes-total": 2278300,
+  "bytes-to-cache": 1278160,
+  "files": [
+    "ztsac_09.pdb",
+    "ztsac_09.phr",
+    "ztsac_09.pin",
+    "ztsac_09.pog",
+    "ztsac_09.pos",
+    "ztsac_09.pot",
+    "ztsac_09.psq",
+    "ztsac_09.ptf",
+    "ztsac_09.pto"
+  ]
+}
