@@ -1,0 +1,39 @@
+---
+title: "Notebook 4"
+format: html
+editor: visual
+---
+
+# EggNOG-mapper heatmaps UPGRADED (2025-02-27)
+
+## Introduction
+
+The heatmaps produced previously(Notebook 3) were alright, but on a fundamental level are flawed. In this new section I aim to correct the errors seen. Precisely:
+
+-   the problem of small columns, those with only 1 sample in 1 column jumping to 100%
+
+-   the group names could be tweaked
+
+This should produce heatmaps worthy of analysis, this could be seen by the disintegration of the "human disease" section, which should not exist in these samples.
+
+## Methods
+
+The pipeline used will be fundamentally the same, however I shall add a step where i filter the dataset so that those where the row total is below 1000 will be cut, this should mean that only "significant" genes are identified. (i.e. if column A has 8,000 expressions, and the other 4 have 2,000 between them, that is more important than column A having 4 and there only being 1 sample between the 4 other columns, despite the fact that both are 80%). I also aim to work my way back through the pipeline and properly explain what each bit of code does, for me mainly, but who knows who might adapt this code in future. This is because already I am trying to go back and change things, and i want to know what happens where etc.
+
+Past this i should have good heatmaps i can then analyse, do a commonality test to see what gets universally expressed and then some GTDB-TK trees that i never got around to doing, however, I need to balance this with doing my Dissertation plan and my ENS-2002 final report. I am going to need to eggnog the samples for the other test we wanted to do (Notebook2) concerning comparing genera inside of their families, i believe he said only to do this for Sphingomonas and Microbacterium, as those are the samples we have with more than 1 in a genus, that however is sounding like a "summer-kind-of-thing".
+
+## Results
+
+# GTDB-TK De-Novo phylogenetic trees (2025-02-05 to 2025-02-\_\_)
+
+## Introduction
+
+A while back, i ran GTDB-TK in order to give me a list of accessions i needed to pull down from the NCBI website. This did output a tree, but i wanted to focus on getting the heatmap processes done. Now i have time whilst those are running to do this with all the bells and whistles.
+
+## Methods
+
+The file this section concerns is called [gtdbtk.bac120.decorated.tree](https://github.com/tobiasnunn/tnunn_research/blob/b8afeeb154bc1fbec30221d48c1b31852d5534e7/02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_wf/gtdbtk.bac120.decorated.tree). I want to read this file into R, cut it down so i have multiple trees containing the Bangor-made accessions and modify it so that it has nice aesthetics (for example colouring the nodes based on the accession's status). This serves to identify the species of the Bangor samples at a higher level of accuracy than my work in the summer.
+
+## Results
+
+## Conclusion

@@ -1,3 +1,4 @@
+#libraries
 library(dplyr)
 library(tidyr)
 library(tidyverse)
@@ -38,7 +39,7 @@ for (i in 1:nrow(list_to_process))
       mapids <- add_row(mapids, accession = accession, ko_id = ko_id, map_id = map_id)
     }
   }
-  #and save to a file
+  #and save to a file for next stage
   write_delim(mapids, paste0("02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/", list_to_process$accession[i], "_ko_enrichment.tsv"),
               delim = "\t")
   

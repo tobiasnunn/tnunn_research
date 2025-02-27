@@ -6,6 +6,21 @@ library(KEGGREST)
 # read in output from pt1
 heatmapbase <- read_delim("02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_pathways.tsv", delim = "\t")
 
+# add a total row to filter by
+heatmapbase$total <- rowSums(heatmapbase[,2:6])
+
+##############################################
+# NOTE: i want a fancy way of doing that maybe using mutate() from dplyr as i still dont quite
+# understand how it works
+#heatmapbase %>% mutate(toadtal = heatmapbase$Sphingomonas + heatmapbase$Brachybacterium + heatmapbase$Brevibacterium +
+         #                heatmapbase$Microbacterium + heatmapbase$Pantoea)
+# right, as i thought, it is fancy, but looks waaaaaaay worse than the simple line on 10, maybe there is a better way to do it,
+# but i say simplicity beats fanciosity 
+##############################################
+
+# filter by the total row
+heatmapbase_filt <- filter(heatmapbase, total >= 1000)
+
 # change to proportions rather than number of genomes:
 # dplyr and tidyverse do be good :gorilla emoji: :moai emoji: :diamond emoji:
 
@@ -14,7 +29,6 @@ heatmapbase <- read_delim("02_middle-analysis_outputs/eggnog_stuff/post_eggnog_p
 metadatafile <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_metadata.tsv"
 metadata <- read_delim(metadatafile, delim = "\t", show_col_types = FALSE) %>% group_by(genus) %>% count(name = "genus_total")
 
-#---------------------------------proportionising test area------------------------------
 # test_proportion <- head(heatmapbase, 20)
 
 heatmapbase_prop <- pivot_longer(heatmapbase, !map_id, names_to = "genus", values_to = "count") %>% 
@@ -22,7 +36,7 @@ heatmapbase_prop <- pivot_longer(heatmapbase, !map_id, names_to = "genus", value
   mutate(group_prop = count / genus_total) %>%
   select(map_id, genus, group_prop) %>%
   pivot_wider(names_from = genus, values_from = group_prop)
-#--------------------------------test end----------------------------------
+
 # row proportions
 proportionbase <- heatmapbase_prop %>% 
   rowwise(map_id) %>%

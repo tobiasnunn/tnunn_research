@@ -1,0 +1,41 @@
+---
+title: "ENS-2002 Final Report"
+format: html
+editor: visual
+---
+
+# An analysis on the functional relationships inside the skin microbiome of *Dendrobates tinctorius*
+
+## Introduction
+
+\[background stuff, do some reading\] "microbiomes are important because... (ref)" / "they have found to have many effects on their hosts, such as ... (ref)" / "Chitridiomycosis is caused by Bd fungus, this is bad because...(ref)" \[just some ideas\]
+
+\[intro stuff, again, read\] - "*Dendrobates tinctorius* is a model species for this analysis because it is vulnerable to chitridiomycosis, and ... (ref)"/ "microbiomes have been found to relate to disease resistance(ref)"/ "an understanding of the functions and relationships at a genomic level is useful because... (ref)"
+
+## Methods
+
+Many computational programs were employed for this analysis. Free, online samples, taken from the NCBI website's database, were used BECAUSE...
+
+This includes: slurm, bash, R, BLAST, eggNOG-mapper, GTDB-TK, CheckM/CheckM2, etc to produce computational analysis of the genetic makup and relationships between 10 genera sampled by Scientists in the ECW labs at Bangor, and how they relate to online samples...
+
+\[**WWWWWH**/As mentioned above, I used \_\_\_\_package, in \_\_\_, to produce \_\_\_ because \_\_\_. I did this by \_\_\_, \_\_\_ files were created and can be viewed in the GitHub repo. Data was downloaded/ sites were accessed on \_\_\_\]
+
+## Results
+
+\[ok, what is significant enough to go here, the heatmaps, the trees, the CheckM stuff... is that really all i've done this year? i mean, i can include the BLAST stuff for the fly work i did\]
+
+## Conclusions
+
+\[too early to really say anything other than "the samples are what we think they are", still need to do heatmap and tree analysis\]
+
+\[In Conclusion, \_\_\]
+
+\[my next steps will be:
+
+-   doing the second heatmap of the inter-family stuff
+
+-   sourcing other points of interest
+
+-   waiting for Alberto to do more samples for me
+
+-   \]
