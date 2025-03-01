@@ -3,21 +3,39 @@ library(purrr)
 library(tidyverse)
 library(KEGGREST)
 
-# read in output from pt1
+#-------------------------------setup parameters----------------
+# read in output from pt2
 heatmapbase <- read_delim("02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_pathways.tsv", delim = "\t")
 
+# read in metadata file
+metadatafile <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_metadata.tsv"
+
+# the number of times a specific map ID was enriched across all groups, so we can select rows higher than it
+cutval <- 1000
+
+# the percentage (80%) that a genus need have for it to count as "significantly" different than others.
+selectprop <- 0.8
+
+
+#----------------------------------proportionise------------------
+# because i have different numbers of samples in each group, i want to
+# adjust the raw numbers before creating the rowise proportions 
+
+# read in the metadata file
+metadata <- read_delim(metadatafile, delim = "\t", show_col_types = FALSE) %>% group_by(genus) %>% count(name = "genus_total")
+
+#proportionise by the columns to make them equal in weight
+heatmapbase_prop <- pivot_longer(heatmapbase, !map_id, names_to = "genus", values_to = "count") %>% 
+  left_join(metadata, by = "genus") %>% 
+  mutate(group_prop = count / genus_total) %>%
+  select(map_id, genus, group_prop) %>%
+  pivot_wider(names_from = genus, values_from = group_prop)
+
 # add a total row to filter by
-heatmapbase$total <- rowSums(heatmapbase[,2:6])
-
-##############################################
-# NOTE: i want a fancy way of doing that maybe using mutate() from dplyr as i still dont quite
-# understand how it works
-#heatmapbase %>% mutate(toadtal = heatmapbase$Sphingomonas + heatmapbase$Brachybacterium + heatmapbase$Brevibacterium +
-         #                heatmapbase$Microbacterium + heatmapbase$Pantoea)
-# right, as i thought, it is fancy, but looks waaaaaaay worse than the simple line on 10, maybe there is a better way to do it,
-# but i say simplicity beats fanciosity 
-##############################################
-
+heatmapbase_prop <- heatmapbase_prop %>%
+  rowwise() %>%
+  mutate(total = sum(c_across(-map_id), na.rm = TRUE)) %>%
+  ungroup()
 # filter by the total row
 heatmapbase_filt <- filter(heatmapbase, total >= 1000)
 
@@ -26,16 +44,6 @@ heatmapbase_filt <- filter(heatmapbase, total >= 1000)
 
 # UPDATE: create weighted scores before proportions as group sizes different (group proportions)
 
-metadatafile <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_metadata.tsv"
-metadata <- read_delim(metadatafile, delim = "\t", show_col_types = FALSE) %>% group_by(genus) %>% count(name = "genus_total")
-
-# test_proportion <- head(heatmapbase, 20)
-
-heatmapbase_prop <- pivot_longer(heatmapbase, !map_id, names_to = "genus", values_to = "count") %>% 
-  left_join(metadata, by = "genus") %>% 
-  mutate(group_prop = count / genus_total) %>%
-  select(map_id, genus, group_prop) %>%
-  pivot_wider(names_from = genus, values_from = group_prop)
 
 # row proportions
 proportionbase <- heatmapbase_prop %>% 
