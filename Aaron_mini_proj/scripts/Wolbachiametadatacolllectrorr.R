@@ -22,7 +22,6 @@ treetax <- read.delim('hawk_outputs/wolbachia_out/infer/gtdbtk.bac120.decorated.
     too_many = "merge")
 
 
-
 #----------------------------2. identify Wolbachia and clean-----------
 # find Wolbachia
 treetax <- treetax %>% 

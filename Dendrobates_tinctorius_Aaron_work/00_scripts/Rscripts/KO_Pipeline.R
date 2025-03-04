@@ -7,6 +7,8 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(readxl)
+library(jsonlite)
+library(tidyjson)
 
 # this is going to bring in the excel files output by eggNOG-mapper so i can
 #analyse the KO values. 
@@ -36,6 +38,13 @@ write_delim(ko_val, file = "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_
 # now i want to see if this is actually the right trajectory to be on
 # if they all have all of the genes then map id is valid
 # so lets run a unique and see
+
+#-------------------------------------------------------------------------
+
+# If i have already run the first part of the code, it doesnt make sense to
+# run it again so i can read back in the file i wrote out here to speed this up
+ko_val <- read_delim(file = "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/ko_analysis.tsv",
+           delim = "\t")
 
 # NOTE: taking the unique means that I dont get any data on how "important" a
 # gene is to an individual because i cant see how many times it is repeated in 
@@ -77,5 +86,42 @@ ko_pivot <- ko_count %>% select(ko_id, genus, proportion) %>%
 # i was barking up the wrong tree in regards to my last heatmaps (it was not 80%
 # of the enrichments seen across all genera, just for the specific ones).
 
-data_filtered <- ko_pivot %>% 
-  filter(if_any(everything(), ~ . > 0.5))
+# Apply the filter using rowwise operations with numeric columns only
+numeric_cols <- names(ko_pivot)[sapply(ko_pivot, is.numeric)]
+
+data_filtered <- ko_pivot %>%
+  rowwise() %>%
+  filter(sum(c_across(where(is.numeric)) > 0.8) == 1 & 
+           sum(c_across(where(is.numeric)) < 0.5 & c_across(where(is.numeric)) > 0) == length(numeric_cols) - 1) %>%
+  ungroup()
+
+# the reason for the & ... > 0 step is because without it i get a ludicrous amount
+# of KO values back where most columns are just 0, maybe good for a mega-table
+# but for heatmapping the first option is best, and possibly more relevant as it
+# shows KOs that appear in all groups, have a look at this to compare:
+data_filtered_with_0 <- ko_pivot %>%
+  rowwise() %>%
+  filter(sum(c_across(where(is.numeric)) > 0.8) == 1 & 
+           sum(c_across(where(is.numeric)) < 0.5) == length(numeric_cols) - 1) %>%
+  ungroup()
+
+
+# bring in the .json file (which contains KOs matched with names so i can do naming and grouping)
+KO_match_names <- jsonlite::read_json("01_inputs/ko00001.json", simplifyVector = TRUE) 
+# now i have to mess around with it to get it into a good format (this is the hard part)
+
+# i was getting errors with the word data frame, so i slapped KO_match_names into a frame
+# and it showed me something good, then i did some hunting around and saw "unnest()" 
+# then I added them one at a time until i got what i wanted, 
+# sometimes the fanciest thing you can do is the least fanciest thing you can think of. 
+#(this took a fair amount of time of looking at very complex and cool code I
+# would never be able to do, but look at me now, i got it done in one line)
+intermedd <- data.frame(KO_match_names) %>% 
+  unnest(cols=everything(),  names_repair = "universal") %>% 
+  unnest(cols=everything(),  names_repair = "universal") %>% 
+  unnest(cols=everything(),  names_repair = "universal")
+# i do love brute force
+# anyway, it itsnt perfect, i got errors about "cols... using unnest()" but i like it
+# i am gaming
+
+match_names_flat <- data.frame(spread_all(KO_match_names, recursive = TRUE, sep = "."))
