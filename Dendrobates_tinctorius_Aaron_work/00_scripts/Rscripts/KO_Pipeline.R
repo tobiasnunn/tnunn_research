@@ -201,10 +201,25 @@ kegg_heatmap <- ggplot(data = data_filtered, mapping = aes(x = fct_rev(genus),
   theme(strip.text.y = element_text(angle = 0), strip.text = element_text(size = 16)) +
   theme(axis.text = element_text(size = 14), plot.title = element_text(size = 16))
 
-kegg_heatmap
+#heatmap without groupings
+kegg_heatmap2 <- ggplot(data = data_filtered, mapping = aes(x = fct_rev(genus),
+                                                           y = protein.name, 
+                                                           fill = prop)) +
+  geom_tile(colour = "lightgrey", lwd = 0.5, linetype = 1) +
+  labs(x =  "Bacterial Genus", y ="Kegg KO", fill = "proportion\nenriched\ngenomes",
+       title = "Comparative prevalance of kegg KO\nexpression between five genera",
+       subtitle = "n = 552 samples") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5), text = element_text(size = 14)) +
+  #facet_grid(level1.name ~ ., scales = "free", space = "free") +
+  scale_fill_viridis_c(limits = c(0,1), option = "plasma") +
+  theme(strip.placement = "outside") +
+  theme(strip.text.y = element_text(angle = 0), strip.text = element_text(size = 16)) +
+  theme(axis.text = element_text(size = 14), plot.title = element_text(size = 16))
 
-ggsave("02_middle-analysis_outputs/KEGG_stuff/KOheatmapmulti.png", 
-       plot = kegg_heatmap, width = 3700, height = 5500, units = "px")
+kegg_heatmap2
+
+ggsave("02_middle-analysis_outputs/KEGG_stuff/KOheatmap_no_group.png", 
+       plot = kegg_heatmap2, width = 3700, height = 5500, units = "px")
 #NOTE: Pantoea again dominates because it is more different to the other 4 than
 # they are to each other
 
