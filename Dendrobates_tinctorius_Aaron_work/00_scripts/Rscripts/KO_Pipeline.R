@@ -177,14 +177,23 @@ data_filtered <- data_filtered %>%
   select(ko_id, genus, prop, keggko.shorthand, protein.name, level1.code, level1.name)
 # the ., is vital in this working
 
+# testing, the heatmap looked odd and i didnt like that so many were being
+# characterised as just one thing, so i decided to try and add a "multiple hierarchies" flag
+multi_hierarchy <- kegg_values %>% filter(keggko.code %in% data_filtered$ko_id) %>% 
+  left_join(KO_lookups, join_by(lookup.code == level3.code)) %>% 
+  group_by(keggko.code, level1.name) %>% count() %>% group_by(keggko.code) %>% count() %>% 
+  filter(n > 1)
+
+data_filtered[data_filtered$ko_id %in% multi_hierarchy$keggko.code,]$level1.code <- ""
+data_filtered[data_filtered$ko_id %in% multi_hierarchy$keggko.code,]$level1.name <- "Multiple hierarchies"
 # heatmaps 
 kegg_heatmap <- ggplot(data = data_filtered, mapping = aes(x = fct_rev(genus),
                                                             y = ko_id, 
                                                             fill = prop)) +
   geom_tile(colour = "lightgrey", lwd = 0.5, linetype = 1) +
   labs(x =  "Bacterial Genus", y ="Kegg KO", fill = "proportion\nenriched\ngenomes",
-       title = "Comparative prevalance of KEGG pathways between five genera",
-       subtitle = "n = 552 samples, adjusted for number of samples in each genus") +
+       title = "Comparative prevalance of kegg KO expression between five genera",
+       subtitle = "n = 552 samples") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5), text = element_text(size = 14)) +
   facet_grid(level1.name ~ ., scales = "free", space = "free") +
   scale_fill_viridis_c(limits = c(0,1), option = "plasma") +
@@ -194,19 +203,8 @@ kegg_heatmap <- ggplot(data = data_filtered, mapping = aes(x = fct_rev(genus),
 
 kegg_heatmap
 
-ggsave("02_middle-analysis_outputs/KEGG_stuff/KOheatmap.png", 
+ggsave("02_middle-analysis_outputs/KEGG_stuff/KOheatmapmulti.png", 
        plot = kegg_heatmap, width = 3700, height = 5500, units = "px")
+#NOTE: Pantoea again dominates because it is more different to the other 4 than
+# they are to each other
 
-# testing, the heatmap looked odd and i didnt like that so many were being
-# characterised as just one thing, so i decided to try and add a "multiple hierarchies" flag
-x <- kegg_values %>% filter(keggko.code %in% data_filtered$ko_id) %>% 
-  left_join(KO_lookups, join_by(lookup.code == level3.code)) %>% 
-  group_by(keggko.code, level1.name) %>% count() %>% group_by(keggko.code) %>% count() %>% 
-  filter(n > 1) %>% 
-  mutate(level1.name = "Multiple hierarchies")
-
-y <- kegg_values %>% filter(keggko.code %in% data_filtered$ko_id) %>% 
-  left_join(KO_lookups, join_by(lookup.code == level3.code)) %>% 
-  group_by(keggko.code, level1.name) %>% count() %>% group_by(keggko.code) %>% count() %>% 
-  filter(n == 1) %>% 
-  left_join(kegg_values)
