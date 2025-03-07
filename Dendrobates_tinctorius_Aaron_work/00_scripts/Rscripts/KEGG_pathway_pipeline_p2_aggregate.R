@@ -33,8 +33,8 @@ for (i in 1:nrow(metadata)) {
 
 metadata %>% group_by(genus) %>% count()
 
-mapids <- separate_wider_delim(mapids, cols = gene_ratio, delim = "/", names = c("denom", "num"), cols_remove = FALSE)
-mapids$gene_ratio_num <- as.numeric(mapids$denom) / as.numeric(mapids$num)
+mapids <- separate_wider_delim(mapids, cols = gene_ratio, delim = "/", names = c("num", "denom"), cols_remove = FALSE)
+mapids$gene_ratio_num <- as.numeric(mapids$num) / as.numeric(mapids$denom)
 
 #write mapids in its entirety to save having to run that again
 write_delim(mapids, file="02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_mapids.tsv", delim = "\t")
@@ -42,5 +42,15 @@ write_delim(mapids, file="02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pi
 #this may be the point to filter by gene ratio, perhaps to > 0.1
 #filter(mapids, gene_ratio_num > 0.1)
 
-pivot <- mapids %>% group_by(genus) %>% count(map_id, name = "count") %>% pivot_wider(names_from = genus, values_from = count, values_fill = 0)
+# maps are broken into "modules", could a module be expressed outside of the full map?
+# also, maybe something to consider is to divide the nmber of KOs expressed in a pipeline per
+# sample and divide it by the total possible, im thinking maybe an API to get that
+# so that i have a proportion of how much a pipeline is expressed, and i can get rid of anything
+# under like 50% or something.
+
+pivot <- mapids %>% 
+  group_by(genus) %>% 
+  count(map_id, name = "count") %>% 
+  pivot_wider(names_from = genus, values_from = count, values_fill = 0)
+
 write_delim(pivot, file = outputfilename, delim = "\t")
