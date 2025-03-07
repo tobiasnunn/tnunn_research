@@ -14,6 +14,15 @@ This study hopes to answer many questions pertaining to the makeup and fuction o
 
 ## Methods
 
+### Check M
+
+### Innitial analysis
+
+### API calls 
+
+### heatmap full pipeline 
+
+### phylogenetic trees
 
 
 
