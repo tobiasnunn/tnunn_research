@@ -77,7 +77,7 @@ knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "ju
 ```
 
 
-I am still unsure if these heatmaps are correct. I have a meeting with Aaron on Tuesday the 11th of March to discuss this. I find it interesting that comparing Figures 1 and 2 shows that only the KOs falling under the Metabolism hierarchy are confirmed to be the purpose of those genes in these bacteria, with the "Genetic and Environmental Information Processing" groups both falling under "Multiple hierarchies".
+I am still unsure if these heatmaps are correct. I have a meeting with Aaron on Tuesday the 11th of March to discuss this. I find it interesting that comparing @fig-first-style-heatmap and @fig-second-style-heatmap shows that only the KOs falling under the Metabolism hierarchy are confirmed to be the purpose of those genes in these bacteria, with the "Genetic and Environmental Information Processing" groups both falling under "Multiple hierarchies".
 
 Pantoea continues to dominate these heatmaps as well, being the most distinct of all the groups. Perhaps future heatmaps should remove this for more fair comparison of the other 4 genera. It may also be prudent to switch back to map pathways, though i am not sure how that would work, hopefully Aaron can clarify that for me. Another possible avenue is looking for similarities where all groups are above e.g. 80%, which should not be too difficult.
 
