@@ -48,8 +48,6 @@ Another addition i wanted to make was to bring in data about how much of a pathw
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "KOheatmap.png"))
 ```
 
-
-
 ```{r}
 #| echo: FALSE
 #| label: fig-second-style-heatmap
@@ -57,7 +55,6 @@ knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "KO
 #| fig-cap: "Second style of KO heatmap including a metric for grouping where any KO that has been found attributed to multiple groups in the hierarchy is put into the multiple hierarchies"
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "KOheatmapmulti.png"))
 ```
-
 
 ```{r}
 #| echo: FALSE
@@ -67,7 +64,6 @@ knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "KO
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "KOheatmap_no_group.png"))
 ```
 
-
 ```{r}
 #| echo: FALSE
 #| label: fig-bangor-only-heatmap
@@ -75,7 +71,6 @@ knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "KO
 #| fig-cap: "Heatmap comparing significant map pathways in only Bangor samples"
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "just_Bangor.png"))
 ```
-
 
 I am still unsure if these heatmaps are correct. I have a meeting with Aaron on Tuesday the 11th of March to discuss this. I find it interesting that comparing @fig-first-style-heatmap and @fig-second-style-heatmap shows that only the KOs falling under the Metabolism hierarchy are confirmed to be the purpose of those genes in these bacteria, with the "Genetic and Environmental Information Processing" groups both falling under "Multiple hierarchies".
 

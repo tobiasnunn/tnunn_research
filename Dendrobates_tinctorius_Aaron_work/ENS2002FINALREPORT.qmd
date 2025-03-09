@@ -2,7 +2,17 @@
 title: "ENS-2002 Final Report"
 format: html
 editor: visual
+bibliography: references.bib
+csl: harvard-university-of-leeds.csl
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyr)
+library(flextable)
+library(tidyverse)
+```
 
 # An analysis on the functional relationships inside the skin microbiome of *Dendrobates tinctorius*
 
@@ -12,9 +22,41 @@ editor: visual
 
 \[intro stuff, again, read\] - "*Dendrobates tinctorius* is a model species for this analysis because it is vulnerable to chitridiomycosis, and ... (ref)"/ "microbiomes have been found to relate to disease resistance(ref)"/ "an understanding of the functions and relationships at a genomic level is useful because... (ref)"
 
-### The rework
+```{r groupcount_table, echo=FALSE}
+#| echo: false
+#| warning: false
+#| label: tbl-groupcount
+#| tbl-cap: "Table showing the phylogenetic names as discerned by GTDB-TK on the using version, it could not find any specific species, possibly due to the MAG origin"
 
-The vast majority of what I talk about here is work I did after the Christmas of 2024. I had done work before this, stretching back to the summer. However, when I started I did not even have a rudimentary idea of what I was doing, so all of my work built on that was marked by mistakes I had made, this lead me to the decision to restart completely at Christmas and do everything, especially note-keeping, to a higher standard.
+# bring in data
+groupcount <- read_delim("02_middle-analysis_outputs/analysis_tables/genera_analysis.tsv", delim = "\t") %>% 
+  filter(sample_type == "bangor") %>% 
+  mutate(family = gsub("f__", "", family)) %>% 
+  mutate(genus = gsub("g__", "", genus)) %>% 
+  group_by(family, genus) %>% 
+  count(name = "count") %>% 
+  arrange(desc(count))
+
+groupcount_table <- flextable(groupcount) %>% 
+  set_header_labels(
+                            family = "Family",
+                            genus = "Genus",
+                            count = "Number of samples") %>% 
+  theme_vanilla() %>% 
+  add_footer_lines("Samples given to me by Aaron Comeault and Alberto Orta on the GET INFO FROM AARON") %>% 
+  color(part = "footer", color = "#666666") %>% 
+  italic(i = NULL, j = 2, part = "body", italic = TRUE) %>% 
+  set_table_properties( width = 1, layout = "autofit") %>%
+  add_body_row(colwidths = c(2, 1),
+  values = c("Total", sum(groupcount$count)), top = FALSE) %>% 
+  bold(part = "body", i = ~ grepl("Total", family), j = NULL) %>%
+  footnote(i = 6, j = 3, 
+           part = "body",
+           ref_symbols = "*", 
+         value = as_paragraph("I received 10 samples, however GTDB-TK could not place sample 1Dt100h in a family, so I discarded it from further study"))
+
+groupcount_table
+```
 
 ## Methods
 
@@ -48,7 +90,7 @@ The main purpose of this module for me was to create as many heatmaps as necessa
 
 GTDB-TK analysis confirmed many of the preconceived names given to the samples, however, it could not determine even a genus for sample 1Dt100h, so i removed it from further study, it also renamed sample \_\_\_ from *Enterobacter cancerogenus* to *Pantoea sp. (should i mention the two i flipped because they were switched?)*
 
-\[As shown by figures X and Y, the Bangor samples match the variation seen amongst the larger population\] **\[unsure\]**. Species inside the genus *Sphingomonas* make up a large proportion of the samples, being 4 of the 9, this could concern oligocolonisation by this genera. (Garud and Pollard, 2019) (im not sure about this one)
+\[As shown by figures X and Y, the Bangor samples match the variation seen amongst the larger population\] **\[unsure\]**. Species inside the genus *Sphingomonas* make up a large proportion of the samples, being 4 of the 9, this could concern oligocolonisation by this genera [@garud2020]. (im not sure about this one)
 
 ## Conclusions
 
@@ -65,3 +107,5 @@ GTDB-TK analysis confirmed many of the preconceived names given to the samples, 
 -   waiting for Alberto to do more samples for me
 
 -   \]
+
+## References
