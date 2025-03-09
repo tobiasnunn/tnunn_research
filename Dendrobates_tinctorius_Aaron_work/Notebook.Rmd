@@ -41,7 +41,7 @@ library(knitr)
 knitr::include_url("https://ecogenomics.github.io/GTDBTk/commands/de_novo_wf.html")
 ```
 
-i beleived this would be something i should do as it might produce more accurate trees. sample `1Dt2d` *Enterobacter cancerogenus* had been placed by the `classify_wf` in the previous gtdbtk analysis in the genus *Pantoea*, which lead me to this search. after a bit of trial and error, i produced [this script](https://github.com/tobiasnunn/tnunn_research/blob/21f2fb071d76040dc82286b9399cb11ff11a3b3c/00_scripts/de_novo_gtdbtk.sh)
+i believed this would be something i should do as it might produce more accurate trees. sample `1Dt2d` *Enterobacter cancerogenus* had been placed by the `classify_wf` in the previous gtdbtk analysis in the genus *Pantoea*, which lead me to this search. after a bit of trial and error, i produced [this script](https://github.com/tobiasnunn/tnunn_research/blob/21f2fb071d76040dc82286b9399cb11ff11a3b3c/00_scripts/de_novo_gtdbtk.sh)
 
 ## Methods
 

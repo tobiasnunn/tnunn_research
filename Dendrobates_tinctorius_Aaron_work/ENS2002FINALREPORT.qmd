@@ -32,9 +32,11 @@ I also got a lot of experience querying databases using API calls. This was nece
 
 ### Initial genera analyses
 
+### CheckM/2
+
 ### GTDB-TK
 
-This programme was used to accurately identify the phylogentic identification of the Bangor-generated samples. Specifically, the de_novo workflow was used. This was run on hawk using the \_\_. \_\_ and \_\_ scripts.
+This programme was used to accurately identify the phylogentic identification of the Bangor-generated samples. Specifically, the de_novo workflow was used. This was run on hawk using the de_novo_gtdbtk.sh slurm script. This produced a list of samples that i needed to download the data for.
 
 ### Phylogenetic trees
 
@@ -44,7 +46,9 @@ The main purpose of this module for me was to create as many heatmaps as necessa
 
 ## Results
 
-\[ok, what is significant enough to go here, the heatmaps, the trees, the CheckM stuff... is that really all i've done this year? i mean, i can include the BLAST stuff for the fly work i did, gtdbtk analysis + trees when theyre done\]
+GTDB-TK analysis confirmed many of the preconceived names given to the samples, however, it could not determine even a genus for sample 1Dt100h, so i removed it from further study, it also renamed sample \_\_\_ from *Enterobacter cancerogenus* to *Pantoea sp. (should i mention the two i flipped because they were switched?)*
+
+\[As shown by figures X and Y, the Bangor samples match the variation seen amongst the larger population\] **\[unsure\]**. Species inside the genus *Sphingomonas* make up a large proportion of the samples, being 4 of the 9, this could concern oligocolonisation by this genera. (Garud and Pollard, 2019) (im not sure about this one)
 
 ## Conclusions
 
