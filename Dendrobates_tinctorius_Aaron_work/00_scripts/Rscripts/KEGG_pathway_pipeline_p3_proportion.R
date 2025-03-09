@@ -11,6 +11,20 @@ countfilename <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/g
 metadata <- read_delim(metadatafile, delim = "\t", show_col_types = FALSE)
 raw_counts <- read_delim(countfilename, delim = "\t", show_col_types = FALSE)
 
+# this is the code for doing just the Bangor samples
+# metadata <- read_delim(metadatafile, delim = "\t", show_col_types = FALSE) %>% 
+#   filter(!str_detect(accession, "^GC"))
+# 
+# mapids <- read_delim(file="02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_mapids.tsv", delim = "\t") %>% 
+#   filter(!str_detect(accession, "^GC"))
+# 
+# raw_counts <- mapids %>% 
+#   group_by(genus) %>% 
+#   count(map_id, name = "count") %>% 
+#   pivot_wider(names_from = genus, values_from = count, values_fill = 0)
+
+
+
 genera_count <- metadata %>% group_by(genus) %>% count(name = "total")
 
 # choose which columns you want to include by altering this vector
@@ -62,5 +76,5 @@ kegg_heatmap <- ggplot(data = filtered_prop_count, mapping = aes(x = fct_rev(gen
 
 kegg_heatmap
 
-ggsave("02_middle-analysis_outputs/KEGG_stuff/all_genera.png", 
+ggsave("02_middle-analysis_outputs/KEGG_stuff/just_Bangor.png", 
        plot = kegg_heatmap, width = 3700, height = 2500, units = "px")

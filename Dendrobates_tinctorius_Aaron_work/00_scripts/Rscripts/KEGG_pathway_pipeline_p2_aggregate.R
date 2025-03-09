@@ -48,6 +48,10 @@ write_delim(mapids, file="02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pi
 # so that i have a proportion of how much a pipeline is expressed, and i can get rid of anything
 # under like 50% or something.
 
+# I am also now wondering if i should do something more focussed on the Bangor samples
+# because it would be interesing what is seen in THEM specifically, not random online samples
+# unless we make the assumption any other species in a genus can replace each other and are equivilent.
+
 pivot <- mapids %>% 
   group_by(genus) %>% 
   count(map_id, name = "count") %>% 

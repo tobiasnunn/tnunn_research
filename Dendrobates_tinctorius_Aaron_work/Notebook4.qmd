@@ -30,13 +30,29 @@ So, what happens when i enrich is that is gets the data from the KEGG website ab
 
 Right, i have not updated this in a while, to be honest this section was tiring and time-consuming so i have not thought about this until now. As outlined above i made the move to KO heatmaps for a finer "resolution" so that i could see what proteins are being coded for, and where they are used. I did this all in one file so it was together in case i decided not to use it there would not be files all over, this is [KO_pipeline.R](https://github.com/tobiasnunn/tnunn_research/blob/f8d9fd92b14b02b43e5f9bedbdedf71cbdab13de/Dendrobates_tinctorius_Aaron_work/00_scripts/Rscripts/KO_Pipeline.R). I decided to go hard on the comment writing so i can take a break and pick it up as smoothly as possible. Essentially, this document skips the enrichment step (because when the enrichment step cant place a KO in a pathway it just removes it, dont know what that means). It just takes the eggnog output and creates a list of the KO values that are found, then those lists are grouped into each genus so that a count can be calculated, which is then divided by the total size (the number of samples I have in each genus. The file then does further processing (pivoting and filtering). So that the base of the heatmap can be generated. For one of the heatmaps i made it so that if a KO appears in multiple pathways, it is grouped as such.
 
+### Pathway maps
+
+I discovered that I did the enrichment wrong, I had been doing it one KO at a time, instead of an organism at a time, so it was giving out the wrong dataset. Once i realised this, it was a quick fix to create a new pipeline based around map pathways. This is most likely what Aaron wants to see. The KOs are now being put into pathways that can be ordered by size to give an indication of how likely that pathway is, this has removed human disease. I also had the idea to now divide that number by the number of KOs in the said pathways, this should show how much of the pipeline is being expressed for more accuracy, this will use and API call and could be rather simple, but i dont have the time for that now. Another idea i dont have the time for is to just focus on the Bangor samples to see what more specifically is happening in the microbiome.
+
+I decided to run just the bangor samples, it produced a very interesting heatmap, Figure 4. It shows our samples are very typical of their genera. This leads me to other avenues of thought, such as, what if I did the other mini-analyses (remove pantoea, commonality check).
+
+Another addition i wanted to make was to bring in data about how much of a pathway was being expressed, because knowing that "100 out of 1000 total" genes were in that pathway is good, but what if the total for the pathway is 200, and then only 50% is being expressed, i think it is interesting anyway. So I
+
 ## Results
+```{r}
+#| label: First-style-heatmap
+#| fig-align: center
+#| fig-cap: "First style of KO heatmap without any grouping of where KOs appear in multiple. With the decided group being the alphabetical first. These titles cannot be concretely confirmed to be correct because of this, a KO is identified, but there is no way of knowing just how the organism uses it."
+knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "KOheatmap.png"))
+```
 
 ![Figure 1 - First style of KO heatmap without any grouping of where KOs appear in multiple. With the decided group being the alphabetical first. These titles cannot be concretely confirmed to be correct because of this, a KO is identified, but there is no way of knowing just how the organism uses it.](02_middle-analysis_outputs/KEGG_stuff/KOheatmap.png)
 
 ![Figure 2 - Second style of KO heatmap including a metric for grouping where any KO that has been found attributed to multiple groups in the hierarchy is put into the "multiple hierarchies" title](02_middle-analysis_outputs/KEGG_stuff/KOheatmapmulti.png)
 
 ![Figure 3 - Third style of KO heatmap with no grouping as it became arbitrary adding little to the overall heatmap. The space freed allows for the full name of the protein to be used instead of the KO value](02_middle-analysis_outputs/KEGG_stuff/KOheatmap_no_group.png)
+
+![Figure 4 - Heatmap comparing significant map pathways in only Bangor samples](02_middle-analysis_outputs/KEGG_stuff/just_Bangor.png)
 
 I am still unsure if these heatmaps are correct. I have a meeting with Aaron on Tuesday the 11th of March to discuss this. I find it interesting that comparing Figures 1 and 2 shows that only the KOs falling under the Metabolism hierarchy are confirmed to be the purpose of those genes in these bacteria, with the "Genetic and Environmental Information Processing" groups both falling under "Multiple hierarchies".
 

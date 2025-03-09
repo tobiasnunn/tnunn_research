@@ -12,6 +12,10 @@ editor: visual
 
 \[intro stuff, again, read\] - "*Dendrobates tinctorius* is a model species for this analysis because it is vulnerable to chitridiomycosis, and ... (ref)"/ "microbiomes have been found to relate to disease resistance(ref)"/ "an understanding of the functions and relationships at a genomic level is useful because... (ref)"
 
+### The rework
+
+The vast majority of what I talk about here is work I did after the Christmas of 2024. I had done work before this, stretching back to the summer. However, when I started I did not even have a rudimentary idea of what I was doing, so all of my work built on that was marked by mistakes I had made, this lead me to the decision to restart completely at Christmas and do everything, especially note-keeping, to a higher standard.
+
 ## Methods
 
 Many computational programs were employed for this analysis. Free, online samples, taken from the NCBI website's database, were used BECAUSE...
@@ -20,9 +24,27 @@ This includes: slurm, bash, R, BLAST, eggNOG-mapper, GTDB-TK, CheckM/CheckM2, et
 
 \[**WWWWWH**/As mentioned above, I used \_\_\_\_package, in \_\_\_, to produce \_\_\_ because \_\_\_. I did this by \_\_\_, \_\_\_ files were created and can be viewed in the GitHub repo. Data was downloaded/ sites were accessed on \_\_\_\]
 
+### Complex computational techniques?
+
+This course has made me learn how to do advanced code in R, involving for loops and if statements, as well as using functions in packages such as "tidyverse" (such as mutate() or select()) to do complex analysis. I have also leaned how to interface with slurm so as to work on the hawk supercomputer, as this permitted the use of eggNOG-mapper en masse.
+
+I also got a lot of experience querying databases using API calls. This was necessary to pull down large amounts of data from the NCBI and KEGG websites swiftly. Both websites have a REST API and packages in R that allow me to call them and download the data from inside an R script.
+
+### Initial genera analyses
+
+### GTDB-TK
+
+This programme was used to accurately identify the phylogentic identification of the Bangor-generated samples. Specifically, the de_novo workflow was used. This was run on hawk using the \_\_. \_\_ and \_\_ scripts.
+
+### Phylogenetic trees
+
+### Heatmaps
+
+The main purpose of this module for me was to create as many heatmaps as necessary to analyse the genetic content and function of the main genera of focus (Sphingomonas, Pantoea, Brevibacterium, Microbacterium and Brachybacterium). Once I have created these to identify important Proteins and pathways I can then analyse them to see how the genera significantly differ from each other, this is all in service of seeing what impacts they may have on the bacterial skin microbiome of the host species. A specific protein / process was taken as significant if it was found in over 80% of the individuals of a genus, and less than 50% in each of the others.
+
 ## Results
 
-\[ok, what is significant enough to go here, the heatmaps, the trees, the CheckM stuff... is that really all i've done this year? i mean, i can include the BLAST stuff for the fly work i did\]
+\[ok, what is significant enough to go here, the heatmaps, the trees, the CheckM stuff... is that really all i've done this year? i mean, i can include the BLAST stuff for the fly work i did, gtdbtk analysis + trees when theyre done\]
 
 ## Conclusions
 
