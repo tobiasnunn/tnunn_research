@@ -50,3 +50,7 @@ rsconnect/
 
 # fasta folder
 02_middle-analysis_outputs/ncbi_stuff/fasta/
+
+#Quarto temp files
+Notebook4_files/
+Notebook2_files/

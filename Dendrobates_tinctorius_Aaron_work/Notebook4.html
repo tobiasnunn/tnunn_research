@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,10 +29,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="Notebook4_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="Notebook4_files/libs/quarto-html/anchor.min.js"></script>
 <link href="Notebook4_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Notebook4_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="Notebook4_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="Notebook4_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Notebook4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Notebook4_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="Notebook4_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -120,41 +86,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pathway-maps" class="level3">
 <h3 class="anchored" data-anchor-id="pathway-maps">Pathway maps</h3>
 <p>I discovered that I did the enrichment wrong, I had been doing it one KO at a time, instead of an organism at a time, so it was giving out the wrong dataset. Once i realised this, it was a quick fix to create a new pipeline based around map pathways. This is most likely what Aaron wants to see. The KOs are now being put into pathways that can be ordered by size to give an indication of how likely that pathway is, this has removed human disease. I also had the idea to now divide that number by the number of KOs in the said pathways, this should show how much of the pipeline is being expressed for more accuracy, this will use and API call and could be rather simple, but i dont have the time for that now. Another idea i dont have the time for is to just focus on the Bangor samples to see what more specifically is happening in the microbiome.</p>
-<p>I decided to run just the bangor samples, it produced a very interesting heatmap, Figure 4. It shows our samples are very typical of their genera. This leads me to other avenues of thought, such as, what if I did the other mini-analyses (remove pantoea, commonality check).</p>
+<p>I decided to run just the bangor samples, it produced a very interesting heatmap, <a href="#fig-bangor-only-heatmap" class="quarto-xref">Figure&nbsp;4</a>. It shows our samples are very typical of their genera. This leads me to other avenues of thought, such as, what if I did the other mini-analyses (remove pantoea, commonality check).</p>
 <p>Another addition i wanted to make was to bring in data about how much of a pathway was being expressed, because knowing that “100 out of 1000 total” genes were in that pathway is good, but what if the total for the pathway is 200, and then only 50% is being expressed, i think it is interesting anyway. So I</p>
 </section>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"02_middle-analysis_outputs/KEGG_stuff/"</span>, <span class="st">"KOheatmap.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="02_middle-analysis_outputs/KEGG_stuff/KOheatmap.png" class="img-fluid figure-img" width="1850"></p>
-<figcaption>First style of KO heatmap without any grouping of where KOs appear in multiple. With the decided group being the alphabetical first. These titles cannot be concretely confirmed to be correct because of this, a KO is identified, but there is no way of knowing just how the organism uses it.</figcaption>
+<div id="fig-first-style-heatmap" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-first-style-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_middle-analysis_outputs/KEGG_stuff/KOheatmap.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1850">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-first-style-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: First style of KO heatmap without any grouping of where KOs appear in multiple. With the decided group being the alphabetical first. These titles cannot be concretely confirmed to be correct because of this, a KO is identified, but there is no way of knowing just how the organism uses it.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<!-- ![Figure 1 - First style of KO heatmap without any grouping of where KOs appear in multiple. With the decided group being the alphabetical first. These titles cannot be concretely confirmed to be correct because of this, a KO is identified, but there is no way of knowing just how the organism uses it.](02_middle-analysis_outputs/KEGG_stuff/KOheatmap.png) -->
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="02_middle-analysis_outputs/KEGG_stuff/KOheatmapmulti.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2 - Second style of KO heatmap including a metric for grouping where any KO that has been found attributed to multiple groups in the hierarchy is put into the “multiple hierarchies” title</figcaption>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-second-style-heatmap" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-second-style-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_middle-analysis_outputs/KEGG_stuff/KOheatmapmulti.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1850">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-second-style-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Second style of KO heatmap including a metric for grouping where any KO that has been found attributed to multiple groups in the hierarchy is put into the multiple hierarchies
+</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="02_middle-analysis_outputs/KEGG_stuff/KOheatmap_no_group.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 3 - Third style of KO heatmap with no grouping as it became arbitrary adding little to the overall heatmap. The space freed allows for the full name of the protein to be used instead of the KO value</figcaption>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-third-style-heatmap" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-third-style-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_middle-analysis_outputs/KEGG_stuff/KOheatmap_no_group.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1850">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-third-style-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Third style of KO heatmap with no grouping as it became arbitrary adding little to the overall heatmap. The space freed allows for the full name of the protein to be used instead of the KO value
+</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="02_middle-analysis_outputs/KEGG_stuff/just_Bangor.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 4 - Heatmap comparing significant map pathways in only Bangor samples</figcaption>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-bangor-only-heatmap" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bangor-only-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_middle-analysis_outputs/KEGG_stuff/just_Bangor.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1850">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bangor-only-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Heatmap comparing significant map pathways in only Bangor samples
+</figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>I am still unsure if these heatmaps are correct. I have a meeting with Aaron on Tuesday the 11th of March to discuss this. I find it interesting that comparing Figures 1 and 2 shows that only the KOs falling under the Metabolism hierarchy are confirmed to be the purpose of those genes in these bacteria, with the “Genetic and Environmental Information Processing” groups both falling under “Multiple hierarchies”.</p>
 <p>Pantoea continues to dominate these heatmaps as well, being the most distinct of all the groups. Perhaps future heatmaps should remove this for more fair comparison of the other 4 genera. It may also be prudent to switch back to map pathways, though i am not sure how that would work, hopefully Aaron can clarify that for me. Another possible avenue is looking for similarities where all groups are above e.g.&nbsp;80%, which should not be too difficult.</p>
@@ -263,8 +255,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -375,7 +365,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
