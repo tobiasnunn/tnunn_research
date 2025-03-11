@@ -20,6 +20,8 @@ library(tidyverse)
 
 \[background stuff, do some reading\] "microbiomes are important because... (ref)" / "they have found to have many effects on their hosts, such as ... (ref)" / "Chitridiomycosis is caused by Bd fungus, this is bad because...(ref)" \[just some ideas\]
 
+One example of why an understanding of the functions of microbiomes of animals is the work conducted by [@harris2009]. This is a study very relevant to the current one, testing was conducted on another Anuran species. It was found that the skin microbiome is an important factor in disease survival. There are other important elements to the skin of amphibians, for example respiration, that the present microbiome will effect, making a more whole picture of the relationships and functions therein vital.
+
 \[intro stuff, again, read\] - "*Dendrobates tinctorius* is a model species for this analysis because it is vulnerable to chitridiomycosis, and ... (ref)"/ "microbiomes have been found to relate to disease resistance(ref)"/ "an understanding of the functions and relationships at a genomic level is useful because... (ref)"
 
 ```{r groupcount_table, echo=FALSE}
@@ -92,6 +94,15 @@ GTDB-TK analysis confirmed many of the preconceived names given to the samples, 
 
 \[As shown by figures X and Y, the Bangor samples match the variation seen amongst the larger population\] **\[unsure\]**. Species inside the genus *Sphingomonas* make up a large proportion of the samples, being 4 of the 9, this could concern oligocolonisation by this genera [@garud2020]. (im not sure about this one)
 
+```{r}
+#| echo: FALSE
+#| label: fig-bangor-only-heatmap
+#| fig-align: center
+#| fig-cap: "Heatmap comparing significant map pathways in 552 samples of both laboratory and public origin"
+knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated.png"))
+```
+
+Analysis of the heatmaps show ___
 ## Conclusions
 
 \[too early to really say anything other than "the samples are what we think they are", still need to do heatmap and tree analysis\]

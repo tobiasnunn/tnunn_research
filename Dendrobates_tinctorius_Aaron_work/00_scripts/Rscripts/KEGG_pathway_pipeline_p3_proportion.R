@@ -1,12 +1,16 @@
 library(dplyr)
 library(tidyr)
 library(tidyverse)
+library(ggplot2)
 
 #the proportionising is done by looking at what % of samples in that genus
 #does the map id appear
 # parameters
 metadatafile <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_metadata.tsv"
 countfilename <- "02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_pathways_revised.tsv"
+
+high_lim <- 0.8
+low_lim <- 0.5
 # read in metadata file
 metadata <- read_delim(metadatafile, delim = "\t", show_col_types = FALSE)
 raw_counts <- read_delim(countfilename, delim = "\t", show_col_types = FALSE)
@@ -47,8 +51,8 @@ numeric_cols <- names(prop_count)[sapply(prop_count, is.numeric)]
 
 filtered_prop_count <- prop_count %>% 
   rowwise() %>%
-  filter(sum(c_across(where(is.numeric)) > 0.8) == 1 & 
-           sum(c_across(where(is.numeric)) < 0.5) == length(numeric_cols) - 1) %>%
+  filter(sum(c_across(where(is.numeric)) > high_lim) == 1 & 
+           sum(c_across(where(is.numeric)) < low_lim) == length(numeric_cols) - 1) %>%
   ungroup() %>%
   pivot_longer(cols = -map_id, names_to = "genus", values_to = "prop")
 
@@ -60,21 +64,49 @@ filtered_prop_count <- filtered_prop_count %>%
   select(map_id, genus, prop, name, class, subclass)
 
 # now the heatmap
+
+# my attempt at making an automated list for the subtitle, so far a failure
+# disag_count <- as.vector(genera_count$total[length(genera_count$total):1])
+
 kegg_heatmap <- ggplot(data = filtered_prop_count, mapping = aes(x = fct_rev(genus),
                                                             y = name, 
                                                             fill = prop)) +
   geom_tile(colour = "lightgrey", lwd = 0.5, linetype = 1) +
   labs(x =  "Bacterial Genus", y ="KEGG Pathway", fill = "proportion\nenriched\ngenomes",
-       title = "Comparative prevalance of KEGG pathways between X genera",
-       subtitle = "n = X samples") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5), text = element_text(size = 14)) +
-  facet_grid(subclass ~ ., scales = "free", space = "free") +
+       title = "Comparative prevalance of KEGG pathways between\nsubsets of 5 genera as chosen by GTDB-TK analysis",
+       subtitle = "n = 552 samples (200, 48, 231, 42, 31)") + # there has to be a way to automate that
+  theme(axis.text.x = element_text(vjust = 0.5), text = element_text(size = 14)) +
+  #facet_grid(subclass ~ ., scales = "free", space = "free") +
   scale_fill_viridis_c(limits = c(0,1), option = "plasma") +
   theme(strip.placement = "outside") +
   theme(strip.text.y = element_text(angle = 0), strip.text = element_text(size = 16)) +
-  theme(axis.text = element_text(size = 14), plot.title = element_text(size = 16))
+  theme(axis.text = element_text(size = 14), plot.title = element_text(size = 16)) +
+  facet_wrap(~subclass, scales="free", nrow = 5, ncol = 1)
 
 kegg_heatmap
 
-ggsave("02_middle-analysis_outputs/KEGG_stuff/just_Bangor.png", 
-       plot = kegg_heatmap, width = 3700, height = 2500, units = "px")
+ggsave("02_middle-analysis_outputs/KEGG_stuff/all_genera_updated.png", 
+       plot = kegg_heatmap, width = 4000, height = 4500, units = "px")
+
+
+# code for the funny heatmap:
+# put "scales="fixed" for the other funny
+# kegg_heatmap <- ggplot(data = filtered_prop_count, mapping = aes(x = fct_rev(genus),
+#                                                                  y = name, 
+#                                                                  fill = prop)) +
+#   geom_tile(colour = "lightgrey", lwd = 0.5, linetype = 1) +
+#   labs(x =  "Bacterial Genus", y ="KEGG Pathway", fill = "proportion\nenriched\ngenomes",
+#        title = "Comparative prevalance of KEGG pathways between subsets of 5 genera as chosen by GTDB-TK analysis",
+#        subtitle = c("n = 552 samples (200, 48, 231, 42, 31)")) + # there has to be a way to automate that
+#   theme(axis.text.x = element_text(angle = 90, vjust = 0.5), text = element_text(size = 14)) +
+#   facet_grid(subclass ~ ., scales = "free", space = "free") +
+#   scale_fill_viridis_c(limits = c(0,1), option = "plasma") +
+#   theme(strip.placement = "outside") +
+#   theme(strip.text.y = element_text(angle = 0), strip.text = element_text(size = 16)) +
+#   theme(axis.text = element_text(size = 14), plot.title = element_text(size = 16)) +
+#   facet_wrap(~subclass, scales="free")
+# 
+# kegg_heatmap
+# 
+# ggsave("02_middle-analysis_outputs/KEGG_stuff/all_genera_updated_haha.png", 
+#        plot = kegg_heatmap, width = 8000, height = 2000, units = "px")
