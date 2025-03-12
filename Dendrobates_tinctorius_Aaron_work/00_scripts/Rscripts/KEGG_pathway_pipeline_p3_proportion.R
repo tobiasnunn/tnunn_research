@@ -2,6 +2,7 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(ggplot2)
+library(scales)
 
 #the proportionising is done by looking at what % of samples in that genus
 #does the map id appear
@@ -63,6 +64,10 @@ filtered_prop_count <- filtered_prop_count %>%
   left_join(kegg_metadata, by = join_by(map_id == map)) %>% 
   select(map_id, genus, prop, name, class, subclass)
 
+filtered_prop_count$perc <- scales::percent(filtered_prop_count$prop, accuracy = 0.1)
+filtered_prop_count <- filtered_prop_count %>% 
+  mutate(yellow = prop > 0.5)
+  
 # now the heatmap
 
 # my attempt at making an automated list for the subtitle, so far a failure
@@ -81,7 +86,10 @@ kegg_heatmap <- ggplot(data = filtered_prop_count, mapping = aes(x = fct_rev(gen
   theme(strip.placement = "outside") +
   theme(strip.text.y = element_text(angle = 0), strip.text = element_text(size = 16)) +
   theme(axis.text = element_text(size = 14), plot.title = element_text(size = 16)) +
-  facet_wrap(~subclass, scales="free", nrow = 5, ncol = 1)
+  facet_wrap(~subclass, scales="free", nrow = 5, ncol = 1) + 
+  geom_text(aes(label = perc, colour = yellow)) +
+  scale_colour_manual(values=c("white", "black")) + 
+  guides(colour = "none")
 
 kegg_heatmap
 
