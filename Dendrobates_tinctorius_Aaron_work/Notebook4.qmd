@@ -82,7 +82,7 @@ One of my problems when rationalising map ids over KO values is that many KO val
 
 ```{r}
 #| echo: FALSE
-#| label: fig-bangor-only-heatmap
+#| label: fig-funny-heatmap
 #| fig-align: center
 #| fig-cap: "Heatmap comparing significant map pathways in 552 samples of both laboratory and public origin, funny error"
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated_haha.png"))
@@ -90,16 +90,17 @@ knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "al
 
 ```{r}
 #| echo: FALSE
-#| label: fig-bangor-only-heatmap
+#| label: fig-funny2-heatmap
 #| fig-align: center
 #| fig-cap: "Heatmap comparing significant map pathways in 552 samples of both laboratory and public origin, funny error 2"
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated_haha2.png"))
 ```
+
 These heatmaps are more of errors of code i found amusing, it fixes Aarons issues about naming at least, but I don't think it is quite right.
 
 ```{r}
 #| echo: FALSE
-#| label: fig-bangor-only-heatmap
+#| label: fig-all-genera-heatmap
 #| fig-align: center
 #| fig-cap: "Heatmap comparing significant map pathways in 552 samples of both laboratory and public origin"
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated.png"))
@@ -115,9 +116,16 @@ A while back, i ran GTDB-TK in order to give me a list of accessions i needed to
 
 The file this section concerns is called [gtdbtk.bac120.decorated.tree](https://github.com/tobiasnunn/tnunn_research/blob/b8afeeb154bc1fbec30221d48c1b31852d5534e7/02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_wf/gtdbtk.bac120.decorated.tree). I want to read this file into R, cut it down so i have multiple trees containing the Bangor-made accessions and modify it so that it has nice aesthetics (for example colouring the nodes based on the accession's status). This serves to identify the species of the Bangor samples at a higher level of accuracy than my work in the summer.
 
-2025-03-12: 
-I adapted the code from the Wolbachia mini-project Aaron asked me to do for his paper. This created 
+2025-03-12: I adapted the code from the Wolbachia mini-project Aaron asked me to do for his paper. This created [GTDBTKtrees.R](https://github.com/tobiasnunn/tnunn_research/blob/de6d737761426119d0e32e87bab9a7ebb3b8e6c3/Dendrobates_tinctorius_Aaron_work/00_scripts/Rscripts/GTDBTKtrees.R) (the link is to a work in progress build). I toyed with the idea of doing an interactive heatmap for fun, but i think the time i would have to sink into understanding all of the systems is too much.
 
 ## Results
+
+```{r}
+#| echo: FALSE
+#| label: fig-test-interactive-tree
+#| fig-align: center
+#| fig-cap: "Phylogenetic tree of 552 Samples of 5 Genera"
+knitr::include_graphics(here::here("02_middle-analysis_outputs/gtdbtk_stuff/", "all_genera_updated.png"))
+```
 
 ## Conclusion
