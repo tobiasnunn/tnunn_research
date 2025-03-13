@@ -4,7 +4,6 @@ library(ggtree)
 library(ggtext)
 library(phylocanvas)
 library(tidyverse)
-library(ggrepel)
 
 metabase <- read_delim("02_middle-analysis_outputs/analysis_tables/treestuff_combined.tsv", delim = "\t")
 metabase <- metabase %>% select(accession, cutacc, genus, species, sample_type)
@@ -17,7 +16,6 @@ metabase$display_label <- ifelse(
 )
 
 treebase <- ape::read.tree("02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_wf/gtdbtk.bac120.decorated.tree")
-
 
 #---------------------------regular big tree-----------------------------
 # i think this would look good as a circular
@@ -89,10 +87,9 @@ ggsave("02_middle-analysis_outputs/gtdbtk_stuff/output_trees/Brevi_tree.png",
 #----------------------------interactive tree test zone--------------------
 # or i could make it interactive with a zoom? could i do that?
 # i have just seen something about the "phylocanvas" package
-#q <- 
-phylocanvas(tree = tree, treetype = "circular", nodesize = 15, textsize = 15,
+q <- phylocanvas(tree = tree, treetype = "rectangular", nodesize = 15, textsize = 15,
             linewidth = 2, showscalebar = TRUE)
-
+#phylocanvasOutput(q, width = "100%", height = "1000px")
 style_node(q, nodeid = "flye_asm_2Dt1e_part2", color = "yellow")
 # info on "nodestyles" was hard to come by, i found this:
 # Available Parameters:
