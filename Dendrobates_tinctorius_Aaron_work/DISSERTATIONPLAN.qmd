@@ -14,11 +14,17 @@ Hypothesis/ Aim: clearly state what you want to test.\
 Abstract/ Summary: max 150 words (remember your abstract in the essay last semester). This is different\
 from the lay summary. Include a problem statement, your intended approach, your outcomes (potential\
 findings of your study or the outcomes of discussions with your supervisor over the approach you will take)\
-and the implications of your study.\
+and the implications of your study.
+
+\
 \*Introduction/ Background: What has been published so far? Why is it important to test this hypothesis/do\
-this work? Finish the introduction by stating your objective. For some more exploratory projects that use\
+this work?
+
+Finish the introduction by stating your objective. For some more exploratory projects that use\
 published literature as the source material & the data, specific objectives might be difficult to define at this\
-stage. Speak to your supervisor if you are unsure. 750 words.\
+stage. Speak to your supervisor if you are unsure. 750 words.
+
+\
 †Materials and Methods: What kind of equipment will you use? What are the reagents? What methods/\
 experimental design will you exploit? How will you collect your data? What software? Which statistical\
 analyses? 750 words.\
@@ -49,18 +55,42 @@ Using public, online data held in databases such as the NCBI website, I will use
 
 ## Introduction
 
+Bacterial genomics is a very interesting field, it has evolved a lot over the 30 years the field has existed. The first bacterial genome to be sequenced was that of *H. influenzae* in 1995 using shotgun sequencing [@fleischmann1995].
+
+Since then there have been many improvements, allowing a huge breadth of Bacterial Phyla to be discovered and better understood. This understanding brought about through understanding the functional components of bacterial genomes can have implications for many fields, such as: bioforensics; better understanding, and treating, disease; biosurveillance and metabolic modeling [@land2015].
+
+There have been 3 generations of technology, with developments being made into the next every year. This has brought even more improvements, for example through sequencing methods like Oxford Nanopore [@abdi2024]. This aims to express that this is a very active and alive field of study with many avenues for discovery in the future, and important implications for many scientific fields ranging from disease to ecosystem dynamics.
+
 This project builds on work done by [@harris2009].This is a study very relevant to the current one, testing was conducted on another Anuran species. It was found that the skin microbiome is an important factor in disease survival. There are other important elements to the skin of amphibians, for example respiration, that the present microbiome will effect, making a more whole picture of the relationships and functions therein vital.
 
-Poison dart frogs were chosen for this because they are a model amphibian (\_\_\_)
+Dyeing Poison dart frogs were chosen as the host for this analysis, the species acts as a good model amphibian and previous studies have used this species as well, with reference genomes existing for them [@dittrich]. (is the date in this one?)
 
-This could have implications for defending against chytridiomycosis infection.
+Another such study showed that there can be a huge variation and diversity of skin microbiome of a single host in amphibians. It was also found that members of the same species showed similar microbiomes, whereas there were fewer similarities between different individuals from the same pond [@mckenzie2012]. This is analytically interesting as it presents that any member of the same species, regardless of sampling location, can be used as a model for the species and that these microbiomes have spent millenia adapting to their hosts, which will have no doubt caused complex relationships to develop.
 
-I aim to discover new relationships inside microbiota and between host and microbiome. A greater understanding of the genetics involved could yield results in combating infection through probiotic suplementation of the skin microbiome.
+Poison dart frogs were chosen for this because other research was already being conducted on them by Bangor researchers, so the sequenced bacterial MAGs were available for me to conduct secondary analysis on. They are also convenient due to the importance of microbiomes to life, the skin of amphibians is especially important, due to its use as a site for respiration, thus the microbiome therein should have important interactions with the host. This research could have implications for developing methods for combating chytridiomycosis infection in these animals. For example, the relationship between microbiome and fungal infection is not simple, and past research into probiotic solutions has had issues, so a greater understanding could help develop novel solutions or reveal more about existing processes [@mcknight2022].
+
+This analysis is not the first of its kind, one previous analysis involved *E coli* and similarly used the wealth of publically available samples to do analysis with bioinformatics [@edwards2013]. This study uses similar, though more up to date, methods to focus in on Amphibians, due to the importance of their skin, and because they represent a very diverse taxa that is important to global ecosystems, and a group that is increasingly negatively impacted by human effects. An understanding of their relationships with their skin microbiomes, and the interspecific functions, variation and competition therein, through funcitonal genomics might give us a better idea of how these often cryptic animals fit into their niches in their environment. This could help us develop plans to protect them from dangers such as chytridiomycosis through a deeper understanding of the underlying mechanisms at play, as well as a potential host of novel information generated surrounding these mysterious microbiomes and possibly inspiring more scientists to follow on from this study. This will include analyses using public data, a lesser-used methodology in the area, this has the benefit that analysis can be done faster than with traditional methods, as the repositories contain years worth of data that is almost immediately accessible. This project treads new ground in understanding amphibian microbiomes and the functional genomics of microorganisms and could have real-world impacts on the future study of microbiome genomics.
+
+(715-ish)
 
 ## Methods
 
-All analysis will be undertaken computationally by me using data either harvested from online repositories, or given to me by the researchers at the ECW labs. A specific analysis I will run early on is to bring down all the samples generated by GTDB-TK for the families (Sphingomonadacea and Microbacteriacea) and compare the genera within them for highly expressed genes. This will involve ..., this is important because...
+All analysis will be undertaken computationally by me using data either collected from online repositories, such as the NCBI database, or given to me by the researchers at the ECW labs in Bangor as a by-product of their research. This will involve the use of many R packages and tools on the Hawk supercomputer, operated by SCW, for example the modules `dtdb-tk/2.1.1` and `eggnog-mapper/2.1.12`. This will require me to develop my skills with command-line code as well as slurm and bash scripting. There are many tools in R packages that facilitate high-quality bioinformatics, making use of these is critical for data manipulation and clear data presentation [@sepulveda2020].
 
-This project will result in a better understanding of interactions between microbiota, with possible implications for defence against chytridiomycosis...
+As mentioned, this project relates to a larger work conducted by Bangor Masters and Phd researchers, as such, I will be receiving the genomes of up to 100 more bacteria sampled in Bangor labs, with the associated metadata. I will then add these to my existing data-pool and rerun past research in light of this data-influx. This includes; CheckM analysis, GTDBTK analysis and eggNOG-mapper analysis. This will update the phylogenetic trees and heatmaps that already exist, and allow for a database of these samples to be made, into which I can put the associated metadata.
+
+Part of my work will be to discover and use more advanced computational applications. For example, the use of PostgreSQL for data storage, as opposed to the file system on my machine. This is to develop my skills as a bioinformatician, especially in reference to creating novel diagrams in R.
+
+For example, a specific genera of interest, identified in 1 sample of the 10 local samples is the genus *Pantoea*. This is an interesting genus with a large variety of functions and relationships. Isolates from this genus have been found to have functions ranging from herbicide degridation to nitrogen fixation to antibiotic production. Samples have been found in hospitals, suggesting a possible link to disease in some capacity, this could make this genera interesting from a Chytridiomycosis point of view. An understanding of this genus could be beneficial for future research in the area [@walterson2015]. Another genera of interest is Sphingomonas, samples have been found to be beneficial to host plant health, with little known about the genomics and internal mechanisms of how they produce these benefits [@asaf2020].
+
+The discovery of novel avenues of discovery will be important to this project. Requiring me to study the literature surrounding bacterial genomics thoroughly to find more methods. For example, the chemical violacein is important in chytridiomycosis defence [@becker2009], thus, I can look to identify it in the online samples, in order to create a distribution or possible evolutionary history of the gene that codes for this chemical.
+
+There is a wealth of data surrounding the public samples, for example, location data can feed the creation of maps that identify the source location of the samples, and figures can be created surrounding the host they were sampled from, these fields can then also feed secondary analysis, such as how samples from e.g. Europe and Africa differ.
+
+Further public analysis will include intra-specific comparisons of genera inside families where more than 1 Bangor sample has been identified, i.e. *Sphingomonas* and *Microbacterium*, these will help illuminate how the genera inside these families differ from each other. This will be a simple, if time consuming, process, as the analysis pipeline has already been created, the new public samples just need to be processed.
+
+The data is downloaded directly off of the NCBI and KEGG websites, this then feeds into a data-analysis pipeline that processes the raw genomes in .fasta format through eggNOG-mapper, these are then run through the `enrichKO` package in R to find the KEGG map-ids, which, after further processing in R, can then be turned into heatmaps to identify important pathways in these groups, grouping by the genera. This is taken to mean any pathway where there is more than 80% enrichment in one group and less than 50% in the others. The use of the R package `GTDB-TK` can also be used to create phylogenetic trees in R. Metadata is also downloaded off of both sites to help with clarity in the visuals, as well as providing further avenues of study. Once the important genes are identified, then the implications of those pathways in reference to the bacterial community and host can be illuminated.
+
+\(604\)
 
 ## References

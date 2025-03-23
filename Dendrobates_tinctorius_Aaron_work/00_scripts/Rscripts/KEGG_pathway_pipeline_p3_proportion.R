@@ -1,5 +1,3 @@
-library(dplyr)
-library(tidyr)
 library(tidyverse)
 library(ggplot2)
 library(scales)
@@ -96,6 +94,32 @@ kegg_heatmap
 ggsave("02_middle-analysis_outputs/KEGG_stuff/all_genera_updated.png", 
        plot = kegg_heatmap, width = 4000, height = 4500, units = "px")
 
+
+# small upgrade to axis labels
+
+kegg_heatmap_b <- ggplot(data = filtered_prop_count, mapping = aes(x = fct_rev(genus),
+                                                                 y = name, 
+                                                                 fill = prop)) +
+  geom_tile(colour = "lightgrey", lwd = 0.5, linetype = 1) +
+  labs(x =  "Bacterial Genus", y ="KEGG Pathway", fill = "proportion\nenriched\ngenomes",
+       title = "Comparative prevalance of KEGG pathways between\nsubsets of 5 genera as chosen by GTDB-TK analysis",
+       subtitle = "n = 552 samples (200, 48, 231, 42, 31)") + # there has to be a way to automate that
+  theme(axis.text.x = element_text(vjust = 0.5), text = element_text(size = 14)) +
+  #facet_grid(subclass ~ ., scales = "free", space = "free") +
+  scale_fill_viridis_c(limits = c(0,1), option = "plasma") +
+  theme(strip.placement = "outside") +
+  theme(strip.text.y = element_text(angle = 0), strip.text = element_text(size = 16)) +
+  theme(axis.text = element_text(size = 14), plot.title = element_text(size = 16)) +
+  facet_wrap(~subclass, scales="free_y", nrow = 5, ncol = 1) + 
+  geom_text(aes(label = perc, colour = yellow)) +
+  scale_colour_manual(values=c("white", "black")) + 
+  guides(colour = "none")
+
+kegg_heatmap_b
+# scales="free_y" is instrumental in getting the x-axis to not repeat
+
+ggsave("02_middle-analysis_outputs/KEGG_stuff/all_genera_updated_b.png", 
+       plot = kegg_heatmap_b, width = 4000, height = 4500, units = "px")
 
 # code for the funny heatmap:
 # put "scales="fixed" for the other funny
