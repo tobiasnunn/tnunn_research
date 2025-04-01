@@ -19,7 +19,7 @@ crab <- ggplot(rawdata, aes(time, reading, color = factor(pigment),
   geom_point(size=2, aes(shape = factor(pigment))) +
   theme_light() +
   xlab("time (minutes)") +
-  ylab("Mean chromatophore stage") +
+  ylab("Chromatophore stage") +
   labs(fill = "Colour", colour = "Colour", shape = "Colour") +
   scale_colour_manual(values = c("grey27", "firebrick1")) +
   scale_fill_manual(values = c("black", "red3")) +
@@ -32,8 +32,9 @@ means <- rawdata %>%
   summarise(mean_reading = mean(reading))
 
 # mean plot
-meancrab <- ggplot(means, aes(time, mean_reading, color = factor(pigment),
-                            fill = factor(pigment))) +
+meancrab <- ggplot(means, aes(time, mean_reading, 
+                              color = factor(pigment), 
+                              fill = factor(pigment))) +
   geom_line(lwd = 1, alpha = 0.8) +
   geom_point(size=2, aes(shape = factor(pigment))) +
   theme_light() +
@@ -42,13 +43,45 @@ meancrab <- ggplot(means, aes(time, mean_reading, color = factor(pigment),
   labs(fill = "Colour", colour = "Colour", shape = "Colour") +
   scale_colour_manual(values = c("grey27", "firebrick1")) +
   scale_fill_manual(values = c("black", "red3")) +
-  ylim(1,6) + 
-  annotate(
-    geom = "curve", x = 37, y = 5.8, xend = 50, yend = 5.1, 
-    curvature = -.3, arrow = arrow(length = unit(2, "mm"))
+  scale_x_continuous(breaks=unique(means$time), minor_breaks = NULL) +
+  # claude-made
+  scale_y_continuous(
+    limits = c(1, 6),   # Use limits here instead of ylim()
+    breaks = 1:6,       # Create breaks at integers 1 through 6
+    minor_breaks = NULL # Remove default minor breaks if any
   ) +
-  annotate(geom = "text", x = 20, y = 5.8, label = "__ injection",
-           hjust = "left")
+  theme(
+    panel.grid.major.y = element_line(color = "gray80"),  # Horizontal major gridlines
+    panel.grid.minor.y = element_blank()                 # No minor gridlines
+    ) +
+  # redo prev bit
+  # saline annotation
+  annotate(
+    geom = "curve", x = 12.5, y = 5, xend = 0, yend = 4.1, 
+    curvature = .3, arrow = arrow(length = unit(2, "mm"))
+  ) + 
+  annotate(geom = "rect", xmin = 12.5, xmax = 26.3, ymin = 4.88, ymax = 5.1,
+           alpha = .7, colour = "grey60", fill = "#FFFD78") +
+  annotate(geom = "text", x = 13.5, y = 5, label = "Saline injection",
+            hjust = "left") + 
+  # PDH annotation
+   annotate(
+     geom = "curve", x = 19, y = 2, xend = 30, yend = 2.9, 
+     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+   )  + 
+  annotate(geom = "rect", xmin = 6.3, xmax = 19, ymin = 1.88, ymax = 2.1,
+           alpha = .7, colour = "grey40", fill = "#A6C9EC") +
+   annotate(geom = "text", x = 18, y = 2, label = "PDH injection",
+            hjust = "right") +
+  # RPCH annotation
+   annotate(
+     geom = "curve", x = 58, y = 3, xend = 70, yend = 4.2, 
+     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+   ) + 
+  annotate(geom = "rect", xmin = 44, xmax = 58, ymin = 2.88, ymax = 3.1,
+           alpha = .7, colour = "grey20", fill = "#D99594") +
+   annotate(geom = "text", x = 57, y = 3, label = "RPCH injection",
+            hjust = "right")
 meancrab
 
 

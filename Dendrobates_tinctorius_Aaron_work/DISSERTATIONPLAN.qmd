@@ -26,11 +26,15 @@ published literature as the source material & the data, specific objectives migh
 \
 †Materials and Methods: What kind of equipment will you use? What are the reagents? What methods/\
 experimental design will you exploit? How will you collect your data? What software? Which statistical\
-analyses? 750 words.\
+analyses? 750 words.
+
+\
 Figures and flowcharts fit in nicely into Materials and Methods. Figure titles & legends do not count towards\
 the word limit. Students undertaking literature-based meta-analyses might present some preliminary data.\
 Methodologies vary between different subjects and different groups; get your supervisor’s help for this part.\
-References (obviously).\
+References (obviously).
+
+\
 †Commitment (optional; 100 words): Reflect on why you chose this project, what you expect from the project\
 and how you would define the success or failure of the project.\
 Risk Assessment form; Ethics Checklist: A key part of assessing the viability of a project is assessing the\
@@ -76,19 +80,33 @@ Relationships between bacteria have been studied previously, in the context of c
 
 There are many species of bacteria, as such there are almost limitless ways in which they interact with each other in different conditions, gaining better insight into some of the ways in which these relationships occur on a genetic level could have impacts for fields as broad as public health to pollution to zoonotic disease and conservation. This study will aim to investigate some of these relationships in a number of ways using publically available data, and present these in the context of how they might have a beneficial impact on potential host organisms. This work may be cause for future research to be done in the area.
 
+\(740\)
+
 (This study aims to create novel understandings about intra and interspecific relationships inside microbiomes and between microbiomes and their hosts, using genomics as the tool to do this through relating the proteins produced to their potential function in the environment it exists in)
 
 (the plan says "Finish the introduction by stating your objective", i want to make this not the "hypothesis" section above, but if i expand on it it feels too methods-y).
-
-(ok, going good, north of 550)
 
 \[somewhere i feel like a "Amphibian skin microbiome has been disproportionattelly not researched", would be good\]
 
 ## Methods
 
-(data will be supplemented by bangor samples on Amphibians as this is an underepresented group)
+This project is desk-based, and all data analysis will be undertaken computationally. Thus, data must be collected from online sources. There are many data repositories online with free-publicly accessible data that can be utilized. This provides a benefit as the time to pull down this data is much shorter than the time taken to harvest samples from the field, then grow and sequence them in the lab. Relatively few papers specifically focus on this massive wealth of data. The repository used by this project is the American-run National Center for Biotechnology Information (NCBI) [genome database](https://www.ncbi.nlm.nih.gov/datasets/genome/), specifically focusing on the bacterial samples for this project. This will provide a huge amount of data with which I can create novel analyses and draw new conclusions about how the evolutionary history shapes the relationships between bacteria.
 
-All analysis will be undertaken computationally by me using data either collected from online repositories, such as the NCBI database, or given to me by the researchers at the ECW labs in Bangor as a by-product of their research. This will involve the use of many R packages and tools on the Hawk supercomputer, operated by SCW, for example the modules `dtdb-tk/2.1.1` and `eggnog-mapper/2.1.12`. This will require me to develop my skills with command-line code as well as slurm and bash scripting. There are many tools in R packages that facilitate high-quality bioinformatics, making use of these is critical for data manipulation and clear data presentation [@sepulveda2020].
+Another important database is the Kyoto Encyclopedia of Genes and Genomes (KEGG) [database](https://www.genome.jp/kegg/). This is important as it holds data on the function of genes, these are grouped into "Orthologs" ([KO values](https://www.genome.jp/kegg/ko.html)) of shared function. The database also has data on how these KOs fit into larger biological systems, such as metabolism. These are called "[pathways](https://www.genome.jp/kegg/pathway.html)". With this information, i can directly correlate the genes expressed in the online bacterial samples to their potential functions in the bacteria and thus, draw conclusions about how those functions could shape relationships with potential hosts and other bacteria in the environment. Specifically, grouped analysis comparing genera will be done to visualise how the evolutionary differences between genera can cause differential gene expression.
+
+The data will need to be transformed between these two databases as first the genes must be isolated from the larger genome and then they must be "[enriched](https://rdrr.io/github/YuLab-SMU/MicrobiomeProfiler/man/enrichKO.html)" to turn those genes into KO pathways. Hence, this will require the use of both local tools, including R and potentially SQL, as well as online tools such as the Hawk Super Computer, ran by [SuperComputing Wales](https://www.supercomputing.wales/). The module used to extract the genes or "annotate" the genomes will be [EggNOG-mapper/2.1.12](https://github.com/eggnogdb/eggnog-mapper/blob/master/README.md). This requires me to use command line code and bash scripting to create scripts that can be uploaded to "slurm" and ran on the supercomputer. For one genome to be annotated takes around 30 minutes, not including time to wait for the job to reach the front of the queue. This number is ideal for small datasets, but once thousands of online genomes need to be annotated this number is not sufficient. Therefore, it is a secondary item of this project to find a way to speed this process up, through refining existing scripts or possibly through finding alternatives. As mentioned, R will be used as the tool for data handling and visualisation. This mean that all of the packages on the CRAN repository can be used to assist this work. For example, the package EnrichKO can take the genes and produce the KO values and pathways so that analysis can be done and visualisations can be created. Other useful packages include: Tidyverse for data handling; flextable for tabulation and ggplot2 for visualisation.
+
+Due to the size of the dataset I will be taking advantage of, efficient storage of this data will be vital so that the computational systems do not get overwhelmed. To aid this, a SQL server will be created in PostgreSQL. ...
+
+For the purposes of data transparency and experiment reproducibility, the scripts used in this project will be uploaded to a github repo for the project. So that any researchers who wish to build on this project can take inspiration from or adapt the scripts used. This repo will also contain a series of notebooks outlining where the data came from, the specifics of the data pipeline and the significance of the outputs.
+
+Finally, the data will be suplemented by over 100 genomes generated in the labs at ECW by Bangor Masters and PhD researchers. These samples come from amphibian skin microbiomes, the known status of these samples mean that more exact analysis can be performed, as well as providing good comparisons, for example, there are not many samples from amphibian skin microbiomes in the database, so a comparison of how the same genera differ when on these hosts compared with the environment could be created.
+
+SQL STUFF / GITHUB REPO / Bangor stuff
+
+### old methods section
+
+All analysis will be undertaken computationally by me using data either collected from online repositories, such as the NCBI database, or given to me by the researchers at the ECW labs in Bangor as a by-product of their research. This will involve the use of many R packages and tools on the Hawk supercomputer, operated by SCW, for example the modules `gtdb-tk/2.1.1` and `eggnog-mapper/2.1.12`. This will require me to develop my skills with command-line code as well as slurm and bash scripting. There are many tools in R packages that facilitate high-quality bioinformatics, making use of these is critical for data manipulation and clear data presentation [@sepulveda2020].
 
 As mentioned, this project relates to a larger work conducted by Bangor Masters and Phd researchers, as such, I will be receiving the genomes of up to 100 more bacteria sampled in Bangor labs, with the associated metadata. I will then add these to my existing data-pool and rerun past research in light of this data-influx. This includes; CheckM analysis, GTDBTK analysis and eggNOG-mapper analysis. This will update the phylogenetic trees and heatmaps that already exist, and allow for a database of these samples to be made, into which I can put the associated metadata.
 
@@ -117,5 +135,7 @@ This study shares methods with a previous analysis involving *E coli*, which sim
 (investigations into other tools like KOfamKOALA)
 
 "my data will be supplemented by samples made in Bangor from known hosts as these hosts are underrepresented in the dataset"
+
+(data will be supplemented by bangor samples on Amphibians as this is an underepresented group)
 
 ## References

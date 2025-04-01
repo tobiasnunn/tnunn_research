@@ -106,7 +106,19 @@ These heatmaps are more of errors of code i found amusing, it fixes Aarons issue
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated.png"))
 ```
 
-This is the final version, it fixes many of the issues, Aaron signed off on it, so its going in the write up, however, it had too may x-axis labels, but Aaron says that is a problem for the dissertation.
+This is the "final" version, it fixes many of the issues, Aaron signed off on it, so its going in the write up, however, it had too may x-axis labels, but Aaron says that is a problem for the dissertation. I fixed this by changing the `facet_wrap()` command, specifically: `scales="free"` to `scales="free_y"`. This causes the x-axis to be fixed, meaning only the bottom one stays.
+
+## Final Heatmap
+
+```{r}
+#| echo: FALSE
+#| label: fig-all-genera-heatmap
+#| fig-align: center
+#| fig-cap: "Heatmap comparing significant map pathways in 552 samples of both laboratory and public origin"
+knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated_b.png"))
+```
+## Conclusion
+The heatmaps underwent many evolutions in the time i was working on them. The final product is by no means perfect, but serves to show which genes are most expressed.
 
 # GTDB-TK De-Novo phylogenetic trees (2025-02-05 to c. 2025-02-03-13)
 
@@ -156,6 +168,7 @@ phylocanvas(tree = tree, treetype = "rectangular", nodesize = 15, textsize = 15,
 ```
 
 This is more of a proof of concept than anything, i **want** to be able to do an interactive tree, but A. i'm not good enough yet and B. I am using a very old, not-up-to-date package. Another thing to improve in the dissertation.
+
 ```{r}
 #| echo: FALSE
 #| label: fig-biggun
@@ -217,7 +230,6 @@ knitr::include_graphics(here::here("03_final_outputs/", "MEGATABLE.xlsx"))
 # TODO: make into a flex or gt table
 ```
 
-This table gives a **lot** of information about the accessions, and should be able to be used to filter the data or group it to see what other variables might be effecting what we see. I plan on doing some dashboards to help with this (and for fun to display stuff better), maybe in Notebook 5.
-## Conclusion
+This table gives a **lot** of information about the accessions, and should be able to be used to filter the data or group it to see what other variables might be effecting what we see. I plan on doing some dashboards to help with this (and for fun to display stuff better), maybe in Notebook 5. \## Conclusion
 
 # Dashboards (2025-03- to 2025-0)
