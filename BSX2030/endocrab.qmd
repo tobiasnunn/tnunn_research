@@ -1,0 +1,45 @@
+---
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+title: "BSX-2030 Endocrine Crab Practical TN"
+author: "Tobias Nunn"
+format: docx
+editor: visual
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(tidyr)
+library(flextable)
+library(equatags)
+library(officer)
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+#fig.width=unit(15,"cm"), fig.height=unit(9,"cm"),
+```
+
+```{r rawdata, echo=FALSE, warning=FALSE,include=FALSE}
+
+rawdata <- (read_xlsx("PDH Prac Chromatophore Data 2025.xlsx", sheet = "Light Mon PM") %>% 
+  filter(!is.na(`Red 0`)) %>% 
+  filter(`Group Initials/Team Name` == "condor") %>% 
+  select( -c(`...8`, `...15`, `Group Initials/Team Name`)) %>% 
+  pivot_longer(!`Crab No.`, names_to = "attribute", values_to = "reading")) %>% 
+  separate_wider_delim(cols = "attribute", names = c("pigment", "time"),
+                       delim = " ") %>% 
+  rename(crab = `Crab No.`) %>% 
+  mutate(time = as.numeric(time))
+```
+
+# Introduction
+
+bazinga banana coconut
+
+# Methods
+
+blabablalbalbla mike nuts ligma
+
+# Results
+
+![g](goodgraph.png)

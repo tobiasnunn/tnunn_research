@@ -1,8 +1,7 @@
 library(readxl)
 library(tidyverse)
 
-
-rawdata <- (read_xlsx("mydata.xlsx", sheet = "Light Mon PM") %>% 
+rawdata <- (read_xlsx("PDH Prac Chromatophore Data 2025.xlsx", sheet = "Light Mon PM") %>% 
   filter(!is.na(`Red 0`)) %>% 
   filter(`Group Initials/Team Name` == "condor") %>% 
   select( -c(`...8`, `...15`, `Group Initials/Team Name`)) %>% 
@@ -84,17 +83,73 @@ meancrab <- ggplot(means, aes(time, mean_reading,
             hjust = "right")
 meancrab
 
-
+# img output
+ggsave("firstgraph.png", plot = meancrab, units = "cm", height = 10, width = 14)
 # stats
+# the data is paired so i use the Wilcoxon paired rank test over the Mann-Whitney U-test
 
-# parametric or not?
-shapiro.test(means$mean_reading) # parametric (p = 0.62)
+#2: (Wilcoxon signed/paired rank test);
+# according to https://www.sthda.com/english/wiki/paired-samples-wilcoxon-test-in-r#google_vignette
+# it is the same as the other, but just the paired version ("paired = TRUE")
+# this is also apparantly the "mann-whitney U test"
+wilcox.test(x, y, paired = TRUE, alternative = "two.sided")
+# M-W U: wilcox.test(dependent~independent)
+# simple enough
 
-# next stats
-anova <- aov(reading~pigment+time, rawdata)
-summary(anova)
-# maybe the multi is right? but i think the oneway is what i want to do
-apple <- aov(reading~time, rawdata)
-apple
-# no, still not right
-kruskal.test(reading ~ time, data = rawdata)
+# i have to think about the "sided"ness of the test, i think the hypothesis
+# is that the points at each time are "different", but not specifically higher
+# or lower, however, the PDH should increase and the RPCH should decrease red, so
+# theorettically, i should do opposite 1-tailed tests for those
+
+##for loop
+#table making
+p_values_condor <- data.frame(pigment=c("Red", "Red", "Red","Red","Red", 
+                                        "Black","Black","Black","Black","Black"), 
+                              start_time=c(0,30,50,70,75),
+                              end_time=c(30,50,70,75,100),
+                              p_value=c(NA))
+# loop, store result
+for (i in 1:nrow(p_values_condor)) {
+  #i <- 1
+  x <- filter(rawdata, time==p_values_condor$start_time[i] & pigment==p_values_condor$pigment[i])
+  y <- filter(rawdata, time==p_values_condor$end_time[i] & pigment==p_values_condor$pigment[i])
+  z <- wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
+  p_values_condor$p_value[i] <- z$p.value
+}
+## 0-30 (two tailed)
+#red
+
+# parameters
+x <- filter(rawdata, time==70 & pigment=="Red")
+y <- filter(rawdata, time==75 & pigment=="Red")
+
+z <- wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
+z
+z$p.value
+# p > 0.05, change not statistically significant
+wilcox.tes
+#black
+# parameters
+x <- filter(rawdata, time==0 & pigment=="Black")
+y <- filter(rawdata, time==30 & pigment=="Black")
+
+wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
+# p > 0.05, change not statistically significant
+
+## 30-50 (two tailed)
+#red
+
+# parameters
+x <- filter(rawdata, time==30 & pigment=="Red")
+y <- filter(rawdata, time==50 & pigment=="Red")
+
+wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
+# p > 0.05, change not statistically significant
+
+#black
+# parameters
+x <- filter(rawdata, time==30 & pigment=="Black")
+y <- filter(rawdata, time==50 & pigment=="Black")
+
+wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
+# p > 0.05, change not statistically significant
