@@ -94,7 +94,7 @@ footnote(i = 1, j = 2,
 p_table
 ```
 
-```{r lightvsdark}
+```{r night-day-graph-setup}
 
 rawdaynight <- (readxl::read_xlsx("lightvsdark.xlsx", sheet = 1) %>% 
   select( -c(`...8`)) %>% 
@@ -118,30 +118,38 @@ rawnightday <- (readxl::read_xlsx("lightvsdark.xlsx", sheet = 2) %>%
 
 combinedcycles <- rbind(rawdaynight, rawnightday)
 
+
+
+```
+
+```{r erythrophores-graph}
+
 # normal graph 
 
 #x <- filter(combinedcycles, combinedcycles$cycle == "normal")
 # right, i figured out how to filter it to just the ones on the normal cycle, but i think i need to do the means thing again, because otherwise there are going to be like 100 lines on the thing.
-normal_means <- filter(combinedcycles, combinedcycles$cycle == "normal") %>%
-  group_by(pigment, time) %>%
-  summarise(mean_reading = mean(reading))
+normal_means <- filter(combinedcycles, pigment == "Red") %>%
+  group_by(cycle, time) %>%
+  summarise(mean_reading = mean(reading, na.rm=TRUE))
 
 normal_graph <- ggplot(normal_means, aes(time, mean_reading, 
-                              color = factor(pigment), 
-                              fill = factor(pigment))) +
+                              color = factor(cycle), 
+                              fill = factor(cycle),
+                              linetype = factor(cycle))) +
   geom_line(lwd = 1, alpha = 0.8) +
-  geom_point(size=2, aes(shape = factor(pigment))) +
+  geom_point(size=2, aes(shape = factor(cycle))) +
   theme_light() +
   xlab("time (minutes)") +
   ylab("Mean chromatophore stage") +
-  labs(fill = "Colour", colour = "Colour", shape = "Colour") +
-  scale_colour_manual(values = c("grey27", "firebrick1")) +
-  scale_fill_manual(values = c("black", "red3")) +
+  labs(fill = "Cycle", colour = "Cycle", shape = "Cycle", linetype = "Cycle") +
+  scale_colour_manual(values = c("firebrick1", "firebrick1")) +
+  scale_fill_manual(values = c("red3", "red3")) +
+  scale_linetype_manual(values = c("inverse" = "dotted", "normal" = "solid")) +
   scale_x_continuous(breaks=unique(normal_means$time), minor_breaks = NULL) +
   # claude-made
   scale_y_continuous(
-    limits = c(1, 6),   # Use limits here instead of ylim()
-    breaks = 1:6,       # Create breaks at integers 1 through 6
+    limits = c(1, 5),   # Use limits here instead of ylim()
+    breaks = 1:5,       # Create breaks at integers 1 through 6
     minor_breaks = NULL # Remove default minor breaks if any
   ) +
   theme(
@@ -151,33 +159,26 @@ normal_graph <- ggplot(normal_means, aes(time, mean_reading,
   # redo prev bit
   # saline annotation
   annotate(
-    geom = "curve", x = 12.5, y = 5, xend = 0, yend = 4.1, 
+    geom = "curve", x = 15, y = 3.2, xend = 0, yend = 2.3, 
     curvature = .3, arrow = arrow(length = unit(2, "mm"))
-  ) + 
-  annotate(geom = "rect", xmin = 12.5, xmax = 26.3, ymin = 4.88, ymax = 5.1,
-           alpha = .7, colour = "grey60", fill = "#FFFD78") +
-  annotate(geom = "text", x = 13.5, y = 5, label = "Saline injection",
-            hjust = "left") + 
+  )  + 
+  geom_label(aes(x = 25, y = 3.2, label = "Saline injection"), fill = "#FFFD78", colour = "black") +
   # PDH annotation
    annotate(
-     geom = "curve", x = 19, y = 2, xend = 30, yend = 2.9, 
-     curvature = .3, arrow = arrow(length = unit(2, "mm"))
-   )  + 
-  annotate(geom = "rect", xmin = 6.3, xmax = 19, ymin = 1.88, ymax = 2.1,
-           alpha = .7, colour = "grey40", fill = "#A6C9EC") +
-   annotate(geom = "text", x = 18, y = 2, label = "PDH injection",
-            hjust = "right") +
+     geom = "curve", x = 50, y = 1.5, xend = 30, yend = 2.2, 
+     curvature = -.3, arrow = arrow(length = unit(2, "mm"))
+   ) + 
+  geom_label(aes(x = 58, y = 1.5, label = "PDH injection"), fill = "#A6C9EC", colour = "black") +
   # RPCH annotation
    annotate(
-     geom = "curve", x = 58, y = 3, xend = 70, yend = 4.2, 
-     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+     geom = "curve", x = 58, y = 4, xend = 70, yend = 3.2, 
+     curvature = -.3, arrow = arrow(length = unit(2, "mm"))
    ) + 
-  annotate(geom = "rect", xmin = 44, xmax = 58, ymin = 2.88, ymax = 3.1,
-           alpha = .7, colour = "grey20", fill = "#D99594") +
-   annotate(geom = "text", x = 57, y = 3, label = "RPCH injection",
-            hjust = "right")
+  geom_label(aes(x = 47, y = 4, label = "RPCH injection"), fill = "#D99594", colour = "black")
 normal_graph
+```
 
+```{r inverse-graph}
 # inverse graph
 # i really haveant the faintest why this is being so difficult
 # she left fucking NAs in the dataset, only 4 of them and only in inverted, wtf
@@ -240,7 +241,7 @@ inverse_graph <- ggplot(inverted_means, aes(time, mean_reading,
 inverse_graph
 ```
 
-```{r wtf}
+```{r wtf, include=FALSE}
 
 normal_means <- filter(combinedcycles, combinedcycles$cycle == "normal") %>%
   group_by(pigment, time) %>%
