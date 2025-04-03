@@ -44,11 +44,7 @@ coconut
 
 # Methods
 
-blabablalbalbla
-
-mike nuts
-
-ligma
+At time 0, saline was injected as a method of control, from there 1 reading was taken at 30 minutes and PDH was injected. After this a reading at 50 minutes was taken and then at 70 minutes, when RPCH was injected, finally 2 more measurements were taken at 7i5 and 100 minutes. 4 crabs were used for this expriment, between all groups this makes \_\_\_ crabs total. that weird air syringe was used.
 
 {{< pagebreak >}}
 
@@ -183,27 +179,30 @@ normal_graph
 # i really haveant the faintest why this is being so difficult
 # she left fucking NAs in the dataset, only 4 of them and only in inverted, wtf
 # so i remedied it with the na.rm=TRUE bit, jesus, that was painful
-inverted_means <- filter(combinedcycles, combinedcycles$cycle == "inverse") %>% 
-  group_by(pigment, time) %>%
-  summarise(mean_reading = mean(reading, na.rm = TRUE))
+inverted_means <- filter(combinedcycles, pigment == "Black") %>%
+  group_by(cycle, time) %>%
+  summarise(mean_reading = mean(reading, na.rm=TRUE))
+
 
 
 inverse_graph <- ggplot(inverted_means, aes(time, mean_reading, 
-                              color = factor(pigment), 
-                              fill = factor(pigment))) +
+                              color = factor(cycle), 
+                              fill = factor(cycle),
+                              linetype = factor(cycle))) +
   geom_line(lwd = 1, alpha = 0.8) +
-  geom_point(size=2, aes(shape = factor(pigment))) +
+  geom_point(size=2, aes(shape = factor(cycle))) +
   theme_light() +
   xlab("time (minutes)") +
   ylab("Mean chromatophore stage") +
-  labs(fill = "Colour", colour = "Colour", shape = "Colour") +
-  scale_colour_manual(values = c("grey27", "firebrick1")) +
-  scale_fill_manual(values = c("black", "red3")) +
-  scale_x_continuous(breaks=unique(inverted_means$time), minor_breaks = NULL) +
+  labs(fill = "Cycle", colour = "Cycle", shape = "Cycle", linetype = "Cycle") +
+  scale_colour_manual(values = c("grey27", "grey27")) +
+  scale_fill_manual(values = c("black", "black")) +
+  scale_linetype_manual(values = c("inverse" = "dotted", "normal" = "solid")) +
+  scale_x_continuous(breaks=unique(normal_means$time), minor_breaks = NULL) +
   # claude-made
   scale_y_continuous(
-    limits = c(1, 6),   # Use limits here instead of ylim()
-    breaks = 1:6,       # Create breaks at integers 1 through 6
+    limits = c(1, 5),   # Use limits here instead of ylim()
+    breaks = 1:5,       # Create breaks at integers 1 through 6
     minor_breaks = NULL # Remove default minor breaks if any
   ) +
   theme(
@@ -213,31 +212,22 @@ inverse_graph <- ggplot(inverted_means, aes(time, mean_reading,
   # redo prev bit
   # saline annotation
   annotate(
-    geom = "curve", x = 12.5, y = 5, xend = 0, yend = 4.1, 
+    geom = "curve", x = 10, y = 4.5, xend = 0, yend = 4, 
     curvature = .3, arrow = arrow(length = unit(2, "mm"))
-  ) + 
-  annotate(geom = "rect", xmin = 12.5, xmax = 26.3, ymin = 4.88, ymax = 5.1,
-           alpha = .7, colour = "grey60", fill = "#FFFD78") +
-  annotate(geom = "text", x = 13.5, y = 5, label = "Saline injection",
-            hjust = "left") + 
+  )  + 
+  geom_label(aes(x = 20, y = 4.5, label = "Saline injection"), fill = "#FFFD78", colour = "black") +
   # PDH annotation
    annotate(
-     geom = "curve", x = 19, y = 2, xend = 30, yend = 2.9, 
-     curvature = .3, arrow = arrow(length = unit(2, "mm"))
-   )  + 
-  annotate(geom = "rect", xmin = 6.3, xmax = 19, ymin = 1.88, ymax = 2.1,
-           alpha = .7, colour = "grey40", fill = "#A6C9EC") +
-   annotate(geom = "text", x = 18, y = 2, label = "PDH injection",
-            hjust = "right") +
+     geom = "curve", x = 44, y = 2.5, xend = 30, yend = 2.9, 
+     curvature = -.3, arrow = arrow(length = unit(2, "mm"))
+   ) + 
+  geom_label(aes(x = 52, y = 2.5, label = "PDH injection"), fill = "#A6C9EC", colour = "black") +
   # RPCH annotation
    annotate(
-     geom = "curve", x = 58, y = 3, xend = 70, yend = 4.2, 
-     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+     geom = "curve", x = 58, y = 4.5, xend = 70, yend = 4, 
+     curvature = -.3, arrow = arrow(length = unit(2, "mm"))
    ) + 
-  annotate(geom = "rect", xmin = 44, xmax = 58, ymin = 2.88, ymax = 3.1,
-           alpha = .7, colour = "grey20", fill = "#D99594") +
-   annotate(geom = "text", x = 57, y = 3, label = "RPCH injection",
-            hjust = "right")
+  geom_label(aes(x = 47, y = 4.5, label = "RPCH injection"), fill = "#D99594", colour = "black")
 inverse_graph
 ```
 
@@ -256,3 +246,10 @@ inverted_means <- filter(combinedcycles, combinedcycles$cycle == "inverse") %>%
   summarise(mean_reading = mean(reading, na.rm = TRUE))
 
 ```
+
+```{r cowplot}
+plot_grid(normal_graph, inverse_graph, labels = c('Normal Sleep Cycle', 'Inverted Sleeep Cycle'), label_size = 12)
+# fix this
+```
+
+# Conclusions
