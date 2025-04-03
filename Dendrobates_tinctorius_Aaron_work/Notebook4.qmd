@@ -117,7 +117,9 @@ This is the "final" version, it fixes many of the issues, Aaron signed off on it
 #| fig-cap: "Heatmap comparing significant map pathways in 552 samples of both laboratory and public origin"
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated_b.png"))
 ```
+
 ## Conclusion
+
 The heatmaps underwent many evolutions in the time i was working on them. The final product is by no means perfect, but serves to show which genes are most expressed.
 
 # GTDB-TK De-Novo phylogenetic trees (2025-02-05 to c. 2025-02-03-13)

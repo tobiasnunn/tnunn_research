@@ -15,13 +15,15 @@ library(officer)
 library(readxl)
 library(tidyverse)
 library(ggplot2)
+library(gt)
+library(cowplot)
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 #fig.width=unit(15,"cm"), fig.height=unit(9,"cm"),
 ```
 
 ```{r rawdata, echo=FALSE, warning=FALSE,include=FALSE}
 
-rawdata <- (read_xlsx("PDH Prac Chromatophore Data 2025.xlsx", sheet = "Light Mon PM") %>% 
+rawdata <- (readxl::read_xlsx("PDH Prac Chromatophore Data 2025.xlsx", sheet = "Light Mon PM") %>% 
   filter(!is.na(`Red 0`)) %>% 
   filter(`Group Initials/Team Name` == "condor") %>% 
   select( -c(`...8`, `...15`, `Group Initials/Team Name`)) %>% 
@@ -34,12 +36,222 @@ rawdata <- (read_xlsx("PDH Prac Chromatophore Data 2025.xlsx", sheet = "Light Mo
 
 # Introduction
 
-bazinga banana coconut
+bazinga
+
+banana
+
+coconut
 
 # Methods
 
-blabablalbalbla mike nuts ligma
+blabablalbalbla
+
+mike nuts
+
+ligma
+
+{{< pagebreak >}}
 
 # Results
 
-![g](goodgraph.png)
+![figure 1 - graph of mean ... no significant changes... group sizes 4...](goodgraph.png)
+
+```{r table stuff}
+p_values_condor <- data.frame(pigment=c("Red", "Red", "Red","Red","Red", 
+                                        "Black","Black","Black","Black","Black"), 
+                              start_time=c(0,30,50,70,75),
+                              end_time=c(30,50,70,75,100),
+                              p_value=c(NA))
+# loop, store result
+for (i in 1:nrow(p_values_condor)) {
+  #i <- 1
+  x <- filter(rawdata, time==p_values_condor$start_time[i] & pigment==p_values_condor$pigment[i])
+  y <- filter(rawdata, time==p_values_condor$end_time[i] & pigment==p_values_condor$pigment[i])
+  z <- wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
+  p_values_condor$p_value[i] <- z$p.value
+}
+
+p_values_condorb <- p_values_condor %>% unite("time_diff", start_time:end_time, sep = " - ") %>% pivot_wider(names_from = time_diff, values_from = p_value)
+
+p_table <- flextable(p_values_condorb) %>% 
+  set_header_labels(pigment = "Pigment") %>% 
+  theme_vanilla() %>% 
+  add_footer_lines("Data collected on 2025-03-10 at Deiniol Road, Brambell Building, 1st Floor Lab B1") %>% 
+  color(part = "footer", color = "#666666") %>% 
+  set_caption(caption = "P values for Wilcoxon Paired Rank Test") %>% 
+  add_header_row(colwidths = c(1, 5),
+  values = c("", "P values for start time - end time (mins from primary injection)")) %>% align(
+  i = 1,
+  j = 2,
+  align = "center",
+  part = c("header")
+) %>%  set_table_properties(width = 1, layout = "autofit") %>% 
+  colformat_double(big.mark = ",", digits = 3, na_str = "N/A") %>%
+footnote(i = 1, j = 2,
+           part = "header",
+           ref_symbols = "*",
+         value = as_paragraph("P values taken between pairs of times when measurements were taken for a Wilcoxon Paired Rank Test"))
+p_table
+```
+
+```{r lightvsdark}
+
+rawdaynight <- (readxl::read_xlsx("lightvsdark.xlsx", sheet = 1) %>% 
+  select( -c(`...8`)) %>% 
+  pivot_longer(!`Crab No.`, names_to = "attribute", values_to = "reading")) %>% 
+  separate_wider_delim(cols = "attribute", names = c("pigment", "time"),
+                       delim = " ") %>% 
+  rename(crab = `Crab No.`) %>% 
+  mutate(crab = paste0("N", crab)) %>% 
+  mutate(time = as.numeric(time)) %>% 
+  mutate(cycle = "normal")
+
+rawnightday <- (readxl::read_xlsx("lightvsdark.xlsx", sheet = 2) %>% 
+  select( -c(`...8`)) %>% 
+  pivot_longer(!`Crab No.`, names_to = "attribute", values_to = "reading")) %>% 
+  separate_wider_delim(cols = "attribute", names = c("pigment", "time"),
+                       delim = " ") %>% 
+  rename(crab = `Crab No.`) %>% 
+  mutate(crab = paste0("I", crab)) %>% 
+  mutate(time = as.numeric(time)) %>% 
+  mutate(cycle = "inverse")
+
+combinedcycles <- rbind(rawdaynight, rawnightday)
+
+# normal graph 
+
+#x <- filter(combinedcycles, combinedcycles$cycle == "normal")
+# right, i figured out how to filter it to just the ones on the normal cycle, but i think i need to do the means thing again, because otherwise there are going to be like 100 lines on the thing.
+normal_means <- filter(combinedcycles, combinedcycles$cycle == "normal") %>%
+  group_by(pigment, time) %>%
+  summarise(mean_reading = mean(reading))
+
+normal_graph <- ggplot(normal_means, aes(time, mean_reading, 
+                              color = factor(pigment), 
+                              fill = factor(pigment))) +
+  geom_line(lwd = 1, alpha = 0.8) +
+  geom_point(size=2, aes(shape = factor(pigment))) +
+  theme_light() +
+  xlab("time (minutes)") +
+  ylab("Mean chromatophore stage") +
+  labs(fill = "Colour", colour = "Colour", shape = "Colour") +
+  scale_colour_manual(values = c("grey27", "firebrick1")) +
+  scale_fill_manual(values = c("black", "red3")) +
+  scale_x_continuous(breaks=unique(normal_means$time), minor_breaks = NULL) +
+  # claude-made
+  scale_y_continuous(
+    limits = c(1, 6),   # Use limits here instead of ylim()
+    breaks = 1:6,       # Create breaks at integers 1 through 6
+    minor_breaks = NULL # Remove default minor breaks if any
+  ) +
+  theme(
+    panel.grid.major.y = element_line(color = "gray80"),  # Horizontal major gridlines
+    panel.grid.minor.y = element_blank()                 # No minor gridlines
+    ) +
+  # redo prev bit
+  # saline annotation
+  annotate(
+    geom = "curve", x = 12.5, y = 5, xend = 0, yend = 4.1, 
+    curvature = .3, arrow = arrow(length = unit(2, "mm"))
+  ) + 
+  annotate(geom = "rect", xmin = 12.5, xmax = 26.3, ymin = 4.88, ymax = 5.1,
+           alpha = .7, colour = "grey60", fill = "#FFFD78") +
+  annotate(geom = "text", x = 13.5, y = 5, label = "Saline injection",
+            hjust = "left") + 
+  # PDH annotation
+   annotate(
+     geom = "curve", x = 19, y = 2, xend = 30, yend = 2.9, 
+     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+   )  + 
+  annotate(geom = "rect", xmin = 6.3, xmax = 19, ymin = 1.88, ymax = 2.1,
+           alpha = .7, colour = "grey40", fill = "#A6C9EC") +
+   annotate(geom = "text", x = 18, y = 2, label = "PDH injection",
+            hjust = "right") +
+  # RPCH annotation
+   annotate(
+     geom = "curve", x = 58, y = 3, xend = 70, yend = 4.2, 
+     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+   ) + 
+  annotate(geom = "rect", xmin = 44, xmax = 58, ymin = 2.88, ymax = 3.1,
+           alpha = .7, colour = "grey20", fill = "#D99594") +
+   annotate(geom = "text", x = 57, y = 3, label = "RPCH injection",
+            hjust = "right")
+normal_graph
+
+# inverse graph
+# i really haveant the faintest why this is being so difficult
+# she left fucking NAs in the dataset, only 4 of them and only in inverted, wtf
+# so i remedied it with the na.rm=TRUE bit, jesus, that was painful
+inverted_means <- filter(combinedcycles, combinedcycles$cycle == "inverse") %>% 
+  group_by(pigment, time) %>%
+  summarise(mean_reading = mean(reading, na.rm = TRUE))
+
+
+inverse_graph <- ggplot(inverted_means, aes(time, mean_reading, 
+                              color = factor(pigment), 
+                              fill = factor(pigment))) +
+  geom_line(lwd = 1, alpha = 0.8) +
+  geom_point(size=2, aes(shape = factor(pigment))) +
+  theme_light() +
+  xlab("time (minutes)") +
+  ylab("Mean chromatophore stage") +
+  labs(fill = "Colour", colour = "Colour", shape = "Colour") +
+  scale_colour_manual(values = c("grey27", "firebrick1")) +
+  scale_fill_manual(values = c("black", "red3")) +
+  scale_x_continuous(breaks=unique(inverted_means$time), minor_breaks = NULL) +
+  # claude-made
+  scale_y_continuous(
+    limits = c(1, 6),   # Use limits here instead of ylim()
+    breaks = 1:6,       # Create breaks at integers 1 through 6
+    minor_breaks = NULL # Remove default minor breaks if any
+  ) +
+  theme(
+    panel.grid.major.y = element_line(color = "gray80"),  # Horizontal major gridlines
+    panel.grid.minor.y = element_blank()                 # No minor gridlines
+    ) +
+  # redo prev bit
+  # saline annotation
+  annotate(
+    geom = "curve", x = 12.5, y = 5, xend = 0, yend = 4.1, 
+    curvature = .3, arrow = arrow(length = unit(2, "mm"))
+  ) + 
+  annotate(geom = "rect", xmin = 12.5, xmax = 26.3, ymin = 4.88, ymax = 5.1,
+           alpha = .7, colour = "grey60", fill = "#FFFD78") +
+  annotate(geom = "text", x = 13.5, y = 5, label = "Saline injection",
+            hjust = "left") + 
+  # PDH annotation
+   annotate(
+     geom = "curve", x = 19, y = 2, xend = 30, yend = 2.9, 
+     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+   )  + 
+  annotate(geom = "rect", xmin = 6.3, xmax = 19, ymin = 1.88, ymax = 2.1,
+           alpha = .7, colour = "grey40", fill = "#A6C9EC") +
+   annotate(geom = "text", x = 18, y = 2, label = "PDH injection",
+            hjust = "right") +
+  # RPCH annotation
+   annotate(
+     geom = "curve", x = 58, y = 3, xend = 70, yend = 4.2, 
+     curvature = .3, arrow = arrow(length = unit(2, "mm"))
+   ) + 
+  annotate(geom = "rect", xmin = 44, xmax = 58, ymin = 2.88, ymax = 3.1,
+           alpha = .7, colour = "grey20", fill = "#D99594") +
+   annotate(geom = "text", x = 57, y = 3, label = "RPCH injection",
+            hjust = "right")
+inverse_graph
+```
+
+```{r wtf}
+
+normal_means <- filter(combinedcycles, combinedcycles$cycle == "normal") %>%
+  group_by(pigment, time) %>%
+  summarise(mean_reading = mean(reading))
+
+inverse_means <- filter(combinedcycles, combinedcycles$cycle == "inverse") %>% 
+  group_by(pigment, time) %>% 
+  mutate(mean_reading = mean(reading))
+
+inverted_means <- filter(combinedcycles, combinedcycles$cycle == "inverse") %>% 
+  group_by(pigment, time) %>%
+  summarise(mean_reading = mean(reading, na.rm = TRUE))
+
+```
