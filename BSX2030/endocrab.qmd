@@ -252,4 +252,6 @@ plot_grid(normal_graph, inverse_graph, labels = c('Normal Sleep Cycle', 'Inverte
 # fix this
 ```
 
+![figure 2 - graph of aggregated data totalling \_\_ crabs. A. comparison for erydophores(sp.). B. comparison of melanophores](secondgraph.png)
+
 # Conclusions

@@ -135,15 +135,16 @@ inverse_graph <- ggplot(inverted_means, aes(time, mean_reading,
   geom_label(aes(x = 52, y = 2.5, label = "PDH injection"), fill = "#A6C9EC", colour = "black") +
   # RPCH annotation
   annotate(
-    geom = "curve", x = 58, y = 4.5, xend = 70, yend = 4, 
+    geom = "curve", x = 58, y = 4.8, xend = 70, yend = 4, 
     curvature = -.3, arrow = arrow(length = unit(2, "mm"))
   ) + 
-  geom_label(aes(x = 47, y = 4.5, label = "RPCH injection"), fill = "#D99594", colour = "black")
+  geom_label(aes(x = 47, y = 4.8, label = "RPCH injection"), fill = "#D99594", colour = "black")
 inverse_graph
 
 # combining
-plot_grid(normal_graph, inverse_graph, labels = c('Normal Sleep Cycle', 'Inverted Sleeep Cycle'), label_size = 12)
-ggsave("firstgraph.png", plot = meancrab, units = "cm", height = 10, width = 20)
+combi <- plot_grid(normal_graph, inverse_graph, labels = c('A', 'B'), label_size = 12)
+combi
+ggsave("secondgraph.png", plot = combi, units = "cm", height = 10, width = 20)
 
 #stats tables
 ##for loops
