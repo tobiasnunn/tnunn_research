@@ -186,3 +186,17 @@ for (i in 1:nrow(p_values_inverse)) {
     p_values_inverse$significant[i] <- c("*")
   }
 }
+
+# how i figured out the problem with the inverse values, it was the random-ass NAs she didnt remove
+# despite the fact thats what she said she did
+# normal_means <- filter(combinedcycles, combinedcycles$cycle == "normal") %>%
+#   group_by(pigment, time) %>%
+#   summarise(mean_reading = mean(reading))
+# 
+# inverse_means <- filter(combinedcycles, combinedcycles$cycle == "inverse") %>% 
+#   group_by(pigment, time) %>% 
+#   mutate(mean_reading = mean(reading))
+# 
+# inverted_means <- filter(combinedcycles, combinedcycles$cycle == "inverse") %>% 
+#   group_by(pigment, time) %>%
+#   summarise(mean_reading = mean(reading, na.rm = TRUE))
