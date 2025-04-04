@@ -123,10 +123,10 @@ inverse_graph <- ggplot(inverted_means, aes(time, mean_reading,
   # redo prev bit
   # saline annotation
   annotate(
-    geom = "curve", x = 10, y = 4.5, xend = 0, yend = 4, 
+    geom = "curve", x = 11, y = 4.5, xend = 0, yend = 4, 
     curvature = .3, arrow = arrow(length = unit(2, "mm"))
   )  + 
-  geom_label(aes(x = 20, y = 4.5, label = "Saline injection"), fill = "#FFFD78", colour = "black") +
+  geom_label(aes(x = 21, y = 4.5, label = "Saline injection"), fill = "#FFFD78", colour = "black") +
   # PDH annotation
   annotate(
     geom = "curve", x = 44, y = 2.5, xend = 30, yend = 2.9, 
