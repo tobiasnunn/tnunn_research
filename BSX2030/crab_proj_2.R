@@ -1,3 +1,7 @@
+
+# libraries and setup -----------------------------------------------------
+
+
 library(readxl)
 library(tidyverse)
 
@@ -11,7 +15,10 @@ rawdata <- (read_xlsx("PDH Prac Chromatophore Data 2025.xlsx", sheet = "Light Mo
   rename(crab = `Crab No.`) %>% 
   mutate(time = as.numeric(time))
 
-# fun plot
+
+# fun plot ----------------------------------------------------------------
+
+
 crab <- ggplot(rawdata, aes(time, reading, color = factor(pigment),
                             fill = factor(pigment))) +
   geom_line(lwd = 1, alpha = 0.8) +
@@ -25,12 +32,18 @@ crab <- ggplot(rawdata, aes(time, reading, color = factor(pigment),
   facet_wrap(~crab)
 crab
 
-# means
+
+# means -------------------------------------------------------------------
+
+
 means <- rawdata %>%
   group_by(pigment, time) %>%
   summarise(mean_reading = mean(reading))
 
-# mean plot
+
+## plotting the means ------------------------------------------------------
+
+
 meancrab <- ggplot(means, aes(time, mean_reading, 
                               color = factor(pigment), 
                               fill = factor(pigment))) +
@@ -85,71 +98,114 @@ meancrab
 
 # img output
 ggsave("firstgraph.png", plot = meancrab, units = "cm", height = 10, width = 14)
-# stats
-# the data is paired so i use the Wilcoxon paired rank test over the Mann-Whitney U-test
 
-#2: (Wilcoxon signed/paired rank test);
-# according to https://www.sthda.com/english/wiki/paired-samples-wilcoxon-test-in-r#google_vignette
-# it is the same as the other, but just the paired version ("paired = TRUE")
-# this is also apparantly the "mann-whitney U test"
-wilcox.test(x, y, paired = TRUE, alternative = "two.sided")
-# M-W U: wilcox.test(dependent~independent)
-# simple enough
+# stats table------------------------------------
 
-# i have to think about the "sided"ness of the test, i think the hypothesis
-# is that the points at each time are "different", but not specifically higher
-# or lower, however, the PDH should increase and the RPCH should decrease red, so
-# theorettically, i should do opposite 1-tailed tests for those
 
-##for loop
-#table making
-p_values_condor <- data.frame(pigment=c("Red", "Red", "Red","Red","Red", 
-                                        "Black","Black","Black","Black","Black"), 
-                              start_time=c(0,30,50,70,75),
-                              end_time=c(30,50,70,75,100),
-                              p_value=c(NA))
-# loop, store result
+## p_values table creation-------------------------------------------------
+
+
+pigment <- data.frame(pigment = c("Red", "Black"))
+#cycle <- data.frame(cycle = c("normal", "inverse"))
+
+p_values_condor <- data.frame(
+  start_time=c(0,30,50,70,75,30,70),
+  end_time=c(30,50,70,75,100,70,100),
+  p_value=c(NA),
+  significant=c(NA)) %>% 
+  #cross_join(cycle)  %>%
+  cross_join(pigment) %>% 
+  arrange(pigment, start_time, end_time) %>% 
+  select(pigment, start_time, end_time, p_value, significant)
+# if including cycle, that needs to be added in the arrange and select
+
+## for loop with wilcoxon--------------------------------------------------
+
+
 for (i in 1:nrow(p_values_condor)) {
   #i <- 1
-  x <- filter(rawdata, time==p_values_condor$start_time[i] & pigment==p_values_condor$pigment[i])
-  y <- filter(rawdata, time==p_values_condor$end_time[i] & pigment==p_values_condor$pigment[i])
-  z <- wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
+  x <- filter(rawdata,
+              time==p_values_condor$start_time[i] & 
+                #cycle==p_values_condor$cycle[i] & 
+                pigment==p_values_condor$pigment[i])
+  
+  y <- filter(rawdata, 
+              time==p_values_condor$end_time[i] & 
+                #cycle==p_values_condor$cycle[i] & 
+                pigment==p_values_condor$pigment[i])
+  
+  z <- wilcox.test(x$reading, 
+                   y$reading, 
+                   paired = TRUE, 
+                   correct = FALSE, 
+                   alternative = "t")
+  
   p_values_condor$p_value[i] <- z$p.value
+  if (z$p.value < 0.05) {
+    p_values_condor$significant[i] <- "*"
+  }
 }
-## 0-30 (two tailed)
-#red
 
-# parameters
-x <- filter(rawdata, time==70 & pigment=="Red")
-y <- filter(rawdata, time==75 & pigment=="Red")
 
-z <- wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
-z
-z$p.value
-# p > 0.05, change not statistically significant
-wilcox.tes
-#black
-# parameters
-x <- filter(rawdata, time==0 & pigment=="Black")
-y <- filter(rawdata, time==30 & pigment=="Black")
+## table design ------------------------------------------------------------
 
-wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
-# p > 0.05, change not statistically significant
 
-## 30-50 (two tailed)
-#red
+### data transformation-----------------------------------------------------
 
-# parameters
-x <- filter(rawdata, time==30 & pigment=="Red")
-y <- filter(rawdata, time==50 & pigment=="Red")
 
-wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
-# p > 0.05, change not statistically significant
+p_ivot_values_condor <- select(p_values_condor, -significant) %>% 
+  unite("time_diff", start_time:end_time, sep = " - ") %>% 
+  pivot_wider(names_from = time_diff, values_from = p_value)
 
-#black
-# parameters
-x <- filter(rawdata, time==30 & pigment=="Black")
-y <- filter(rawdata, time==50 & pigment=="Black")
+#### scientific notation -----------------------------------------------------
 
-wilcox.test(x$reading, y$reading, paired = TRUE, correct = FALSE, alternative = "t")
-# p > 0.05, change not statistically significant
+
+# needed claude for this bit, very complecated thing to do, need to get better
+# so i can do this alone
+
+# Get the names of all numeric columns
+numeric_cols <- names(p_ivot_values_condor)[sapply(p_ivot_values_condor, is.numeric)]
+
+# Create a named list for formatting
+format_list <- setNames(
+  replicate(length(numeric_cols), 
+            function(x) formatC(x, format = "e", digits = 3), 
+            simplify = FALSE),
+  numeric_cols
+)
+
+# also needed help to colour cells grey, heres the funct for that
+# Create a function that will color cells based on their values
+color_if_greater <- function(x) {
+  ifelse(as.numeric(x) > 0.05, "grey70", "black")
+}
+### table styling---------------------------------------------------------------
+
+
+p_table_condor <- flextable(p_ivot_values_condor) %>% 
+  set_header_labels(pigment = "Pigment",
+                    cycle = "Cycle") %>% 
+  theme_vanilla() %>% 
+  add_footer_lines("Data collected on 2025-03-10 at Deiniol Road, Brambell Building, 1st Floor Lab B1") %>% 
+  color(part = "footer", color = "#666666") %>% 
+  set_caption(caption = "P values for Wilcoxon Paired Rank Test") %>% 
+  add_header_row(colwidths = c(2, 6),
+                 values = c("", "P values for start time - end time (mins from primary injection)")) %>% 
+  align(i = 1, j = 3, 
+        align = "center", 
+        part = c("header")) %>%  
+  set_table_properties(width = 1, 
+                       layout = "autofit") %>% 
+  set_formatter(values = format_list) %>%
+  footnote(i = 1, j = 2,
+           part = "header",
+           ref_symbols = "*",
+           value = as_paragraph("P values taken between pairs of times when measurements were taken for a Wilcoxon Paired Rank Test")) %>% 
+  # Apply to all numeric columns
+  color(
+    color = color_if_greater,
+    part = "body",
+    j = numeric_cols
+  )
+p_table_condor
+# also needed clauds help for the grey text

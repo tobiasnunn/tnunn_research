@@ -40,6 +40,9 @@ rm(rawnightday)
 
 #--------------------------red graph-----------------------------
 
+
+# NOTE: the asterisks were put on using the data from the stats area after the fact
+
 #x <- filter(combinedcycles, combinedcycles$cycle == "normal")
 # right, i figured out how to filter it to just the ones on the normal cycle, but i think i need to do the means thing again, because otherwise there are going to be like 100 lines on the thing.
 red_means <- filter(combinedcycles, pigment == "Red") %>%
@@ -88,7 +91,26 @@ red_graph <- ggplot(red_means, aes(time, mean_reading,
     geom = "curve", x = 58, y = 4, xend = 70, yend = 3.2, 
     curvature = -.3, arrow = arrow(length = unit(2, "mm"))
   ) + 
-  geom_label(aes(x = 47, y = 4, label = "RPCH injection"), fill = "#D99594", colour = "black")
+  geom_label(aes(x = 47, y = 4, label = "RPCH injection"), fill = "#D99594", colour = "black") +
+  # asterisking for stat significance
+  annotate(geom = "text", x = 30, y = 2.5, label = "*",
+           hjust = "center", size = 7) +
+  annotate(geom = "text", x = 50, y = 2.9, label = "**",
+           hjust = "center", size = 7) +
+  annotate(geom = "text", x = 70, y = 3.12, label = "***",
+           hjust = "center", size = 7) +
+  annotate(geom = "text", x = 75, y = 2.08, label = "****",
+           hjust = "center", size = 7) + 
+  annotate(geom = "text", x = 100, y = 2, label = "****",
+           hjust = "center", size = 7) +
+  annotate(geom = "text", x = 30, y = 2.42, label = "a",
+           hjust = "center", size = 4) +
+  annotate(geom = "text", x = 70, y = 2.9, label = "b",
+           hjust = "center", size = 4) +
+  annotate(geom = "text", x = 75, y = 2.62, label = "c",
+           hjust = "center", size = 4) +
+  annotate(geom = "text", x = 100, y = 2.32, label = "c",
+           hjust = "center", size = 4)
 red_graph
 
 rm(red_means)
