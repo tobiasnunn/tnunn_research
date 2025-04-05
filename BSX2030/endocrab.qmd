@@ -34,17 +34,7 @@ rawdata <- (readxl::read_xlsx("PDH Prac Chromatophore Data 2025.xlsx", sheet = "
   mutate(time = as.numeric(time))
 ```
 
-# Introduction
-
-bazinga
-
-banana
-
-coconut
-
-# Methods
-
-At time 0, saline was injected as a method of control, from there 1 reading was taken at 30 minutes and PDH was injected. After this a reading at 50 minutes was taken and then at 70 minutes, when RPCH was injected, finally 2 more measurements were taken at 7i5 and 100 minutes. 4 crabs were used for this expriment, between all groups this makes \_\_\_ crabs total. that weird air syringe was used.
+# Abstract
 
 {{< pagebreak >}}
 
@@ -90,12 +80,20 @@ footnote(i = 1, j = 2,
 p_table
 ```
 
-
-
-
-
-
-
 ![figure 2 - graph of aggregated data totalling \_\_ crabs. A. comparison for erydophores(sp.). B. comparison of melanophores](secondgraph.png)
 
-# Conclusions
+# Discussion
+
+# References
+
+# Short-Answer questions
+
+1Q) Assuming a fresh weight of around 2.5g for the crabs used, and a hemolymph volume of 10% fresh weight, what is the maximum circulating peptide concentration (nM) following the injections of RPCH and PDH?
+
+2Q) What were the quantities (in ng) of RPCH and PDH injected?
+
+3Q) What modifications to the amino acid sequences of RPCH and PDH are proposed to increase residence times of these peptides in the hemolymph?
+
+4Q) When carrying out an experiment with repeat readings using a scale such as the Hogben-Slome index, why would it be prudent that the same individual take the readings?
+
+4A) The index used is naturally subjective, meaning different people may see the study area differently due to many factors including experience and perception. Making multiple people evaluate would introduce bias as not all variable would be controlled for
