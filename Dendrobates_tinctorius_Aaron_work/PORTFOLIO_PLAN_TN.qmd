@@ -1,0 +1,42 @@
+---
+title: "Functional variation among bacterial taxa within host-associated microbiomes"
+author: "Tobias Nunn"
+format: html
+editor: visual
+---
+
+## plan
+
+i used the same title as the dissertation, should be ok as they are extensions of each other, anyway, this wants to be a bit like a .README file. Once i make it public, if someone comes across my work they got to look at this and understand what i did, why, what scripts were used and what the inputs and outputs are so they can replicate or reproduce.
+
+This will also accompany a cleanup of the Github repo, because that is becoming the "appendix", it needs to be sharp so any greenbeard can navigate it with the help of the README. oh yeah, duh, needs to be public.
+
+always keep in mind the WWWWWH of it (but mainly the WHY, WHAT and HOW). Give good detail, but within reason, it needs to be enough detail that aformentioned greenbeards can understand (well, he said that i make the assumption they are at least semi-competant in this field, so i dont need to go to non-scientist-level basic). but yeah, avoid going into to much needless detail or breaking it down too far. (e.g. does it matter i did this on a laptop instead of PC? no, and do i have to explain what a genome is? no).
+
+some feedback from the dissertation to keep in mind is to not just talk about the environments (the where). Keep it moving about the what. What does it matter that i use eggnogmapper on Hawk if the online version of eggnogmapper produces the same outputs? its worth noting thats how i did it, but the focus is on WHAT i did in that environment.
+
+## structure
+
+there want to be about 5-10 references in BOTH the intro and conc (10-20 total)
+
+general structure will go like this:
+
+intro (500 words): very similar to other one, but DONT self-plagarise, if i want to use stuff from that, mix it up, but themes will be very similar. he did it like (1. Introduction)
+
+research evidence: this is the meat of the thing (2. Research Evidence), the general format we talked about was
+
+2.1 - API calls (wants to be a 1-6 word summary of the section)
+
+-   why did i do this? what did i do? what scripts did i use? what do the inputs and outputs look like?
+
+-   then samples of the figures or outputs, doesnt need to be too elaborate, just a "heres what it should look like"
+
+-   "heres what the outputs mean from a biological standpoint" (hmm, not really an analysis? more of just a broader description than the figure captions can provide?)
+
+-   link to the scripts, could be a "they can be found (here)" or just their name with the title "links"
+
+3.  conclusion (250): that is 250 to talk about the analysis of the results and the skills i learned, so basically, i get as far as i get on the heatmap analysis and then fill the rest in with skills.
+
+## picture
+
+![](images/protoplan.jpg)

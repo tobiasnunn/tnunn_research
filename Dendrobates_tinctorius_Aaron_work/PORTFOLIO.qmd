@@ -1,0 +1,58 @@
+---
+title: "Functional variation among bacterial taxa within host-associated microbiomes"
+author: "Tobias Nunn"
+format: html
+editor: visual
+---
+
+# 1. Introduction
+
+(500 words, 5-10 refs)
+
+# 2. Research evidence
+
+## 2.0. the reset / Mistakes
+
+as important as the outputs of this project are to its legitimacy, me learning how to conduct my work in a proper scientific manner is as equally important of an outcome. This work started in the summer, when i had done nothing of the type before, so i had basically no idea what i was doing or what i was messing with. So i made mistakes, many mistakes. Then, i kept going, building on those mistakes until around christmas i realised i was completely out of my depth and i needed to reivaluate. My notetaking especially was crude by modern comparison. So i decided to do a reset, i believed this was important as it allowed me to start again from a more informed point, and "do things right this time". However, i did conduct analysis in the first half of the year that could be relevent, error prone as it may be. And i do not want my mistakes to be buried, they must be remembered so i do not repeat them, or so anyone else reading this does not repeat them. So i would like to dedicate section 2.0. to the mistakes i made and how i learned from them to gain skills and become a better data scientist, as i believe this step was the catalyst for all hereafter steps to be as good as they were, without these errors, i doubt i would have worked as hard to make the work i did after as good, and thats alright.
+
+(i understand if you need to dock points for this, but i think it is too important to not write down)
+
+## 2.1.1 Check M/2
+
+## 2.1.2 CheckM tree_qa (hmm, if i do it this way then imma need to make all these three hashes so i can have a 2.1 to intro)
+
+## 2.2. Innitial small analysis
+
+## 2.2.2 DIAMOND_RESULTS.tsv
+
+## 2.3. GTDB-TK de_novo_wf
+
+## 2.4. flye output analysis
+
+## 2.5. Phylogenetic trees
+
+## 2.6. Wolbachia side-project
+
+## 2.7.1 EggNOG-mapper
+
+## 2.7.2 Heatmaps (?) (they are heavily linked so it makes sense to do this i think)
+
+## 2.8. API calls
+
+## 2.9. Heatmaps
+
+## 2.10. fun genomics papers
+
+not \*really\* a direct part of the project, but learning to read the literature properly around ones areas of intrest, and doing so recreationally, is important for a professional scientist and something that i struggle with, so i think warrents a spot here, not so much as proof i have read, more so as a promise to follow through with actually doing it. It is a skill, i think, interpreting scientific text and focus more generally, so i think it is relevant enough to talk about, if not... thats ok, im going to do it anyway.
+
+## 2.11. Other
+
+i made API calls a section, maybe there are other sub-script level processes that warrent their own part
+
+# 3. Conclusion / Discussion
+
+(250 words 5-10 refs, this is split between analysis and skills)
+
+![](images/clipboard-4027681411.png)
+
+# 4. References

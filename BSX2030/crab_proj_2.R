@@ -183,8 +183,7 @@ color_if_greater <- function(x) {
 
 
 p_table_condor <- flextable(p_ivot_values_condor) %>% 
-  set_header_labels(pigment = "Pigment",
-                    cycle = "Cycle") %>% 
+  set_header_labels(pigment = "Pigment") %>% 
   theme_vanilla() %>% 
   add_footer_lines("Data collected on 2025-03-10 at Deiniol Road, Brambell Building, 1st Floor Lab B1") %>% 
   color(part = "footer", color = "#666666") %>% 
