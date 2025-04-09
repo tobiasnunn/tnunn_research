@@ -17,6 +17,8 @@ as important as the outputs of this project are to its legitimacy, me learning h
 
 (i understand if you need to dock points for this, but i think it is too important to not write down)
 
+## 2.0.2 summer stuff (?)
+
 ## 2.1.1 Check M/2
 
 ## 2.1.2 CheckM tree_qa (hmm, if i do it this way then imma need to make all these three hashes so i can have a 2.1 to intro)
@@ -43,7 +45,7 @@ as important as the outputs of this project are to its legitimacy, me learning h
 
 ## 2.10. fun genomics papers
 
-not \*really\* a direct part of the project, but learning to read the literature properly around ones areas of intrest, and doing so recreationally, is important for a professional scientist and something that i struggle with, so i think warrents a spot here, not so much as proof i have read, more so as a promise to follow through with actually doing it. It is a skill, i think, interpreting scientific text and focus more generally, so i think it is relevant enough to talk about, if not... thats ok, im going to do it anyway.
+not \*really\* a direct part of the project, but learning to read the literature properly around ones areas of intrest, and doing so recreationally, is important for a professional scientist and something that i struggle with, so i think warrents a spot here, not so much as proof i have read, more so as a promise to follow through with actually doing it. It is a skill, i think, interpreting scientific text and focus more generally, so i think it is relevant enough to talk about, if not... thats ok, im going to do it anyway. Well... i have to read papers in order to reference this document, thus making paper reading a project-relevant skill to learn how to do better.
 
 ## 2.11. Other
 
