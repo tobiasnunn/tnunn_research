@@ -9,4 +9,4 @@ tblastn -query cifAB_proteins.fasta -db ztaro_01 -out ztaro_tblastn_results.txt
 makeblastdb -dbtype nucl -in ztsac_STPz09b_f1fem_metabat_mag.1.fa -parse_seqids -logfile blast.txt -out ztsac_09 -title "ztsac blast database"
 
 # this line runs the query
-blastp -query cifAB_proteins.fasta -db ztsac_09 -out ztsac_blastp_results.txt
+tblastn -query cifAB_proteins.fasta -db ztsac_09 -out ztsac_tblastn_results.txt
