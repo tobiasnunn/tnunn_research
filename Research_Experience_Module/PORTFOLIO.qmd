@@ -15,6 +15,10 @@ editor: visual
 
 as important as the outputs of this project are to its legitimacy, me learning how to conduct my work in a proper scientific manner is as equally important of an outcome. This work started in the summer, when i had done nothing of the type before, so i had basically no idea what i was doing or what i was messing with. So i made mistakes, many mistakes. Then, i kept going, building on those mistakes until around christmas i realised i was completely out of my depth and i needed to reivaluate. My notetaking especially was crude by modern comparison. So i decided to do a reset, i believed this was important as it allowed me to start again from a more informed point, and "do things right this time". However, i did conduct analysis in the first half of the year that could be relevent, error prone as it may be. And i do not want my mistakes to be buried, they must be remembered so i do not repeat them, or so anyone else reading this does not repeat them. So i would like to dedicate section 2.0. to the mistakes i made and how i learned from them to gain skills and become a better data scientist, as i believe this step was the catalyst for all hereafter steps to be as good as they were, without these errors, i doubt i would have worked as hard to make the work i did after as good, and thats alright.
 
+here::here for good pathing
+
+proper integration of images into the notebooks
+
 (i understand if you need to dock points for this, but i think it is too important to not write down)
 
 ## 2.0.2 summer stuff (?)
@@ -34,6 +38,14 @@ as important as the outputs of this project are to its legitimacy, me learning h
 ## 2.5. Phylogenetic trees
 
 ## 2.6. Wolbachia side-project
+
+In mid-August 2024 I helped with my supervisor Aaron Comeault's paper ("Phylogenetic and functional diversity among Drosophila-associated metagenome-assembled genomes") as a learning exercise for EggNOG-mapper and heatmapping. After receiving notes from the reviewers, Aaron asked me to process two samples of note from the study, that were Wolbachia species through Eggnog mapper and GTDB-TK so as to identify specific "Cif" and "WOPhage" genes. Specifically, I was tasked with answering the questions:
+
+-   What other Wolbachia are they closely affiliated with?
+
+-   Do they harbor the characterized Cif genes? or WOPhage?
+
+Both of these processes were run using modified scripts I had already made for my own project on Hawk. Specificall
 
 ## 2.7.1 EggNOG-mapper
 
