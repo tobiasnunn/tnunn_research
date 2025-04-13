@@ -83,6 +83,8 @@ The tree presents that the closest strain to both of the bangor samples are \*Wo
 
 ### Scripts
 
+this bit is by no means done, and i need to decide on how i want to do this bit, do i give a long list of individual files, directories? the other bits need refinement too, but that can wait until later.
+
 ## 2.7.1 EggNOG-mapper
 
 ## 2.7.2 Heatmaps (?) (they are heavily linked so it makes sense to do this i think)

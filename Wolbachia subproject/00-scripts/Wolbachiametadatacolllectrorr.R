@@ -10,7 +10,7 @@ library(writexl)
 # using gtdb-tk file
 # read it in:
 
-treetax <- read.delim('hawk_outputs/wolbachia_out/infer/gtdbtk.bac120.decorated.tree-taxonomy', 
+treetax <- read.delim('02-intermediate_hawk_outputs/wolbachia_out/infer/gtdbtk.bac120.decorated.tree-taxonomy', 
                         sep = "\t", 
                         header = FALSE,
                         col.names = c('accession', 'path')) %>% 
@@ -61,14 +61,14 @@ for (i in 1:nrow(ncbi_samples)) {
 
 
 #--------------------------------read in jsons and manipulate--------------------- 
-filenames <- list.files("outputs/ncbi_json/", 
+filenames <- list.files("03-true_outputs/ncbi_json/", 
                         pattern=glob2rx("GC*.json"), full.names=TRUE)
 jsonlist <- lapply(filenames, jsonlite::read_json) %>% sapply(., "[[", 1)
 reports <- tibble(report=jsonlist)
 
 expand <- data.frame(spread_all(jsonlist, recursive = TRUE, sep = "."))
 
-write_xlsx(expand, path = "outputs/Wolbachia_metadata_table.xlsx", col_names = TRUE)
+write_xlsx(expand, path = "03-true_outputs/Wolbachia_metadata_table.xlsx", col_names = TRUE)
 
 #get the fields i want to see
 metadata <- reports %>%
@@ -101,4 +101,4 @@ Wolbachia_combined$sample_type[Wolbachia_combined$species == "s__"] <- "bangor"
 #Wolbachia_combined$sample_type[Wolbachia_combined$assembly_status == "suppressed"] <- "suppressed"
 
 # now take only the columns with useful stuff
-write_delim(Wolbachia_combined, file = "outputs/Wolbachia_combined.tsv", delim = "\t")
+write_delim(Wolbachia_combined, file = "03-true_outputs/Wolbachia_combined.tsv", delim = "\t")

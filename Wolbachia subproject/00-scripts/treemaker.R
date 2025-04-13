@@ -3,11 +3,11 @@ library(ape)
 library(ggtree)
 library(ggtext)
 
-metabase <- read_delim("outputs/Wolbachia_combined.tsv", delim = "\t")
+metabase <- read_delim("03-true_outputs/Wolbachia_combined.tsv", delim = "\t")
 metabase <- metabase %>% select(accession, species, sample_type, cutacc)
 metabase$species <- gsub("s__", "", metabase$species)
 
-treebase <- ape::read.tree("hawk_outputs/wolbachia_out/gtdbtk.bac120.decorated.tree")
+treebase <- ape::read.tree("02-intermediate_hawk_outputs/wolbachia_out/gtdbtk.bac120.decorated.tree")
 
 tree <- keep.tip(treebase, metabase$accession)
 rm(treebase)

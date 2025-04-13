@@ -2,14 +2,14 @@
 library(tidyverse)
 library(readxl)
 # input xlsx for 09b
-table <- read_xlsx("hawk_outputs/ztsac_STPz09b_annotation/ztsac_STPz09b.emapper.annotations.xlsx", skip = 2)
+table <- read_xlsx("02-intermediate_hawk_outputs/ztsac_STPz09b_annotation/ztsac_STPz09b.emapper.annotations.xlsx", skip = 2)
 cut <- table %>% select(Preferred_name, Description, seed_ortholog)
 
 cut <- cut %>% filter(Preferred_name != "-")
 
 
 # input xlsx for 01
-table2 <- read_xlsx("hawk_outputs/ztaro_STPz01_annotation/ztaro_STPz01.emapper.annotations.xlsx", skip = 2)
+table2 <- read_xlsx("02-intermediate_hawk_outputs/ztaro_STPz01_annotation/ztaro_STPz01.emapper.annotations.xlsx", skip = 2)
 cut2 <- table2 %>% select(Preferred_name, Description, seed_ortholog)
 
 cut2 <- cut2 %>% filter(Preferred_name != "-")
