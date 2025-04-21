@@ -102,8 +102,9 @@ GTDB-TK analysis confirmed many of the preconceived names given to the samples, 
 knitr::include_graphics(here::here("02_middle-analysis_outputs/KEGG_stuff/", "all_genera_updated.png"))
 ```
 
-Analysis of the heatmaps show ___
-## Conclusions
+Analysis of the heatmaps show \_\_\_
+
+\## Conclusions
 
 \[too early to really say anything other than "the samples are what we think they are", still need to do heatmap and tree analysis\]
 
