@@ -72,7 +72,12 @@ The CheckM analysis produced [this output directory](https://github.com/tobiasnu
 #| fig-align: center
 #| fig-cap: "Subset of data obtained from CheckM analysis of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality."
 
+
+library(dplyr)
+library(tidyr)
+library(tidyverse)
 library(gt)
+library(knitr)
 
 checkm <- read.csv("03_final_outputs/metadata_and_quality_tables/checkm.csv")
 columnnames <- c("accession", "marker.lineage","Completeness", "Contamination","GC","GC.std", "Genome.size", "contigs", "Longest.contig", "Coding.density", "predicted.genes")
@@ -148,7 +153,7 @@ Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let
 
 #### CheckM2: R table generation
 
-This started with doing `cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228` to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, [here.](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/CheckM2_20241228) Then, i began work on the R file to turn the `quality_report.tsv` file. This file was formatted very well, so turning it into a table was very simple, done in [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/CheckM2tablegenerator.R) This produced [Table 4: CheckM2]
+This started with doing `cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228` to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, [here.](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/CheckM2_20241228) Then, i began work on the R file to turn the `quality_report.tsv` file. This file was formatted very well, so turning it into a table was very simple, done in [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/CheckM2tablegenerator.R) This produced \[Table 4: CheckM2\]
 
 Note: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.
 
@@ -202,7 +207,7 @@ This is the table of CheckM2 analysis, there are many differences in which field
 
 ```{r m_vs_m2, echo=FALSE, warning=FALSE}
 #| echo: FALSE
-#| label: fig-sphingo-tree
+#| label: fig-mm2
 #| fig-align: center
 #| fig-cap: "Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3"
 
@@ -271,7 +276,7 @@ I created an R script, "[rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_
 
 #### Flye analysis 2: flye.log
 
-After lunch, firstly i went back to the flye.log analysis i wanted to do largely for posterity. This was horrifyingly complex due to the "complex" nature of the flye.log files. I did this by creating a modified copy of my assembly_info.txt file grabber shell script, called [flye.loggetter.sh](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/flye.loggetter.sh), using ctrl + h to find and replace instead of manually changing things. I added this to an existing output directory in my home section of hawk, which i exported using MobaXterm**(do i need to include a section on how i use MobaXterm?)** to my computer**.** This is the folder called [flyestuff](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/flyestuff), which contains both the flye.log and the assembly_info.txt files for each accession, i grouped them as it seemed relevent for organisation and didnt hinder the coding process at all. The R file i used to tabulate this is [flyeloganalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/flyeloganalysis.R). This produced [Table 3: Flye.log]
+After lunch, firstly i went back to the flye.log analysis i wanted to do largely for posterity. This was horrifyingly complex due to the "complex" nature of the flye.log files. I did this by creating a modified copy of my assembly_info.txt file grabber shell script, called [flye.loggetter.sh](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/flye.loggetter.sh), using ctrl + h to find and replace instead of manually changing things. I added this to an existing output directory in my home section of hawk, which i exported using MobaXterm**(do i need to include a section on how i use MobaXterm?)** to my computer**.** This is the folder called [flyestuff](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/flyestuff), which contains both the flye.log and the assembly_info.txt files for each accession, i grouped them as it seemed relevent for organisation and didnt hinder the coding process at all. The R file i used to tabulate this is [flyeloganalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/flyeloganalysis.R). This produced \[Table 3: Flye.log\]
 
 ### Results
 
@@ -364,17 +369,115 @@ This is a table of the type of stuff i first collated in the Summer, it shares m
 
 ### Scripts
 
-## Innitial small analysis / comparisons
+## CheckM2 DIAMOND_RESULTS.tsv
 
 ### Introduction
 
+I decided to take a look at the full outputs of CheckM2 to see if there was anything interesting to analyse other than the Completeness and Contamination, i found this file called [DIAMOND_RESULTS.tsv](https://github.com/tobiasnunn/tnunn_research/blob/8a2b1cd3852c30ae0e91261d39e82f7165a53bc5/02_middle-analysis_outputs/CheckM2_20241228/diamond_output/DIAMOND_RESULTS.tsv). It has a bunch of weird stuff in it, i did however recognise the existence of KO pathways in the second column, along with links to a website that displays 3D images of proteins, so i decided to take a closer look at this file.
+
 ### Methods
+
+The file did not output with column headers, i believe the ones found [here](https://www.metagenomics.wiki/tools/blast/blastn-output-format-6) match up well, but the descriptions of some are vague, so i am not sure what the significance of a few of the columns is. Due to the size of DIAMOND_RESULTS.tsv, i decided not to include it as a table or image in this document. I created this [R script](https://github.com/tobiasnunn/tnunn_research/blob/8a2b1cd3852c30ae0e91261d39e82f7165a53bc5/00_scripts/CheckM2diamondanalysis.R) to import the data to a table and do an analysis of the important looking fields. This was quite a difficult task that made this little project stretch over 2 days. The main output i wanted from this was a comparison between the KO pathways outputted from this and those outputted by Eggnog-mapper. Eggnog-mapper still is not working on Hawk so maybe we could get the KO pathways for the heatmaps through CheckM2 instead. I did this analysis at two levels, a comparison of which unique KOs each system recognised, and the "cumulitive" or total differences.
+
+I figured if i am going to make decisions based on if two methods are different, i should compare them statistically instead of eyeballing it. It is simple enough, tests, graphs, that sort of stuff. This lead me to do many things in R, but only some of the analyses i did were valid. I started off testing which KO values against which accessions in each file, excluding repetitions. However, i then realised that this methodology did not give a full picture of the results, so i decided to work on trying to identify when duplicates occured and add them to the dataset. After much trial and error to get right, i created [this file](https://github.com/tobiasnunn/tnunn_research/blob/c00a875b2b0bc381bd39406d5ecbb0855de3c03a/00_scripts/CheckM2diamondanalysis.R). I included all the dead-ends as comments at the end for posterity. I finally decided to use the shared KO values divided by the total for each accession and method to create my values showing the differences between DIAMOND and eggNog-mapper. I then decided to run a statistical analysis to see if the differences observed between groups was significant.
 
 ### Results
 
-### Scripts
+```{r diamond}
+#| echo: FALSE
+#| label: fig-diamond
+#| fig-align: center
+#| fig-cap: "The original file is very large, so i cannot include it in the document, there is a line for each gene in all 10 samples. Here is a screenshot of it in Notepad ++"
 
-## DIAMOND_RESULTS.tsv
+knitr::include_graphics(here::here("04_images/DIAMOND_RESULTS.tsv.png"))
+```
+
+```{r checkm2kosunique, echo=FALSE, warning=FALSE}
+#| echo: FALSE
+#| label: fig-2other
+#| fig-align: center
+#| fig-cap: "Unique KO pathway analysis from CheckM2 based on samples taken from the skin microbiome of *Dendrobates tinctorius*"
+
+unique <- read.csv("02_middle-analysis_outputs/CheckM2_20241228/uniquecomp.csv")
+unique %>%
+  gt()  %>%
+  tab_source_note(source_note = "Source: DIAMOND_RESULTS.tsv produced by CheckM2 predict performed on 2024-12-28") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+ # tab_header(
+  #  title = "Table 7 - Unique KO pathway analysis from CheckM2",
+   # subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
+#  ) %>%
+  cols_label(accession = "Accession",
+             tot_rows = "Total unique KOs",
+             diamond = "KO # in DIAMOND file",
+             egg = "KO # from eggNog-mapper files",
+             diamond_per = "% diff DIAMOND - eggNog",
+             egg_per = "% diff eggNog - DIAMOND")
+```
+
+```{r checkm2koscumulative, echo=FALSE, warning=FALSE}
+#| echo: FALSE
+#| label: fig-2otherother
+#| fig-align: center
+#| fig-cap: "KO pathway Total Frequency analysis from CheckM2 based on samples taken from the skin microbiome of *Dendrobates tinctorius*"
+
+cumul <- read.csv("02_middle-analysis_outputs/CheckM2_20241228/cumcomb.csv")
+cumul %>%
+  gt()  %>%
+  tab_source_note(source_note = "Source: DIAMOND_RESULTS.tsv produced by CheckM2 predict performed on 2024-12-28") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+#  tab_header(
+ #   title = "Table 8 - KO pathway Total Frequency analysis from CheckM2",
+  #  subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
+  #) %>%
+  cols_label(accession.e = "Accession",
+             ko_value.e = "EggNog-mapper most-frequent KO pathways",
+             tot_rows.e = "Ocurrance number in genome",
+             ko_value.d = "DIAMOND most-frequent KO pathways",
+             tot_rows.d = "Ocurrance number in genome")
+```
+
+Tables 7 and 8 represent my analysis of the DIAMOND_RESULTS.tsv file. I decided to do this by comparing it to the outputs i got from eggNog-mapper when i ran it earlier in the year. Table 7 represents a comparison of unique KO pathways. Often, the same KO pathway is found multiple times in the same genome, this makes evolutionary sense but if CheckM2 is a good alternative to eggNog-mapper, which does not work on hawk yet then it must find similar KO pathways. Table 7 would confirm this as similarities between output files consistently stay above 85%. Table 8 represents a comparison of highest frequency, taken as the top 5 most frequent for each genome. Basically, what are each system finding most often. Often, there will be similarities, with values only off by 2 or 3, however, occasionally the most common in DIAMOND will be absent from the list for eggNog-mapper and vise-versa.
+
+#### Statistical analysis results
+
+```{r finalDIAMONDegganalysis, echo=FALSE, warning=FALSE}
+#| echo: FALSE
+#| label: tbl-finaldiamond
+#| tbl-align: center
+#| tbl-cap: "Shared KO values between two systems represented as proportions of their totals based on samples taken from the skin microbiome of *Dendrobates tinctorius*"
+
+groupby <- read.csv("03_final_outputs/misc/DIAMONDeggcomp.csv")
+groupby %>%
+  gt()  %>%
+  tab_source_note(source_note = "Source: DIAMOND_RESULTS.tsv produced by CheckM2 predict performed on 2024-12-28 and the series of eggNog-mapper outputs i generated using eggNog-mapper v2 for the web 2024-08-28") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+#  tab_header(
+ #   title = "Table 9 - Shared KO values between two systems represented as proportions of their totals",
+  #  subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
+  #) %>%
+  cols_label(DIAMOND_per = "% of shared KO values present in DIAMOND_RESULTS.tsv",
+             eggNog_per = "% of shared KO values present in eggNog-mapper outputs") %>%
+  fmt_percent(
+    columns = c(DIAMOND_per, eggNog_per),
+    decimals = 1,
+    use_seps = TRUE)
+```
+
+```{r stattestDIAegg, echo=TRUE, warning=FALSE}
+shapiro.test(groupby$DIAMOND_per)
+shapiro.test(groupby$eggNog_per)
+
+compttest <- t.test(groupby$DIAMOND_per, groupby$eggNog_per)
+compttest
+```
+
+Table 9 shows that the common KO values represent a very large proportion of the total KO values for both methods and all accessions, never dipping below 80%. Shapiro testing showed that a parametric test could be used for this. I decided on a Student's t-test(t(15.199) = -1.6563, p = 0.1182). As the p value is larger than 0.05, we accept the null hypothesis that the groups are not significantly different.
+
+## Innitial small analysis / comparisons
 
 ### Introduction
 
@@ -639,8 +742,8 @@ not \*really\* a direct part of the project, but learning to read the literature
 
 i made API calls a section, maybe there are other sub-script level processes that warrent their own part
 
-# 3. Conclusion / Discussion
+# Conclusion / Discussion
 
 (250 words 5-10 refs, this is split between analysis and skills)
 
-# 4. References
+# References
