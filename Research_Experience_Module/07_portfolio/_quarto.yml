@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "07_portfolio"
+  title: "ENS-2002 Research Experience Portfolio"
   author: "Tobias Nunn"
   date: "22/04/2025"
   chapters:
@@ -12,6 +12,7 @@ book:
     - checkm2.qmd
     - gtdbtk_classify.qmd
     - gtdbtk_denovo.qmd
+    - ncbi.qmd
     - eggnogmapper_proto.qmd
     - eggnogmapper_final.qmd
     - subprojects.qmd

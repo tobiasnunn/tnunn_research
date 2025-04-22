@@ -1,0 +1,7 @@
+# NCBI APIs {#sec-ncbi}
+
+## Introduction
+ 
+* what is an API
+NCBI REST APIs
+

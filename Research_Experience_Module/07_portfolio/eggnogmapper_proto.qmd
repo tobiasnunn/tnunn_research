@@ -1,3 +1,50 @@
-# CheckM
+# EggNOG-mapper process - prototype
 
-in the summer i had a bahama mama
+## Introduction
+
+Given how long it takes to run some of the jobs, I didn't want to do all of the eggNOG-mapper jobs before knowing if the results would be useful and create valid heat maps at the end. So I decided to do the following:
+
+1.  Download the metadata for the chosen genera, this used the [dataset_report](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/dataset_report) API for the NCBI website. This served multiple purposes, for example they told me which samples have a high quality metric, they could also help with the generation of trees from `gtdb-tk de_novo_wf`
+
+2.  Choose 10 accessions per genus to use in my prototype pipeline. All groups totalled 10 samples, our own Bangor-made accession will be included in this number, excluding 1Dt100h, as `gtdb-tk` could not classify it into a family.
+
+3.  Download the genomic .fasta files for all of these. This will use the [Download API](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/#get-/genome/accession/-accessions-/download) to pull them from the NCBI website.
+
+4.  Annotate all those fastas using eggNog-mapper on hawk.
+
+5.  create the file(s) that turn the annotation file into a heatmap
+
+I chose accessions at random, ensuring there were 10 total per genus including the Bangor samples.
+
+All of these steps are described in more detail in @sec-ncbi and @sec-eggnogfull, so instead here I will write about the ways in which I optimised and improved the processes before tackling the full set of 587 samples.
+
+## Process Optimisation
+
+1.  eggNOG-mapper requires a lot of resources and can take several hours to complete a single job. I wanted to use the same parameters that the online version of eggNOG-mapper uses, i.e. --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 so I didn't change them. I did change slurm parameters such as:
+
+-   ntasks=5\
+-   cpus-per-task=10\
+-   time=12:00:00\
+-   mem=50g
+
+After a lot of experimentation, the values above seemed to give me the best result. \[NB put in the real values, I just chose a random script\]
+
+2.  As the eggNOG-mapper jobs can take a long time to run, I needed a way to be notified when they had finished without just logging back into hawk. I discovered you can set mail parameters in the slurm script:
+
+-   mail-user=0rtpjri2\@anonaddy.me
+-   mail-type=ALL
+
+3.  Batching with control files You can only have 20 jobs in the queue on hawk at any one time, so I used a script to create 'control files'. These contained two items per line:
+
+-   the accession number
+-   the fasta file name
+
+I created a bash script called slurmsquared.sh, this script loops over the control files line by line and then executes the slurm script 'eggnogslurmrunner.sh', passing in the accession and file name as parameters. This script creates the slurm job to actually run eggNOG-mapper.
+
+This way, all I had to do to process each batch of 20 was upload a new control file and then execute slurmsquared, telling it which control file to look at.
+
+4.  Extract annotation Excel files eggNOG-mapper produces a lot of files but for the heatmaps I needed the Excel file which had the accession at the beginning and then emapper.annotations.xlsx. I created a script called eggnog_annotation_getter.sh to copy all the Excel files out of their main results directory into a separate folder, where I could download them in batches.
+
+5.  Separate the post-eggNOG process into different R scripts Once the KO values are extracted from each eggNOG-mapper annotation file, they go through a process in the Microbiome R package called enrichKO. This takes some time to run. Separating out the steps into different scripts meant I didn't have to re-run the enrichment process but instead it could write out tsv files that I then used in the later steps to create the heatmap.
+
+\[get this bit from the notebook\] The new part1_enrich focuses purely on enriching the output files and sending those outputs into .tsv files that part2_aggregate can now read in and aggregate, producing the output table needed in the unmodified (but renamed) part3_heatmap.
