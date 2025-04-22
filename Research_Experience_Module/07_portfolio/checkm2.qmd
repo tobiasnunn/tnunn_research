@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[CheckM2](https://www.nature.com/articles/s41592-023-01940-w) is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination.
+CheckM2 is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination [@chklovski2023].
 
 ### Methods
 
