@@ -56,7 +56,7 @@
     "section": "",
     "text": "12.1 Evolution of skills",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Learning, General Progress and Important Mistakes</span>"
     ]
   },
   {
@@ -64,7 +64,7 @@
     "href": "checkm.html",
     "title": "3  CheckM",
     "section": "",
-    "text": "in the summer i had a bahama mama",
+    "text": "3.1 Introduction\nAfter my reset at christmas, I wanted to fully explore and understand what this tool does and outputs. I looked at files and documentation so that I could better understand what the results meant for the samples. This lead to many, smaller analyses conducted. All of these processes are noted throughout Notebook 1.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>CheckM</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "checkm2.html",
     "title": "4  CheckM2",
     "section": "",
-    "text": "4.1 Introduction\nCheckM2 is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination.",
+    "text": "4.1 Introduction\nCheckM2 is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination (Chklovski et al. 2023).",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
     ]
@@ -82,21 +82,21 @@
   {
     "objectID": "gtdbtk_classify.html",
     "href": "gtdbtk_classify.html",
-    "title": "5  CheckM",
+    "title": "5  GTDB-TK Classify",
     "section": "",
     "text": "in the summer i had a bahama mama",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>CheckM</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>GTDB-TK Classify</span>"
     ]
   },
   {
     "objectID": "gtdbtk_denovo.html",
     "href": "gtdbtk_denovo.html",
-    "title": "6  CheckM",
+    "title": "6  GTDB-TK de novo",
     "section": "",
     "text": "in the summer i had a bahama mama",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CheckM</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>GTDB-TK de novo</span>"
     ]
   },
   {
@@ -122,21 +122,21 @@
   {
     "objectID": "subprojects.html",
     "href": "subprojects.html",
-    "title": "9  CheckM",
+    "title": "10  Subproject",
     "section": "",
     "text": "in the summer i had a bahama mama",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>CheckM</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Subproject</span>"
     ]
   },
   {
     "objectID": "flye_outs.html",
     "href": "flye_outs.html",
-    "title": "10  CheckM",
+    "title": "11  Flye outputs",
     "section": "",
     "text": "in the summer i had a bahama mama",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>CheckM</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Flye outputs</span>"
     ]
   },
   {
@@ -144,9 +144,9 @@
     "href": "gen_prog.html#evolution-of-skills",
     "title": "12  Learning, General Progress and Important Mistakes",
     "section": "",
-    "text": "12.1.1 Notebooking with R studio\nI have made much progress with my record-making ability over the course of the project. When I started, in the summer, I was hardly recording my actions at all, as I prioritised results over that, assuming it would not be important later. Then, when the year began I started recording basic notes in a word document, they were basic and sloppy, but was better than what came before. Then, at Christmas when I decided to get my act together and fix errors I had made, I decided I wanted my notes to be more detailed and meaningful, so I started recording all details that I felt could be important, dates, exact descriptions, links to files created and details of what they did and why. These, I did in an R markdown format, a new concept to me at the time it is essentially an R document that has more bells and whistles than a traditional R script, allowing for cross-referencing and text modifications like allowing for bold and italic text, and the ability to Output to either html or word depending on what is required.\nThis was good, but I then discovered that Quarto Markdown existed, from what I found online it is a direct predecessor to Rmd, so I decided to make the switch from Notebook 3 onward, this was relatively similar to Rmd, but it did bring the benefit of a link to zotero for automatic bibliography (which doesnt work great but its fun it exists, it allows me to not have to manually make in-line references). And was overall cleaner with a more updated UI. Then, I discovered R projects. Basically a way of being able to connect all the scripts to one place for better linking.\nThis then developed even further as just recently I discovered R books existed. They are, as I understand it, a derived kind of R project that opperates like a book, with the ability to output to html multiple pages that are all linked together. I decided to make the portfolio an R book because it’s size was monstrous and all of it on 1 long page was ugly. I still do not understand the full breadth of what this resource can do, but I have come a long way.\n\n\n12.1.2 Informatic Evolution\nThe Heatmaps are the main point of the project, and as such I have spent a lot of time on them. The first version of them was made in the summer on bacterial samples taken from insect species, including Drosophila. This was made using scripts that were given to me by Aaron that I adapted largely through a process of trial and error until I got a good-looking output.\n\n\n12.1.3 Resources\nMy library of packages has increased as well. Even before the project I was confident using ggplot. However, over the course of the project I have found many packages I have found incredibly useful:\n\nggplot - Great for making more detailed / visually appealing visuals than base R can accomodate\n\n\n\nTidyverse (specifically tidyr and deplyr) - these have been very useful for data handling and transformation, in too many ways to really discuss here, but they allow for greater potential when handling data\ngt and flextable - Good for adding style to tables when presenting them. They each have benefits and weaknesses, so I cannot recommend one over the other\nhttr2 - This is the package that allowed me to make API calls to the NCBI and KEGG websites, which is the reason I was able to transfer large amounts of data as quickly as I did",
+    "text": "12.1.1 Notebooking with R studio\nI have made much progress with my record-making ability over the course of the project. When I started, in the summer, I was hardly recording my actions at all, as I prioritised results over that, assuming it would not be important later. Then, when the year began I started recording basic notes in a word document, they were basic and sloppy, but was better than what came before. Then, at Christmas when I decided to get my act together and fix errors I had made, I decided I wanted my notes to be more detailed and meaningful, so I started recording all details that I felt could be important, dates, exact descriptions, links to files created and details of what they did and why. These, I did in an R markdown format, a new concept to me at the time it is essentially an R document that has more bells and whistles than a traditional R script, allowing for cross-referencing and text modifications like allowing for bold and italic text, and the ability to Output to either html or word depending on what is required.\nThis was good, but I then discovered that Quarto Markdown existed, from what I found online it is a direct predecessor to Rmd, so I decided to make the switch from Notebook 3 onward, this was relatively similar to Rmd, but it did bring the benefit of a link to zotero for automatic bibliography (which doesnt work great but its fun it exists, it allows me to not have to manually make in-line references). And was overall cleaner with a more updated UI. Then, I discovered R projects. Basically a way of being able to connect all the scripts to one place for better linking.\nThis then developed even further as just recently I discovered R books existed. They are, as I understand it, a derived kind of R project that opperates like a book, with the ability to output to html multiple pages that are all linked together. I decided to make the portfolio an R book because it’s size was monstrous and all of it on 1 long page was ugly. I still do not understand the full breadth of what this resource can do, but I have come a long way.\n\n\n12.1.2 Informatic Evolution\nThe Heatmaps are the main point of the project, and as such I have spent a lot of time on them. The first version of them was made in the summer on bacterial samples taken from insect species, including Drosophila. This was made using scripts that were given to me by Aaron that I adapted largely through a process of trial and error until I got a good-looking output. When I next attempted it on my own data, during the prototype, I wanted to do it myself, maybe take aspects of his code but largely start from scratch, so that is what I did.\nThe heatmaps went through many different evolutions over time, so many so that there are details of that process in Notebooks 2, 3 and 4 devoted just to that. I found ways of making better colour schemes, using API-downloaded metadata to add groupings based on what functions the pathways had and I added the percentages to the boxes, then fixed the problem with the axis.\n\n\n12.1.3 Resources\nMy library of packages has increased as well. Even before the project I was confident using ggplot. However, over the course of the project I have found many packages I have found incredibly useful:\n\nggplot - Great for making more detailed / visually appealing visuals than base R can accomodate\nTidyverse (specifically tidyr and deplyr) - these have been very useful for data handling and transformation, in too many ways to really discuss here, but they allow for greater potential when handling data\ngt and flextable - Good for adding style to tables when presenting them. They each have benefits and weaknesses, so I cannot recommend one over the other\nhttr2 - This is the package that allowed me to make API calls to the NCBI and KEGG websites, which is the reason I was able to transfer large amounts of data as quickly as I did",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Learning, General Progress and Important Mistakes</span>"
     ]
   },
   {
@@ -154,9 +154,9 @@
     "href": "gen_prog.html#learning-programs",
     "title": "12  Learning, General Progress and Important Mistakes",
     "section": "12.2 Learning programs",
-    "text": "12.2 Learning programs\n\n12.2.1 R\n\n\n12.2.2 bash / slurm",
+    "text": "12.2 Learning programs\n\n12.2.1 R\nMy ability to both read and utilize R has increased dramatically from where I started.\n\n\n12.2.2 bash / slurm\nI now have a cursery knowledge of how to use these systems on Hawk. I am not perfect, but I am proficient enough to navigate without issue and run jobs correctly.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Learning, General Progress and Important Mistakes</span>"
     ]
   },
   {
@@ -166,7 +166,7 @@
     "section": "12.3 Mistakes",
     "text": "12.3 Mistakes\n\n12.3.1 Innitial delete\nAll the way back at the beginning of the project, in the summer, something I did on hawk deleted all of the genomic .fasta files that had been created by Aaron through Flye-asm. To this day, noone knows exactly why that happened. However, this did teach me the importance of understanding something before messing with it and not just racing to get a result out to be shown. I then took the time to get to grips with bash and command-line coding by testing on sample documents before applying commands that ran the risk of modifying the important folders.\n(I also then either made copies of all important files from then on or downloaded them and stored them in OneDrive or Github so they could be recovered, just in case.)",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Learning, General Progress and Important Mistakes</span>"
     ]
   },
   {
@@ -174,9 +174,9 @@
     "href": "gen_prog.html#next-steps",
     "title": "12  Learning, General Progress and Important Mistakes",
     "section": "12.4 Next steps",
-    "text": "12.4 Next steps\n\n12.4.1 further analysis\nThere are several analyses I did in prototyping that I did not have the time to do on the final results that I would like to begin the dissertation with, these include:\n\nAnalysing the significance of the pathways found in the heatmaps\nmaking the other heatmap versions (like the cutdown heatmap, the “core” heatmap, etc)\nfiguring out the interactive tree\n\n\n\n12.4.2 Coding languages\nThere are a few more languages I would like to learn. Specifically Python and SQL. I have been thinking about what I would like to do for my Masters and there are select places that offer Bioinformatics, in the course of this I learnt about how many tools (including some I have used, like GTDB-Tk) are created using python and some of the courses even have researchers make their own tools. This makes me want to have at least a basic understanding of the language as I now see how it might be important in conjunction with R (also many internships ask for it as what i guess is a matter of preference), instead of one or the other. As I am going to be handling large amounts of data, I believe a smart way to store and handle it is a SQL server, so that I can make a relational database and largely do more with the data with less effort. I toyed with the idea this year, but ultimately decided I did not want to do too much at one time, and the analyses I was running were too simple to require it.",
+    "text": "12.4 Next steps\n\n12.4.1 further analysis\nThere are several analyses I did in prototyping that I did not have the time to do on the final results that I would like to begin the dissertation with, these include:\n\nAnalysing the significance of the pathways found in the heatmaps\nAnalyse the other output files from CheckM2\nmaking the other heatmap versions (like the cutdown heatmap, the “core” heatmap, etc)\nfiguring out the interactive tree\n\n\n\n12.4.2 Coding languages\nThere are a few more languages I would like to learn. Specifically Python and SQL. I have been thinking about what I would like to do for my Masters and there are select places that offer Bioinformatics, in the course of this I learnt about how many tools (including some I have used, like GTDB-Tk) are created using python and some of the courses even have researchers make their own tools. This makes me want to have at least a basic understanding of the language as I now see how it might be important in conjunction with R (also many internships ask for it as what i guess is a matter of preference), instead of one or the other. As I am going to be handling large amounts of data, I believe a smart way to store and handle it is a SQL server, so that I can make a relational database and largely do more with the data with less effort. I toyed with the idea this year, but ultimately decided I did not want to do too much at one time, and the analyses I was running were too simple to require it.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Learning, General Progress and Important Mistakes</span>"
     ]
   },
   {
@@ -234,9 +234,29 @@
     "href": "checkm2.html#introduction",
     "title": "4  CheckM2",
     "section": "",
-    "text": "4.1.1 Methods\n\n4.1.1.1 CheckM2: slurm job\nJust before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let’s see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. run_checkm2TN.sh.\n\n\n4.1.1.2 CheckM2: R table generation\nThis started with doing cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228 to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, here. Then, i began work on the R file to turn the quality_report.tsv file. This file was formatted very well, so turning it into a table was very simple, done in CheckM2tablegenerator.R. This produced [Table 4: CheckM2]\nNote: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.\n\n\n\n4.1.2 Results\n\n\n\n\n\n\n\n\n\n\nAccession\nCompleteness\nContamination\nCompleteness model used\nTranslation table used\nAdditional notes\n\n\n\n\n1Dt1h\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt2d\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1l\n100.00\n0.27\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2c\n99.94\n0.39\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2j\n99.80\n0.00\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100h\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\n3Dt1c\n98.34\n0.86\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2h\n86.04\n0.10\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100g\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1e\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\nSource: CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.1: Quality analysis from CheckM2 based on samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\nThis is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.\n\n\n4.1.3 Scripts\n\n\n4.1.4 Comparison of CheckM and CheckM2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAccession\n\nCheckM/1.1.3\n\n\nCheckM2/0.1.3\n\n\n\nCompleteness\nContamination\nCompleteness\nContamination\n\n\n\n\n1Dt100g\n76.77\n0.00\n78.42\n0.33\n\n\n1Dt100h\n98.84\n0.19\n99.12\n0.00\n\n\n1Dt1h\n100.00\n0.00\n100.00\n0.31\n\n\n1Dt2d\n100.00\n0.90\n100.00\n0.87\n\n\n2Dt1e\n44.74\n0.00\n48.29\n0.08\n\n\n2Dt1l\n98.82\n2.32\n100.00\n0.27\n\n\n3Dt1c\n97.23\n1.19\n98.34\n0.86\n\n\n3Dt2c\n95.75\n0.85\n99.94\n0.39\n\n\n3Dt2h\n87.98\n0.51\n86.04\n0.10\n\n\n3Dt2j\n96.19\n1.21\n99.80\n0.00\n\n\n\nSource: CheckM lineage_wf performed on 2024-12-25 CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.2: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3",
+    "text": "4.1.1 Methods\n\n4.1.1.1 CheckM2: slurm job\nJust before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let’s see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. run_checkm2TN.sh.\n\n\n4.1.1.2 CheckM2: R table generation\nThis started with doing cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228 to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, here. Then, i began work on the R file to turn the quality_report.tsv file. This file was formatted very well, so turning it into a table was very simple, done in CheckM2tablegenerator.R. This produced [Table 4: CheckM2]\nNote: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.\n\n\n\n4.1.2 Results\n\n\n\n\n\n\n\n\n\n\nAccession\nCompleteness\nContamination\nCompleteness model used\nTranslation table used\nAdditional notes\n\n\n\n\n1Dt1h\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt2d\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1l\n100.00\n0.27\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2c\n99.94\n0.39\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2j\n99.80\n0.00\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100h\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\n3Dt1c\n98.34\n0.86\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2h\n86.04\n0.10\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100g\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1e\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\nSource: CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.1: Quality analysis from CheckM2 based on samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\nThis is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.\n\n\n4.1.3 Scripts\n\n\n4.1.4 Comparison of CheckM and CheckM2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAccession\n\nCheckM/1.1.3\n\n\nCheckM2/0.1.3\n\n\n\nCompleteness\nContamination\nCompleteness\nContamination\n\n\n\n\n1Dt100g\n76.77\n0.00\n78.42\n0.33\n\n\n1Dt100h\n98.84\n0.19\n99.12\n0.00\n\n\n1Dt1h\n100.00\n0.00\n100.00\n0.31\n\n\n1Dt2d\n100.00\n0.90\n100.00\n0.87\n\n\n2Dt1e\n44.74\n0.00\n48.29\n0.08\n\n\n2Dt1l\n98.82\n2.32\n100.00\n0.27\n\n\n3Dt1c\n97.23\n1.19\n98.34\n0.86\n\n\n3Dt2c\n95.75\n0.85\n99.94\n0.39\n\n\n3Dt2h\n87.98\n0.51\n86.04\n0.10\n\n\n3Dt2j\n96.19\n1.21\n99.80\n0.00\n\n\n\nSource: CheckM lineage_wf performed on 2024-12-25 CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.2: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3\n\n\n\n\n\n\n\n\nChklovski, Alex, Donovan H. Parks, Ben J. Woodcroft, and Gene W. Tyson. 2023. “CheckM2: A Rapid, Scalable and Accurate Tool for Assessing Microbial Genome Quality Using Machine Learning.” Nature Methods 20 (8): 1203–12. https://doi.org/10.1038/s41592-023-01940-w.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
+    ]
+  },
+  {
+    "objectID": "checkm2.html#methods",
+    "href": "checkm2.html#methods",
+    "title": "4  CheckM2",
+    "section": "4.2 Methods",
+    "text": "4.2 Methods\n\n4.2.1 CheckM2: slurm job\nI used the script run_checkm2TN.sh to run CheckM2 on all 10 fasta files at once.\n\n\n4.2.2 CheckM2: R table generation\nThe CheckM2 job produced a set of files:\n\n\n\n\nTable 4.1: CheckM2 output files\n\n\n\n\n\n\nFilename\n\n\n\n\ncheckM2comparison.xlsx\n\n\ncumcomb.csv\n\n\ndiamond_output\n\n\ndiamondko.csv\n\n\neggnogko.csv\n\n\nprotein_files\n\n\nquality_report.tsv\n\n\nuniquecomp.csv\n\n\n\n\n\n\n\n\nThe file I needed was quality_report.tsv, which gives info on each sample: - Completeness - Contamination - Completeness Model Used\n- Translation Table Used\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nCompleteness\nContamination\nCompleteness_Model_Used\nTranslation_Table_Used\nAdditional_Notes\n\n\n\n\nflye_asm_1Dt100g_part2\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\nflye_asm_1Dt100h_part2\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\nflye_asm_1Dt1h_part2\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\nflye_asm_1Dt2d_part2\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\nflye_asm_2Dt1e_part2\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\n\n\nFigure 4.1: Quality Report\n\n\n\n\nI created an R scriptCheckM2tablegenerator.R. This produced Table 4.2\nNote: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see Chapter 12\n\n\n4.2.3 Results\n\n\n\n\nTable 4.2: Quality analysis from CheckM2 based on samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\n\n\n\n\n\nAccession\nCompleteness\nContamination\nCompleteness model used\nTranslation table used\nAdditional notes\n\n\n\n\n1Dt1h\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt2d\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1l\n100.00\n0.27\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2c\n99.94\n0.39\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2j\n99.80\n0.00\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100h\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\n3Dt1c\n98.34\n0.86\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2h\n86.04\n0.10\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100g\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1e\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\nSource: CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\n\n\n\nThis is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.\n\n\n4.2.4 Scripts\n\n\n4.2.5 Comparison of CheckM and CheckM2\n\n\n\n\nTable 4.3: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAccession\n\nCheckM/1.1.3\n\n\nCheckM2/0.1.3\n\n\n\nCompleteness\nContamination\nCompleteness\nContamination\n\n\n\n\n1Dt100g\n76.77\n0.00\n78.42\n0.33\n\n\n1Dt100h\n98.84\n0.19\n99.12\n0.00\n\n\n1Dt1h\n100.00\n0.00\n100.00\n0.31\n\n\n1Dt2d\n100.00\n0.90\n100.00\n0.87\n\n\n2Dt1e\n44.74\n0.00\n48.29\n0.08\n\n\n2Dt1l\n98.82\n2.32\n100.00\n0.27\n\n\n3Dt1c\n97.23\n1.19\n98.34\n0.86\n\n\n3Dt2c\n95.75\n0.85\n99.94\n0.39\n\n\n3Dt2h\n87.98\n0.51\n86.04\n0.10\n\n\n3Dt2j\n96.19\n1.21\n99.80\n0.00\n\n\n\nSource: CheckM lineage_wf performed on 2024-12-25 CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChklovski, Alex, Donovan H. Parks, Ben J. Woodcroft, and Gene W. Tyson. 2023. “CheckM2: A Rapid, Scalable and Accurate Tool for Assessing Microbial Genome Quality Using Machine Learning.” Nature Methods 20 (8): 1203–12. https://doi.org/10.1038/s41592-023-01940-w.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
+    ]
+  },
+  {
+    "objectID": "checkm.html#check-m-lineage_wf",
+    "href": "checkm.html#check-m-lineage_wf",
+    "title": "3  CheckM",
+    "section": "3.2 Check M lineage_wf",
+    "text": "3.2 Check M lineage_wf\n\n3.2.1 Introduction\nA smaller analysis done towards the beginning of the project. CheckM and CheckM2 analyses were done on the genomic samples downloaded from the NCBI largely for the purposes of data exploration and practice, with a side aim of comparing and contrasting the two programmes, as from what I had read CheckM2 was not a direct predecessor to Check M.\n\n\n3.2.2 Methods\nUsing this script I ran a slurm job on hawk under the lineage_wf of CheckM for all 10 Bangor-made samples, this took just 4 minutes. I also worked on exporting the data I want to tabulate off of hawk. The past way I did this was by manually entering each file and noting down the important characteristics. However, because there are going to be more samples(and I wanted to be clever) i decided to use a more automated process. This was done by identifying different documents in the flye directories on hawk, specifically files called “assembly_info.txt” which contain the same information, but are vastly more exportable. These are stored here: cd /scratch/scw2160/02_outputs/flye_asm/flye_asm_[accession]/ using this script I exported them off of hawk.\nUsing the CheckM documentation. I found the output that i needed was bin_stats_ext.tsv. this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate. Over the course of the day i developed and improved CheckMtablegenerator.R. which creates the table layed out in results below. This uses a few packages, one of which was new to me, gt. This is a very useful package for table generation, here is some info.\n\n\n3.2.3 Results\nThe CheckM analysis produced this output directory. My export script exported all 10 “assembly_info.txt” files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise i wouldnt know which belonged to what accession. I then brought them down and stored them here.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>CheckM</span>"
     ]
   }
 ]

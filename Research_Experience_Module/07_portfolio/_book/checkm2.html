@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -133,13 +153,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gtdbtk_classify.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">CheckM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">GTDB-TK Classify</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gtdbtk_denovo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CheckM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">GTDB-TK de novo</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -163,19 +183,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./subprojects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">CheckM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Subproject</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./flye_outs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CheckM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Flye outputs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gen_prog.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">General Progress and Important Mistakes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Learning, General Progress and Important Mistakes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -200,12 +220,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">4.2</span> Methods</a>
   <ul class="collapse">
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">4.1.1</span> Methods</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4.1.2</span> Results</a></li>
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts"><span class="header-section-number">4.1.3</span> Scripts</a></li>
-  <li><a href="#comparison-of-checkm-and-checkm2" id="toc-comparison-of-checkm-and-checkm2" class="nav-link" data-scroll-target="#comparison-of-checkm-and-checkm2"><span class="header-section-number">4.1.4</span> Comparison of CheckM and CheckM2</a></li>
+  <li><a href="#checkm2-slurm-job" id="toc-checkm2-slurm-job" class="nav-link" data-scroll-target="#checkm2-slurm-job"><span class="header-section-number">4.2.1</span> CheckM2: slurm job</a></li>
+  <li><a href="#checkm2-r-table-generation" id="toc-checkm2-r-table-generation" class="nav-link" data-scroll-target="#checkm2-r-table-generation"><span class="header-section-number">4.2.2</span> CheckM2: R table generation</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4.2.3</span> Results</a></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts"><span class="header-section-number">4.2.4</span> Scripts</a></li>
+  <li><a href="#comparison-of-checkm-and-checkm2" id="toc-comparison-of-checkm-and-checkm2" class="nav-link" data-scroll-target="#comparison-of-checkm-and-checkm2"><span class="header-section-number">4.2.5</span> Comparison of CheckM and CheckM2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -234,42 +256,168 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
-<p><a href="https://www.nature.com/articles/s41592-023-01940-w">CheckM2</a> is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination.</p>
-<section id="methods" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="methods"><span class="header-section-number">4.1.1</span> Methods</h3>
-<section id="checkm2-slurm-job" class="level4" data-number="4.1.1.1">
-<h4 data-number="4.1.1.1" class="anchored" data-anchor-id="checkm2-slurm-job"><span class="header-section-number">4.1.1.1</span> CheckM2: slurm job</h4>
-<p>Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let’s see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. <a href="https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/run_checkm2TN.sh">run_checkm2TN.sh</a>.</p>
+<p>CheckM2 is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination <span class="citation" data-cites="chklovski2023">(<a href="references.html#ref-chklovski2023" role="doc-biblioref">Chklovski et al. 2023</a>)</span>.</p>
 </section>
-<section id="checkm2-r-table-generation" class="level4" data-number="4.1.1.2">
-<h4 data-number="4.1.1.2" class="anchored" data-anchor-id="checkm2-r-table-generation"><span class="header-section-number">4.1.1.2</span> CheckM2: R table generation</h4>
-<p>This started with doing <code>cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228</code> to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, <a href="https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/CheckM2_20241228">here.</a> Then, i began work on the R file to turn the <code>quality_report.tsv</code> file. This file was formatted very well, so turning it into a table was very simple, done in <a href="https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/CheckM2tablegenerator.R">CheckM2tablegenerator.R.</a> This produced [Table 4: CheckM2]</p>
-<p>Note: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.</p>
+<section id="methods" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">4.2</span> Methods</h2>
+<section id="checkm2-slurm-job" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="checkm2-slurm-job"><span class="header-section-number">4.2.1</span> CheckM2: slurm job</h3>
+<p>I used the script <a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/run_checkm2TN.sh">run_checkm2TN.sh</a> to run CheckM2 on all 10 fasta files at once.</p>
 </section>
-</section>
-<section id="results" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="results"><span class="header-section-number">4.1.2</span> Results</h3>
-<div class="cell" data-layout-align="center">
-<div id="fig-m2" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<section id="checkm2-r-table-generation" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="checkm2-r-table-generation"><span class="header-section-number">4.2.2</span> CheckM2: R table generation</h3>
+<p>The CheckM2 job produced a <a href="https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/CheckM2_20241228">set of files</a>:</p>
+<div class="cell">
+<div id="tbl-files" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.1: CheckM2 output files
+</figcaption>
+<div aria-describedby="tbl-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">checkM2comparison.xlsx</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cumcomb.csv</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">diamond_output</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">diamondko.csv</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">eggnogko.csv</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">protein_files</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">quality_report.tsv</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">uniquecomp.csv</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The file I needed was <code>quality_report.tsv</code>, which gives info on each sample: - Completeness - Contamination - Completeness Model Used<br>
+- Translation Table Used</p>
+<div class="cell">
+<div id="fig-quality" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="vvvjgmkwbn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vvvjgmkwbn table {
+<div aria-describedby="fig-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 26%">
+<col style="width: 18%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">Completeness</th>
+<th style="text-align: right;">Contamination</th>
+<th style="text-align: left;">Completeness_Model_Used</th>
+<th style="text-align: right;">Translation_Table_Used</th>
+<th style="text-align: left;">Additional_Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">flye_asm_1Dt100g_part2</td>
+<td style="text-align: right;">78.42</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: left;">Neural Network (Specific Model)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">flye_asm_1Dt100h_part2</td>
+<td style="text-align: right;">99.12</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: left;">Gradient Boost (General Model)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">flye_asm_1Dt1h_part2</td>
+<td style="text-align: right;">100.00</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: left;">Neural Network (Specific Model)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">flye_asm_1Dt2d_part2</td>
+<td style="text-align: right;">100.00</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: left;">Neural Network (Specific Model)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">flye_asm_2Dt1e_part2</td>
+<td style="text-align: right;">48.29</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: left;">Neural Network (Specific Model)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Quality Report
+</figcaption>
+</figure>
+</div>
+</div>
+<p>I created an R script<a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R">CheckM2tablegenerator.R.</a> This produced <a href="#tbl-m2" class="quarto-xref">Table&nbsp;<span>4.2</span></a></p>
+<p>Note: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see <a href="gen_prog.html" class="quarto-xref"><span>Chapter 12</span></a></p>
+</section>
+<section id="results" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="results"><span class="header-section-number">4.2.3</span> Results</h3>
+<div class="cell" data-tbl-align="center">
+<div id="tbl-m2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the skin microbiome of <em>Dendrobates tinctorius</em>
+</figcaption>
+<div aria-describedby="tbl-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="ncbrucirxi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ncbrucirxi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vvvjgmkwbn thead, #vvvjgmkwbn tbody, #vvvjgmkwbn tfoot, #vvvjgmkwbn tr, #vvvjgmkwbn td, #vvvjgmkwbn th {
+#ncbrucirxi thead, #ncbrucirxi tbody, #ncbrucirxi tfoot, #ncbrucirxi tr, #ncbrucirxi td, #ncbrucirxi th {
   border-style: none;
 }
 
-#vvvjgmkwbn p {
+#ncbrucirxi p {
   margin: 0;
   padding: 0;
 }
 
-#vvvjgmkwbn .gt_table {
+#ncbrucirxi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -295,12 +443,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D5D5D5;
 }
 
-#vvvjgmkwbn .gt_caption {
+#ncbrucirxi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vvvjgmkwbn .gt_title {
+#ncbrucirxi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -312,7 +460,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#vvvjgmkwbn .gt_subtitle {
+#ncbrucirxi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -324,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#vvvjgmkwbn .gt_heading {
+#ncbrucirxi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -336,13 +484,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vvvjgmkwbn .gt_bottom_border {
+#ncbrucirxi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#vvvjgmkwbn .gt_col_headings {
+#ncbrucirxi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -357,7 +505,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vvvjgmkwbn .gt_col_heading {
+#ncbrucirxi .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -377,7 +525,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#vvvjgmkwbn .gt_column_spanner_outer {
+#ncbrucirxi .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -389,15 +537,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#vvvjgmkwbn .gt_column_spanner_outer:first-child {
+#ncbrucirxi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vvvjgmkwbn .gt_column_spanner_outer:last-child {
+#ncbrucirxi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vvvjgmkwbn .gt_column_spanner {
+#ncbrucirxi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -409,11 +557,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#vvvjgmkwbn .gt_spanner_row {
+#ncbrucirxi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vvvjgmkwbn .gt_group_heading {
+#ncbrucirxi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -439,7 +587,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#vvvjgmkwbn .gt_empty_group_heading {
+#ncbrucirxi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -454,15 +602,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#vvvjgmkwbn .gt_from_md > :first-child {
+#ncbrucirxi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vvvjgmkwbn .gt_from_md > :last-child {
+#ncbrucirxi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vvvjgmkwbn .gt_row {
+#ncbrucirxi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -481,7 +629,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#vvvjgmkwbn .gt_stub {
+#ncbrucirxi .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -494,7 +642,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vvvjgmkwbn .gt_stub_row_group {
+#ncbrucirxi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -508,15 +656,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#vvvjgmkwbn .gt_row_group_first td {
+#ncbrucirxi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vvvjgmkwbn .gt_row_group_first th {
+#ncbrucirxi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vvvjgmkwbn .gt_summary_row {
+#ncbrucirxi .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -526,16 +674,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vvvjgmkwbn .gt_first_summary_row {
+#ncbrucirxi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#vvvjgmkwbn .gt_first_summary_row.thick {
+#ncbrucirxi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vvvjgmkwbn .gt_last_summary_row {
+#ncbrucirxi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -545,7 +693,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D5D5D5;
 }
 
-#vvvjgmkwbn .gt_grand_summary_row {
+#ncbrucirxi .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -555,7 +703,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vvvjgmkwbn .gt_first_grand_summary_row {
+#ncbrucirxi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -565,7 +713,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D5D5D5;
 }
 
-#vvvjgmkwbn .gt_last_grand_summary_row_top {
+#ncbrucirxi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -575,11 +723,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D5D5D5;
 }
 
-#vvvjgmkwbn .gt_striped {
+#ncbrucirxi .gt_striped {
   background-color: #F4F4F4;
 }
 
-#vvvjgmkwbn .gt_table_body {
+#ncbrucirxi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -588,7 +736,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D5D5D5;
 }
 
-#vvvjgmkwbn .gt_footnotes {
+#ncbrucirxi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -602,7 +750,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vvvjgmkwbn .gt_footnote {
+#ncbrucirxi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -611,7 +759,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vvvjgmkwbn .gt_sourcenotes {
+#ncbrucirxi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -625,7 +773,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vvvjgmkwbn .gt_sourcenote {
+#ncbrucirxi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -633,77 +781,77 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vvvjgmkwbn .gt_left {
+#ncbrucirxi .gt_left {
   text-align: left;
 }
 
-#vvvjgmkwbn .gt_center {
+#ncbrucirxi .gt_center {
   text-align: center;
 }
 
-#vvvjgmkwbn .gt_right {
+#ncbrucirxi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vvvjgmkwbn .gt_font_normal {
+#ncbrucirxi .gt_font_normal {
   font-weight: normal;
 }
 
-#vvvjgmkwbn .gt_font_bold {
+#ncbrucirxi .gt_font_bold {
   font-weight: bold;
 }
 
-#vvvjgmkwbn .gt_font_italic {
+#ncbrucirxi .gt_font_italic {
   font-style: italic;
 }
 
-#vvvjgmkwbn .gt_super {
+#ncbrucirxi .gt_super {
   font-size: 65%;
 }
 
-#vvvjgmkwbn .gt_footnote_marks {
+#ncbrucirxi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vvvjgmkwbn .gt_asterisk {
+#ncbrucirxi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vvvjgmkwbn .gt_indent_1 {
+#ncbrucirxi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vvvjgmkwbn .gt_indent_2 {
+#ncbrucirxi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vvvjgmkwbn .gt_indent_3 {
+#ncbrucirxi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vvvjgmkwbn .gt_indent_4 {
+#ncbrucirxi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vvvjgmkwbn .gt_indent_5 {
+#ncbrucirxi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vvvjgmkwbn .katex-display {
+#ncbrucirxi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vvvjgmkwbn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ncbrucirxi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="Name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Accession</th>
@@ -805,40 +953,42 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the skin microbiome of <em>Dendrobates tinctorius</em>
-</figcaption>
+</div>
 </figure>
 </div>
 </div>
 <p>This is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.</p>
 </section>
-<section id="scripts" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="scripts"><span class="header-section-number">4.1.3</span> Scripts</h3>
+<section id="scripts" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="scripts"><span class="header-section-number">4.2.4</span> Scripts</h3>
 </section>
-<section id="comparison-of-checkm-and-checkm2" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="comparison-of-checkm-and-checkm2"><span class="header-section-number">4.1.4</span> Comparison of CheckM and CheckM2</h3>
-<div class="cell" data-layout-align="center">
-<div id="fig-mm2" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mm2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="qzfgqabjrb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qzfgqabjrb table {
+<section id="comparison-of-checkm-and-checkm2" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="comparison-of-checkm-and-checkm2"><span class="header-section-number">4.2.5</span> Comparison of CheckM and CheckM2</h3>
+<div class="cell" data-tbl-align="center">
+<div id="tbl-mm2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mm2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3
+</figcaption>
+<div aria-describedby="tbl-mm2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="rhjxqyvjcs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rhjxqyvjcs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qzfgqabjrb thead, #qzfgqabjrb tbody, #qzfgqabjrb tfoot, #qzfgqabjrb tr, #qzfgqabjrb td, #qzfgqabjrb th {
+#rhjxqyvjcs thead, #rhjxqyvjcs tbody, #rhjxqyvjcs tfoot, #rhjxqyvjcs tr, #rhjxqyvjcs td, #rhjxqyvjcs th {
   border-style: none;
 }
 
-#qzfgqabjrb p {
+#rhjxqyvjcs p {
   margin: 0;
   padding: 0;
 }
 
-#qzfgqabjrb .gt_table {
+#rhjxqyvjcs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -864,12 +1014,12 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-left-color: #D5D5D5;
 }
 
-#qzfgqabjrb .gt_caption {
+#rhjxqyvjcs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qzfgqabjrb .gt_title {
+#rhjxqyvjcs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -881,7 +1031,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-bottom-width: 0;
 }
 
-#qzfgqabjrb .gt_subtitle {
+#rhjxqyvjcs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -893,7 +1043,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-top-width: 0;
 }
 
-#qzfgqabjrb .gt_heading {
+#rhjxqyvjcs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -905,13 +1055,13 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-right-color: #D3D3D3;
 }
 
-#qzfgqabjrb .gt_bottom_border {
+#rhjxqyvjcs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#qzfgqabjrb .gt_col_headings {
+#rhjxqyvjcs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -926,7 +1076,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-right-color: #D3D3D3;
 }
 
-#qzfgqabjrb .gt_col_heading {
+#rhjxqyvjcs .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -946,7 +1096,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   overflow-x: hidden;
 }
 
-#qzfgqabjrb .gt_column_spanner_outer {
+#rhjxqyvjcs .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -958,15 +1108,15 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   padding-right: 4px;
 }
 
-#qzfgqabjrb .gt_column_spanner_outer:first-child {
+#rhjxqyvjcs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qzfgqabjrb .gt_column_spanner_outer:last-child {
+#rhjxqyvjcs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qzfgqabjrb .gt_column_spanner {
+#rhjxqyvjcs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -978,11 +1128,11 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   width: 100%;
 }
 
-#qzfgqabjrb .gt_spanner_row {
+#rhjxqyvjcs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qzfgqabjrb .gt_group_heading {
+#rhjxqyvjcs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1008,7 +1158,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   text-align: left;
 }
 
-#qzfgqabjrb .gt_empty_group_heading {
+#rhjxqyvjcs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1023,15 +1173,15 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   vertical-align: middle;
 }
 
-#qzfgqabjrb .gt_from_md > :first-child {
+#rhjxqyvjcs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qzfgqabjrb .gt_from_md > :last-child {
+#rhjxqyvjcs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qzfgqabjrb .gt_row {
+#rhjxqyvjcs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1050,7 +1200,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   overflow-x: hidden;
 }
 
-#qzfgqabjrb .gt_stub {
+#rhjxqyvjcs .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1063,7 +1213,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   padding-right: 5px;
 }
 
-#qzfgqabjrb .gt_stub_row_group {
+#rhjxqyvjcs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1077,15 +1227,15 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   vertical-align: top;
 }
 
-#qzfgqabjrb .gt_row_group_first td {
+#rhjxqyvjcs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qzfgqabjrb .gt_row_group_first th {
+#rhjxqyvjcs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qzfgqabjrb .gt_summary_row {
+#rhjxqyvjcs .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -1095,16 +1245,16 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   padding-right: 5px;
 }
 
-#qzfgqabjrb .gt_first_summary_row {
+#rhjxqyvjcs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#qzfgqabjrb .gt_first_summary_row.thick {
+#rhjxqyvjcs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qzfgqabjrb .gt_last_summary_row {
+#rhjxqyvjcs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1114,7 +1264,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-bottom-color: #D5D5D5;
 }
 
-#qzfgqabjrb .gt_grand_summary_row {
+#rhjxqyvjcs .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -1124,7 +1274,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   padding-right: 5px;
 }
 
-#qzfgqabjrb .gt_first_grand_summary_row {
+#rhjxqyvjcs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1134,7 +1284,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-top-color: #D5D5D5;
 }
 
-#qzfgqabjrb .gt_last_grand_summary_row_top {
+#rhjxqyvjcs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1144,11 +1294,11 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-bottom-color: #D5D5D5;
 }
 
-#qzfgqabjrb .gt_striped {
+#rhjxqyvjcs .gt_striped {
   background-color: #F4F4F4;
 }
 
-#qzfgqabjrb .gt_table_body {
+#rhjxqyvjcs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1157,7 +1307,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-bottom-color: #D5D5D5;
 }
 
-#qzfgqabjrb .gt_footnotes {
+#rhjxqyvjcs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1171,7 +1321,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-right-color: #D3D3D3;
 }
 
-#qzfgqabjrb .gt_footnote {
+#rhjxqyvjcs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1180,7 +1330,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   padding-right: 5px;
 }
 
-#qzfgqabjrb .gt_sourcenotes {
+#rhjxqyvjcs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1194,7 +1344,7 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   border-right-color: #D3D3D3;
 }
 
-#qzfgqabjrb .gt_sourcenote {
+#rhjxqyvjcs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1202,77 +1352,77 @@ Figure&nbsp;4.1: Quality analysis from CheckM2 based on samples taken from the s
   padding-right: 5px;
 }
 
-#qzfgqabjrb .gt_left {
+#rhjxqyvjcs .gt_left {
   text-align: left;
 }
 
-#qzfgqabjrb .gt_center {
+#rhjxqyvjcs .gt_center {
   text-align: center;
 }
 
-#qzfgqabjrb .gt_right {
+#rhjxqyvjcs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qzfgqabjrb .gt_font_normal {
+#rhjxqyvjcs .gt_font_normal {
   font-weight: normal;
 }
 
-#qzfgqabjrb .gt_font_bold {
+#rhjxqyvjcs .gt_font_bold {
   font-weight: bold;
 }
 
-#qzfgqabjrb .gt_font_italic {
+#rhjxqyvjcs .gt_font_italic {
   font-style: italic;
 }
 
-#qzfgqabjrb .gt_super {
+#rhjxqyvjcs .gt_super {
   font-size: 65%;
 }
 
-#qzfgqabjrb .gt_footnote_marks {
+#rhjxqyvjcs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qzfgqabjrb .gt_asterisk {
+#rhjxqyvjcs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qzfgqabjrb .gt_indent_1 {
+#rhjxqyvjcs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qzfgqabjrb .gt_indent_2 {
+#rhjxqyvjcs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qzfgqabjrb .gt_indent_3 {
+#rhjxqyvjcs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qzfgqabjrb .gt_indent_4 {
+#rhjxqyvjcs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qzfgqabjrb .gt_indent_5 {
+#rhjxqyvjcs .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qzfgqabjrb .katex-display {
+#rhjxqyvjcs .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qzfgqabjrb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rhjxqyvjcs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 20%">
@@ -1378,14 +1528,17 @@ CheckM2/0.1.3
 
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mm2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3
-</figcaption>
+</div>
 </figure>
 </div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-chklovski2023" class="csl-entry" role="listitem">
+Chklovski, Alex, Donovan H. Parks, Ben J. Woodcroft, and Gene W. Tyson. 2023. <span>“CheckM2: A Rapid, Scalable and Accurate Tool for Assessing Microbial Genome Quality Using Machine Learning.”</span> <em>Nature Methods</em> 20 (8): 1203–12. <a href="https://doi.org/10.1038/s41592-023-01940-w">https://doi.org/10.1038/s41592-023-01940-w</a>.
+</div>
+</div>
 </section>
 </section>
 
@@ -1814,8 +1967,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gtdbtk_classify.html" class="pagination-link" aria-label="CheckM">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">CheckM</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./gtdbtk_classify.html" class="pagination-link" aria-label="GTDB-TK Classify">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">GTDB-TK Classify</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

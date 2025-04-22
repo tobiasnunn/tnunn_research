@@ -4,26 +4,69 @@
 
 CheckM2 is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination [@chklovski2023].
 
-### Methods
+## Methods
 
-#### CheckM2: slurm job
+### CheckM2: slurm job
 
-Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let's see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/run_checkm2TN.sh).
+I used the script [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/run_checkm2TN.sh) to run CheckM2 on all 10 fasta files at once.
 
-#### CheckM2: R table generation
+### CheckM2: R table generation
 
-This started with doing `cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228` to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, [here.](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/CheckM2_20241228) Then, i began work on the R file to turn the `quality_report.tsv` file. This file was formatted very well, so turning it into a table was very simple, done in [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/CheckM2tablegenerator.R) This produced \[Table 4: CheckM2\]
+The CheckM2 job produced a [set of files](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/CheckM2_20241228):
 
-Note: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.
+```{r checkm2_files}
+#| echo: false
+#| label: tbl-files
+#| tbl-cap: "CheckM2 output files"
+
+filepath <- "../02_middle-analysis_outputs/CheckM2_20241228"
+
+# List files in a directory
+files <- list.files(path = filepath, full.names = FALSE)
+
+
+file_info <- data.frame(
+  Filename = files
+)
+
+# Display as a formatted table
+knitr::kable(file_info)
+
+```
+
+
+The file I needed was `quality_report.tsv`, which gives info on each sample:
+- Completeness
+- Contamination
+- Completeness Model Used	
+- Translation Table Used
+
+
+```{r quality_report}
+#| echo: false
+#| label: fig-quality
+#| fig-cap: "Quality Report"
+
+
+tsv_data <- read.delim("../02_middle-analysis_outputs/CheckM2_20241228/quality_report.tsv", sep = "\t", header = TRUE, nrows = 5)  # Preview first 5 rows
+
+knitr::kable(tsv_data)
+
+```
+
+
+I created an R script[CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R) This produced @tbl-m2
+
+Note: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see @sec-genprog
 
 ### Results
 
 ```{r checkm2, echo=FALSE, warning=FALSE}
 #| echo: FALSE
 #| warning: FALSE
-#| label: fig-m2
-#| fig-align: center
-#| fig-cap: "Quality analysis from CheckM2 based on samples taken from the skin microbiome of *Dendrobates tinctorius*"
+#| label: tbl-m2
+#| tbl-align: center
+#| tbl-cap: "Quality analysis from CheckM2 based on samples taken from the skin microbiome of *Dendrobates tinctorius*"
 
 library(tidyverse)
 library(gt)
@@ -70,9 +113,9 @@ This is the table of CheckM2 analysis, there are many differences in which field
 
 ```{r m_vs_m2, echo=FALSE, warning=FALSE}
 #| echo: FALSE
-#| label: fig-mm2
-#| fig-align: center
-#| fig-cap: "Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3"
+#| label: tbl-mm2
+#| tbl-align: center
+#| tbl-cap: "Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3"
 
 #----------------------combi table gen-------------------------------------
 checkm <- read.csv("../03_final_outputs/metadata_and_quality_tables/checkm.csv")
