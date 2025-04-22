@@ -4,7 +4,7 @@ project:
 book:
   title: "ENS-2002 Research Experience Portfolio"
   author: "Tobias Nunn"
-  date: "22/04/2025"
+  date: "2025-04-22"
   chapters:
     - index.qmd
     - summer_work.qmd
