@@ -2,6 +2,6 @@
 
 ## Introduction
  
-* what is an API
-NCBI REST APIs
+- what is an API
+- NCBI REST APIs
 

@@ -72,11 +72,11 @@
   {
     "objectID": "checkm2.html",
     "href": "checkm2.html",
-    "title": "4  CheckM",
+    "title": "4  CheckM2",
     "section": "",
-    "text": "in the summer i had a bahama mama",
+    "text": "4.1 Introduction\nCheckM2 is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
     ]
   },
   {
@@ -194,7 +194,7 @@
     "href": "eggnogmapper_proto.html#process-optimisation",
     "title": "8  EggNOG-mapper process - prototype",
     "section": "8.2 Process Optimisation",
-    "text": "8.2 Process Optimisation\n\neggNOG-mapper requires a lot of resources and can take several hours to complete a single job. I wanted to use the same parameters that the online version of eggNOG-mapper uses, i.e. –evalue 0.001 –score 60 –pident 40 –query_cover 20 –subject_cover 20 so I didn’t change them. I did change slurm parameters such as:\n\n\nntasks=5\n\ncpus-per-task=10\n\ntime=12:00:00\n\nmem=50g\n\nAfter a lot of experimentation, the values above seemed to give me the best result. [NB put in the real values, I just chose a random script]\n\nAs the eggNOG-mapper jobs can take a long time to run, I needed a way to be notified when they had finished without just logging back into hawk. I discovered you can set mail parameters in the slurm script:\n\n\nmail-user=0rtpjri2@anonaddy.me\nmail-type=ALL\n\n\nBatching with control files You can only have 20 jobs in the queue on hawk at any one time, so I used a script to create ‘control files’. These contained two items per line:\n\n\nthe accession number\nthe fasta file name\n\nI created a bash script called slurmsquared.sh, this script loops over the control files line by line and then executes the slurm script ‘eggnogslurmrunner.sh’, passing in the accession and file name as parameters. This script creates the slurm job to actually run eggNOG-mapper.\nThis way, all I had to do to process each batch of 20 was upload a new control file and then execute slurmsquared, telling it which control file to look at.\n\nExtract annotation Excel files eggNOG-mapper produces a lot of files but for the heatmaps I needed the Excel file which had the accession at the beginning and then emapper.annotations.xlsx. I created a script called eggnog_annotation_getter.sh to copy all the Excel files out of their main results directory into a separate folder, where I could download them in batches.\nSeparate the post-eggNOG process into different R scripts Once the KO values are extracted from each eggNOG-mapper annotation file, they go through a process in the Microbiome R package called enrichKO. This takes some time to run. Separating out the steps into different scripts meant I didn’t have to re-run the enrichment process but instead it could write out tsv files that I then used in the later steps to create the heatmap.\n\n[get this bit from the notebook] The new part1_enrich focuses purely on enriching the output files and sending those outputs into .tsv files that part2_aggregate can now read in and aggregate, producing the output table needed in the unmodified (but renamed) part3_heatmap.",
+    "text": "8.2 Process Optimisation\n\neggNOG-mapper requires a lot of resources and can take several hours to complete a single job. I wanted to use the same parameters that the online version of eggNOG-mapper uses, i.e. --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 so I didn’t change them. I did change slurm parameters such as:\n\n\nntasks=2\n\ncpus-per-task=25\n\ntime=01:00:00\n\nmem=45g\n\nAfter a lot of experimentation, the values above seemed to give me the best result. I used seff to check I was not requesting more resources on hawk than I needed.\n\nAs the eggNOG-mapper jobs can take a long time to run, I needed a way to be notified when they had finished without just logging back into hawk. I discovered you can set mail parameters in the slurm script:\n\n\nmail-user=0rtpjri2@anonaddy.me\nmail-type=ALL\n\n\nBatching with control files You can only have 20 jobs in the queue on hawk at any one time, so I used a script to create ‘control files’. These contained two items per line:\n\n\nthe accession number\nthe fasta file name\n\nI created a bash script called slurmsquared.sh, this script loops over the control files line by line and then executes the slurm script eggnogslurmrunner.sh, passing in the accession and file name as parameters. This script creates the slurm job to actually run eggNOG-mapper.\nThis way, all I had to do to process each batch of 20 was upload a new control file and then execute slurmsquared, telling it which control file to look at.\n\nExtract annotation Excel files eggNOG-mapper produces a lot of files but for the heatmaps I needed the Excel file which had the accession at the beginning and then emapper.annotations.xlsx. I created a script called eggnog_annotation_getter.sh to copy all the Excel files out of their main results directory into a separate folder, where I could download them in batches.\nSeparate the post-eggNOG process into different R scripts Once the KO values are extracted from each eggNOG-mapper annotation file, they go through a process in the Microbiome R package called enrichKO. This takes some time to run. Separating out the steps into different scripts meant I didn’t have to re-run the enrichment process but instead it could write out tsv files that I then used in the later steps to create the heatmap.\n\nThe new part1_enrich focuses purely on enriching the output files and sending those outputs into .tsv files that part2_aggregate can now read in and aggregate, producing the output table needed in the unmodified (but renamed) part3_heatmap.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
     ]
@@ -214,9 +214,29 @@
     "href": "ncbi.html#introduction",
     "title": "7  NCBI APIs",
     "section": "",
-    "text": "what is an API NCBI REST APIs",
+    "text": "what is an API\nNCBI REST APIs",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>NCBI APIs</span>"
+    ]
+  },
+  {
+    "objectID": "eggnogmapper_proto.html#results",
+    "href": "eggnogmapper_proto.html#results",
+    "title": "8  EggNOG-mapper process - prototype",
+    "section": "8.3 Results",
+    "text": "8.3 Results\nThe prototype phase produced the following heatmaps.\n\n\n\n\n\n\n\n\n\n\n\n(a) Aesthetic 1\n\n\n\n\n\n\n\n\n\n\n\n(b) Aesthetic 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Aesthetic 3\n\n\n\n\n\n\n\nFigure 8.1: Examples of heatmaps created during prototype phase",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
+    ]
+  },
+  {
+    "objectID": "checkm2.html#introduction",
+    "href": "checkm2.html#introduction",
+    "title": "4  CheckM2",
+    "section": "",
+    "text": "4.1.1 Methods\n\n4.1.1.1 CheckM2: slurm job\nJust before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let’s see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. run_checkm2TN.sh.\n\n\n4.1.1.2 CheckM2: R table generation\nThis started with doing cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228 to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, here. Then, i began work on the R file to turn the quality_report.tsv file. This file was formatted very well, so turning it into a table was very simple, done in CheckM2tablegenerator.R. This produced [Table 4: CheckM2]\nNote: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.\n\n\n\n4.1.2 Results\n\n\n\n\n\n\n\n\n\n\nAccession\nCompleteness\nContamination\nCompleteness model used\nTranslation table used\nAdditional notes\n\n\n\n\n1Dt1h\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt2d\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1l\n100.00\n0.27\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2c\n99.94\n0.39\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2j\n99.80\n0.00\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100h\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\n3Dt1c\n98.34\n0.86\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2h\n86.04\n0.10\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100g\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1e\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\nSource: CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.1: Quality analysis from CheckM2 based on samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\nThis is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.\n\n\n4.1.3 Scripts\n\n\n4.1.4 Comparison of CheckM and CheckM2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAccession\n\nCheckM/1.1.3\n\n\nCheckM2/0.1.3\n\n\n\nCompleteness\nContamination\nCompleteness\nContamination\n\n\n\n\n1Dt100g\n76.77\n0.00\n78.42\n0.33\n\n\n1Dt100h\n98.84\n0.19\n99.12\n0.00\n\n\n1Dt1h\n100.00\n0.00\n100.00\n0.31\n\n\n1Dt2d\n100.00\n0.90\n100.00\n0.87\n\n\n2Dt1e\n44.74\n0.00\n48.29\n0.08\n\n\n2Dt1l\n98.82\n2.32\n100.00\n0.27\n\n\n3Dt1c\n97.23\n1.19\n98.34\n0.86\n\n\n3Dt2c\n95.75\n0.85\n99.94\n0.39\n\n\n3Dt2h\n87.98\n0.51\n86.04\n0.10\n\n\n3Dt2j\n96.19\n1.21\n99.80\n0.00\n\n\n\nSource: CheckM lineage_wf performed on 2024-12-25 CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.2: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
     ]
   }
 ]
