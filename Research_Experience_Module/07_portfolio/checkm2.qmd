@@ -1,3 +1,126 @@
-# CheckM
+# CheckM2
 
-in the summer i had a bahama mama
+## Introduction
+
+[CheckM2](https://www.nature.com/articles/s41592-023-01940-w) is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination.
+
+### Methods
+
+#### CheckM2: slurm job
+
+Just before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let's see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/run_checkm2TN.sh).
+
+#### CheckM2: R table generation
+
+This started with doing `cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228` to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, [here.](https://github.com/tobiasnunn/tnunn_research/tree/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/02_middle-analysis_outputs/CheckM2_20241228) Then, i began work on the R file to turn the `quality_report.tsv` file. This file was formatted very well, so turning it into a table was very simple, done in [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/b5c2f08cd3b2b0110d531ca9b3305cdde62d0797/00_scripts/CheckM2tablegenerator.R) This produced \[Table 4: CheckM2\]
+
+Note: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.
+
+### Results
+
+```{r checkm2, echo=FALSE, warning=FALSE}
+#| echo: FALSE
+#| warning: FALSE
+#| label: fig-m2
+#| fig-align: center
+#| fig-cap: "Quality analysis from CheckM2 based on samples taken from the skin microbiome of *Dendrobates tinctorius*"
+
+library(tidyverse)
+library(gt)
+
+checkm2 <- read.csv("../03_final_outputs/metadata_and_quality_tables/checkm2.csv")
+checkm2 %>%
+  arrange(desc(Completeness)) %>%
+  gt()  %>%
+  tab_source_note(source_note = "Source: CheckM2 predict performed on 2024-12-28") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  data_color(
+    columns = Completeness,
+    method = "numeric",
+    palette = "Blues",
+    domain = c(90, 100),
+    reverse = FALSE
+  ) %>%
+   data_color(
+    columns = Contamination,
+    method = "numeric",
+    palette = "Oranges",
+    domain = c(0, 3),
+    reverse = FALSE
+  ) %>%
+ #tab_header(
+  #  title = "Table 4 - quality analysis from CheckM2",
+   # subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
+#  ) %>%
+  cols_label(Name = "Accession",
+             Completeness_Model_Used = "Completeness model used",
+             Translation_Table_Used = "Translation table used",
+             Additional_Notes = "Additional notes") %>%
+  cols_width(
+    Completeness_Model_Used ~ px(250)
+  )
+```
+
+This is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.
+
+### Scripts
+
+### Comparison of CheckM and CheckM2
+
+```{r m_vs_m2, echo=FALSE, warning=FALSE}
+#| echo: FALSE
+#| label: fig-mm2
+#| fig-align: center
+#| fig-cap: "Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3"
+
+#----------------------combi table gen-------------------------------------
+checkm <- read.csv("../03_final_outputs/metadata_and_quality_tables/checkm.csv")
+checkm2 <- read.csv("../03_final_outputs/metadata_and_quality_tables/checkm2.csv")
+names(checkm2)[names(checkm2) == "Name"] <- "accession"
+combicheck <- merge(checkm, checkm2, by = "accession", all = TRUE)
+#----------------------combi table product---------------------------------
+columnnames <- c("accession", "Completeness.x", "Contamination.x", "Completeness.y", "Contamination.y")
+combicheck[columnnames] %>%
+  arrange(accession) %>%
+  gt() %>%
+  fmt_number(
+    columns = c(Completeness.x, Contamination.x, Completeness.y, Contamination.y),
+    decimals = 2,
+    use_seps = TRUE)  %>%
+  tab_source_note(source_note = md("Source:  
+                  CheckM lineage_wf performed on 2024-12-25  
+                  CheckM2 predict performed on 2024-12-28")) %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  data_color(
+    columns = c(Completeness.x, Completeness.y),
+    method = "numeric",
+    palette = "Blues",
+    domain = c(90, 100),
+    reverse = FALSE
+  ) %>%
+   data_color(
+    columns = c(Contamination.x, Contamination.y),
+    method = "numeric",
+    palette = "Oranges",
+    domain = c(0, 3),
+    reverse = FALSE
+  ) %>%
+ # tab_header(
+  #  title = "Table 5 - Comparison of quality metrics",
+   # subtitle = md("for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3")
+    # ) %>%
+  tab_spanner(
+    label = "CheckM/1.1.3",
+    columns = c("Completeness.x", "Contamination.x")) %>%
+  tab_spanner(
+    label = "CheckM2/0.1.3",
+    columns = c("Completeness.y", "Contamination.y")) %>%
+  cols_label(Completeness.x = "Completeness",
+         Completeness.y = "Completeness",
+         Contamination.x = "Contamination",
+         Contamination.y = "Contamination",
+         accession = "Accession")
+   
+```
