@@ -1,4 +1,4 @@
-# General Progress and Important Mistakes
+# Learning, General Progress and Important Mistakes
 
 ## Evolution of skills
 
@@ -10,11 +10,30 @@ This was good, but I then discovered that Quarto Markdown existed, from what I f
 
 This then developed even further as just recently I discovered R books existed. They are, as I understand it, a derived kind of R project that opperates like a book, with the ability to output to html multiple pages that are all linked together. I decided to make the portfolio an R book because it's size was monstrous and all of it on 1 long page was ugly. I still do not understand the full breadth of what this resource can do, but I have come a long way.
 
+### Informatic Evolution
+
+The Heatmaps are the main point of the project, and as such I have spent a lot of time on them. The first version of them was made in the summer on bacterial samples taken from insect species, including *Drosophila*. This was made using scripts that were given to me by Aaron that I adapted largely through a process of trial and error until I got a good-looking output. When I next attempted it on my own data, during the prototype, I wanted to do it myself, maybe take aspects of his code but largely start from scratch, so that is what I did.
+
+The heatmaps went through many different evolutions over time, so many so that there are details of that process in Notebooks 2, 3 and 4 devoted just to that. I found ways of making better colour schemes, using API-downloaded metadata to add groupings based on what functions the pathways had and I added the percentages to the boxes, then fixed the problem with the axis.
+
+### Resources
+
+My library of packages has increased as well. Even before the project I was confident using ggplot. However, over the course of the project I have found many packages I have found incredibly useful:
+
+-   ggplot - Great for making more detailed / visually appealing visuals than base R can accomodate
+-   Tidyverse (specifically tidyr and deplyr) - these have been very useful for data handling and transformation, in too many ways to really discuss here, but they allow for greater potential when handling data
+-   gt and flextable - Good for adding style to tables when presenting them. They each have benefits and weaknesses, so I cannot recommend one over the other
+-   httr2 - This is the package that allowed me to make API calls to the NCBI and KEGG websites, which is the reason I was able to transfer large amounts of data as quickly as I did
+
 ## Learning programs
 
 ### R
 
+My ability to both read and utilize R has increased dramatically from where I started.
+
 ### bash / slurm
+
+I now have a cursery knowledge of how to use these systems on Hawk. I am not perfect, but I am proficient enough to navigate without issue and run jobs correctly.
 
 ## Mistakes
 

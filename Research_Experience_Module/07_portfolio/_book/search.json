@@ -52,11 +52,11 @@
   {
     "objectID": "gen_prog.html",
     "href": "gen_prog.html",
-    "title": "11  General Progress and Important Mistakes",
+    "title": "12  Learning, General Progress and Important Mistakes",
     "section": "",
-    "text": "11.1 Evolution of skills",
+    "text": "12.1 Evolution of skills",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
     ]
   },
   {
@@ -142,41 +142,41 @@
   {
     "objectID": "gen_prog.html#evolution-of-skills",
     "href": "gen_prog.html#evolution-of-skills",
-    "title": "11  General Progress and Important Mistakes",
+    "title": "12  Learning, General Progress and Important Mistakes",
     "section": "",
-    "text": "11.1.1 Notebooking with R studio\nI have made much progress with my record-making ability over the course of the project. When I started, in the summer, I was hardly recording my actions at all, as I prioritised results over that, assuming it would not be important later. Then, when the year began I started recording basic notes in a word document, they were basic and sloppy, but was better than what came before. Then, at Christmas when I decided to get my act together and fix errors I had made, I decided I wanted my notes to be more detailed and meaningful, so I started recording all details that I felt could be important, dates, exact descriptions, links to files created and details of what they did and why. These, I did in an R markdown format, a new concept to me at the time it is essentially an R document that has more bells and whistles than a traditional R script, allowing for cross-referencing and text modifications like allowing for bold and italic text, and the ability to Output to either html or word depending on what is required.\nThis was good, but I then discovered that Quarto Markdown existed, from what I found online it is a direct predecessor to Rmd, so I decided to make the switch from Notebook 3 onward, this was relatively similar to Rmd, but it did bring the benefit of a link to zotero for automatic bibliography (which doesnt work great but its fun it exists, it allows me to not have to manually make in-line references). And was overall cleaner with a more updated UI. Then, I discovered R projects. Basically a way of being able to connect all the scripts to one place for better linking.\nThis then developed even further as just recently I discovered R books existed. They are, as I understand it, a derived kind of R project that opperates like a book, with the ability to output to html multiple pages that are all linked together. I decided to make the portfolio an R book because it’s size was monstrous and all of it on 1 long page was ugly. I still do not understand the full breadth of what this resource can do, but I have come a long way.",
+    "text": "12.1.1 Notebooking with R studio\nI have made much progress with my record-making ability over the course of the project. When I started, in the summer, I was hardly recording my actions at all, as I prioritised results over that, assuming it would not be important later. Then, when the year began I started recording basic notes in a word document, they were basic and sloppy, but was better than what came before. Then, at Christmas when I decided to get my act together and fix errors I had made, I decided I wanted my notes to be more detailed and meaningful, so I started recording all details that I felt could be important, dates, exact descriptions, links to files created and details of what they did and why. These, I did in an R markdown format, a new concept to me at the time it is essentially an R document that has more bells and whistles than a traditional R script, allowing for cross-referencing and text modifications like allowing for bold and italic text, and the ability to Output to either html or word depending on what is required.\nThis was good, but I then discovered that Quarto Markdown existed, from what I found online it is a direct predecessor to Rmd, so I decided to make the switch from Notebook 3 onward, this was relatively similar to Rmd, but it did bring the benefit of a link to zotero for automatic bibliography (which doesnt work great but its fun it exists, it allows me to not have to manually make in-line references). And was overall cleaner with a more updated UI. Then, I discovered R projects. Basically a way of being able to connect all the scripts to one place for better linking.\nThis then developed even further as just recently I discovered R books existed. They are, as I understand it, a derived kind of R project that opperates like a book, with the ability to output to html multiple pages that are all linked together. I decided to make the portfolio an R book because it’s size was monstrous and all of it on 1 long page was ugly. I still do not understand the full breadth of what this resource can do, but I have come a long way.\n\n\n12.1.2 Informatic Evolution\nThe Heatmaps are the main point of the project, and as such I have spent a lot of time on them. The first version of them was made in the summer on bacterial samples taken from insect species, including Drosophila. This was made using scripts that were given to me by Aaron that I adapted largely through a process of trial and error until I got a good-looking output.\n\n\n12.1.3 Resources\nMy library of packages has increased as well. Even before the project I was confident using ggplot. However, over the course of the project I have found many packages I have found incredibly useful:\n\nggplot - Great for making more detailed / visually appealing visuals than base R can accomodate\n\n\n\nTidyverse (specifically tidyr and deplyr) - these have been very useful for data handling and transformation, in too many ways to really discuss here, but they allow for greater potential when handling data\ngt and flextable - Good for adding style to tables when presenting them. They each have benefits and weaknesses, so I cannot recommend one over the other\nhttr2 - This is the package that allowed me to make API calls to the NCBI and KEGG websites, which is the reason I was able to transfer large amounts of data as quickly as I did",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
     ]
   },
   {
     "objectID": "gen_prog.html#learning-programs",
     "href": "gen_prog.html#learning-programs",
-    "title": "11  General Progress and Important Mistakes",
-    "section": "11.2 Learning programs",
-    "text": "11.2 Learning programs\n\n11.2.1 R\n\n\n11.2.2 bash / slurm",
+    "title": "12  Learning, General Progress and Important Mistakes",
+    "section": "12.2 Learning programs",
+    "text": "12.2 Learning programs\n\n12.2.1 R\n\n\n12.2.2 bash / slurm",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
     ]
   },
   {
     "objectID": "gen_prog.html#mistakes",
     "href": "gen_prog.html#mistakes",
-    "title": "11  General Progress and Important Mistakes",
-    "section": "11.3 Mistakes",
-    "text": "11.3 Mistakes\n\n11.3.1 Innitial delete\nAll the way back at the beginning of the project, in the summer, something I did on hawk deleted all of the genomic .fasta files that had been created by Aaron through Flye-asm. To this day, noone knows exactly why that happened. However, this did teach me the importance of understanding something before messing with it and not just racing to get a result out to be shown. I then took the time to get to grips with bash and command-line coding by testing on sample documents before applying commands that ran the risk of modifying the important folders.\n(I also then either made copies of all important files from then on or downloaded them and stored them in OneDrive or Github so they could be recovered, just in case.)",
+    "title": "12  Learning, General Progress and Important Mistakes",
+    "section": "12.3 Mistakes",
+    "text": "12.3 Mistakes\n\n12.3.1 Innitial delete\nAll the way back at the beginning of the project, in the summer, something I did on hawk deleted all of the genomic .fasta files that had been created by Aaron through Flye-asm. To this day, noone knows exactly why that happened. However, this did teach me the importance of understanding something before messing with it and not just racing to get a result out to be shown. I then took the time to get to grips with bash and command-line coding by testing on sample documents before applying commands that ran the risk of modifying the important folders.\n(I also then either made copies of all important files from then on or downloaded them and stored them in OneDrive or Github so they could be recovered, just in case.)",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
     ]
   },
   {
     "objectID": "gen_prog.html#next-steps",
     "href": "gen_prog.html#next-steps",
-    "title": "11  General Progress and Important Mistakes",
-    "section": "11.4 Next steps",
-    "text": "11.4 Next steps\n\n11.4.1 further analysis\nThere are several analyses I did in prototyping that I did not have the time to do on the final results that I would like to begin the dissertation with, these include:\n\nAnalysing the significance of the pathways found in the heatmaps\nmaking the other heatmap versions (like the cutdown heatmap, the “core” heatmap, etc)\nfiguring out the interactive tree\n\n\n\n11.4.2 Coding languages\nThere are a few more languages I would like to learn. Specifically Python and SQL. I have been thinking about what I would like to do for my Masters and there are select places that offer Bioinformatics, in the course of this I learnt about how many tools (including some I have used, like GTDB-Tk) are created using python and some of the courses even have researchers make their own tools. This makes me want to have at least a basic understanding of the language as I now see how it might be important in conjunction with R (also many internships ask for it as what i guess is a matter of preference), instead of one or the other. As I am going to be handling large amounts of data, I believe a smart way to store and handle it is a SQL server, so that I can make a relational database and largely do more with the data with less effort. I toyed with the idea this year, but ultimately decided I did not want to do too much at one time, and the analyses I was running were too simple to require it.",
+    "title": "12  Learning, General Progress and Important Mistakes",
+    "section": "12.4 Next steps",
+    "text": "12.4 Next steps\n\n12.4.1 further analysis\nThere are several analyses I did in prototyping that I did not have the time to do on the final results that I would like to begin the dissertation with, these include:\n\nAnalysing the significance of the pathways found in the heatmaps\nmaking the other heatmap versions (like the cutdown heatmap, the “core” heatmap, etc)\nfiguring out the interactive tree\n\n\n\n12.4.2 Coding languages\nThere are a few more languages I would like to learn. Specifically Python and SQL. I have been thinking about what I would like to do for my Masters and there are select places that offer Bioinformatics, in the course of this I learnt about how many tools (including some I have used, like GTDB-Tk) are created using python and some of the courses even have researchers make their own tools. This makes me want to have at least a basic understanding of the language as I now see how it might be important in conjunction with R (also many internships ask for it as what i guess is a matter of preference), instead of one or the other. As I am going to be handling large amounts of data, I believe a smart way to store and handle it is a SQL server, so that I can make a relational database and largely do more with the data with less effort. I toyed with the idea this year, but ultimately decided I did not want to do too much at one time, and the analyses I was running were too simple to require it.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
     ]
   },
   {
