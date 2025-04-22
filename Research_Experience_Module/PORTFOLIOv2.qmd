@@ -42,112 +42,38 @@ These samples acted as the basis of study, with many tools being used to explore
 
 # Research evidence
 
-## early work {#sec-rework}
+## CheckM
 
-### Introduction
+### lineage_wf
 
-This work started in the summer, when i had done nothing of the type before, so i had basically no idea what i was doing or what i was messing with. So i made mistakes, many mistakes. Then, i kept going, building on those mistakes until around christmas i realised i was completely out of my depth and i needed to reivaluate. My notetaking especially was crude by modern comparison. So i decided to do a reset, i believed this was important as it allowed me to start again from a more informed point, and "do things right this time". However, i did conduct analysis in the first half of the year that could be relevent, error prone as it may be. And i do not want my mistakes to be buried, they must be remembered so i do not repeat them, or so anyone else reading this does not repeat them. So i would like to dedicate section 2.0. to the mistakes i made and how i learned from them to gain skills and become a better data scientist, as i believe this step was the catalyst for all hereafter steps to be as good as they were, without these errors, i doubt i would have worked as hard to make the work i did after as good, and thats alright.
-
-here::here for good pathing
-
-proper integration of images into the notebooks
-
-(i understand if you need to dock points for this, but i think it is too important to not write down)
-
-## summer stuff (?)
-
-prototypes
-
-### Introduction
-
-This project technically started in the summer of 2024, between July and August. I was tasked with basically making basic explorations of 10 bacterial genome samples made by Bangor Researchers in labs at ECW, as I was still in my first year and did not have much experience, I made mistakes. I also did not recognise the importance of notekeeping at that point, so a record of that work does not exist.
-
-### Methods
-
-The summer work was more of a learning exercise than anything, just for me to familiarise myself with R scripting and bash and hawk so I would have a basis when properly beginning the project
-
-### Results
-
-### Scripts
-
-## Check M lineage_wf
-
-### Introduction
+#### Introduction
 
 A smaller analysis done towards the beginning of the project. CheckM and CheckM2 analyses were done on the genomic samples downloaded from the NCBI largely for the purposes of data exploration and practice, with a side aim of comparing and contrasting the two programmes, as from what I had read CheckM2 was not a direct predecessor to Check M.
 
-### Methods
+#### Methods
 
 Using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/checkmtest.sh) I ran a slurm job on hawk under the `lineage_wf` of CheckM for all 10 Bangor-made samples, this took just 4 minutes. I also worked on exporting the data I want to tabulate off of hawk. The **past** way I did this was by manually entering each file and noting down the important characteristics. However, because there are going to be more samples(and I wanted to be clever) i decided to use a more automated process. This was done by identifying different documents in the flye directories on hawk, specifically files called "assembly_info.txt" which contain the same information, but are vastly more exportable. These are stored here: cd /scratch/scw2160/02_outputs/flye_asm/flye_asm\_\[accession\]/ using [this script](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/assemblytabledatagetter.sh) I exported them off of hawk.
 
 Using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#qa). I found the output that i needed was [bin_stats_ext.tsv](https://github.com/tobiasnunn/tnunn_research/blob/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM/storage/bin_stats_ext.tsv). this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate. Over the course of the day i developed and improved [CheckMtablegenerator.R](https://github.com/tobiasnunn/tnunn_research/blob/60126045c5802ef0627e86df57e7b533ff568e9d/00_scripts/CheckMtablegenerator.R). which creates the table layed out in results below. This uses a few packages, one of which was new to me, `gt`. This is a very useful package for table generation, [here is some info](https://gt.rstudio.com/).
 
-### Results
+#### Results
 
 The CheckM analysis produced [this output directory](https://github.com/tobiasnunn/tnunn_research/tree/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM). My export script exported all 10 "assembly_info.txt" files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise i wouldnt know which belonged to what accession. I then brought them down and stored them [here.](https://github.com/tobiasnunn/tnunn_research/tree/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/05_projectdatabase/flyestuff)
 
-```{r checkm-table, echo=FALSE, warning=FALSE}
-#| echo: FALSE
-#| label: fig-m
-#| fig-align: center
-#| fig-cap: "Subset of data obtained from CheckM analysis of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality."
-
-
-library(dplyr)
-library(tidyr)
-library(tidyverse)
-library(gt)
-library(knitr)
-
-checkm <- read.csv("03_final_outputs/metadata_and_quality_tables/checkm.csv")
-columnnames <- c("accession", "marker.lineage","Completeness", "Contamination","GC","GC.std", "Genome.size", "contigs", "Longest.contig", "Coding.density", "predicted.genes")
-checkm[columnnames] %>%
-  arrange(desc(Completeness)) %>%
-  gt() %>%
-  fmt_number(
-    columns = c(Completeness, Contamination),
-    decimals = 2,
-    use_seps = TRUE) %>%
-  fmt_percent(
-    columns = c(GC, `GC.std`, `Coding.density`),
-    decimals = 3,
-    use_seps = TRUE) %>%
-  fmt_number(
-    columns = c(`Genome.size`, `predicted.genes`, `Longest.contig`),
-    decimals = 0,
-    use_seps = TRUE) %>%
-  tab_source_note(source_note = "Source: CheckM lineage_wf performed on 2024-12-25") %>%
-  opt_row_striping() %>%
-  opt_stylize(style = 5, color = "blue") %>%
-  data_color(
-    columns = Completeness,
-    method = "numeric",
-    palette = "Blues",
-    domain = c(90, 100),
-    reverse = FALSE
-  ) %>%
-   data_color(
-    columns = Contamination,
-    method = "numeric",
-    palette = "Oranges",
-    domain = c(0, 3),
-    reverse = FALSE
-  ) %>%
- # tab_header(
-  #  title = "Table 1 - subset of data obtained from CheckM analysis",
-   # subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality.")
-    #) %>% 
-  cols_label(marker.lineage = "Marker lineage",
-         GC.std = "GC std",
-         Genome.size = "Genome size",
-         Longest.contig = "Longest contig",
-         Coding.density = "Coding density",
-         predicted.genes = "Predicted genes",
-         accession = "Accession")
-   
+```{r checkm-table, echo=FALSE, warning=FALSE} #| echo: FALSE #| label: fig-m #| fig-align: center #| fig-cap: "Subset of data obtained from CheckM analysis of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality."   library(dplyr) library(tidyr) library(tidyverse) library(gt) library(knitr)  checkm <- read.csv("03_final_outputs/metadata_and_quality_tables/checkm.csv") columnnames <- c("accession", "marker.lineage","Completeness", "Contamination","GC","GC.std", "Genome.size", "contigs", "Longest.contig", "Coding.density", "predicted.genes") checkm[columnnames] %>%   arrange(desc(Completeness)) %>%   gt() %>%   fmt_number(     columns = c(Completeness, Contamination),     decimals = 2,     use_seps = TRUE) %>%   fmt_percent(     columns = c(GC, `GC.std`, `Coding.density`),     decimals = 3,     use_seps = TRUE) %>%   fmt_number(     columns = c(`Genome.size`, `predicted.genes`, `Longest.contig`),     decimals = 0,     use_seps = TRUE) %>%   tab_source_note(source_note = "Source: CheckM lineage_wf performed on 2024-12-25") %>%   opt_row_striping() %>%   opt_stylize(style = 5, color = "blue") %>%   data_color(     columns = Completeness,     method = "numeric",     palette = "Blues",     domain = c(90, 100),     reverse = FALSE   ) %>%    data_color(     columns = Contamination,     method = "numeric",     palette = "Oranges",     domain = c(0, 3),     reverse = FALSE   ) %>%  # tab_header(   #  title = "Table 1 - subset of data obtained from CheckM analysis",    # subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality.")     #) %>%    cols_label(marker.lineage = "Marker lineage",          GC.std = "GC std",          Genome.size = "Genome size",          Longest.contig = "Longest contig",          Coding.density = "Coding density",          predicted.genes = "Predicted genes",          accession = "Accession")}
 ```
 
-### Scripts
+#### Scripts
+
+## CheckM2
+
+## Flye outputs
+
+## GTDB-Tk
+
+## EggNOG-mapper
+
+## Wolbachia
 
 ## CheckM tree_qa
 
@@ -663,16 +589,6 @@ compttest
 ```
 
 Table 9 shows that the common KO values represent a very large proportion of the total KO values for both methods and all accessions, never dipping below 80%. Shapiro testing showed that a parametric test could be used for this. I decided on a Student's t-test(t(15.199) = -1.6563, p = 0.1182). As the p value is larger than 0.05, we accept the null hypothesis that the groups are not significantly different.
-
-## Innitial small analysis / comparisons
-
-### Introduction
-
-### Methods
-
-### Results
-
-### Scripts
 
 ## GTDB-TK de_novo_wf
 

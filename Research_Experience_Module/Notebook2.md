@@ -20,8 +20,6 @@ editor_options:
 </style>
 ```
 
-
-
 # EggNog-Mapper initial test analyses (2025-01-10 to 2025-01-19)
 
 ## Introduction
@@ -125,12 +123,9 @@ Aaron he agreed that the list of accessions should be cut down to remove
 groups with low sample counts, i decided to cut at the number 30, so
 groups with 29 or below are cut, as seen in these tables:
 
-
-
 ### All tables {.tabset .tabset-pills}
 
 #### Family Sphingomonadaceae
-
 
 ```{=html}
 <div id="dtrmdoyuis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -634,7 +629,6 @@ groups with 29 or below are cut, as seen in these tables:
 
 #### Family Microbacteriaceae
 
-
 ```{=html}
 <div id="udpxfuiszx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#udpxfuiszx table {
@@ -1136,7 +1130,6 @@ groups with 29 or below are cut, as seen in these tables:
 ```
 
 #### Our Genera
-
 
 ```{=html}
 <div id="swlbbwvkun" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -1791,7 +1784,6 @@ statuses:
 
 #### JSON ANI analysis
 
-
 ```{=html}
 <div id="dpoxojwghg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#dpoxojwghg table {
@@ -2282,8 +2274,7 @@ statuses:
 
 #### ANI match status analysis
 
-
-```
+```         
 ## `summarise()` has grouped output by 'taxonomy_check_status'. You can override
 ## using the `.groups` argument.
 ```
@@ -2292,11 +2283,11 @@ statuses:
 
 #### Completeness histogram
 
-![](Notebook2_files/figure-html/completeness hist-1.png)<!-- -->
+![](Notebook2_files/figure-html/completeness%20hist-1.png)<!-- -->
 
 #### Contamination histogram
 
-![](Notebook2_files/figure-html/contamination hist-1.png)<!-- -->
+![](Notebook2_files/figure-html/contamination%20hist-1.png)<!-- -->
 
 ###  {.unnumbered}
 

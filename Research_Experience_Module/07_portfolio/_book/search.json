@@ -1,0 +1,182 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "07_portfolio",
+    "section": "",
+    "text": "1 Introduction\nbanana coconut your dadas salty knuts",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "2  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "3  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "summer_work.html",
+    "href": "summer_work.html",
+    "title": "2  Summer Work",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summer Work</span>"
+    ]
+  },
+  {
+    "objectID": "gen_prog.html",
+    "href": "gen_prog.html",
+    "title": "11  General Progress and Important Mistakes",
+    "section": "",
+    "text": "11.1 Evolution of skills",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+    ]
+  },
+  {
+    "objectID": "checkm.html",
+    "href": "checkm.html",
+    "title": "3  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "checkm2.html",
+    "href": "checkm2.html",
+    "title": "4  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "gtdbtk_classify.html",
+    "href": "gtdbtk_classify.html",
+    "title": "5  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "gtdbtk_denovo.html",
+    "href": "gtdbtk_denovo.html",
+    "title": "6  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "eggnogmapper_proto.html",
+    "href": "eggnogmapper_proto.html",
+    "title": "7  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "eggnogmapper_final.html",
+    "href": "eggnogmapper_final.html",
+    "title": "8  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "subprojects.html",
+    "href": "subprojects.html",
+    "title": "9  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "flye_outs.html",
+    "href": "flye_outs.html",
+    "title": "10  CheckM",
+    "section": "",
+    "text": "in the summer i had a bahama mama",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
+    "objectID": "gen_prog.html#evolution-of-skills",
+    "href": "gen_prog.html#evolution-of-skills",
+    "title": "11  General Progress and Important Mistakes",
+    "section": "",
+    "text": "11.1.1 Notebooking with R studio\nI have made much progress with my record-making ability over the course of the project. When I started, in the summer, I was hardly recording my actions at all, as I prioritised results over that, assuming it would not be important later. Then, when the year began I started recording basic notes in a word document, they were basic and sloppy, but was better than what came before. Then, at Christmas when I decided to get my act together and fix errors I had made, I decided I wanted my notes to be more detailed and meaningful, so I started recording all details that I felt could be important, dates, exact descriptions, links to files created and details of what they did and why. These, I did in an R markdown format, a new concept to me at the time it is essentially an R document that has more bells and whistles than a traditional R script, allowing for cross-referencing and text modifications like allowing for bold and italic text, and the ability to Output to either html or word depending on what is required.\nThis was good, but I then discovered that Quarto Markdown existed, from what I found online it is a direct predecessor to Rmd, so I decided to make the switch from Notebook 3 onward, this was relatively similar to Rmd, but it did bring the benefit of a link to zotero for automatic bibliography (which doesnt work great but its fun it exists, it allows me to not have to manually make in-line references). And was overall cleaner with a more updated UI. Then, I discovered R projects. Basically a way of being able to connect all the scripts to one place for better linking.\nThis then developed even further as just recently I discovered R books existed. They are, as I understand it, a derived kind of R project that opperates like a book, with the ability to output to html multiple pages that are all linked together. I decided to make the portfolio an R book because it’s size was monstrous and all of it on 1 long page was ugly. I still do not understand the full breadth of what this resource can do, but I have come a long way.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+    ]
+  },
+  {
+    "objectID": "gen_prog.html#learning-programs",
+    "href": "gen_prog.html#learning-programs",
+    "title": "11  General Progress and Important Mistakes",
+    "section": "11.2 Learning programs",
+    "text": "11.2 Learning programs\n\n11.2.1 R\n\n\n11.2.2 bash / slurm",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+    ]
+  },
+  {
+    "objectID": "gen_prog.html#mistakes",
+    "href": "gen_prog.html#mistakes",
+    "title": "11  General Progress and Important Mistakes",
+    "section": "11.3 Mistakes",
+    "text": "11.3 Mistakes\n\n11.3.1 Innitial delete\nAll the way back at the beginning of the project, in the summer, something I did on hawk deleted all of the genomic .fasta files that had been created by Aaron through Flye-asm. To this day, noone knows exactly why that happened. However, this did teach me the importance of understanding something before messing with it and not just racing to get a result out to be shown. I then took the time to get to grips with bash and command-line coding by testing on sample documents before applying commands that ran the risk of modifying the important folders.\n(I also then either made copies of all important files from then on or downloaded them and stored them in OneDrive or Github so they could be recovered, just in case.)",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+    ]
+  },
+  {
+    "objectID": "gen_prog.html#next-steps",
+    "href": "gen_prog.html#next-steps",
+    "title": "11  General Progress and Important Mistakes",
+    "section": "11.4 Next steps",
+    "text": "11.4 Next steps\n\n11.4.1 further analysis\nThere are several analyses I did in prototyping that I did not have the time to do on the final results that I would like to begin the dissertation with, these include:\n\nAnalysing the significance of the pathways found in the heatmaps\nmaking the other heatmap versions (like the cutdown heatmap, the “core” heatmap, etc)\nfiguring out the interactive tree\n\n\n\n11.4.2 Coding languages\nThere are a few more languages I would like to learn. Specifically Python and SQL. I have been thinking about what I would like to do for my Masters and there are select places that offer Bioinformatics, in the course of this I learnt about how many tools (including some I have used, like GTDB-Tk) are created using python and some of the courses even have researchers make their own tools. This makes me want to have at least a basic understanding of the language as I now see how it might be important in conjunction with R (also many internships ask for it as what i guess is a matter of preference), instead of one or the other. As I am going to be handling large amounts of data, I believe a smart way to store and handle it is a SQL server, so that I can make a relational database and largely do more with the data with less effort. I toyed with the idea this year, but ultimately decided I did not want to do too much at one time, and the analyses I was running were too simple to require it.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>General Progress and Important Mistakes</span>"
+    ]
+  }
+]
