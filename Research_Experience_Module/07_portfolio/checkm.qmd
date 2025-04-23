@@ -23,3 +23,262 @@ Using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Geno
 ### Results
 
 The CheckM analysis produced [this output directory](https://github.com/tobiasnunn/tnunn_research/tree/0ce45bbddc271c477204cfc7c6d488a9d1d95a87/02_middle-analysis_outputs/CheckM). My export script exported all 10 "assembly_info.txt" files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise I would not know which file belonged to each accession. I then brought them down and stored them [here.](https://github.com/tobiasnunn/tnunn_research/tree/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/05_projectdatabase/flyestuff)
+
+```{r checkm-table}
+#| echo: FALSE
+#| warning: false
+#| label: tbl-m
+#| tbl-align: center
+#| tbl-cap: "Subset of data obtained from CheckM analysis of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality."
+
+
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(gt)
+library(knitr)
+
+checkm <- read.csv("../03_final_outputs/metadata_and_quality_tables/checkm.csv")
+columnnames <- c("accession", "marker.lineage","Completeness", "Contamination","GC","GC.std", "Genome.size", "contigs", "Longest.contig", "Coding.density", "predicted.genes")
+checkm[columnnames] %>%
+  arrange(desc(Completeness)) %>%
+  gt() %>%
+  fmt_number(
+    columns = c(Completeness, Contamination),
+    decimals = 2,
+    use_seps = TRUE) %>%
+  fmt_percent(
+    columns = c(GC, `GC.std`, `Coding.density`),
+    decimals = 3,
+    use_seps = TRUE) %>%
+  fmt_number(
+    columns = c(`Genome.size`, `predicted.genes`, `Longest.contig`),
+    decimals = 0,
+    use_seps = TRUE) %>%
+  tab_source_note(source_note = "Source: CheckM lineage_wf performed on 2024-12-25") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  data_color(
+    columns = Completeness,
+    method = "numeric",
+    palette = "Blues",
+    domain = c(90, 100),
+    reverse = FALSE
+  ) %>%
+   data_color(
+    columns = Contamination,
+    method = "numeric",
+    palette = "Oranges",
+    domain = c(0, 3),
+    reverse = FALSE
+  ) %>%
+ # tab_header(
+  #  title = "Table 1 - subset of data obtained from CheckM analysis",
+   # subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including metrics of quality.")
+    #) %>% 
+  cols_label(marker.lineage = "Marker lineage",
+         GC.std = "GC std",
+         Genome.size = "Genome size",
+         Longest.contig = "Longest contig",
+         Coding.density = "Coding density",
+         predicted.genes = "Predicted genes",
+         accession = "Accession")
+   
+```
+
+@tbl-m shows that CheckM could not identify lineage to genus for any sample, and only found the family in one case. 7 of the 10 samples scored above 95% for completeness, with the lowest, 2Dt1e, being under 45%, I did not know what counted as "significantly complete", so arbitrarily placed the value at 90%. There does not appear to be a correlation between completeness and contamination. Contamination is fairly low in all, none above 3% and 3 samples on 0.00%. There is a general inverse relationship between completeness and number of contigs.
+
+As mentioned, @tbl-m is a subset of the data, there was more outputted by CheckM, some of which overlaps with other analyses, but i did not know if it was relevent to include, so left it out, however, creating a new one with the omitted fields in would not be hard. This table will pair with one produced from CheckM2, because from what i've seen one is kind of an improvement on the other, but they kind of do different things, its confusing and thus why i want to do the comparison for future reference.
+
+### Conclusion
+
+The main purpose of doing this is to compare with Checkm2, so im not sure what conclusions i can get from just this, other than many of the samples look sufficiently complete and i learned a fair amount from this experience. I think this will act as a good first step to compare future analysis against, for confirmation, as many upcoming analyses will give repeat data in some areas. Some of the field, for example "GC" are odd and i dont quite understand their significance, perhaps Aaron can give more info when he gets to this part of the notebook.
+
+### Scripts
+
+-   [checkmtest.sh](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/checkmtest.sh)
+
+-   [assemblytabledatagetter.sh](https://github.com/tobiasnunn/tnunn_research/blob/6be0be8a1de6b7fd64de79c280d9641f68a0e37c/00_scripts/assemblytabledatagetter.sh)
+
+-   [CheckMtablegenerator.R](https://github.com/tobiasnunn/tnunn_research/blob/60126045c5802ef0627e86df57e7b533ff568e9d/00_scripts/CheckMtablegenerator.R)
+
+## CheckM tree_qa
+
+### Introduction
+
+In the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Workflows#lineage-specific-workflow) for lineage_wf, there are 6 functions, 5 are categorised as M (Mandetory), however a 6th "checkm tree_qa" is marked as "R" and is stated to be optional, looking closer at [this function,](https://github.com/Ecogenomics/CheckM/wiki/Genome-Quality-Commands#tree_qa) it has 5 different potential outputs that look interesting, so I figured I would give it a go and see what I could get out of it, sort of exploratory.
+
+### Methods
+
+The vast majority of the code required was already used for the original checkm bash script, so I copied it and made the modifications, producing [this script.](https://github.com/tobiasnunn/tnunn_research/blob/3d90f340592d7081d3c6e172cbc786c8b85f368f/00_scripts/checkMtreeqa.sh) I could not figure out a way to run all 5 functions at once, so I had to go into the file and change the name (because these were all outputting to one place so naming the function was required to distinguish)and -o function(how to select the desired output) for each iteration. This was not an issue however as when run as a slurm job on hawk, none of the options took longer than 10 seconds to complete. In order to turn the output from option 2 into a table, i created [this R script](https://github.com/tobiasnunn/tnunn_research/blob/20d1f52225ae83ba449e471cd260ce62f92c4ed9/00_scripts/CheckMtreeqa.R), which outputs [this file.](https://github.com/tobiasnunn/tnunn_research/blob/20d1f52225ae83ba449e471cd260ce62f92c4ed9/03_final_outputs/metadata_and_quality_tables/checkmtreeqa.csv) I am not sure if i mentioned it above, but i found a way to do the formatting for my tables in this document, which frees up memory and reduces load times, by loading in a .csv of the cleaned data, instead of cleaning the data and doing the whole script in R, which also creates multiple instances. Basically, it was a whole thing, but now it is not a problem because of some clever coding.
+
+[viewClade function](https://yulab-smu.top/treedata-book/chapter6.html?q=viewclade#viewing-selected-clade)
+
+### Results
+
+I created an [output directory](https://github.com/tobiasnunn/tnunn_research/tree/3d90f340592d7081d3c6e172cbc786c8b85f368f/02_middle-analysis_outputs/CheckM/checkmtreeqa) to store all the outputs. As mentioned, there were five; 2 are metadata tables which contain taxonomy data, one basic and one with more data. The next two are .tree files which place the samples in a tree with online references from the [IMG database](https://img.jgi.doe.gov/), one had the ID on that system, in the other the tip labels contained the full taxonomy of each sample. It is possible i can use these for a comparative analysis of CheckM and gtdbtk or ncbi and img. The fifth and final output is: "multiple sequence alignment of reference genomes and bins which can be used to infer a *de novo* genome tree". It looks to be a fasta file for proteins in each sequence, as of now i am unsure what to do with it, I recognize de novo from gtdbtk, is there a link? I will have to consult Aaron for this one.
+
+```{r chart-checkmtreeqa, echo=FALSE, warning=FALSE}
+#| echo: FALSE
+#| label: tbl-mtreeqa
+#| tbl-align: center
+#| tbl-cap: "Subset of data obtained from secondary CheckM analysis of samples taken from the skin microbiome of *Dendrobates tinctorius*, including taxonomy at various levels"
+
+#---------------read in file--------------------------------
+treeqa <- read.csv(file = "../03_final_outputs/metadata_and_quality_tables/checkmtreeqa.csv")
+#----------------table--------------------------
+columnnames <- c("BinId", "Xuniquemarkersof43", "Taxonomycontained","Taxonomysisterlineage")
+treeqa$Taxonomycontained <- gsub(";", "&#8594;", treeqa$Taxonomycontained)
+treeqa$Taxonomysisterlineage <- gsub(";", "&#8594;", treeqa$Taxonomysisterlineage)
+treeqa[columnnames] %>%
+  gt() %>%
+  tab_source_note(source_note = "Source: CheckM tree_qa performed on 2024-12-30") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+#  tab_header(
+ #   title = "Table 6 - subset of data obtained from secondary CheckM analysis",
+  #  subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including taxonomy at various levels")
+  #) %>%
+  fmt_markdown(
+    columns = c(Taxonomycontained, Taxonomysisterlineage),
+    rows = everything(),
+    md_engine = "markdown"
+  ) %>%
+  cols_label(Xuniquemarkersof43 = "Unique Markers (of 43)",
+         Taxonomycontained = "Taxonomy (Contained)",
+         Taxonomysisterlineage = "Taxonomy (Sister Lineage)",
+         BinId = "Accession") %>%
+  data_color(
+    columns = c(Xuniquemarkersof43),
+    method = "numeric",
+    palette = "Blues",
+    domain = c(40, 43),
+    reverse = FALSE) %>%
+  tab_style(
+    style = list(
+      cell_text(size = "small")
+      ), 
+    locations = cells_body(
+      columns = c(Taxonomycontained, Taxonomysisterlineage),
+      rows = everything()
+      )
+    )
+  
+```
+
+@tbl-mtreeqa is a subset of output 2 showing some taxonomic assignments for the samples, as well as "unique markers". 9 are above 40, with only 2Dt1e falling below at 32. Output 1 is a simplified version of output 2, with the same main fields but missing some found in 2. As mentioned, this is a subset, due to space, and some difficulties in coding, I only took the unique fields. The output table also contained data on number of genes and fragment count, GC etc that is already shown in @tbl-m. As well as this, there were some extra fields focusing on the mean values of each field for the groupings each sample were in, I believe this is the final value in "Taxonomy (Contained)", again because of space and relevance i cut them from the final product.
+
+### Tree_qa Phylograms
+
+::: panel-tabset
+```{r setup-ggtree, include=FALSE}
+# set up ggtree and load in the file
+
+library(ggtree)
+#---------------------load tree-------------------------------------
+treefile <- read.tree(file = "../02_middle-analysis_outputs/CheckM/checkmtreeqa/checkmtreeqa_taxtree.tree")
+
+taxtree <- ggtree(treefile, size=0.25)
+
+local_accessions <- c('1Dt1h',
+                      '1Dt2d',
+                      '1Dt100h',
+                      '2Dt1l',
+                      '3Dt1c',
+                      '3Dt2j',
+                      '3Dt2c',
+                      '3Dt2h',
+                      '1Dt100g',
+                      '2Dt1e')
+taxtree$data$label <- gsub("'|flye_|asm_|_part2", "", taxtree$data$label)
+taxtree$data$label <- gsub("\\|", "\n", taxtree$data$label)
+taxtree$data$node_type <- 'online'
+taxtree$data$node_type[taxtree$data$label %in% local_accessions] <- 'local'
+
+colour_array <- c("#5D1F77", "darkgrey")
+
+```
+
+#### *Sphingomonas* samples
+
+```{r checkmtreeqa-sphingo, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+#| echo: FALSE
+#| label: fig-mtreeqasphingo
+#| fig-align: center
+#| fig-cap: "Phylogram for 4 samples known to be of the genus *Sphingomonas*. Generated by checkm tree_qa on the 30th of December 2024."
+viewClade(taxtree, MRCA(taxtree, "3Dt2j", "1Dt100g")) + 
+  geom_tiplab(size=2, aes(label=label, colour=node_type), geom="text") + 
+  scale_color_manual(values = colour_array ) +
+  guides(color="none")
+```
+
+#### *Microbacterium* samples
+
+```{r checkmtreeqa-micro, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+#| echo: FALSE
+#| label: fig-mtreeqamicro
+#| fig-align: center
+#| fig-cap: "Phylogram for 2 samples known to be of the genus *Microbacterium*. Generated by checkm tree_qa on the 30th of December 2024."
+viewClade(taxtree, MRCA(taxtree, "3Dt2h", "2Dt1l")) + 
+  geom_tiplab(size=2.2, aes(label=label, colour=node_type), geom="text") + 
+  scale_color_manual(values = colour_array ) +
+  guides(color="none")
+```
+
+#### *Brachybacterium / Dermabacter* sample
+
+```{r checkmtreeqa-brach, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+#| echo: FALSE
+#| label: fig-mtreeqabrach
+#| fig-align: center
+#| fig-cap: "Phylogram for 1 sample known to be of the genus *Brachybacterium*. Generated by checkm tree_qa on the 30th of December 2024."
+#---------------------prune-----------------------------------------
+viewClade(taxtree, MRCA(taxtree, "IMG_647000216\nk__Bacteria;p__Actinobacteria;c__Actinobacteria;o__Actinomycetales;f__Brevibacteriaceae;g__Brevibacterium;s__Brevibacterium_mcbrellneri", "1Dt1h")) + 
+  geom_tiplab(size=2.2, aes(label=label, colour=node_type), geom="text") + 
+  scale_color_manual(values = colour_array ) +
+  guides(color="none")
+
+```
+
+#### *Brevibacterium* sample
+
+```{r checkmtreeqa-brev, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+#| echo: FALSE
+#| label: fig-mtreeqabrev
+#| fig-align: center
+#| fig-cap: "Phylogram for 1 sample known to be of the genus *Brevibacterium*. Generated by checkm tree_qa on the 30th of December 2024."
+#---------------------prune-----------------------------------------
+viewClade(taxtree, MRCA(taxtree, "1Dt100h", "2Dt1e")) +
+  geom_tiplab(size=2.1, aes(label=label, colour=node_type), geom="text") + 
+  scale_color_manual(values = colour_array ) +
+  guides(color="none")
+
+```
+
+#### *Pantoea* sample
+
+```{r checkmtreeqa-pant, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE}
+#| echo: FALSE
+#| label: fig-mtreeqapant
+#| fig-align: center
+#| fig-cap: "Phylogram for 1 sample of disputed genus. Generated by checkm tree_qa on the 30th of December 2024."
+#---------------------prune-----------------------------------------
+viewClade(taxtree, MRCA(taxtree, "1Dt2d", "IMG_649633081\nk__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacteriales;f__Enterobacteriaceae;g__Pantoea;s__")) +
+  geom_tiplab(size=2.2, aes(label=label, colour=node_type), geom="text") + 
+  scale_color_manual(values = colour_array ) +
+  guides(color="none")
+
+```
+:::
+
+Outputs 3 and 4 produce the same tree files, with some minor differences in labeling, so i have only outputted the results from the one that returns the full taxonomic ID of each sample in the tip label. The trees look to be trustworthy, confirming previous taxonomic assignments i have run. It should be noted these use the IMG database, not the NCBI database, this looks to be a smaller database as many of our samples are outgroups on the trees with no direct sister samples, this can be seen most for Figure 2, with all 4 samples in the outgroup. This analysis does confirm again that sample 1Dt2d identified first as "*Enterobacter cancerogenus*" is in fact a species of the genus "*Pantoea*". As mentioned above i am yet to figure out if i can do anything with the output from [option 5](https://github.com/tobiasnunn/tnunn_research/blob/ddd084a8ec1dd159242afa64ee549ce588bf5ec7/02_middle-analysis_outputs/CheckM/checkmtreeqa/checkmtreeqa_msa.txt), so i will discuss with Aaron when term time begins again. Many of the samples cannot be given a species name by this analysis, for example, all of the samples in the genus *Sphingomonas* are closest to each other, so it is hard to discern if they are of different species.
+
+## Conclusion
+
+Output 2, and to a lesser extent 1, present interesting data, it is not as useful as the data produced by the main analysis, but i think it was worth doing. It is possible i am not fully apreciating all of the outputs of this. Only very few of the samples get a taxonomy to the species level, however, it does confirm that sample 1Dt2d, marked "*Enterobacter cancerogenus*" by early taxonomic analysis actually belongs to the genus *Pantoea.* Confirming the analysis done all the way back in the technical spike for gtdbtk de novo [Conclusion]. This is mirrored in the outputs of the phylogenetic trees, which are good, but i doubt are a suitable replacement for the ones output by gtdbtk, which i will get onto at some point in the future. I have mentioned 5 several times, so i will just say that i might come back to look at it later. I learned some new things vis a vis new functions to tabulate like changing text size and pruning/collapsing trees in R, so i am less reliant on dendroscope, and have less tree files floating around. Overall, i think this has been a useful thing to do, even if the outputs are not as important or useful as what i have done or am about to do, even just for the experience alone, but who knows, maybe there is something in this data that will be useful to someone reading this.
+
+### Scripts
+
+-   [checkMtreeqa.sh](https://github.com/tobiasnunn/tnunn_research/blob/3d90f340592d7081d3c6e172cbc786c8b85f368f/00_scripts/checkMtreeqa.sh)
+
+-   [CheckMtreeqa.R](https://github.com/tobiasnunn/tnunn_research/blob/20d1f52225ae83ba449e471cd260ce62f92c4ed9/00_scripts/CheckMtreeqa.R)

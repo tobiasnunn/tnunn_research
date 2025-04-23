@@ -1,5 +1,1 @@
-<<<<<<< Updated upstream
 {"headings":[],"options":{"chapters":true},"entries":[]}
-=======
-{"entries":[{"caption":"Data obtained from flye outputs of samples taken from the skin microbiome of Dendrobates tinctorius","key":"fig-assem","order":{"number":1,"section":[11,2,3,0,0,0,0]}},{"caption":"Data obtained from flye.log outputs of samples taken from the skin microbiome of Dendrobates tinctorius","key":"fig-log","order":{"number":2,"section":[11,2,3,0,0,0,0]}}],"headings":["introduction","methods","flye-analysis-1-assembly_info.txt","flye-analysis-2-flye.log","results","scripts"],"options":{"chapters":true}}
->>>>>>> Stashed changes

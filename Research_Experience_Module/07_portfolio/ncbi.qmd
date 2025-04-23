@@ -1,64 +1,6 @@
-# Obtaining metadata {#sec-ncbi}
+# NCBI APIs {#sec-ncbi}
 
 ## Introduction
 
-Throughout the project, an understanding of the information behind the genetic samples was important. This information was held on the same repositories as the samples. This includes information on host, environment, dating, sequencing method and CheckM scores for the NCBI database, and grouping information for the KEGG database. The KEGG metadata was especially helpful as it allows grouping boxes to be added to the heatmaps for more transparent bioinformatics and simpler interpretation.
-
-## Methods
-
-API calls were used to download the metadata, they are a simple, if technical way of transferring large quantities of data. Both the NCBI and KEGG databases have REST APIs[^ncbi-1]. These allow communication between R and these websites by using a special package called `httr2`, into which a URL and other items are passed, including a list of accessions for which data is wanted. An example of the code is used in [NCBImetadatacollector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBImetadatacollector.R). The code block with an indepth explanation exists in that code. In short, one creates a list or dataframe of accessions that should be passed to the website, so the metadata can be transferred, then several parameters are passed in to specify what is desired, the call will then be run and output will be several files in the .JSON format[^ncbi-2]. One of the fields that needs to be passed is an output directory.
-
-[^ncbi-1]: REST APIs
-
-    Here are links to both in case you want to understand them in more detail:
-
-    1.  NCBI - <https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/>
-
-    2.  KEGG - <https://www.kegg.jp/kegg/rest/keggapi.html>
-
-[^ncbi-2]: JSON
-
-    This is a file type that works well with API calls, it needs special code to unravel it and pull out the useful information into a data frame, but that is a topic for another section. All that is needed to be known here is that it is a useful filetype for online data transfer.
-
-## Results
-
-```{r apicode}
-#| echo: false
-#| label: fig-APIcode
-#| fig-cap: "req_perform method of httr"
-
-
-knitr::include_graphics(
-  "img/APIoutput.png",
-  error = TRUE       # Don't throw error if image is missing
-)
-
-```
-
-
-As can be seen in @fig-APIcode, An example of having to pass in an empty, existing directory to the call so that it can place the data somewhere
-
-
-```{r apidirectory}
-#| echo: false
-#| label: fig-APIdirectory
-#| fig-cap: "JSON output from NCBI stored directly as files"
-
-
-knitr::include_graphics(
-  "img/APIjsondirectory.png",
-  error = FALSE       # Don't throw error if image is missing
-)
-
-```
-
-
-As can be seen in @fig-APIdirectory, A subset of the files output by my API call to illustrate what the directory would look like on an average Windows file explorer
-
-## Scripts
-
-- [NCBI_metadata_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBI_Metadata_collector_2nd_ver.R)
-
-- [NCBI_fasta_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBIfastacollector.R)
-
-
+-   what is an API
+-   NCBI REST APIs

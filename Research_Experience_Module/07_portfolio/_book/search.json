@@ -82,51 +82,21 @@
   {
     "objectID": "ncbi.html",
     "href": "ncbi.html",
-    "title": "7  Obtaining metadata",
+    "title": "7  NCBI APIs",
     "section": "",
-    "text": "7.1 Introduction\nThroughout the project, an understanding of the information behind the genetic samples was important. This information was held on the same repositories as the samples. This includes information on host, environment, dating, sequencing method and CheckM scores for the NCBI database, and grouping information for the KEGG database. The KEGG metadata was especially helpful as it allows grouping boxes to be added to the heatmaps for more transparent bioinformatics and simpler interpretation.",
+    "text": "7.1 Introduction",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Obtaining metadata</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>NCBI APIs</span>"
     ]
   },
   {
-    "objectID": "ncbi.html#methods",
-    "href": "ncbi.html#methods",
-    "title": "7  Obtaining metadata",
-    "section": "7.2 Methods",
-    "text": "7.2 Methods\nAPI calls were used to download the metadata, they are a simple, if technical way of transferring large quantities of data. Both the NCBI and KEGG databases have REST APIs1. These allow communication between R and these websites by using a special package called httr2, into which a URL and other items are passed, including a list of accessions for which data is wanted. An example of the code is used in NCBImetadatacollector.R. The code block with an indepth explanation exists in that code. In short, one creates a list or dataframe of accessions that should be passed to the website, so the metadata can be transferred, then several parameters are passed in to specify what is desired, the call will then be run and output will be several files in the .JSON format2. One of the fields that needs to be passed is an output directory.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Obtaining metadata</span>"
-    ]
-  },
-  {
-    "objectID": "ncbi.html#results",
-    "href": "ncbi.html#results",
-    "title": "7  Obtaining metadata",
-    "section": "7.3 Results",
-    "text": "7.3 Results\n\n\n\n\n\n\n\n\nFigure 7.1: req_perform method of httr\n\n\n\n\n\nAs can be seen in Figure 7.1, An example of having to pass in an empty, existing directory to the call so that it can place the data somewhere\n\n\n\n\n\n\n\n\nFigure 7.2: JSON output from NCBI stored directly as files\n\n\n\n\n\nAs can be seen in Figure 7.2, A subset of the files output by my API call to illustrate what the directory would look like on an average Windows file explorer",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Obtaining metadata</span>"
-    ]
-  },
-  {
-    "objectID": "ncbi.html#scripts",
-    "href": "ncbi.html#scripts",
-    "title": "7  Obtaining metadata",
-    "section": "7.4 Scripts",
-    "text": "7.4 Scripts\n\nNCBI_metadata_collector.R\nNCBI_fasta_collector.R",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Obtaining metadata</span>"
-    ]
-  },
-  {
-    "objectID": "ncbi.html#footnotes",
-    "href": "ncbi.html#footnotes",
-    "title": "7  Obtaining metadata",
+    "objectID": "ncbi.html#introduction",
+    "href": "ncbi.html#introduction",
+    "title": "7  NCBI APIs",
     "section": "",
-    "text": "REST APIs\nHere are links to both in case you want to understand them in more detail:\n\nNCBI - https://www.ncbi.nlm.nih.gov/datasets/docs/v2/api/rest-api/\nKEGG - https://www.kegg.jp/kegg/rest/keggapi.html\n\n↩︎\nJSON\nThis is a file type that works well with API calls, it needs special code to unravel it and pull out the useful information into a data frame, but that is a topic for another section. All that is needed to be known here is that it is a useful filetype for online data transfer.↩︎",
+    "text": "what is an API\nNCBI REST APIs",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Obtaining metadata</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>NCBI APIs</span>"
     ]
   },
   {
@@ -194,17 +164,7 @@
     "href": "flye_outs.html",
     "title": "11  Flye outputs",
     "section": "",
-    "text": "11.1 Introduction\nThere were some files outputted from the initial Flye_asm work done by Aaron that I thought warranted a look at to sharpen my teeth on.",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Flye outputs</span>"
-    ]
-  },
-  {
-    "objectID": "flye_outs.html#methods",
-    "href": "flye_outs.html#methods",
-    "title": "11  Flye outputs",
-    "section": "11.2 Methods",
-    "text": "11.2 Methods\n\n11.2.1 Flye analysis 1: assembly_info.txt\nI created an R script, rawflyeanalysis.R. Basic stuff, imports the text files I chose to download (I wonder if I could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages.\n\n\n11.2.2 Flye analysis 2: flye.log\nI then went back to the flye.log analysis I wanted to do largely for posterity. This was horrifyingly complex due to the “complex” nature of the flye.log files. I did this by creating a modified copy of my assembly_info.txt file grabber shell script, called flye.loggetter.sh, using ctrl + h to find and replace instead of manually changing things. I added this to an existing output directory in my home section of hawk, which I exported using MobaXterm. This is the folder called flyestuff, which contains both the flye.log and the assembly_info.txt files for each accession, I grouped them as it seemed relevent for organisation and didnt hinder the coding process at all. The R file I used to tabulate this is flyeloganalysis.R.\n\n\n11.2.3 Results\n\n\n\n\n\n\n\n  \n    \n      Accession\n      Number of contigs\n      Total length\n      Largest fragment\n      Mean fragment length\n    \n  \n  \n    3Dt2h\n166\n3,006,227\n125,244\n18,109.80\n    1Dt100g\n153\n2,104,071\n74,994\n13,752.10\n    2Dt1e\n149\n2,332,403\n70,689\n15,653.71\n    3Dt1c\n86\n3,636,266\n275,317\n42,282.16\n    3Dt2c\n84\n3,819,610\n247,364\n45,471.55\n    3Dt2j\n75\n2,813,977\n195,248\n37,519.69\n    2Dt1l\n16\n3,996,506\n1,089,026\n249,781.62\n    1Dt2d\n6\n5,345,294\n2,288,975\n890,882.33\n    1Dt1h\n4\n4,336,578\n2,051,556\n1,084,144.50\n    1Dt100h\n2\n2,379,473\n2,349,045\n1,189,736.50\n  \n  \n    \n      Source: assembly_info.txt files produced in flye_asm analysis, August 27th 2024\n    \n  \n  \n    \n       coverage could not be calculated from this method as no result matched what was found in the flye.log files\n    \n  \n\n\n\n\nFigure 11.1: Data obtained from flye outputs of samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\nThe basic flye output analysis produced this table, as mentioned, I couldn’t get coverage to match what was on the flye.log file that I got the original of this table from, it is possible that file is the one that is wrong, but genome coverage is kind of all over the place, so I just omitted it as I don’t think it’s one of the mandatory fields. I chose to sort the table by “Number of contigs” rather arbitrarily, but it does show something interesting in that why is there such a large range in fragment number?\n\n\n\n\n\n\n\n\n\n\nAccession\nFragments\nTotal length\nFragments N50\nLargest fragment\nScaffolds\nMean coverage\n\n\n\n\n3Dt2h\n166\n3,006,227\n26,385\n125,244\n0\n390\n\n\n1Dt100g\n153\n2,104,071\n18,022\n74,994\n0\n318\n\n\n2Dt1e\n149\n2,332,403\n22,011\n70,689\n0\n344\n\n\n3Dt1c\n86\n3,636,266\n63,365\n275,317\n0\n320\n\n\n3Dt2c\n84\n3,819,610\n69,733\n247,364\n0\n190\n\n\n3Dt2j\n75\n2,813,977\n71,970\n195,248\n0\n350\n\n\n2Dt1l\n16\n3,996,506\n345,773\n1,089,026\n0\n289\n\n\n1Dt2d\n6\n5,345,294\n1,019,507\n2,288,975\n0\n225\n\n\n1Dt1h\n4\n4,336,578\n1,857,409\n2,051,556\n0\n404\n\n\n1Dt100h\n2\n2,379,473\n2,349,045\n2,349,045\n0\n224\n\n\n\nSource: flye.log files produced in flye_asm analysis, August 27th 2024\n\n\n\n\n\n\n\n\nFigure 11.2: Data obtained from flye.log outputs of samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\nThis is a table of the type of stuff I first collated in the Summer, it shares many similarities and cross overs with Table 2, neither have quality statistics, but both are metadata largely concerning the length and fragment, a marked difference is this one comes with a concrete value of coverage. Comparative analysis of them feels like a thing that would happen in the conclusion to this document.\n\n\n11.2.4 Scripts\n\nflye.loggetter.sh\nflyeloganalysis.R",
+    "text": "in the summer i had a bahama mama",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Flye outputs</span>"
     ]
