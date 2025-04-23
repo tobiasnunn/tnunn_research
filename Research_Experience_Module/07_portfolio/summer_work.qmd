@@ -1,3 +1,10 @@
 # Summer Work
 
-in the summer i had a bahama mama
+## Introduction
+
+This project technically started in the summer of 2024, between July and August. I was tasked with basically making basic explorations of 10 bacterial genome samples made by Bangor Researchers in labs at ECW, as I was still in my first year and did not have much experience, I made mistakes. I also did not recognise the importance of notekeeping at that point, so a record of that work does not exist.
+
+## Methods
+
+The summer work was more of a learning exercise than anything, just for me to familiarise myself with R scripting and bash and hawk so I would have a basis when properly beginning the project
+

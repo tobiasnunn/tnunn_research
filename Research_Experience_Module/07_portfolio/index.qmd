@@ -1,6 +1,28 @@
 # Introduction
 
-banana coconut your dadas salty knuts
+*look for £bookmark for places to revisit*
+
+The field of microbial genomics has seen much study over the last decade, with hundreds of papers being made on a wide range of methods and hypotheses. However, there is always more that can be inferred due to the seemingly limitless quantities of bacteria and the environments they inhabit, and thus the relationships that form over time. It is a field with a lot of potential for practical applications. For example, an understanding of gut microbiomes could have implications for Crohn's disease [@vandeputte2017].
+
+This project is a research study into the bacteria comprising host-associated microbiomes, using genetics as the tool of study. Specifically, bottom-up estimates of function based on gene content. This is a resource efficient way to study these environments through the link between gene coding and protein function. The main source of analysis was the NCBI genomic database. however,
+
+There are similarities between closely related taxa of bacteria, and as such many of the protein groups coded for are similar between them. These form the bases for the relationships with hosts, as a microbiome could be mutualistic, providing a benefit, as seen by ...
+
+A future avenue of research will be to make comparisons based on host taxa.
+
+Many secondary analyses were performed with the purpose of training to understand and handle different computational tools and programs. These largely involved data exploration and gaining an understanding of output files. The majority of the research concerned the use of publicly available data from the NCBI website, which could be downloaded and aid analysis. Exploration of data was a large part of this project. There is a massive wealth of information on databases such as the NCBI, which holds 2.61 million bacterial genomes that can be annotated.
+
+There are many functions genes can express, and it is of particular interest how evolutionary history can shape gene expression, as well as how host organism may shape communities, as co-evolution has occured between bacteria and host. £bookmark find a reference
+
+Microbiomes and their hosts are closely linked and an understanding of their relationships can have implications for alleviating the effects of climate change [@petrushin2024].
+
+Whilst not the focus of work, this project relates closely to work done on poison dart frogs, with a specific focus on how bacterial skin microbiomes can interact with DB, the chytridiomycosis causing fungus. This builds on several previous studies, such as [@jiménez2017], which found differences in Microbiome can change susceptibility to infection. This involved the use of many online tools, such as EggNOG-mapper, [@huerta-cepas2017]. An emphasis is put on how host can shape these microbiomes, building on research by [@lunjani2021].
+
+These samples acted as the basis of study, with many tools being used to explore qualities of the samples. This is ideal as these samples are of a known source. This study will aim to investigate some of these relationships through bottom-up estimates of function based on gene content, using publically available data, and present these in the context of how they might have a beneficial impact on potential host organisms. This work may be cause for future research to be done in the area.
+
+£bookmark this is heavy self-plagarism, change things around, but i like the message
+
+(500 words, 5-10 refs)
 
 This is a flow chart showing the different processes I used.
 

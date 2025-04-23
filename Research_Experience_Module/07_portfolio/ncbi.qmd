@@ -35,9 +35,7 @@ knitr::include_graphics(
 
 ```
 
-
 As can be seen in @fig-APIcode, An example of having to pass in an empty, existing directory to the call so that it can place the data somewhere
-
 
 ```{r apidirectory}
 #| echo: false
@@ -52,13 +50,10 @@ knitr::include_graphics(
 
 ```
 
-
 As can be seen in @fig-APIdirectory, A subset of the files output by my API call to illustrate what the directory would look like on an average Windows file explorer
 
 ## Scripts
 
-- [NCBI_metadata_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBI_Metadata_collector_2nd_ver.R)
+-   [NCBI_metadata_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBI_Metadata_collector_2nd_ver.R)
 
-- [NCBI_fasta_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBIfastacollector.R)
-
-
+-   [NCBI_fasta_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBIfastacollector.R)

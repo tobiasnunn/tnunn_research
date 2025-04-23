@@ -1,23 +1,9 @@
-# Introduction
+# Overview
 
-This is a book created from markdown and executable code.
+This work started in the summer, when I had done nothing of the type before, so I had basically no idea what I was doing or what I was messing with. So I made mistakes, many mistakes. Then, I kept going, building on those mistakes until around christmas I realised I was completely out of my depth and I needed to reivaluate. My notetaking especially was crude by modern comparison. So I decided to do a reset, I believed this was important as it allowed me to start again from a more informed point, and "do things right this time". However, I did conduct analysis in the first half of the year that could be relevent, error prone as it may be. And I do not want my mistakes to be buried, they must be remembered so I do not repeat them, or so anyone else reading this does not repeat them. So I would like to dedicate section 2.0. to the mistakes I made and how I learned from them to gain skills and become a better data scientist, as I believe this step was the catalyst for all hereafter steps to be as good as they were, without these errors, I doubt I would have worked as hard to make the work I did after as good, and thats alright.
 
-See @knuth84 for additional discussion of literate programming.
+here::here for good pathing
 
-```{mermaid}
-flowchart LR
-  A[Hard edge] --> B(Round edge)
-  B --> C{Decision}
-  C --> D[Result one]
-  C --> E[Result two]
-```
+proper integration of images into the notebooks
 
-This is a flow chart showing the different processes I used.
-
-```{mermaid}
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+(i understand if you need to dock points for this, but I think it is too important to not write down)

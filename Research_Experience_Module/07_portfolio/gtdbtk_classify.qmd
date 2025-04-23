@@ -1,4 +1,4 @@
-# GTDB-TK Classify
+# GTDB-TK Classify {#sec-classify}
 
 ## Introduction
 

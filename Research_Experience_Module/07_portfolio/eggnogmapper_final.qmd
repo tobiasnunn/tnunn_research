@@ -3,3 +3,14 @@
 ## Introduction
 
 Doing some stuff with eggnog
+
+In order to create the heatmaps comparing enriched pathways, the genome .fasta files need to be annotated[^1]. To do this, I used a program called EggNOG-mapper[^2]. I had many itterations of this process as I optimised the process through trial and error. However, the final scripts used are: £bookmark . These scripts are fed the .fasta files and run in slurm, outputting annotated .xlsx format files.
+
+[^1]: annotation
+
+    Here meaning the process by which genes are identified from chunks of genome
+
+[^2]: version
+
+    Specifically, the version on Hawk was version 2.1.12
+

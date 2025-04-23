@@ -7,6 +7,7 @@ book:
   date: "2025-04-22"
   chapters:
     - index.qmd
+    - intro.qmd
     - summer_work.qmd
     - checkm.qmd
     - checkm2.qmd
@@ -27,8 +28,9 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github
 
-editor: visual
 

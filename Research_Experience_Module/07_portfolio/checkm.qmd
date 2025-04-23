@@ -1,6 +1,7 @@
 # CheckM
 
 ## Introduction
+£bookmark add citation: https://pmc.ncbi.nlm.nih.gov/articles/PMC4484387/
 
 After my reset at christmas, I wanted to fully explore and understand what this tool does and outputs. I looked at files and documentation so that I could better understand what the results meant for the samples. This lead to many, smaller analyses conducted. All of these processes are noted throughout [Notebook 1](https://github.com/tobiasnunn/tnunn_research/blob/bdbe0829dcf76cafce52d0f1449cb69615d6af3f/Research_Experience_Module/Notebook.Rmd). These included comparisons between CheckM and CheckM2, these are not included here, this is just a list of the CheckM processes run.
 
