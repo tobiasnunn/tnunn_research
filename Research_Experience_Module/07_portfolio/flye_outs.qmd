@@ -1,3 +1,111 @@
 # Flye outputs
 
-in the summer i had a bahama mama
+## Introduction
+
+There were some files outputted from the initial Flye_asm work done by Aaron that I thought warranted a look at to sharpen my teeth on.
+
+## Methods
+
+### Flye analysis 1: assembly_info.txt
+
+I created an R script, [rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/rawflyeanalysis.R). Basic stuff, imports the text files I chose to download (I wonder if I could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages.
+
+### Flye analysis 2: flye.log
+
+I then went back to the flye.log analysis I wanted to do largely for posterity. This was horrifyingly complex due to the "complex" nature of the flye.log files. I did this by creating a modified copy of my assembly_info.txt file grabber shell script, called [flye.loggetter.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/flye.loggetter.sh), using ctrl + h to find and replace instead of manually changing things. I added this to an existing output directory in my home section of hawk, which I exported using MobaXterm. This is the folder called [flyestuff](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/flyestuff), which contains both the flye.log and the assembly_info.txt files for each accession, I grouped them as it seemed relevent for organisation and didnt hinder the coding process at all. The R file I used to tabulate this is [flyeloganalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/flyeloganalysis.R).
+
+### Results
+
+```{r assemblyinfo}
+#| echo: FALSE
+#| warning: FALSE
+#| label: fig-assem
+#| fig-align: center
+#| fig-cap: "Data obtained from flye outputs of samples taken from the skin microbiome of *Dendrobates tinctorius*"
+
+library(tidyverse)
+library(gt)
+
+processedtable <- read.csv("../03_final_outputs/metadata_and_quality_tables/assemblyinfo.csv")
+processedtable %>%
+  arrange(desc(number_of_contigs)) %>%
+  gt() %>%
+  fmt_number(
+    columns = c(number_of_contigs, total_length, largest_fragment),
+    use_seps = TRUE,
+    drop_trailing_zeros = TRUE) %>%
+  fmt_number(
+    columns = c(mean_fragments),
+    decimals = 2,
+    use_seps = TRUE) %>%
+  tab_source_note(source_note = "Source: assembly_info.txt files produced in flye_asm analysis, August 27th 2024") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  data_color(
+    columns = number_of_contigs,
+    method = "numeric",
+    palette = "Blues",
+    domain = c(0, 200),
+    reverse = FALSE
+  ) %>%
+  tab_footnote(
+    footnote = md("coverage could not be calculated from this method as no result matched what was found in the *flye.log* files")
+  ) %>%
+  cols_label(accession = "Accession",
+             number_of_contigs = "Number of contigs",
+             total_length = "Total length",
+             largest_fragment = "Largest fragment",
+             mean_fragments = "Mean fragment length")
+
+```
+
+The basic flye output analysis produced this table, as mentioned, I couldn't get coverage to match what was on the flye.log file that I got the original of this table from, it is possible that file is the one that is wrong, but genome coverage is kind of all over the place, so I just omitted it as I don't think it's one of the mandatory fields. I chose to sort the table by "Number of contigs" rather arbitrarily, but it does show something interesting in that why is there such a large range in fragment number?
+
+```{r flyelog}
+#| echo: FALSE
+#| warning: FALSE
+#| label: fig-log
+#| fig-align: center
+#| fig-cap: "Data obtained from flye.log outputs of samples taken from the skin microbiome of *Dendrobates tinctorius*"
+
+tablenames <- c("Total.length", "Fragments", "Fragments.N50", "Largest.frg", "Scaffolds", "Mean.coverage")
+final <- read.csv("../03_final_outputs/metadata_and_quality_tables/flyelog.csv")
+final %>%
+  arrange(desc(`Fragments`)) %>%
+  gt() %>%
+  fmt_number(
+    columns = tablenames,
+    use_seps = TRUE,
+    decimals = 0)  %>%
+  tab_source_note(source_note = "Source: flye.log files produced in flye_asm analysis, August 27th 2024") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue") %>%
+  data_color(
+    columns = `Fragments`,
+    method = "numeric",
+    palette = "Blues",
+    domain = c(0, 200),
+    reverse = FALSE
+  ) %>%
+ # tab_header(
+  #  title = "Table 3 - Data obtained from flye.log outputs",
+   # subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*")
+  #) %>% 
+  cols_label(accession = "Accession",
+             Total.length = "Total length",
+             Fragments.N50 = "Fragments N50",
+             Largest.frg = "Largest fragment",
+             Mean.coverage = "Mean coverage") |>
+  cols_move(
+    columns = Total.length,
+    after = Fragments
+  )
+```
+
+This is a table of the type of stuff I first collated in the Summer, it shares many similarities and cross overs with Table 2, neither have quality statistics, but both are metadata largely concerning the length and fragment, a marked difference is this one comes with a concrete value of coverage. Comparative analysis of them feels like a thing that would happen in the conclusion to this document.
+
+### Scripts
+
+-   [flye.loggetter.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/flye.loggetter.sh)
+
+-   [flyeloganalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/flyeloganalysis.R)
