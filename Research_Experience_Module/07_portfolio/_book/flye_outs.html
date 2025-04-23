@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ncbi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NCBI APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Obtaining metadata</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -195,8 +195,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">11.1</span> Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">11.2</span> Methods</a>
+  <ul class="collapse">
+  <li><a href="#flye-analysis-1-assembly_info.txt" id="toc-flye-analysis-1-assembly_info.txt" class="nav-link" data-scroll-target="#flye-analysis-1-assembly_info.txt"><span class="header-section-number">11.2.1</span> Flye analysis 1: assembly_info.txt</a></li>
+  <li><a href="#flye-analysis-2-flye.log" id="toc-flye-analysis-2-flye.log" class="nav-link" data-scroll-target="#flye-analysis-2-flye.log"><span class="header-section-number">11.2.2</span> Flye analysis 2: flye.log</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">11.2.3</span> Results</a></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts"><span class="header-section-number">11.2.4</span> Scripts</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -220,9 +233,1142 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>in the summer i had a bahama mama</p>
+<section id="introduction" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">11.1</span> Introduction</h2>
+<p>There were some files outputted from the initial Flye_asm work done by Aaron that I thought warranted a look at to sharpen my teeth on.</p>
+</section>
+<section id="methods" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">11.2</span> Methods</h2>
+<section id="flye-analysis-1-assembly_info.txt" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="flye-analysis-1-assembly_info.txt"><span class="header-section-number">11.2.1</span> Flye analysis 1: assembly_info.txt</h3>
+<p>I created an R script, <a href="https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/rawflyeanalysis.R">rawflyeanalysis.R</a>. Basic stuff, imports the text files I chose to download (I wonder if I could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages.</p>
+</section>
+<section id="flye-analysis-2-flye.log" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="flye-analysis-2-flye.log"><span class="header-section-number">11.2.2</span> Flye analysis 2: flye.log</h3>
+<p>I then went back to the flye.log analysis I wanted to do largely for posterity. This was horrifyingly complex due to the “complex” nature of the flye.log files. I did this by creating a modified copy of my assembly_info.txt file grabber shell script, called <a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/flye.loggetter.sh">flye.loggetter.sh</a>, using ctrl + h to find and replace instead of manually changing things. I added this to an existing output directory in my home section of hawk, which I exported using MobaXterm. This is the folder called <a href="https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/flyestuff">flyestuff</a>, which contains both the flye.log and the assembly_info.txt files for each accession, I grouped them as it seemed relevent for organisation and didnt hinder the coding process at all. The R file I used to tabulate this is <a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/flyeloganalysis.R">flyeloganalysis.R</a>.</p>
+</section>
+<section id="results" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="results"><span class="header-section-number">11.2.3</span> Results</h3>
+<div class="cell" data-layout-align="center">
+<div id="fig-assem" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-assem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ukxrbyawiw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ukxrbyawiw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ukxrbyawiw thead, #ukxrbyawiw tbody, #ukxrbyawiw tfoot, #ukxrbyawiw tr, #ukxrbyawiw td, #ukxrbyawiw th {
+  border-style: none;
+}
+
+#ukxrbyawiw p {
+  margin: 0;
+  padding: 0;
+}
+
+#ukxrbyawiw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 3px;
+  border-right-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #D5D5D5;
+}
+
+#ukxrbyawiw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ukxrbyawiw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ukxrbyawiw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ukxrbyawiw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ukxrbyawiw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#ukxrbyawiw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ukxrbyawiw .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ukxrbyawiw .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ukxrbyawiw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ukxrbyawiw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ukxrbyawiw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ukxrbyawiw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ukxrbyawiw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ukxrbyawiw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: middle;
+}
+
+#ukxrbyawiw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ukxrbyawiw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ukxrbyawiw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #D5D5D5;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ukxrbyawiw .gt_stub {
+  color: #FFFFFF;
+  background-color: #929292;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D5D5D5;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukxrbyawiw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ukxrbyawiw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ukxrbyawiw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ukxrbyawiw .gt_summary_row {
+  color: #FFFFFF;
+  background-color: #5F5F5F;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukxrbyawiw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D5D5D5;
+}
+
+#ukxrbyawiw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ukxrbyawiw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#ukxrbyawiw .gt_grand_summary_row {
+  color: #FFFFFF;
+  background-color: #929292;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukxrbyawiw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D5D5D5;
+}
+
+#ukxrbyawiw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D5D5D5;
+}
+
+#ukxrbyawiw .gt_striped {
+  background-color: #F4F4F4;
+}
+
+#ukxrbyawiw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#ukxrbyawiw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ukxrbyawiw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukxrbyawiw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ukxrbyawiw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukxrbyawiw .gt_left {
+  text-align: left;
+}
+
+#ukxrbyawiw .gt_center {
+  text-align: center;
+}
+
+#ukxrbyawiw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ukxrbyawiw .gt_font_normal {
+  font-weight: normal;
+}
+
+#ukxrbyawiw .gt_font_bold {
+  font-weight: bold;
+}
+
+#ukxrbyawiw .gt_font_italic {
+  font-style: italic;
+}
+
+#ukxrbyawiw .gt_super {
+  font-size: 65%;
+}
+
+#ukxrbyawiw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ukxrbyawiw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ukxrbyawiw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ukxrbyawiw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ukxrbyawiw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ukxrbyawiw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ukxrbyawiw .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ukxrbyawiw .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ukxrbyawiw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="accession">Accession</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="number_of_contigs">Number of contigs</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="total_length">Total length</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="largest_fragment">Largest fragment</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mean_fragments">Mean fragment length</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="accession" class="gt_row gt_left">3Dt2h</td>
+<td headers="number_of_contigs" class="gt_row gt_right" style="background-color: #145CA5; color: #FFFFFF;">166</td>
+<td headers="total_length" class="gt_row gt_right">3,006,227</td>
+<td headers="largest_fragment" class="gt_row gt_right">125,244</td>
+<td headers="mean_fragments" class="gt_row gt_right">18,109.80</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left gt_striped">1Dt100g</td>
+<td headers="number_of_contigs" class="gt_row gt_right gt_striped" style="background-color: #1F6DB2; color: #FFFFFF;">153</td>
+<td headers="total_length" class="gt_row gt_right gt_striped">2,104,071</td>
+<td headers="largest_fragment" class="gt_row gt_right gt_striped">74,994</td>
+<td headers="mean_fragments" class="gt_row gt_right gt_striped">13,752.10</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left">2Dt1e</td>
+<td headers="number_of_contigs" class="gt_row gt_right" style="background-color: #2372B6; color: #FFFFFF;">149</td>
+<td headers="total_length" class="gt_row gt_right">2,332,403</td>
+<td headers="largest_fragment" class="gt_row gt_right">70,689</td>
+<td headers="mean_fragments" class="gt_row gt_right">15,653.71</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left gt_striped">3Dt1c</td>
+<td headers="number_of_contigs" class="gt_row gt_right gt_striped" style="background-color: #89BEDC; color: #000000;">86</td>
+<td headers="total_length" class="gt_row gt_right gt_striped">3,636,266</td>
+<td headers="largest_fragment" class="gt_row gt_right gt_striped">275,317</td>
+<td headers="mean_fragments" class="gt_row gt_right gt_striped">42,282.16</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left">3Dt2c</td>
+<td headers="number_of_contigs" class="gt_row gt_right" style="background-color: #8DC0DD; color: #000000;">84</td>
+<td headers="total_length" class="gt_row gt_right">3,819,610</td>
+<td headers="largest_fragment" class="gt_row gt_right">247,364</td>
+<td headers="mean_fragments" class="gt_row gt_right">45,471.55</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left gt_striped">3Dt2j</td>
+<td headers="number_of_contigs" class="gt_row gt_right gt_striped" style="background-color: #9ECAE1; color: #000000;">75</td>
+<td headers="total_length" class="gt_row gt_right gt_striped">2,813,977</td>
+<td headers="largest_fragment" class="gt_row gt_right gt_striped">195,248</td>
+<td headers="mean_fragments" class="gt_row gt_right gt_striped">37,519.69</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left">2Dt1l</td>
+<td headers="number_of_contigs" class="gt_row gt_right" style="background-color: #E7F1FA; color: #000000;">16</td>
+<td headers="total_length" class="gt_row gt_right">3,996,506</td>
+<td headers="largest_fragment" class="gt_row gt_right">1,089,026</td>
+<td headers="mean_fragments" class="gt_row gt_right">249,781.62</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left gt_striped">1Dt2d</td>
+<td headers="number_of_contigs" class="gt_row gt_right gt_striped" style="background-color: #F1F7FD; color: #000000;">6</td>
+<td headers="total_length" class="gt_row gt_right gt_striped">5,345,294</td>
+<td headers="largest_fragment" class="gt_row gt_right gt_striped">2,288,975</td>
+<td headers="mean_fragments" class="gt_row gt_right gt_striped">890,882.33</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left">1Dt1h</td>
+<td headers="number_of_contigs" class="gt_row gt_right" style="background-color: #F3F8FE; color: #000000;">4</td>
+<td headers="total_length" class="gt_row gt_right">4,336,578</td>
+<td headers="largest_fragment" class="gt_row gt_right">2,051,556</td>
+<td headers="mean_fragments" class="gt_row gt_right">1,084,144.50</td></tr>
+    <tr><td headers="accession" class="gt_row gt_left gt_striped">1Dt100h</td>
+<td headers="number_of_contigs" class="gt_row gt_right gt_striped" style="background-color: #F5FAFE; color: #000000;">2</td>
+<td headers="total_length" class="gt_row gt_right gt_striped">2,379,473</td>
+<td headers="largest_fragment" class="gt_row gt_right gt_striped">2,349,045</td>
+<td headers="mean_fragments" class="gt_row gt_right gt_striped">1,189,736.50</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="5">Source: assembly_info.txt files produced in flye_asm analysis, August 27th 2024</td>
+    </tr>
+  </tfoot>
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="5"> <span data-qmd-base64="Y292ZXJhZ2UgY291bGQgbm90IGJlIGNhbGN1bGF0ZWQgZnJvbSB0aGlzIG1ldGhvZCBhcyBubyByZXN1bHQgbWF0Y2hlZCB3aGF0IHdhcyBmb3VuZCBpbiB0aGUgPGVtPmZseWUubG9nPC9lbT4gZmlsZXM="><span class="gt_from_md">coverage could not be calculated from this method as no result matched what was found in the <em>flye.log</em> files</span></span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-assem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Data obtained from flye outputs of samples taken from the skin microbiome of <em>Dendrobates tinctorius</em>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>The basic flye output analysis produced this table, as mentioned, I couldn’t get coverage to match what was on the flye.log file that I got the original of this table from, it is possible that file is the one that is wrong, but genome coverage is kind of all over the place, so I just omitted it as I don’t think it’s one of the mandatory fields. I chose to sort the table by “Number of contigs” rather arbitrarily, but it does show something interesting in that why is there such a large range in fragment number?</p>
+<div class="cell" data-layout-align="center">
+<div id="fig-log" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-log-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="mcfwagfisk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mcfwagfisk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mcfwagfisk thead, #mcfwagfisk tbody, #mcfwagfisk tfoot, #mcfwagfisk tr, #mcfwagfisk td, #mcfwagfisk th {
+  border-style: none;
+}
+
+#mcfwagfisk p {
+  margin: 0;
+  padding: 0;
+}
+
+#mcfwagfisk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 3px;
+  border-right-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #D5D5D5;
+}
+
+#mcfwagfisk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mcfwagfisk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mcfwagfisk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mcfwagfisk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mcfwagfisk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#mcfwagfisk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mcfwagfisk .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mcfwagfisk .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mcfwagfisk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mcfwagfisk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mcfwagfisk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mcfwagfisk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mcfwagfisk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mcfwagfisk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: middle;
+}
+
+#mcfwagfisk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mcfwagfisk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mcfwagfisk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #D5D5D5;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mcfwagfisk .gt_stub {
+  color: #FFFFFF;
+  background-color: #929292;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D5D5D5;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcfwagfisk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mcfwagfisk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mcfwagfisk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mcfwagfisk .gt_summary_row {
+  color: #FFFFFF;
+  background-color: #5F5F5F;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcfwagfisk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D5D5D5;
+}
+
+#mcfwagfisk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mcfwagfisk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#mcfwagfisk .gt_grand_summary_row {
+  color: #FFFFFF;
+  background-color: #929292;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcfwagfisk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D5D5D5;
+}
+
+#mcfwagfisk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D5D5D5;
+}
+
+#mcfwagfisk .gt_striped {
+  background-color: #F4F4F4;
+}
+
+#mcfwagfisk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#mcfwagfisk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mcfwagfisk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcfwagfisk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mcfwagfisk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcfwagfisk .gt_left {
+  text-align: left;
+}
+
+#mcfwagfisk .gt_center {
+  text-align: center;
+}
+
+#mcfwagfisk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mcfwagfisk .gt_font_normal {
+  font-weight: normal;
+}
+
+#mcfwagfisk .gt_font_bold {
+  font-weight: bold;
+}
+
+#mcfwagfisk .gt_font_italic {
+  font-style: italic;
+}
+
+#mcfwagfisk .gt_super {
+  font-size: 65%;
+}
+
+#mcfwagfisk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mcfwagfisk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mcfwagfisk .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mcfwagfisk .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mcfwagfisk .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mcfwagfisk .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mcfwagfisk .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mcfwagfisk .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mcfwagfisk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="accession" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Accession</th>
+<th id="Fragments" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Fragments</th>
+<th id="Total.length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total length</th>
+<th id="Fragments.N50" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Fragments N50</th>
+<th id="Largest.frg" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Largest fragment</th>
+<th id="Scaffolds" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Scaffolds</th>
+<th id="Mean.coverage" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean coverage</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="accession">3Dt2h</td>
+<td class="gt_row gt_right" headers="Fragments" style="background-color: #145CA5; color: #FFFFFF">166</td>
+<td class="gt_row gt_right" headers="Total.length">3,006,227</td>
+<td class="gt_row gt_right" headers="Fragments.N50">26,385</td>
+<td class="gt_row gt_right" headers="Largest.frg">125,244</td>
+<td class="gt_row gt_right" headers="Scaffolds">0</td>
+<td class="gt_row gt_right" headers="Mean.coverage">390</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="accession">1Dt100g</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments" style="background-color: #1F6DB2; color: #FFFFFF">153</td>
+<td class="gt_row gt_right gt_striped" headers="Total.length">2,104,071</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments.N50">18,022</td>
+<td class="gt_row gt_right gt_striped" headers="Largest.frg">74,994</td>
+<td class="gt_row gt_right gt_striped" headers="Scaffolds">0</td>
+<td class="gt_row gt_right gt_striped" headers="Mean.coverage">318</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="accession">2Dt1e</td>
+<td class="gt_row gt_right" headers="Fragments" style="background-color: #2372B6; color: #FFFFFF">149</td>
+<td class="gt_row gt_right" headers="Total.length">2,332,403</td>
+<td class="gt_row gt_right" headers="Fragments.N50">22,011</td>
+<td class="gt_row gt_right" headers="Largest.frg">70,689</td>
+<td class="gt_row gt_right" headers="Scaffolds">0</td>
+<td class="gt_row gt_right" headers="Mean.coverage">344</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="accession">3Dt1c</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments" style="background-color: #89BEDC; color: #000000">86</td>
+<td class="gt_row gt_right gt_striped" headers="Total.length">3,636,266</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments.N50">63,365</td>
+<td class="gt_row gt_right gt_striped" headers="Largest.frg">275,317</td>
+<td class="gt_row gt_right gt_striped" headers="Scaffolds">0</td>
+<td class="gt_row gt_right gt_striped" headers="Mean.coverage">320</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="accession">3Dt2c</td>
+<td class="gt_row gt_right" headers="Fragments" style="background-color: #8DC0DD; color: #000000">84</td>
+<td class="gt_row gt_right" headers="Total.length">3,819,610</td>
+<td class="gt_row gt_right" headers="Fragments.N50">69,733</td>
+<td class="gt_row gt_right" headers="Largest.frg">247,364</td>
+<td class="gt_row gt_right" headers="Scaffolds">0</td>
+<td class="gt_row gt_right" headers="Mean.coverage">190</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="accession">3Dt2j</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments" style="background-color: #9ECAE1; color: #000000">75</td>
+<td class="gt_row gt_right gt_striped" headers="Total.length">2,813,977</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments.N50">71,970</td>
+<td class="gt_row gt_right gt_striped" headers="Largest.frg">195,248</td>
+<td class="gt_row gt_right gt_striped" headers="Scaffolds">0</td>
+<td class="gt_row gt_right gt_striped" headers="Mean.coverage">350</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="accession">2Dt1l</td>
+<td class="gt_row gt_right" headers="Fragments" style="background-color: #E7F1FA; color: #000000">16</td>
+<td class="gt_row gt_right" headers="Total.length">3,996,506</td>
+<td class="gt_row gt_right" headers="Fragments.N50">345,773</td>
+<td class="gt_row gt_right" headers="Largest.frg">1,089,026</td>
+<td class="gt_row gt_right" headers="Scaffolds">0</td>
+<td class="gt_row gt_right" headers="Mean.coverage">289</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="accession">1Dt2d</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments" style="background-color: #F1F7FD; color: #000000">6</td>
+<td class="gt_row gt_right gt_striped" headers="Total.length">5,345,294</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments.N50">1,019,507</td>
+<td class="gt_row gt_right gt_striped" headers="Largest.frg">2,288,975</td>
+<td class="gt_row gt_right gt_striped" headers="Scaffolds">0</td>
+<td class="gt_row gt_right gt_striped" headers="Mean.coverage">225</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="accession">1Dt1h</td>
+<td class="gt_row gt_right" headers="Fragments" style="background-color: #F3F8FE; color: #000000">4</td>
+<td class="gt_row gt_right" headers="Total.length">4,336,578</td>
+<td class="gt_row gt_right" headers="Fragments.N50">1,857,409</td>
+<td class="gt_row gt_right" headers="Largest.frg">2,051,556</td>
+<td class="gt_row gt_right" headers="Scaffolds">0</td>
+<td class="gt_row gt_right" headers="Mean.coverage">404</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="accession">1Dt100h</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments" style="background-color: #F5FAFE; color: #000000">2</td>
+<td class="gt_row gt_right gt_striped" headers="Total.length">2,379,473</td>
+<td class="gt_row gt_right gt_striped" headers="Fragments.N50">2,349,045</td>
+<td class="gt_row gt_right gt_striped" headers="Largest.frg">2,349,045</td>
+<td class="gt_row gt_right gt_striped" headers="Scaffolds">0</td>
+<td class="gt_row gt_right gt_striped" headers="Mean.coverage">224</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="odd">
+<td colspan="7" class="gt_sourcenote">Source: flye.log files produced in flye_asm analysis, August 27th 2024</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-log-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: Data obtained from flye.log outputs of samples taken from the skin microbiome of <em>Dendrobates tinctorius</em>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>This is a table of the type of stuff I first collated in the Summer, it shares many similarities and cross overs with Table 2, neither have quality statistics, but both are metadata largely concerning the length and fragment, a marked difference is this one comes with a concrete value of coverage. Comparative analysis of them feels like a thing that would happen in the conclusion to this document.</p>
+</section>
+<section id="scripts" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="scripts"><span class="header-section-number">11.2.4</span> Scripts</h3>
+<ul>
+<li><p><a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/flye.loggetter.sh">flye.loggetter.sh</a></p></li>
+<li><p><a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/flyeloganalysis.R">flyeloganalysis.R</a></p></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
