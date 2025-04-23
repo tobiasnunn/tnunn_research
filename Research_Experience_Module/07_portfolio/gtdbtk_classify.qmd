@@ -12,53 +12,23 @@ The script used was the same as in the de_novo process.
 
 ### Table
 
-```{r table-classify, echo=FALSE, warning=FALSE}
+The table was too large to include here, so here is a link to it in the repo: [gtdbtk.bac120.summary.tsv](https://github.com/tobiasnunn/tnunn_research/blob/6bfc481b8ebb4b2d3d0ec013bfe68a3662fb4ca4/Research_Experience_Module/02_middle-analysis_outputs/gtdbtk_stuff/classify_wf/gtdbtk.bac120.summary.tsv)
+
+### tree example
+
+```{r tree-bad-pic}
 #| echo: FALSE
-#| label: tbl-classify
-#| tbl-align: center
-#| tbl-cap: "File output by GTDB-Tk for the Classify workflow"
+#| label: fig-badtree
+#| fig-align: center
+#| fig-cap: "Early phylogenetic tree made using the GTDB-Tk classify workflow"
 
-library(tidyverse)
-library(gt)
-library(dplyr)
-library(tidyr)
-library(knitr)
-#---------------read in file--------------------------------
-class <- read_delim(file = "../02_middle-analysis_outputs/gtdbtk_stuff/classify_wf/gtdbtk.bac120.summary.tsv")
-#----------------table--------------------------
-
-select(class, user_genome, classification, fastani_ani, closest_placement_reference, note, msa_percent, red_value, warnings) %>%
-  gt() %>%
-  tab_source_note(source_note = "Source: GTDB-Tk classify_wf done sometime before start of school year") %>%
-  opt_row_striping() %>%
-  opt_stylize(style = 5, color = "blue")# %>%
-#  tab_header(
- #   title = "Table 6 - subset of data obtained from secondary CheckM analysis",
-  #  subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including taxonomy at various levels")
-  #) %>%
-  # fmt_markdown(
-  #   columns = c(Taxonomycontained, Taxonomysisterlineage),
-  #   rows = everything(),
-  #   md_engine = "markdown"
-  # ) %>%
-  # cols_label(Xuniquemarkersof43 = "Unique Markers (of 43)",
-  #        Taxonomycontained = "Taxonomy (Contained)",
-  #        Taxonomysisterlineage = "Taxonomy (Sister Lineage)",
-  #        BinId = "Accession") %>%
-  # data_color(
-  #   columns = c(Xuniquemarkersof43),
-  #   method = "numeric",
-  #   palette = "Blues",
-  #   domain = c(40, 43),
-  #   reverse = FALSE) %>%
-  # tab_style(
-  #   style = list(
-  #     cell_text(size = "small")
-  #     ), 
-  #   locations = cells_body(
-  #     columns = c(Taxonomycontained, Taxonomysisterlineage),
-  #     rows = everything()
-  #     )
-  #   )
-  # 
+knitr::include_graphics(here::here("img/classify/classify_tree.png"))
 ```
+
+@fig-badtree shows that the clade is not monophyletic, with representatives from 3 genera (*Enterobacter, Erwinia* and *Pantoea*).
+
+## Manual trees
+
+At some point I made a set of trees that cannot be sourced to any other analysis I performed at the time.
+
+These were made using [This script](https://github.com/aptemus/tnunn_research/blob/0c487ca21d0c783b7075446d688f88ed1d7ce77a/2024-25%20Research/frog%20bacteria/03%20data_analysis/call%20API%20and%20process%20json%20-%20with%20legend.R), which does not exist in the current version of the repo. I cannot find what process made the basis of these trees. I remember, as well as the small trees it output a big tree of everything that did have them in the right place

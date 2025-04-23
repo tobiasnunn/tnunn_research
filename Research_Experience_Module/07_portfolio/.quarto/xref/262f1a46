@@ -1,1 +1,1 @@
-{"options":{"chapters":true},"entries":[{"caption":"File output by GTDB-Tk for the Classify workflow","key":"tbl-classify","order":{"number":1,"section":[5,3,1,0,0,0,0]}}],"headings":["introduction","methods","results","table"]}
+{"entries":[{"order":{"section":[5,3,2,0,0,0,0],"number":1},"caption":"Early phylogenetic tree made using the GTDB-Tk classify workflow","key":"fig-badtree"}],"options":{"chapters":true},"headings":["introduction","methods","results","table","tree-example","manual-trees"]}
