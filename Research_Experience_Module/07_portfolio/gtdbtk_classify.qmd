@@ -1,3 +1,64 @@
 # GTDB-TK Classify
 
-in the summer i had a bahama mama
+## Introduction
+
+In september, when I was still inexperienced, I ran GTDB-Tk on the 10 samples using the classify_wf. At the time, that is the only way I thought it could be used. I got a few trees output from this, but because the trees were not monophyletic, so I discarded them as not possible to be correct. However, there was another output that I did not see or disregarded.
+
+## Methods
+
+The script used was the same as in the de_novo process.
+
+## Results
+
+### Table
+
+```{r table-classify, echo=FALSE, warning=FALSE}
+#| echo: FALSE
+#| label: tbl-classify
+#| tbl-align: center
+#| tbl-cap: "File output by GTDB-Tk for the Classify workflow"
+
+library(tidyverse)
+library(gt)
+library(dplyr)
+library(tidyr)
+library(knitr)
+#---------------read in file--------------------------------
+class <- read_delim(file = "../02_middle-analysis_outputs/gtdbtk_stuff/classify_wf/gtdbtk.bac120.summary.tsv")
+#----------------table--------------------------
+
+select(class, user_genome, classification, fastani_ani, closest_placement_reference, note, msa_percent, red_value, warnings) %>%
+  gt() %>%
+  tab_source_note(source_note = "Source: GTDB-Tk classify_wf done sometime before start of school year") %>%
+  opt_row_striping() %>%
+  opt_stylize(style = 5, color = "blue")# %>%
+#  tab_header(
+ #   title = "Table 6 - subset of data obtained from secondary CheckM analysis",
+  #  subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*, including taxonomy at various levels")
+  #) %>%
+  # fmt_markdown(
+  #   columns = c(Taxonomycontained, Taxonomysisterlineage),
+  #   rows = everything(),
+  #   md_engine = "markdown"
+  # ) %>%
+  # cols_label(Xuniquemarkersof43 = "Unique Markers (of 43)",
+  #        Taxonomycontained = "Taxonomy (Contained)",
+  #        Taxonomysisterlineage = "Taxonomy (Sister Lineage)",
+  #        BinId = "Accession") %>%
+  # data_color(
+  #   columns = c(Xuniquemarkersof43),
+  #   method = "numeric",
+  #   palette = "Blues",
+  #   domain = c(40, 43),
+  #   reverse = FALSE) %>%
+  # tab_style(
+  #   style = list(
+  #     cell_text(size = "small")
+  #     ), 
+  #   locations = cells_body(
+  #     columns = c(Taxonomycontained, Taxonomysisterlineage),
+  #     rows = everything()
+  #     )
+  #   )
+  # 
+```

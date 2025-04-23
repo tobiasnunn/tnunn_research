@@ -162,26 +162,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./heatmaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Final Heatmap and analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./subprojects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Subproject</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Subproject</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./flye_outs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Flye outputs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Flye outputs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gen_prog.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Learning, General Progress and Important Mistakes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Learning, General Progress and Important Mistakes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -195,8 +201,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">5.2</span> Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">5.3</span> Results</a>
+  <ul class="collapse">
+  <li><a href="#table" id="toc-table" class="nav-link" data-scroll-target="#table"><span class="header-section-number">5.3.1</span> Table</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -220,9 +237,628 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>in the summer i had a bahama mama</p>
+<section id="introduction" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
+<p>In september, when I was still inexperienced, I ran GTDB-Tk on the 10 samples using the classify_wf. At the time, that is the only way I thought it could be used. I got a few trees output from this, but because the trees were not monophyletic, so I discarded them as not possible to be correct. However, there was another output that I did not see or disregarded.</p>
+</section>
+<section id="methods" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">5.2</span> Methods</h2>
+<p>The script used was the same as in the de_novo process.</p>
+</section>
+<section id="results" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="results"><span class="header-section-number">5.3</span> Results</h2>
+<section id="table" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="table"><span class="header-section-number">5.3.1</span> Table</h3>
+<div class="cell" data-tbl-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+Rows: 10 Columns: 20
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (18): user_genome, classification, fastani_reference, fastani_reference_...
+dbl  (2): msa_percent, translation_table
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div id="tbl-classify" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-classify-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: File output by GTDB-Tk for the Classify workflow
+</figcaption>
+<div aria-describedby="tbl-classify-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="zynumhoixz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zynumhoixz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#zynumhoixz thead, #zynumhoixz tbody, #zynumhoixz tfoot, #zynumhoixz tr, #zynumhoixz td, #zynumhoixz th {
+  border-style: none;
+}
+
+#zynumhoixz p {
+  margin: 0;
+  padding: 0;
+}
+
+#zynumhoixz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 3px;
+  border-right-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #D5D5D5;
+}
+
+#zynumhoixz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#zynumhoixz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zynumhoixz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zynumhoixz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zynumhoixz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#zynumhoixz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zynumhoixz .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zynumhoixz .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #004D80;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zynumhoixz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zynumhoixz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zynumhoixz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zynumhoixz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#zynumhoixz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#zynumhoixz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+  vertical-align: middle;
+}
+
+#zynumhoixz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zynumhoixz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zynumhoixz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D5D5D5;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #D5D5D5;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #D5D5D5;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zynumhoixz .gt_stub {
+  color: #FFFFFF;
+  background-color: #929292;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D5D5D5;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zynumhoixz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#zynumhoixz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#zynumhoixz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#zynumhoixz .gt_summary_row {
+  color: #FFFFFF;
+  background-color: #5F5F5F;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zynumhoixz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D5D5D5;
+}
+
+#zynumhoixz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#zynumhoixz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#zynumhoixz .gt_grand_summary_row {
+  color: #FFFFFF;
+  background-color: #929292;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zynumhoixz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D5D5D5;
+}
+
+#zynumhoixz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D5D5D5;
+}
+
+#zynumhoixz .gt_striped {
+  background-color: #F4F4F4;
+}
+
+#zynumhoixz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D5D5D5;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D5D5D5;
+}
+
+#zynumhoixz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zynumhoixz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zynumhoixz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zynumhoixz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zynumhoixz .gt_left {
+  text-align: left;
+}
+
+#zynumhoixz .gt_center {
+  text-align: center;
+}
+
+#zynumhoixz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zynumhoixz .gt_font_normal {
+  font-weight: normal;
+}
+
+#zynumhoixz .gt_font_bold {
+  font-weight: bold;
+}
+
+#zynumhoixz .gt_font_italic {
+  font-style: italic;
+}
+
+#zynumhoixz .gt_super {
+  font-size: 65%;
+}
+
+#zynumhoixz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#zynumhoixz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#zynumhoixz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#zynumhoixz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#zynumhoixz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#zynumhoixz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#zynumhoixz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#zynumhoixz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#zynumhoixz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="user_genome" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">user_genome</th>
+<th id="classification" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">classification</th>
+<th id="fastani_ani" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">fastani_ani</th>
+<th id="closest_placement_reference" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">closest_placement_reference</th>
+<th id="note" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">note</th>
+<th id="msa_percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">msa_percent</th>
+<th id="red_value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">red_value</th>
+<th id="warnings" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">warnings</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="user_genome">flye_asm_1Dt100g_part2</td>
+<td class="gt_row gt_left" headers="classification">d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingomonas;s__</td>
+<td class="gt_row gt_left" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left" headers="closest_placement_reference">N/A</td>
+<td class="gt_row gt_left" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right" headers="msa_percent">79.63</td>
+<td class="gt_row gt_left" headers="red_value">0.9045808049151477</td>
+<td class="gt_row gt_left" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="user_genome">flye_asm_1Dt100h_part2</td>
+<td class="gt_row gt_left gt_striped" headers="classification">d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Dermabacteraceae;g__;s__</td>
+<td class="gt_row gt_left gt_striped" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left gt_striped" headers="closest_placement_reference">N/A</td>
+<td class="gt_row gt_left gt_striped" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right gt_striped" headers="msa_percent">97.56</td>
+<td class="gt_row gt_left gt_striped" headers="red_value">0.7562959283464303</td>
+<td class="gt_row gt_left gt_striped" headers="warnings">N/A</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="user_genome">flye_asm_1Dt1h_part2</td>
+<td class="gt_row gt_left" headers="classification">d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Brevibacteriaceae;g__Brevibacterium;s__</td>
+<td class="gt_row gt_left" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left" headers="closest_placement_reference">N/A</td>
+<td class="gt_row gt_left" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right" headers="msa_percent">94.52</td>
+<td class="gt_row gt_left" headers="red_value">0.9591285986804902</td>
+<td class="gt_row gt_left" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="user_genome">flye_asm_1Dt2d_part2</td>
+<td class="gt_row gt_left gt_striped" headers="classification">d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Pantoea;s__Pantoea cancerogena_A</td>
+<td class="gt_row gt_left gt_striped" headers="fastani_ani">96.77</td>
+<td class="gt_row gt_left gt_striped" headers="closest_placement_reference">GCF_000773965.1</td>
+<td class="gt_row gt_left gt_striped" headers="note">topological placement and ANI have congruent species assignments</td>
+<td class="gt_row gt_right gt_striped" headers="msa_percent">98.71</td>
+<td class="gt_row gt_left gt_striped" headers="red_value">N/A</td>
+<td class="gt_row gt_left gt_striped" headers="warnings">N/A</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="user_genome">flye_asm_2Dt1e_part2</td>
+<td class="gt_row gt_left" headers="classification">d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Dermabacteraceae;g__Brachybacterium;s__</td>
+<td class="gt_row gt_left" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left" headers="closest_placement_reference">GCF_009299795.1</td>
+<td class="gt_row gt_left" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right" headers="msa_percent">48.15</td>
+<td class="gt_row gt_left" headers="red_value">0.9941279411764705</td>
+<td class="gt_row gt_left" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="user_genome">flye_asm_2Dt1l_part2</td>
+<td class="gt_row gt_left gt_striped" headers="classification">d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Microbacteriaceae;g__Microbacterium;s__</td>
+<td class="gt_row gt_left gt_striped" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left gt_striped" headers="closest_placement_reference">N/A</td>
+<td class="gt_row gt_left gt_striped" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right gt_striped" headers="msa_percent">96.66</td>
+<td class="gt_row gt_left gt_striped" headers="red_value">0.9813750339874739</td>
+<td class="gt_row gt_left gt_striped" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="user_genome">flye_asm_3Dt1c_part2</td>
+<td class="gt_row gt_left" headers="classification">d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingomonas;s__</td>
+<td class="gt_row gt_left" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left" headers="closest_placement_reference">GCF_001421355.1</td>
+<td class="gt_row gt_left" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right" headers="msa_percent">96.45</td>
+<td class="gt_row gt_left" headers="red_value">0.9968741031265823</td>
+<td class="gt_row gt_left" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="user_genome">flye_asm_3Dt2c_part2</td>
+<td class="gt_row gt_left gt_striped" headers="classification">d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingomonas;s__</td>
+<td class="gt_row gt_left gt_striped" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left gt_striped" headers="closest_placement_reference">GCF_001421245.1</td>
+<td class="gt_row gt_left gt_striped" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right gt_striped" headers="msa_percent">94.24</td>
+<td class="gt_row gt_left gt_striped" headers="red_value">0.9946992030897058</td>
+<td class="gt_row gt_left gt_striped" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="user_genome">flye_asm_3Dt2h_part2</td>
+<td class="gt_row gt_left" headers="classification">d__Bacteria;p__Actinobacteriota;c__Actinomycetia;o__Actinomycetales;f__Microbacteriaceae;g__Microbacterium;s__</td>
+<td class="gt_row gt_left" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left" headers="closest_placement_reference">GCF_900156435.1</td>
+<td class="gt_row gt_left" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right" headers="msa_percent">85.37</td>
+<td class="gt_row gt_left" headers="red_value">0.9975821202438638</td>
+<td class="gt_row gt_left" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="user_genome">flye_asm_3Dt2j_part2</td>
+<td class="gt_row gt_left gt_striped" headers="classification">d__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingomonas;s__</td>
+<td class="gt_row gt_left gt_striped" headers="fastani_ani">N/A</td>
+<td class="gt_row gt_left gt_striped" headers="closest_placement_reference">GCF_003515075.1</td>
+<td class="gt_row gt_left gt_striped" headers="note">classification based on placement in class-level tree</td>
+<td class="gt_row gt_right gt_striped" headers="msa_percent">93.31</td>
+<td class="gt_row gt_left gt_striped" headers="red_value">0.9617996363222576</td>
+<td class="gt_row gt_left gt_striped" headers="warnings">Genome not assigned to closest species as it falls outside its pre-defined ANI radius</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="odd">
+<td colspan="8" class="gt_sourcenote">Source: GTDB-Tk classify_wf done sometime before start of school year</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
