@@ -15,6 +15,7 @@ book:
     - ncbi.qmd
     - eggnogmapper_proto.qmd
     - eggnogmapper_final.qmd
+    - heatmaps.qmd
     - subprojects.qmd
     - flye_outs.qmd
     - gen_prog.qmd
