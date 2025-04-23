@@ -22,7 +22,7 @@ The CheckM2 job produced a [set of files](https://github.com/tobiasnunn/tnunn_re
 filepath <- "../02_middle-analysis_outputs/CheckM2_20241228"
 
 # List files in a directory
-files <- list.files(path = filepath, full.names = FALSE)
+files <- list.files(path = filepath, full.names = FALSE, recursive = TRUE)
 
 
 file_info <- data.frame(
@@ -34,30 +34,31 @@ knitr::kable(file_info)
 
 ```
 
-
 The file I needed was `quality_report.tsv`, which gives info on each sample:
-- Completeness
-- Contamination
-- Completeness Model Used	
-- Translation Table Used
 
+-   Completeness
+
+-   Contamination
+
+-   Completeness Model Used
+
+-   Translation Table Used
+
+I created an R script [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R) This produced @tbl-m2
+
+Note: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see @sec-genprog. Particularly the DIAMOND_RESULTS.tsv file looks interesting as it seems to have UNIPROT protein IDs linked to KEGG KO values, which is what I used eggNOG-mapper to do later on.
 
 ```{r quality_report}
 #| echo: false
-#| label: fig-quality
-#| fig-cap: "Quality Report"
+#| label: tbl-diamond
+#| tbl-cap: "First five rows of DIAMOND_RESULTS.tsv file"
 
 
-tsv_data <- read.delim("../02_middle-analysis_outputs/CheckM2_20241228/quality_report.tsv", sep = "\t", header = TRUE, nrows = 5)  # Preview first 5 rows
+tsv_data <- read.delim("../02_middle-analysis_outputs/CheckM2_20241228/diamond_output/DIAMOND_RESULTS.tsv", sep = "\t", header = FALSE, nrows = 5)  # Preview first 5 rows
 
 knitr::kable(tsv_data)
 
 ```
-
-
-I created an R script[CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R) This produced @tbl-m2
-
-Note: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see @sec-genprog
 
 ### Results
 
@@ -92,10 +93,6 @@ checkm2 %>%
     domain = c(0, 3),
     reverse = FALSE
   ) %>%
- #tab_header(
-  #  title = "Table 4 - quality analysis from CheckM2",
-   # subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
-#  ) %>%
   cols_label(Name = "Accession",
              Completeness_Model_Used = "Completeness model used",
              Translation_Table_Used = "Translation table used",
@@ -105,9 +102,13 @@ checkm2 %>%
   )
 ```
 
-This is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.
+This is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own.
 
 ### Scripts
+
+-   [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/run_checkm2TN.sh)
+
+-   [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R)
 
 ### Comparison of CheckM and CheckM2
 

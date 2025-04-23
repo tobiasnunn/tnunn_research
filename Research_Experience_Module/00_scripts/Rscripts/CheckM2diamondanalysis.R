@@ -9,14 +9,16 @@ library(purrr)
 
 # DIAMOND RESULTS
 headers <- c("qseqid",	"sseqid",	"pident",	"length",	"mismatch",	"gapopen",	"qstart",	"qend",	"sstart",	"send",	"evalue",	"bitscore")
-dires <- read.delim("02_middle-analysis_outputs/CheckM2_20241228/diamond_output/DIAMOND_RESULTS.tsv", header = FALSE)
+dires <- read.delim("../02_middle-analysis_outputs/CheckM2_20241228/diamond_output/DIAMOND_RESULTS.tsv", header = FALSE)
 names(dires) <- headers
 
 # EGGNOG RESULTS
 
-eggnog_files <- list.files("02_middle-analysis_outputs/eggnog_stuff", pattern = ".xlsx", full.names = TRUE)
+eggnog_files <- list.files("../02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/", pattern = ".xlsx", full.names = TRUE)
+eggnog_files <- eggnog_files[!grepl("GC[AF]_",eggnog_files)]
 eggnog_file_list <- lapply(eggnog_files, function(x) read_excel(x, skip = 2, col_names = TRUE))
-accession_names <- list.files("02_middle-analysis_outputs/eggnog_stuff", pattern = ".xlsx", full.names = FALSE)
+accession_names <- list.files("../02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/", pattern = ".xlsx", full.names = FALSE)
+accession_names <- accession_names[!grepl("GC[AF]_",accession_names)]
 accession_names <- gsub("flye_asm_|_part2.*", "", accession_names)
 names(eggnog_file_list) <- accession_names
 

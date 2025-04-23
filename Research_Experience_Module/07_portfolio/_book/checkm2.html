@@ -289,7 +289,7 @@ Table&nbsp;4.1: CheckM2 output files
 <td style="text-align: left;">cumcomb.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">diamond_output</td>
+<td style="text-align: left;">diamond_output/DIAMOND_RESULTS.tsv</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">diamondko.csv</td>
@@ -298,12 +298,39 @@ Table&nbsp;4.1: CheckM2 output files
 <td style="text-align: left;">eggnogko.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">protein_files</td>
+<td style="text-align: left;">protein_files/flye_asm_1Dt100g_part2.faa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">quality_report.tsv</td>
+<td style="text-align: left;">protein_files/flye_asm_1Dt100h_part2.faa</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">protein_files/flye_asm_1Dt1h_part2.faa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">protein_files/flye_asm_1Dt2d_part2.faa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">protein_files/flye_asm_2Dt1e_part2.faa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">protein_files/flye_asm_2Dt1l_part2.faa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">protein_files/flye_asm_3Dt1c_part2.faa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">protein_files/flye_asm_3Dt2c_part2.faa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">protein_files/flye_asm_3Dt2h_part2.faa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">protein_files/flye_asm_3Dt2j_part2.faa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">quality_report.tsv</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">uniquecomp.csv</td>
 </tr>
 </tbody>
@@ -313,83 +340,132 @@ Table&nbsp;4.1: CheckM2 output files
 </figure>
 </div>
 </div>
-<p>The file I needed was <code>quality_report.tsv</code>, which gives info on each sample: - Completeness - Contamination - Completeness Model Used<br>
-- Translation Table Used</p>
+<p>The file I needed was <code>quality_report.tsv</code>, which gives info on each sample:</p>
+<ul>
+<li><p>Completeness</p></li>
+<li><p>Contamination</p></li>
+<li><p>Completeness Model Used</p></li>
+<li><p>Translation Table Used</p></li>
+</ul>
+<p>I created an R script<a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R">CheckM2tablegenerator.R.</a> This produced <a href="#tbl-m2" class="quarto-xref">Table&nbsp;<span>4.3</span></a></p>
+<p>Note: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see <a href="gen_prog.html" class="quarto-xref"><span>Chapter 12</span></a>. Particularly the DIAMOND_RESULTS.tsv file looks interesting as it seems to have UNIPROT protein IDs linked to KEGG KO values, which is what I used eggNOG-mapper to do later on.</p>
 <div class="cell">
-<div id="fig-quality" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table table-sm table-striped small">
+<div id="tbl-diamond" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-diamond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.2: First five rows of DIAMOND_RESULTS.tsv file
+</figcaption>
+<div aria-describedby="tbl-diamond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 26%">
-<col style="width: 18%">
-<col style="width: 13%">
+<col style="width: 33%">
+<col style="width: 28%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Name</th>
-<th style="text-align: right;">Completeness</th>
-<th style="text-align: right;">Contamination</th>
-<th style="text-align: left;">Completeness_Model_Used</th>
-<th style="text-align: right;">Translation_Table_Used</th>
-<th style="text-align: left;">Additional_Notes</th>
+<th style="text-align: left;">V1</th>
+<th style="text-align: left;">V2</th>
+<th style="text-align: right;">V3</th>
+<th style="text-align: right;">V4</th>
+<th style="text-align: right;">V5</th>
+<th style="text-align: right;">V6</th>
+<th style="text-align: right;">V7</th>
+<th style="text-align: right;">V8</th>
+<th style="text-align: right;">V9</th>
+<th style="text-align: right;">V10</th>
+<th style="text-align: right;">V11</th>
+<th style="text-align: right;">V12</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">flye_asm_1Dt100g_part2</td>
-<td style="text-align: right;">78.42</td>
-<td style="text-align: right;">0.33</td>
-<td style="text-align: left;">Neural Network (Specific Model)</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: left;">None</td>
+<td style="text-align: left;">flye_asm_1Dt1h_part2Ωcontig_2_1</td>
+<td style="text-align: left;">UniRef100_E8NCL3~K07154</td>
+<td style="text-align: right;">49.7</td>
+<td style="text-align: right;">396</td>
+<td style="text-align: right;">196</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">411</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">411</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">354</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">flye_asm_1Dt100h_part2</td>
-<td style="text-align: right;">99.12</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: left;">Gradient Boost (General Model)</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: left;">None</td>
+<td style="text-align: left;">flye_asm_1Dt1h_part2Ωcontig_3_3</td>
+<td style="text-align: left;">UniRef100_A0A142NN80~K01866</td>
+<td style="text-align: right;">91.8</td>
+<td style="text-align: right;">428</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">428</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">428</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">767</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">flye_asm_1Dt1h_part2</td>
-<td style="text-align: right;">100.00</td>
-<td style="text-align: right;">0.31</td>
-<td style="text-align: left;">Neural Network (Specific Model)</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: left;">None</td>
+<td style="text-align: left;">flye_asm_1Dt1h_part2Ωcontig_3_7</td>
+<td style="text-align: left;">UniRef100_A0A0M4DMT0~K03088</td>
+<td style="text-align: right;">44.0</td>
+<td style="text-align: right;">407</td>
+<td style="text-align: right;">224</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">404</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">414</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">313</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">flye_asm_1Dt2d_part2</td>
-<td style="text-align: right;">100.00</td>
-<td style="text-align: right;">0.87</td>
-<td style="text-align: left;">Neural Network (Specific Model)</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: left;">None</td>
+<td style="text-align: left;">flye_asm_1Dt1h_part2Ωcontig_3_9</td>
+<td style="text-align: left;">UniRef100_A0A142NQF8~K01755</td>
+<td style="text-align: right;">93.0</td>
+<td style="text-align: right;">473</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">473</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">473</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">857</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">flye_asm_2Dt1e_part2</td>
-<td style="text-align: right;">48.29</td>
-<td style="text-align: right;">0.08</td>
-<td style="text-align: left;">Neural Network (Specific Model)</td>
+<td style="text-align: left;">flye_asm_1Dt1h_part2Ωcontig_3_10</td>
+<td style="text-align: left;">UniRef100_A0A142NNT5~K03402</td>
+<td style="text-align: right;">93.5</td>
+<td style="text-align: right;">168</td>
 <td style="text-align: right;">11</td>
-<td style="text-align: left;">None</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">173</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">282</td>
 </tr>
 </tbody>
 </table>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Quality Report
-</figcaption>
+</div>
 </figure>
 </div>
 </div>
-<p>I created an R script<a href="https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R">CheckM2tablegenerator.R.</a> This produced <a href="#tbl-m2" class="quarto-xref">Table&nbsp;<span>4.2</span></a></p>
-<p>Note: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see <a href="gen_prog.html" class="quarto-xref"><span>Chapter 12</span></a></p>
 </section>
 <section id="results" class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="results"><span class="header-section-number">4.2.3</span> Results</h3>
@@ -397,27 +473,27 @@ Figure&nbsp;4.1: Quality Report
 <div id="tbl-m2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the skin microbiome of <em>Dendrobates tinctorius</em>
+Table&nbsp;4.3: Quality analysis from CheckM2 based on samples taken from the skin microbiome of <em>Dendrobates tinctorius</em>
 </figcaption>
 <div aria-describedby="tbl-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="ncbrucirxi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ncbrucirxi table {
+<div id="aplgqkroky" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aplgqkroky table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ncbrucirxi thead, #ncbrucirxi tbody, #ncbrucirxi tfoot, #ncbrucirxi tr, #ncbrucirxi td, #ncbrucirxi th {
+#aplgqkroky thead, #aplgqkroky tbody, #aplgqkroky tfoot, #aplgqkroky tr, #aplgqkroky td, #aplgqkroky th {
   border-style: none;
 }
 
-#ncbrucirxi p {
+#aplgqkroky p {
   margin: 0;
   padding: 0;
 }
 
-#ncbrucirxi .gt_table {
+#aplgqkroky .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -443,12 +519,12 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-left-color: #D5D5D5;
 }
 
-#ncbrucirxi .gt_caption {
+#aplgqkroky .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ncbrucirxi .gt_title {
+#aplgqkroky .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -460,7 +536,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-bottom-width: 0;
 }
 
-#ncbrucirxi .gt_subtitle {
+#aplgqkroky .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -472,7 +548,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-top-width: 0;
 }
 
-#ncbrucirxi .gt_heading {
+#aplgqkroky .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -484,13 +560,13 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-right-color: #D3D3D3;
 }
 
-#ncbrucirxi .gt_bottom_border {
+#aplgqkroky .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#ncbrucirxi .gt_col_headings {
+#aplgqkroky .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -505,7 +581,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-right-color: #D3D3D3;
 }
 
-#ncbrucirxi .gt_col_heading {
+#aplgqkroky .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -525,7 +601,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   overflow-x: hidden;
 }
 
-#ncbrucirxi .gt_column_spanner_outer {
+#aplgqkroky .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -537,15 +613,15 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   padding-right: 4px;
 }
 
-#ncbrucirxi .gt_column_spanner_outer:first-child {
+#aplgqkroky .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ncbrucirxi .gt_column_spanner_outer:last-child {
+#aplgqkroky .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ncbrucirxi .gt_column_spanner {
+#aplgqkroky .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -557,11 +633,11 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   width: 100%;
 }
 
-#ncbrucirxi .gt_spanner_row {
+#aplgqkroky .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ncbrucirxi .gt_group_heading {
+#aplgqkroky .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -587,7 +663,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   text-align: left;
 }
 
-#ncbrucirxi .gt_empty_group_heading {
+#aplgqkroky .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -602,15 +678,15 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   vertical-align: middle;
 }
 
-#ncbrucirxi .gt_from_md > :first-child {
+#aplgqkroky .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ncbrucirxi .gt_from_md > :last-child {
+#aplgqkroky .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ncbrucirxi .gt_row {
+#aplgqkroky .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -629,7 +705,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   overflow-x: hidden;
 }
 
-#ncbrucirxi .gt_stub {
+#aplgqkroky .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -642,7 +718,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   padding-right: 5px;
 }
 
-#ncbrucirxi .gt_stub_row_group {
+#aplgqkroky .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -656,15 +732,15 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   vertical-align: top;
 }
 
-#ncbrucirxi .gt_row_group_first td {
+#aplgqkroky .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ncbrucirxi .gt_row_group_first th {
+#aplgqkroky .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ncbrucirxi .gt_summary_row {
+#aplgqkroky .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -674,16 +750,16 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   padding-right: 5px;
 }
 
-#ncbrucirxi .gt_first_summary_row {
+#aplgqkroky .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#ncbrucirxi .gt_first_summary_row.thick {
+#aplgqkroky .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ncbrucirxi .gt_last_summary_row {
+#aplgqkroky .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -693,7 +769,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-bottom-color: #D5D5D5;
 }
 
-#ncbrucirxi .gt_grand_summary_row {
+#aplgqkroky .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -703,7 +779,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   padding-right: 5px;
 }
 
-#ncbrucirxi .gt_first_grand_summary_row {
+#aplgqkroky .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -713,7 +789,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-top-color: #D5D5D5;
 }
 
-#ncbrucirxi .gt_last_grand_summary_row_top {
+#aplgqkroky .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -723,11 +799,11 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-bottom-color: #D5D5D5;
 }
 
-#ncbrucirxi .gt_striped {
+#aplgqkroky .gt_striped {
   background-color: #F4F4F4;
 }
 
-#ncbrucirxi .gt_table_body {
+#aplgqkroky .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -736,7 +812,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-bottom-color: #D5D5D5;
 }
 
-#ncbrucirxi .gt_footnotes {
+#aplgqkroky .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -750,7 +826,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-right-color: #D3D3D3;
 }
 
-#ncbrucirxi .gt_footnote {
+#aplgqkroky .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -759,7 +835,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   padding-right: 5px;
 }
 
-#ncbrucirxi .gt_sourcenotes {
+#aplgqkroky .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -773,7 +849,7 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   border-right-color: #D3D3D3;
 }
 
-#ncbrucirxi .gt_sourcenote {
+#aplgqkroky .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -781,72 +857,72 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
   padding-right: 5px;
 }
 
-#ncbrucirxi .gt_left {
+#aplgqkroky .gt_left {
   text-align: left;
 }
 
-#ncbrucirxi .gt_center {
+#aplgqkroky .gt_center {
   text-align: center;
 }
 
-#ncbrucirxi .gt_right {
+#aplgqkroky .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ncbrucirxi .gt_font_normal {
+#aplgqkroky .gt_font_normal {
   font-weight: normal;
 }
 
-#ncbrucirxi .gt_font_bold {
+#aplgqkroky .gt_font_bold {
   font-weight: bold;
 }
 
-#ncbrucirxi .gt_font_italic {
+#aplgqkroky .gt_font_italic {
   font-style: italic;
 }
 
-#ncbrucirxi .gt_super {
+#aplgqkroky .gt_super {
   font-size: 65%;
 }
 
-#ncbrucirxi .gt_footnote_marks {
+#aplgqkroky .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ncbrucirxi .gt_asterisk {
+#aplgqkroky .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ncbrucirxi .gt_indent_1 {
+#aplgqkroky .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ncbrucirxi .gt_indent_2 {
+#aplgqkroky .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ncbrucirxi .gt_indent_3 {
+#aplgqkroky .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ncbrucirxi .gt_indent_4 {
+#aplgqkroky .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ncbrucirxi .gt_indent_5 {
+#aplgqkroky .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ncbrucirxi .katex-display {
+#aplgqkroky .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ncbrucirxi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#aplgqkroky div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -968,27 +1044,27 @@ Table&nbsp;4.2: Quality analysis from CheckM2 based on samples taken from the sk
 <div id="tbl-mm2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mm2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3
+Table&nbsp;4.4: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3
 </figcaption>
 <div aria-describedby="tbl-mm2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="rhjxqyvjcs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rhjxqyvjcs table {
+<div id="cghltpcibt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cghltpcibt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rhjxqyvjcs thead, #rhjxqyvjcs tbody, #rhjxqyvjcs tfoot, #rhjxqyvjcs tr, #rhjxqyvjcs td, #rhjxqyvjcs th {
+#cghltpcibt thead, #cghltpcibt tbody, #cghltpcibt tfoot, #cghltpcibt tr, #cghltpcibt td, #cghltpcibt th {
   border-style: none;
 }
 
-#rhjxqyvjcs p {
+#cghltpcibt p {
   margin: 0;
   padding: 0;
 }
 
-#rhjxqyvjcs .gt_table {
+#cghltpcibt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1014,12 +1090,12 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-left-color: #D5D5D5;
 }
 
-#rhjxqyvjcs .gt_caption {
+#cghltpcibt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rhjxqyvjcs .gt_title {
+#cghltpcibt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1031,7 +1107,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-bottom-width: 0;
 }
 
-#rhjxqyvjcs .gt_subtitle {
+#cghltpcibt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1043,7 +1119,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-top-width: 0;
 }
 
-#rhjxqyvjcs .gt_heading {
+#cghltpcibt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1055,13 +1131,13 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-right-color: #D3D3D3;
 }
 
-#rhjxqyvjcs .gt_bottom_border {
+#cghltpcibt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
 }
 
-#rhjxqyvjcs .gt_col_headings {
+#cghltpcibt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1076,7 +1152,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-right-color: #D3D3D3;
 }
 
-#rhjxqyvjcs .gt_col_heading {
+#cghltpcibt .gt_col_heading {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -1096,7 +1172,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   overflow-x: hidden;
 }
 
-#rhjxqyvjcs .gt_column_spanner_outer {
+#cghltpcibt .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #004D80;
   font-size: 100%;
@@ -1108,15 +1184,15 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   padding-right: 4px;
 }
 
-#rhjxqyvjcs .gt_column_spanner_outer:first-child {
+#cghltpcibt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rhjxqyvjcs .gt_column_spanner_outer:last-child {
+#cghltpcibt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rhjxqyvjcs .gt_column_spanner {
+#cghltpcibt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D5D5D5;
@@ -1128,11 +1204,11 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   width: 100%;
 }
 
-#rhjxqyvjcs .gt_spanner_row {
+#cghltpcibt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rhjxqyvjcs .gt_group_heading {
+#cghltpcibt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1158,7 +1234,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   text-align: left;
 }
 
-#rhjxqyvjcs .gt_empty_group_heading {
+#cghltpcibt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1173,15 +1249,15 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   vertical-align: middle;
 }
 
-#rhjxqyvjcs .gt_from_md > :first-child {
+#cghltpcibt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rhjxqyvjcs .gt_from_md > :last-child {
+#cghltpcibt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rhjxqyvjcs .gt_row {
+#cghltpcibt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1200,7 +1276,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   overflow-x: hidden;
 }
 
-#rhjxqyvjcs .gt_stub {
+#cghltpcibt .gt_stub {
   color: #FFFFFF;
   background-color: #929292;
   font-size: 100%;
@@ -1213,7 +1289,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   padding-right: 5px;
 }
 
-#rhjxqyvjcs .gt_stub_row_group {
+#cghltpcibt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1227,15 +1303,15 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   vertical-align: top;
 }
 
-#rhjxqyvjcs .gt_row_group_first td {
+#cghltpcibt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rhjxqyvjcs .gt_row_group_first th {
+#cghltpcibt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rhjxqyvjcs .gt_summary_row {
+#cghltpcibt .gt_summary_row {
   color: #FFFFFF;
   background-color: #5F5F5F;
   text-transform: inherit;
@@ -1245,16 +1321,16 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   padding-right: 5px;
 }
 
-#rhjxqyvjcs .gt_first_summary_row {
+#cghltpcibt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D5D5D5;
 }
 
-#rhjxqyvjcs .gt_first_summary_row.thick {
+#cghltpcibt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rhjxqyvjcs .gt_last_summary_row {
+#cghltpcibt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1264,7 +1340,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-bottom-color: #D5D5D5;
 }
 
-#rhjxqyvjcs .gt_grand_summary_row {
+#cghltpcibt .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #929292;
   text-transform: inherit;
@@ -1274,7 +1350,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   padding-right: 5px;
 }
 
-#rhjxqyvjcs .gt_first_grand_summary_row {
+#cghltpcibt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1284,7 +1360,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-top-color: #D5D5D5;
 }
 
-#rhjxqyvjcs .gt_last_grand_summary_row_top {
+#cghltpcibt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1294,11 +1370,11 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-bottom-color: #D5D5D5;
 }
 
-#rhjxqyvjcs .gt_striped {
+#cghltpcibt .gt_striped {
   background-color: #F4F4F4;
 }
 
-#rhjxqyvjcs .gt_table_body {
+#cghltpcibt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D5D5D5;
@@ -1307,7 +1383,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-bottom-color: #D5D5D5;
 }
 
-#rhjxqyvjcs .gt_footnotes {
+#cghltpcibt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1321,7 +1397,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-right-color: #D3D3D3;
 }
 
-#rhjxqyvjcs .gt_footnote {
+#cghltpcibt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1330,7 +1406,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   padding-right: 5px;
 }
 
-#rhjxqyvjcs .gt_sourcenotes {
+#cghltpcibt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1344,7 +1420,7 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   border-right-color: #D3D3D3;
 }
 
-#rhjxqyvjcs .gt_sourcenote {
+#cghltpcibt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1352,72 +1428,72 @@ Table&nbsp;4.3: Comparison of quality metrics for the same fasta files between C
   padding-right: 5px;
 }
 
-#rhjxqyvjcs .gt_left {
+#cghltpcibt .gt_left {
   text-align: left;
 }
 
-#rhjxqyvjcs .gt_center {
+#cghltpcibt .gt_center {
   text-align: center;
 }
 
-#rhjxqyvjcs .gt_right {
+#cghltpcibt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rhjxqyvjcs .gt_font_normal {
+#cghltpcibt .gt_font_normal {
   font-weight: normal;
 }
 
-#rhjxqyvjcs .gt_font_bold {
+#cghltpcibt .gt_font_bold {
   font-weight: bold;
 }
 
-#rhjxqyvjcs .gt_font_italic {
+#cghltpcibt .gt_font_italic {
   font-style: italic;
 }
 
-#rhjxqyvjcs .gt_super {
+#cghltpcibt .gt_super {
   font-size: 65%;
 }
 
-#rhjxqyvjcs .gt_footnote_marks {
+#cghltpcibt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rhjxqyvjcs .gt_asterisk {
+#cghltpcibt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rhjxqyvjcs .gt_indent_1 {
+#cghltpcibt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rhjxqyvjcs .gt_indent_2 {
+#cghltpcibt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rhjxqyvjcs .gt_indent_3 {
+#cghltpcibt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rhjxqyvjcs .gt_indent_4 {
+#cghltpcibt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rhjxqyvjcs .gt_indent_5 {
+#cghltpcibt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rhjxqyvjcs .katex-display {
+#cghltpcibt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rhjxqyvjcs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#cghltpcibt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

@@ -1,4 +1,4 @@
-# EggNOG-mapper process - prototype
+# EggNOG-mapper process - prototype {#sec-eggnogproto}
 
 ## Introduction
 

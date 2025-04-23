@@ -4,39 +4,9 @@
     "href": "index.html",
     "title": "ENS-2002 Research Experience Portfolio",
     "section": "",
-    "text": "1 Introduction\nbanana coconut your dadas salty knuts",
+    "text": "1 Introduction\nbanana coconut your dadas salty knuts\nThis is a flow chart showing the different processes I used.\n\n\n\n\n\nflowchart LR\n  A(CheckM) --&gt; B(CheckM2)\n  B --&gt; C(GTDB-TK classify_wf)\n  B --&gt; D(GTDB-TK de_novo_wf)\n  C --&gt; E(Metadata extraction)\n  D --&gt; E\n  E --&gt; F(EggNOG-mapper)",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "2  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "3  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "References"
     ]
   },
   {
@@ -50,16 +20,6 @@
     ]
   },
   {
-    "objectID": "gen_prog.html",
-    "href": "gen_prog.html",
-    "title": "12  Learning, General Progress and Important Mistakes",
-    "section": "",
-    "text": "12.1 Evolution of skills",
-    "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Learning, General Progress and Important Mistakes</span>"
-    ]
-  },
-  {
     "objectID": "checkm.html",
     "href": "checkm.html",
     "title": "3  CheckM",
@@ -70,11 +30,31 @@
     ]
   },
   {
+    "objectID": "checkm.html#check-m-lineage_wf",
+    "href": "checkm.html#check-m-lineage_wf",
+    "title": "3  CheckM",
+    "section": "3.2 Check M lineage_wf",
+    "text": "3.2 Check M lineage_wf\n\n3.2.1 Introduction\nA smaller analysis done towards the beginning of the project. CheckM and CheckM2 analyses were done on the genomic samples downloaded from the NCBI largely for the purposes of data exploration and practice, with a side aim of comparing and contrasting the two programmes, as from what I had read CheckM2 was not a direct predecessor to Check M.\n\n\n3.2.2 Methods\nUsing this script I ran a slurm job on hawk under the lineage_wf of CheckM for all 10 Bangor-made samples, this took just 4 minutes. I also worked on exporting the data I want to tabulate off of hawk. The past way I did this was by manually entering each file and noting down the important characteristics. However, because there are going to be more samples(and I wanted to be clever) i decided to use a more automated process. This was done by identifying different documents in the flye directories on hawk, specifically files called “assembly_info.txt” which contain the same information, but are vastly more exportable. These are stored here: cd /scratch/scw2160/02_outputs/flye_asm/flye_asm_[accession]/ using this script I exported them off of hawk.\nUsing the CheckM documentation. I found the output that i needed was bin_stats_ext.tsv. this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate. Over the course of the day i developed and improved CheckMtablegenerator.R. which creates the table layed out in results below. This uses a few packages, one of which was new to me, gt. This is a very useful package for table generation, here is some info.\n\n\n3.2.3 Results\nThe CheckM analysis produced this output directory. My export script exported all 10 “assembly_info.txt” files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise i wouldnt know which belonged to what accession. I then brought them down and stored them here.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>CheckM</span>"
+    ]
+  },
+  {
     "objectID": "checkm2.html",
     "href": "checkm2.html",
     "title": "4  CheckM2",
     "section": "",
     "text": "4.1 Introduction\nCheckM2 is a basic secondary analysis to test the quality of the samples provided with a score for completeness and contamination (Chklovski et al. 2023).",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
+    ]
+  },
+  {
+    "objectID": "checkm2.html#methods",
+    "href": "checkm2.html#methods",
+    "title": "4  CheckM2",
+    "section": "4.2 Methods",
+    "text": "4.2 Methods\n\n4.2.1 CheckM2: slurm job\nI used the script run_checkm2TN.sh to run CheckM2 on all 10 fasta files at once.\n\n\n4.2.2 CheckM2: R table generation\nThe CheckM2 job produced a set of files:\n\n\n\n\nTable 4.1: CheckM2 output files\n\n\n\n\n\n\nFilename\n\n\n\n\ncheckM2comparison.xlsx\n\n\ncumcomb.csv\n\n\ndiamond_output/DIAMOND_RESULTS.tsv\n\n\ndiamondko.csv\n\n\neggnogko.csv\n\n\nprotein_files/flye_asm_1Dt100g_part2.faa\n\n\nprotein_files/flye_asm_1Dt100h_part2.faa\n\n\nprotein_files/flye_asm_1Dt1h_part2.faa\n\n\nprotein_files/flye_asm_1Dt2d_part2.faa\n\n\nprotein_files/flye_asm_2Dt1e_part2.faa\n\n\nprotein_files/flye_asm_2Dt1l_part2.faa\n\n\nprotein_files/flye_asm_3Dt1c_part2.faa\n\n\nprotein_files/flye_asm_3Dt2c_part2.faa\n\n\nprotein_files/flye_asm_3Dt2h_part2.faa\n\n\nprotein_files/flye_asm_3Dt2j_part2.faa\n\n\nquality_report.tsv\n\n\nuniquecomp.csv\n\n\n\n\n\n\n\n\nThe file I needed was quality_report.tsv, which gives info on each sample:\n\nCompleteness\nContamination\nCompleteness Model Used\nTranslation Table Used\n\nI created an R scriptCheckM2tablegenerator.R. This produced Table 4.3\nNote: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see Chapter 12. Particularly the DIAMOND_RESULTS.tsv file looks interesting as it seems to have UNIPROT protein IDs linked to KEGG KO values, which is what I used eggNOG-mapper to do later on.\n\n\n\n\nTable 4.2: First five rows of DIAMOND_RESULTS.tsv file\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nV1\nV2\nV3\nV4\nV5\nV6\nV7\nV8\nV9\nV10\nV11\nV12\n\n\n\n\nflye_asm_1Dt1h_part2Ωcontig_2_1\nUniRef100_E8NCL3~K07154\n49.7\n396\n196\n2\n18\n411\n17\n411\n0\n354\n\n\nflye_asm_1Dt1h_part2Ωcontig_3_3\nUniRef100_A0A142NN80~K01866\n91.8\n428\n35\n0\n1\n428\n1\n428\n0\n767\n\n\nflye_asm_1Dt1h_part2Ωcontig_3_7\nUniRef100_A0A0M4DMT0~K03088\n44.0\n407\n224\n2\n2\n404\n8\n414\n0\n313\n\n\nflye_asm_1Dt1h_part2Ωcontig_3_9\nUniRef100_A0A142NQF8~K01755\n93.0\n473\n33\n0\n1\n473\n1\n473\n0\n857\n\n\nflye_asm_1Dt1h_part2Ωcontig_3_10\nUniRef100_A0A142NNT5~K03402\n93.5\n168\n11\n0\n8\n175\n6\n173\n0\n282\n\n\n\n\n\n\n\n\n\n\n4.2.3 Results\n\n\n\n\nTable 4.3: Quality analysis from CheckM2 based on samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\n\n\n\n\n\nAccession\nCompleteness\nContamination\nCompleteness model used\nTranslation table used\nAdditional notes\n\n\n\n\n1Dt1h\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt2d\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1l\n100.00\n0.27\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2c\n99.94\n0.39\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2j\n99.80\n0.00\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100h\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\n3Dt1c\n98.34\n0.86\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2h\n86.04\n0.10\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100g\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1e\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\nSource: CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\n\n\n\nThis is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.\n\n\n4.2.4 Scripts\n\n\n4.2.5 Comparison of CheckM and CheckM2\n\n\n\n\nTable 4.4: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAccession\n\nCheckM/1.1.3\n\n\nCheckM2/0.1.3\n\n\n\nCompleteness\nContamination\nCompleteness\nContamination\n\n\n\n\n1Dt100g\n76.77\n0.00\n78.42\n0.33\n\n\n1Dt100h\n98.84\n0.19\n99.12\n0.00\n\n\n1Dt1h\n100.00\n0.00\n100.00\n0.31\n\n\n1Dt2d\n100.00\n0.90\n100.00\n0.87\n\n\n2Dt1e\n44.74\n0.00\n48.29\n0.08\n\n\n2Dt1l\n98.82\n2.32\n100.00\n0.27\n\n\n3Dt1c\n97.23\n1.19\n98.34\n0.86\n\n\n3Dt2c\n95.75\n0.85\n99.94\n0.39\n\n\n3Dt2h\n87.98\n0.51\n86.04\n0.10\n\n\n3Dt2j\n96.19\n1.21\n99.80\n0.00\n\n\n\nSource: CheckM lineage_wf performed on 2024-12-25 CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChklovski, Alex, Donovan H. Parks, Ben J. Woodcroft, and Gene W. Tyson. 2023. “CheckM2: A Rapid, Scalable and Accurate Tool for Assessing Microbial Genome Quality Using Machine Learning.” Nature Methods 20 (8): 1203–12. https://doi.org/10.1038/s41592-023-01940-w.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
     ]
@@ -100,11 +80,61 @@
     ]
   },
   {
+    "objectID": "ncbi.html",
+    "href": "ncbi.html",
+    "title": "7  NCBI APIs",
+    "section": "",
+    "text": "7.1 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>NCBI APIs</span>"
+    ]
+  },
+  {
+    "objectID": "ncbi.html#introduction",
+    "href": "ncbi.html#introduction",
+    "title": "7  NCBI APIs",
+    "section": "",
+    "text": "what is an API\nNCBI REST APIs",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>NCBI APIs</span>"
+    ]
+  },
+  {
     "objectID": "eggnogmapper_proto.html",
     "href": "eggnogmapper_proto.html",
     "title": "8  EggNOG-mapper process - prototype",
     "section": "",
     "text": "8.1 Introduction\nGiven how long it takes to run some of the jobs, I didn’t want to do all of the eggNOG-mapper jobs before knowing if the results would be useful and create valid heat maps at the end. So I decided to do the following:\nI chose accessions at random, ensuring there were 10 total per genus including the Bangor samples.\nAll of these steps are described in more detail in Chapter 7 and Chapter 9, so instead here I will write about the ways in which I optimised and improved the processes before tackling the full set of 587 samples.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
+    ]
+  },
+  {
+    "objectID": "eggnogmapper_proto.html#introduction",
+    "href": "eggnogmapper_proto.html#introduction",
+    "title": "8  EggNOG-mapper process - prototype",
+    "section": "",
+    "text": "Download the metadata for the chosen genera, this used the dataset_report API for the NCBI website. This served multiple purposes, for example they told me which samples have a high quality metric, they could also help with the generation of trees from gtdb-tk de_novo_wf\nChoose 10 accessions per genus to use in my prototype pipeline. All groups totalled 10 samples, our own Bangor-made accession will be included in this number, excluding 1Dt100h, as gtdb-tk could not classify it into a family.\nDownload the genomic .fasta files for all of these. This will use the Download API to pull them from the NCBI website.\nAnnotate all those fastas using eggNog-mapper on hawk.\ncreate the file(s) that turn the annotation file into a heatmap",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
+    ]
+  },
+  {
+    "objectID": "eggnogmapper_proto.html#process-optimisation",
+    "href": "eggnogmapper_proto.html#process-optimisation",
+    "title": "8  EggNOG-mapper process - prototype",
+    "section": "8.2 Process Optimisation",
+    "text": "8.2 Process Optimisation\n\neggNOG-mapper requires a lot of resources and can take several hours to complete a single job. I wanted to use the same parameters that the online version of eggNOG-mapper uses, i.e. --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 so I didn’t change them. I did change slurm parameters such as:\n\n\nntasks=2\n\ncpus-per-task=25\n\ntime=01:00:00\n\nmem=45g\n\nAfter a lot of experimentation, the values above seemed to give me the best result. I used seff to check I was not requesting more resources on hawk than I needed.\n\nAs the eggNOG-mapper jobs can take a long time to run, I needed a way to be notified when they had finished without just logging back into hawk. I discovered you can set mail parameters in the slurm script:\n\n\nmail-user=0rtpjri2@anonaddy.me\nmail-type=ALL\n\n\nBatching with control files You can only have 20 jobs in the queue on hawk at any one time, so I used a script to create ‘control files’. These contained two items per line:\n\n\nthe accession number\nthe fasta file name\n\nI created a bash script called slurmsquared.sh, this script loops over the control files line by line and then executes the slurm script eggnogslurmrunner.sh, passing in the accession and file name as parameters. This script creates the slurm job to actually run eggNOG-mapper.\nThis way, all I had to do to process each batch of 20 was upload a new control file and then execute slurmsquared, telling it which control file to look at.\n\nExtract annotation Excel files eggNOG-mapper produces a lot of files but for the heatmaps I needed the Excel file which had the accession at the beginning and then emapper.annotations.xlsx. I created a script called eggnog_annotation_getter.sh to copy all the Excel files out of their main results directory into a separate folder, where I could download them in batches.\nSeparate the post-eggNOG process into different R scripts Once the KO values are extracted from each eggNOG-mapper annotation file, they go through a process in the Microbiome R package called enrichKO. This takes some time to run. Separating out the steps into different scripts meant I didn’t have to re-run the enrichment process but instead it could write out tsv files that I then used in the later steps to create the heatmap.\n\nThe new part1_enrich focuses purely on enriching the output files and sending those outputs into .tsv files that part2_aggregate can now read in and aggregate, producing the output table needed in the unmodified (but renamed) part3_heatmap.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
+    ]
+  },
+  {
+    "objectID": "eggnogmapper_proto.html#results",
+    "href": "eggnogmapper_proto.html#results",
+    "title": "8  EggNOG-mapper process - prototype",
+    "section": "8.3 Results",
+    "text": "8.3 Results\nThe prototype phase produced the following heatmaps.\n\n\n\n\n\n\n\n\n\n\n\n(a) Aesthetic 1\n\n\n\n\n\n\n\n\n\n\n\n(b) Aesthetic 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Aesthetic 3\n\n\n\n\n\n\n\nFigure 8.1: Examples of heatmaps created during prototype phase",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
     ]
@@ -137,6 +167,16 @@
     "text": "in the summer i had a bahama mama",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Flye outputs</span>"
+    ]
+  },
+  {
+    "objectID": "gen_prog.html",
+    "href": "gen_prog.html",
+    "title": "12  Learning, General Progress and Important Mistakes",
+    "section": "",
+    "text": "12.1 Evolution of skills",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Learning, General Progress and Important Mistakes</span>"
     ]
   },
   {
@@ -180,83 +220,13 @@
     ]
   },
   {
-    "objectID": "eggnogmapper_proto.html#introduction",
-    "href": "eggnogmapper_proto.html#introduction",
-    "title": "8  EggNOG-mapper process - prototype",
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
     "section": "",
-    "text": "Download the metadata for the chosen genera, this used the dataset_report API for the NCBI website. This served multiple purposes, for example they told me which samples have a high quality metric, they could also help with the generation of trees from gtdb-tk de_novo_wf\nChoose 10 accessions per genus to use in my prototype pipeline. All groups totalled 10 samples, our own Bangor-made accession will be included in this number, excluding 1Dt100h, as gtdb-tk could not classify it into a family.\nDownload the genomic .fasta files for all of these. This will use the Download API to pull them from the NCBI website.\nAnnotate all those fastas using eggNog-mapper on hawk.\ncreate the file(s) that turn the annotation file into a heatmap",
+    "text": "Chklovski, Alex, Donovan H. Parks, Ben J. Woodcroft, and Gene W. Tyson.\n2023. “CheckM2: A Rapid, Scalable and Accurate Tool for Assessing\nMicrobial Genome Quality Using Machine Learning.” Nature\nMethods 20 (8): 1203–12. https://doi.org/10.1038/s41592-023-01940-w.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
-    ]
-  },
-  {
-    "objectID": "eggnogmapper_proto.html#process-optimisation",
-    "href": "eggnogmapper_proto.html#process-optimisation",
-    "title": "8  EggNOG-mapper process - prototype",
-    "section": "8.2 Process Optimisation",
-    "text": "8.2 Process Optimisation\n\neggNOG-mapper requires a lot of resources and can take several hours to complete a single job. I wanted to use the same parameters that the online version of eggNOG-mapper uses, i.e. --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 so I didn’t change them. I did change slurm parameters such as:\n\n\nntasks=2\n\ncpus-per-task=25\n\ntime=01:00:00\n\nmem=45g\n\nAfter a lot of experimentation, the values above seemed to give me the best result. I used seff to check I was not requesting more resources on hawk than I needed.\n\nAs the eggNOG-mapper jobs can take a long time to run, I needed a way to be notified when they had finished without just logging back into hawk. I discovered you can set mail parameters in the slurm script:\n\n\nmail-user=0rtpjri2@anonaddy.me\nmail-type=ALL\n\n\nBatching with control files You can only have 20 jobs in the queue on hawk at any one time, so I used a script to create ‘control files’. These contained two items per line:\n\n\nthe accession number\nthe fasta file name\n\nI created a bash script called slurmsquared.sh, this script loops over the control files line by line and then executes the slurm script eggnogslurmrunner.sh, passing in the accession and file name as parameters. This script creates the slurm job to actually run eggNOG-mapper.\nThis way, all I had to do to process each batch of 20 was upload a new control file and then execute slurmsquared, telling it which control file to look at.\n\nExtract annotation Excel files eggNOG-mapper produces a lot of files but for the heatmaps I needed the Excel file which had the accession at the beginning and then emapper.annotations.xlsx. I created a script called eggnog_annotation_getter.sh to copy all the Excel files out of their main results directory into a separate folder, where I could download them in batches.\nSeparate the post-eggNOG process into different R scripts Once the KO values are extracted from each eggNOG-mapper annotation file, they go through a process in the Microbiome R package called enrichKO. This takes some time to run. Separating out the steps into different scripts meant I didn’t have to re-run the enrichment process but instead it could write out tsv files that I then used in the later steps to create the heatmap.\n\nThe new part1_enrich focuses purely on enriching the output files and sending those outputs into .tsv files that part2_aggregate can now read in and aggregate, producing the output table needed in the unmodified (but renamed) part3_heatmap.",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
-    ]
-  },
-  {
-    "objectID": "ncbi.html",
-    "href": "ncbi.html",
-    "title": "7  NCBI APIs",
-    "section": "",
-    "text": "7.1 Introduction",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>NCBI APIs</span>"
-    ]
-  },
-  {
-    "objectID": "ncbi.html#introduction",
-    "href": "ncbi.html#introduction",
-    "title": "7  NCBI APIs",
-    "section": "",
-    "text": "what is an API\nNCBI REST APIs",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>NCBI APIs</span>"
-    ]
-  },
-  {
-    "objectID": "eggnogmapper_proto.html#results",
-    "href": "eggnogmapper_proto.html#results",
-    "title": "8  EggNOG-mapper process - prototype",
-    "section": "8.3 Results",
-    "text": "8.3 Results\nThe prototype phase produced the following heatmaps.\n\n\n\n\n\n\n\n\n\n\n\n(a) Aesthetic 1\n\n\n\n\n\n\n\n\n\n\n\n(b) Aesthetic 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Aesthetic 3\n\n\n\n\n\n\n\nFigure 8.1: Examples of heatmaps created during prototype phase",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>EggNOG-mapper process - prototype</span>"
-    ]
-  },
-  {
-    "objectID": "checkm2.html#introduction",
-    "href": "checkm2.html#introduction",
-    "title": "4  CheckM2",
-    "section": "",
-    "text": "4.1.1 Methods\n\n4.1.1.1 CheckM2: slurm job\nJust before lunch(11:45-ish) i set off the slurm job to run CheckM2 on hawk. Let’s see how that goes after lunch, one thing of note though, i did make a minor modification, in the original file, i was running it on the fastas one at a time(?) weird, anyway, i changed it to work on the directory containing all 10, so it should do them all at once. run_checkm2TN.sh.\n\n\n4.1.1.2 CheckM2: R table generation\nThis started with doing cd /scratch/scw2160/02_outputs/flye_asm/CheckM2_20241228 to see the outputs, the job took roughly half an hour, ending at 12:15 pm. Firstly, i copied the output directory to my home area, then once again used MobaXterm to bring it down to the git repo, here. Then, i began work on the R file to turn the quality_report.tsv file. This file was formatted very well, so turning it into a table was very simple, done in CheckM2tablegenerator.R. This produced [Table 4: CheckM2]\nNote: there were other outputs to CheckM2, they were very interesting, im going to make the next section about exploring that possiblity, but they dont relate to this analysis.\n\n\n\n4.1.2 Results\n\n\n\n\n\n\n\n\n\n\nAccession\nCompleteness\nContamination\nCompleteness model used\nTranslation table used\nAdditional notes\n\n\n\n\n1Dt1h\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt2d\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1l\n100.00\n0.27\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2c\n99.94\n0.39\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2j\n99.80\n0.00\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100h\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\n3Dt1c\n98.34\n0.86\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2h\n86.04\n0.10\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100g\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1e\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\nSource: CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.1: Quality analysis from CheckM2 based on samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\nThis is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.\n\n\n4.1.3 Scripts\n\n\n4.1.4 Comparison of CheckM and CheckM2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAccession\n\nCheckM/1.1.3\n\n\nCheckM2/0.1.3\n\n\n\nCompleteness\nContamination\nCompleteness\nContamination\n\n\n\n\n1Dt100g\n76.77\n0.00\n78.42\n0.33\n\n\n1Dt100h\n98.84\n0.19\n99.12\n0.00\n\n\n1Dt1h\n100.00\n0.00\n100.00\n0.31\n\n\n1Dt2d\n100.00\n0.90\n100.00\n0.87\n\n\n2Dt1e\n44.74\n0.00\n48.29\n0.08\n\n\n2Dt1l\n98.82\n2.32\n100.00\n0.27\n\n\n3Dt1c\n97.23\n1.19\n98.34\n0.86\n\n\n3Dt2c\n95.75\n0.85\n99.94\n0.39\n\n\n3Dt2h\n87.98\n0.51\n86.04\n0.10\n\n\n3Dt2j\n96.19\n1.21\n99.80\n0.00\n\n\n\nSource: CheckM lineage_wf performed on 2024-12-25 CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\nFigure 4.2: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3\n\n\n\n\n\n\n\n\nChklovski, Alex, Donovan H. Parks, Ben J. Woodcroft, and Gene W. Tyson. 2023. “CheckM2: A Rapid, Scalable and Accurate Tool for Assessing Microbial Genome Quality Using Machine Learning.” Nature Methods 20 (8): 1203–12. https://doi.org/10.1038/s41592-023-01940-w.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
-    ]
-  },
-  {
-    "objectID": "checkm2.html#methods",
-    "href": "checkm2.html#methods",
-    "title": "4  CheckM2",
-    "section": "4.2 Methods",
-    "text": "4.2 Methods\n\n4.2.1 CheckM2: slurm job\nI used the script run_checkm2TN.sh to run CheckM2 on all 10 fasta files at once.\n\n\n4.2.2 CheckM2: R table generation\nThe CheckM2 job produced a set of files:\n\n\n\n\nTable 4.1: CheckM2 output files\n\n\n\n\n\n\nFilename\n\n\n\n\ncheckM2comparison.xlsx\n\n\ncumcomb.csv\n\n\ndiamond_output\n\n\ndiamondko.csv\n\n\neggnogko.csv\n\n\nprotein_files\n\n\nquality_report.tsv\n\n\nuniquecomp.csv\n\n\n\n\n\n\n\n\nThe file I needed was quality_report.tsv, which gives info on each sample: - Completeness - Contamination - Completeness Model Used\n- Translation Table Used\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nCompleteness\nContamination\nCompleteness_Model_Used\nTranslation_Table_Used\nAdditional_Notes\n\n\n\n\nflye_asm_1Dt100g_part2\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\nflye_asm_1Dt100h_part2\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\nflye_asm_1Dt1h_part2\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\nflye_asm_1Dt2d_part2\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\nflye_asm_2Dt1e_part2\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\n\n\nFigure 4.1: Quality Report\n\n\n\n\nI created an R scriptCheckM2tablegenerator.R. This produced Table 4.2\nNote: there were other outputs to CheckM2, I want to follow up on this during my dissertation, see Chapter 12\n\n\n4.2.3 Results\n\n\n\n\nTable 4.2: Quality analysis from CheckM2 based on samples taken from the skin microbiome of Dendrobates tinctorius\n\n\n\n\n\n\n\n\n\nAccession\nCompleteness\nContamination\nCompleteness model used\nTranslation table used\nAdditional notes\n\n\n\n\n1Dt1h\n100.00\n0.31\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt2d\n100.00\n0.87\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1l\n100.00\n0.27\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2c\n99.94\n0.39\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2j\n99.80\n0.00\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100h\n99.12\n0.00\nGradient Boost (General Model)\n11\nNone\n\n\n3Dt1c\n98.34\n0.86\nNeural Network (Specific Model)\n11\nNone\n\n\n3Dt2h\n86.04\n0.10\nNeural Network (Specific Model)\n11\nNone\n\n\n1Dt100g\n78.42\n0.33\nNeural Network (Specific Model)\n11\nNone\n\n\n2Dt1e\n48.29\n0.08\nNeural Network (Specific Model)\n11\nNone\n\n\n\nSource: CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\n\n\n\nThis is the table of CheckM2 analysis, there are many differences in which fields are produced, also, there appears to be differences in the values themselves for Completeness and Contamination, perhaps part of the comparitive analysis, done in the conclusion should be the date at which both were at, as older versions will probably have less accurate values, and this may cause the difference as genomics is a fast evolving field. A Noteable difference is that CheckM used an internal diamond database, whereas CheckM2 required me to download my own. Exact comparison will be conducted in the conclusion.\n\n\n4.2.4 Scripts\n\n\n4.2.5 Comparison of CheckM and CheckM2\n\n\n\n\nTable 4.3: Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAccession\n\nCheckM/1.1.3\n\n\nCheckM2/0.1.3\n\n\n\nCompleteness\nContamination\nCompleteness\nContamination\n\n\n\n\n1Dt100g\n76.77\n0.00\n78.42\n0.33\n\n\n1Dt100h\n98.84\n0.19\n99.12\n0.00\n\n\n1Dt1h\n100.00\n0.00\n100.00\n0.31\n\n\n1Dt2d\n100.00\n0.90\n100.00\n0.87\n\n\n2Dt1e\n44.74\n0.00\n48.29\n0.08\n\n\n2Dt1l\n98.82\n2.32\n100.00\n0.27\n\n\n3Dt1c\n97.23\n1.19\n98.34\n0.86\n\n\n3Dt2c\n95.75\n0.85\n99.94\n0.39\n\n\n3Dt2h\n87.98\n0.51\n86.04\n0.10\n\n\n3Dt2j\n96.19\n1.21\n99.80\n0.00\n\n\n\nSource: CheckM lineage_wf performed on 2024-12-25 CheckM2 predict performed on 2024-12-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChklovski, Alex, Donovan H. Parks, Ben J. Woodcroft, and Gene W. Tyson. 2023. “CheckM2: A Rapid, Scalable and Accurate Tool for Assessing Microbial Genome Quality Using Machine Learning.” Nature Methods 20 (8): 1203–12. https://doi.org/10.1038/s41592-023-01940-w.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CheckM2</span>"
-    ]
-  },
-  {
-    "objectID": "checkm.html#check-m-lineage_wf",
-    "href": "checkm.html#check-m-lineage_wf",
-    "title": "3  CheckM",
-    "section": "3.2 Check M lineage_wf",
-    "text": "3.2 Check M lineage_wf\n\n3.2.1 Introduction\nA smaller analysis done towards the beginning of the project. CheckM and CheckM2 analyses were done on the genomic samples downloaded from the NCBI largely for the purposes of data exploration and practice, with a side aim of comparing and contrasting the two programmes, as from what I had read CheckM2 was not a direct predecessor to Check M.\n\n\n3.2.2 Methods\nUsing this script I ran a slurm job on hawk under the lineage_wf of CheckM for all 10 Bangor-made samples, this took just 4 minutes. I also worked on exporting the data I want to tabulate off of hawk. The past way I did this was by manually entering each file and noting down the important characteristics. However, because there are going to be more samples(and I wanted to be clever) i decided to use a more automated process. This was done by identifying different documents in the flye directories on hawk, specifically files called “assembly_info.txt” which contain the same information, but are vastly more exportable. These are stored here: cd /scratch/scw2160/02_outputs/flye_asm/flye_asm_[accession]/ using this script I exported them off of hawk.\nUsing the CheckM documentation. I found the output that i needed was bin_stats_ext.tsv. this is where the contamination(and a lot of other fun looking stats) are held. I can thusly import this file to R to try and extract usefull stuff / tabulate. Over the course of the day i developed and improved CheckMtablegenerator.R. which creates the table layed out in results below. This uses a few packages, one of which was new to me, gt. This is a very useful package for table generation, here is some info.\n\n\n3.2.3 Results\nThe CheckM analysis produced this output directory. My export script exported all 10 “assembly_info.txt” files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise i wouldnt know which belonged to what accession. I then brought them down and stored them here.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>CheckM</span>"
+      "References"
     ]
   }
 ]

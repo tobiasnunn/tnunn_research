@@ -1,3 +1,15 @@
 # Introduction
 
 banana coconut your dadas salty knuts
+
+This is a flow chart showing the different processes I used.
+
+```{mermaid}
+flowchart LR
+  A(CheckM) --> B(CheckM2)
+  B --> C(GTDB-TK classify_wf)
+  B --> D(GTDB-TK de_novo_wf)
+  C --> E(Metadata extraction)
+  D --> E
+  E --> F(EggNOG-mapper)
+```
