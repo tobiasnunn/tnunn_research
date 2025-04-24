@@ -31,4 +31,80 @@ knitr::include_graphics(here::here("img/classify/classify_tree.png"))
 
 At some point I made a set of trees that cannot be sourced to any other analysis I performed at the time.
 
-These were made using [This script](https://github.com/aptemus/tnunn_research/blob/0c487ca21d0c783b7075446d688f88ed1d7ce77a/2024-25%20Research/frog%20bacteria/03%20data_analysis/call%20API%20and%20process%20json%20-%20with%20legend.R), which does not exist in the current version of the repo. I cannot find what process made the basis of these trees. I remember, as well as the small trees it output a big tree of everything that did have them in the right place
+These were made using [This script](https://github.com/aptemus/tnunn_research/blob/0c487ca21d0c783b7075446d688f88ed1d7ce77a/2024-25%20Research/frog%20bacteria/03%20data_analysis/call%20API%20and%20process%20json%20-%20with%20legend.R), which does not exist in the current version of the repo. I cannot find what process made the basis of these trees. I remember, as well as the small trees it output a big tree of everything that did have them in the right place, which I also found bizarre, so I did some manual pruning in Dendroscope (I could not do it in R yet). That produced these trees:
+
+::: panel-tabset
+
+### Sphingomonas samples
+
+```{r tree-bad-pic}
+#| echo: FALSE
+#| label: fig-S
+#| fig-align: center
+#| fig-cap: "Phylogenetic tree for 4 local samples of the genus *Sphingomonas*: 1Dt100g - Odd sample, very distant to everything else, no species name means we don’t know if that is correct, but it is still in the right genus at least, 3Dt1c - No species, matched up with another without species ID, so likely the same but unhelpful for our purposes, 3Dt2c - Matched with a speciesless sample, there are an odd number of those in this tree, maybe something to look into, so it might be correct, there are no other samples on the tree under “panni”, maybe should check NIH for “Sphingomonas panni” as if there is one and it isn’t on the tree, our one could be miscategorized, 3Dt2j - Good sample, sister to a reference sample of the same species"
+
+knitr::include_graphics(here::here("img/other_trees/sphingomona.png"))
+```
+
+### 1Dt1h
+
+```{r tree-bad-pic}
+#| echo: FALSE
+#| label: fig-11h
+#| fig-align: center
+#| fig-cap: "Early phylogenetic tree made using the GTDB-Tk classify workflow"
+
+knitr::include_graphics(here::here("img/other_trees/1Dt1h_orig.png"))
+```
+
+### 1Dt2d
+
+```{r tree-bad-pic}
+#| echo: FALSE
+#| label: fig-12d
+#| fig-align: center
+#| fig-cap: "Early phylogenetic tree made using the GTDB-Tk classify workflow"
+
+knitr::include_graphics(here::here("img/other_trees/1Dt2d.png"))
+```
+
+### 2Dt1l
+
+```{r tree-bad-pic}
+#| echo: FALSE
+#| label: fig-21l
+#| fig-align: center
+#| fig-cap: "Early phylogenetic tree made using the GTDB-Tk classify workflow"
+
+knitr::include_graphics(here::here("img/other_trees/2Dt1l_orig.png"))
+```
+
+### 3Dt2h
+
+```{r tree-bad-pic}
+#| echo: FALSE
+#| label: fig-32h
+#| fig-align: center
+#| fig-cap: "Early phylogenetic tree made using the GTDB-Tk classify workflow"
+
+knitr::include_graphics(here::here("img/other_trees/3Dt2h.png"))
+```
+
+### Other two samples
+
+```{r tree-bad-pic}
+#| echo: FALSE
+#| label: fig-O2
+#| fig-align: center
+#| fig-cap: "Early phylogenetic tree made using the GTDB-Tk classify workflow"
+
+knitr::include_graphics(here::here("img/other_trees/Other_two.png"))
+```
+
+:::
+
+All of these trees use the names originally given to them by Alberto from his blastn analysis. (thats what the notebook said he did to get those names)
+
+I did an analysis table in Notebook 1.
+
+I noted that it seems samples 1Dt2d and 2Dt1l looked flipped.
