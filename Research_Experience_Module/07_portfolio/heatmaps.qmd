@@ -14,7 +14,7 @@ These are in specifically that order, as one file feeds the next.
 
 ## Methods
 
-Once the output of EggNOG-mapper is downloaded (@sec-eggnogmapper), they must first be enriched. This is p1 of the pipeline [KEGG_pathway_pipeline_p1_enrich.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R). The R package `Mircrobiomeprofiler` is used, specifically the `EnrichKO()` function to itterate over all the annotated accessions.
+Once the output of EggNOG-mapper is downloaded (@sec-eggnogfull), they must first be enriched. This is p1 of the pipeline [KEGG_pathway_pipeline_p1_enrich.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R). The R package `Mircrobiomeprofiler` is used, specifically the `EnrichKO()` function to itterate over all the annotated accessions.
 
 However, having a couple thousand individual enriched files cannot make a heatmap, thus they must be aggregated into one file, [KEGG_pathway_pipeline_p2_aggregate.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p2_aggregate.R).
 
