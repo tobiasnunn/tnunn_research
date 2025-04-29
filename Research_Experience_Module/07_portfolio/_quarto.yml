@@ -38,4 +38,7 @@ format:
     number-sections: true
     highlight-style: github
 
+editor:
+  render-on-save: true
+
 

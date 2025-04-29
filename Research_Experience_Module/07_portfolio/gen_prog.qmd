@@ -37,7 +37,7 @@ I now have a cursery knowledge of how to use these systems on Hawk. I am not per
 
 ## Mistakes
 
-### Innitial delete
+### Initial delete
 
 All the way back at the beginning of the project, in the summer, something I did on hawk deleted all of the genomic .fasta files that had been created by Aaron through Flye-asm. To this day, noone knows exactly why that happened. However, this did teach me the importance of understanding something before messing with it and not just racing to get a result out to be shown. I then took the time to get to grips with bash and command-line coding by testing on sample documents before applying commands that ran the risk of modifying the important folders.
 

@@ -2,17 +2,17 @@
 
 ## Introduction
 
-In september, when I was still inexperienced, I ran GTDB-Tk on the 10 samples using the classify_wf. At the time, that is the only way I thought it could be used. I got a few trees output from this, but because the trees were not monophyletic, so I discarded them as not possible to be correct. However, there was another output that I did not see or disregarded.
+In september, when I was still inexperienced, I ran GTDB-Tk on the 10 samples using the `classify_wf` workflow. At the time, that is the only way I thought it could be used. I got a few trees output from this, but because the trees were not monophyletic, so I discarded them as not possible to be correct. However, there was another output that I did not see or disregarded.
 
 ## Methods
 
-The script used was the same as in the de_novo process.
+The script used was the same as in the @sec-denovo process.
 
 ## Results
 
 ### Table
 
-The table was too large to include here, so here is a link to it in the repo: [gtdbtk.bac120.summary.tsv](https://github.com/tobiasnunn/tnunn_research/blob/6bfc481b8ebb4b2d3d0ec013bfe68a3662fb4ca4/Research_Experience_Module/02_middle-analysis_outputs/gtdbtk_stuff/classify_wf/gtdbtk.bac120.summary.tsv)
+The table was too large to include here, so here is a link to it in the repo: [gtdbtk.bac120.summary.tsv](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/gtdbtk_stuff/classify_wf/gtdbtk.bac120.summary.tsv)
 
 ### tree example
 
@@ -31,7 +31,9 @@ knitr::include_graphics(here::here("img/classify/classify_tree.png"))
 
 At some point I made a set of trees that cannot be sourced to any other analysis I performed at the time.
 
-These were made using [This script](https://github.com/aptemus/tnunn_research/blob/0c487ca21d0c783b7075446d688f88ed1d7ce77a/2024-25%20Research/frog%20bacteria/03%20data_analysis/call%20API%20and%20process%20json%20-%20with%20legend.R), which does not exist in the current version of the repo. I cannot find what process made the basis of these trees. I remember, as well as the small trees it output a big tree of everything that did have them in the right place, which I also found bizarre, so I did some manual pruning in Dendroscope (I could not do it in R yet). That produced these trees:
+These were made using [This script](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/call%20API%20and%20process%20json%20-%20with%20legend.R), 
+
+£bookmark [update as it does now exist in the repo] which does not exist in the current version of the repo. I cannot find what process made the basis of these trees. I remember, as well as the small trees it output a big tree of everything that did have them in the right place, which I also found bizarre, so I did some manual pruning in Dendroscope (I could not do it in R yet). That produced these trees:
 
 ::: panel-tabset
 
@@ -108,3 +110,7 @@ All of these trees use the names originally given to them by Alberto from his bl
 I did an analysis table in Notebook 1.
 
 I noted that it seems samples 1Dt2d and 2Dt1l looked flipped.
+
+### Scripts
+
+-   [Initial tree creator](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/call%20API%20and%20process%20json%20-%20with%20legend.R)

@@ -70,3 +70,17 @@ knitr::include_graphics(
   error = FALSE
 )
 ```
+
+## Scripts
+
+- [slurmsquared.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/slurmsquared.sh)
+
+- [eggnogslurmrunner.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/eggnogslurmrunner.sh)
+
+- [eggnog_annotation_getter.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/eggnog_annotation_getter.sh)
+
+- [part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt1_enrich.R) 
+
+- [part2_aggregate](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt2_aggregate.R) 
+
+- [part3_heatmap](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt3_proportionising.R)
