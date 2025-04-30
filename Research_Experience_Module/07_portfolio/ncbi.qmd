@@ -6,19 +6,28 @@ Throughout the project, an understanding of the information behind the genetic s
 
 ## Methods
 
+### NCBI
+
 API calls were used to download the metadata, they are a simple, if technical way of transferring large quantities of data. Both the NCBI and KEGG databases have REST APIs[^ncbi-1]. These allow communication between R and these websites by using a special package called [`httr2`](https://httr2.r-lib.org/articles/httr2.html), into which a URL and other items are passed, including a list of accessions for which data is wanted. An example of the code is used in [NCBImetadatacollector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBImetadatacollector.R). The code block with an indepth explanation exists in that code. In short, one creates a list or dataframe of accessions that should be passed to the website, so the metadata can be transferred, then several parameters are passed in to specify what is desired, the call will then be run and output will be several files in the .JSON format[^ncbi-2]. One of the fields that needs to be passed is an output directory.
 
 There are 577 JSON files with up to 104 data items per file, showing all of the information displayed on the NCBI website for a particular accession, for example [GCF_902706225.1](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_902706225.1/). This includes:
 
 - assembly statistics
-
 - details of the biosample. This may include information on host, isolation source, location where sample was taken
-
 - assembly method
-
 - quality check including CheckM and ANI match.
 
 I used the package [tidyjson](https://cran.r-project.org/package=tidyjson) to parse the complex json into a table format.
+
+### KEGG
+
+Rather than call the rather more basic KEGG API directly, I used an R package called [KEGGREST](https://www.bioconductor.org/packages/release/bioc/vignettes/KEGGREST/inst/doc/KEGGREST-vignette.html).  Among other things, this ensures you don't go over the 3 calls a minute limit on the KEGG API.
+
+Using KEGGREST I downloaded information about each KEGG pathway identified in @sec-eggnogfull so that when I created data visualisations I could output the pathway name, and group the pathways together by the groupings on the KEGG website.
+
+This was saved to [genera_KEGG_metadata.tsv](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/analysis_tables/genera_KEGG_metadata.tsv)
+
+
 
 [^ncbi-1]: REST APIs
 
@@ -74,7 +83,7 @@ I generated a table of all metadata for the 577 samples which can be accessed [h
 
 library(readxl)
 library(DT)
-metadatafile <- read_xlsx("../03_final_outputs/MEGATABLE.xlsx") %>%
+metadatafile <- read_xlsx("../03_final_outputs/MEGATABLE.xlsx")  %>% 
   dplyr::select(- document.id, ..JSON)
 
 table <- datatable(metadatafile, 
@@ -85,5 +94,4 @@ table
 ## Scripts
 
 -   [NCBI_metadata_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBI_Metadata_collector_2nd_ver.R)
-
 -   [NCBI_fasta_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBIfastacollector.R)

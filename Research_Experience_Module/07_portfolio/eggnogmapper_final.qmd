@@ -2,9 +2,112 @@
 
 ## Introduction
 
-Doing some stuff with eggnog
+£bookmark do citation https://academic.oup.com/mbe/article/34/8/2115/3782716
 
-In order to create the heatmaps comparing enriched pathways, the genome .fasta files need to be annotated[^1]. To do this, I used a program called EggNOG-mapper[^2]. I had many itterations of this process as I optimised the process through trial and error. However, the final scripts used are: £bookmark . These scripts are fed the .fasta files and run in slurm, outputting annotated .xlsx format files.
+In order to carry out KEGG pathway analysis, the genome .fasta files need to be annotated[^1]. To do this, I used a program called eggNOG-mapper[^2]. 
+
+## Methods
+
+### Create metadata {#sec-metadata}
+
+In order to support the subsequent steps, I generated a metadata file containing the accession and genus of each sample downloaded from the NCBI.  This was done using [KEGG_pipeline_metadata_maker.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_metadata_maker.R) to create a file called [`genera_metadata.tsv`](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_metadata.tsv)[^3]
+
+
+### Annotation
+
+For small numbers of .fasta files, there is a [website](http://eggnog-mapper.embl.de/) where you can upload the files manually and the analysis is performed. The [output files](https://github.com/eggnogdb/eggnog-mapper/wiki/eggNOG-mapper-v2.1.5-to-v2.1.12#user-content-Output_files) can be downloaded manually afterwards. However, for the large number of fasta files involved in this analysis, I needed to be able to automate the process on hawk.
+
+As I have described in @sec-eggnogproto, this involved creating a number of bash scripts and a set of 'control' files, containing groups of 20 accession IDs and file names.
+
+1. [slurmsquared.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/slurmsquared.sh) loops over the control files line by line
+2.  For each line, the slurm script [eggnogslurmrunner.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/eggnogslurmrunner.sh) is executed. This calls `emapper.py` as follows in the code block <code style="white-space: pre-wrap; word-wrap: break-word;">emapper.py -m diamond --itype genome --genepred prodigal -i /home/b.tbn23vlc/fasta_files/\${filename} -o \${accession} --output_dir /home/b.tbn23vlc/\${accession}_annotation/ --cpu 0 --dmnd_ignore_warnings --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 --tax_scope auto --target_orthologs all --go_evidence non-electronic --pfam_realign none --report_orthologs --decorate_gff yes --excel --dbmem</code>
+3. Finally [eggnog_annotation_getter.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/eggnog_annotation_getter.sh) copies the Excel output file to a separate folder to make them easier to download.
+4. The files are stored in [this folder](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs) in my Github repo.
+
+The Excel file contains the following information, shown in this example file:
+
+```{r example_file}
+#| echo: false
+#| warning: false
+#| label: tbl-eggnogexample
+#| tbl-cap: "EggNOG-mapper annotation file example using accession GCA_001464615.1. First five rows only shown"
+
+library(readxl)
+library(DT)
+examplefile <- read_xlsx("../02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/GCA_001464615.1.emapper.annotations.xlsx", skip = 2)  
+
+table <- datatable(head(examplefile, 5))
+table
+```
+
+Although there is a column called 'KEGG pathway' only the column 'KEGG_ko' is used in the further analysis.
+
+### Enrichment
+
+£bookmark cite T Wu#, E Hu#, S Xu, M Chen, P Guo, Z Dai, T Feng, L Zhou, W Tang, L Zhan, X Fu, S Liu, X Bo*, G Yu*. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. The Innovation. 2021, 2(3):100141. doi: 10.1016/j.xinn.2021.100141
+
+Originally in this part of the process I was calling `MicrobiomeProfiler::enrichKO` once for each KEGG KO in each Excel file.  This created some very strange results and I eventually realised that I needed to pass all KEGG KOs in each Excel file into a single call to `enrichKO`.
+
+I did this using this script [part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R). After separating all the KEGG KOs into a single list, it calls `enrichKO` and then filters the returned set of results to those where the `p.adjust` value is less than 0.05. I assume this is a probability but I cannot find any documentation on the `enrichResult` class of object returned by the call to `enrichKO`.
+
+The results are then written to a file called `<accession>_ko_pathway.tsv` stored [here](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs). 
+
+```{r example_pathway_file}
+#| echo: false
+#| warning: false
+#| label: tbl-enrichexample
+#| tbl-cap: "KO enrichment example using accession GCA_001464615.1"
+
+library(tidyverse)
+examplefile <- read_tsv("../02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/GCA_001464615.1_ko_pathway.tsv") 
+
+table <- datatable(examplefile, options = list(pageLength = 5))
+table
+```
+
+### Aggregate results by genus
+
+I used the script [part2_aggregate](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p2_aggregate.R) to do the following:
+
+- I read in each `<accession>_ko_pathway.tsv` file using the metadata file mentioned in @sec-metadata to select the correct ones
+- I created a count of how many times each KO pathway ID appeared in the samples for each genus
+- This info was then written to [`genera_kegg_enriched_mapids.tsv`](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_mapids.tsv) so that I did not have to perform the aggregation multiple times
+- the data was then pivoted so that there were columns for each genus and written to [`genera_kegg_enriched_pathways_revised.tsv`](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_pathways_revised.tsv)
+
+The resultant file looks like this
+
+```{r enriched_pathways}
+#| echo: false
+#| warning: false
+#| label: tbl-pivotpathways
+#| tbl-cap: "KEGG pathways counted by genus"
+
+examplefile <- read_tsv("../02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_kegg_enriched_pathways_revised.tsv") 
+
+table <- datatable(examplefile)
+table
+```
+
+#### Proportion of samples containing pathway
+
+In order to analyse what proportion of all the samples for a particular genus expressed each pathway, I used a third script [KEGG_pathway_pipeline_p3_proportion.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p3_proportion.R) to do the following:
+
+- calculate what proportion (between 0 and 1) of all samples for each genus expressed each pathway
+- select only those pathways where the pathway was expressed in 80% or more in one genus and 50% or lower in all other genera
+- create a heatmap and save it to a png file
+
+## Results
+
+This produced the following heatmap
+
+```{r protos}
+#| echo: false
+#| label: fig-finalheat
+#| fig-cap: "Heatmap showing those KEGG pathways expressed in 80% of one genus' samples but less than 50% of all other genera's samples"
+
+knitr::include_graphics("img/all_genera_updated_b.png")
+```
+
 
 [^1]: annotation
 
@@ -13,4 +116,12 @@ In order to create the heatmaps comparing enriched pathways, the genome .fasta f
 [^2]: version
 
     Specifically, the version on Hawk was version 2.1.12
+
+[^3]: metadata
+
+    This was a longer process of metadata file creation as follows:
+
+    1. [NCBI_metadata_collector.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/NCBI_Metadata_collector_2nd_ver.R) reads in the `gtdb-tk` output file [gtdbtk.bac120.decorated.tree-taxonomy](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/gtdbtk_stuff/20241224_de_novo_wf/gtdbtk.bac120.decorated.tree-taxonomy) and outputs [genera_analysis.tsv](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/analysis_tables/genera_analysis.tsv)
+    2. [jsondataexplorationprep.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/jsondataexplorationprep.R) reads in `genera_analysis.tsv` and outputs [genera_analysis_combined.tsv](https://github.com/tobiasnunn/tnunn_research/blob/c2c0aae0c8679fa89983776de2fcf7e7eadb5004/Research_Experience_Module/02_middle-analysis_outputs/analysis_tables/genera_analysis_combined.tsv)
+    3. [KEGG_pipeline_metadata_maker.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_metadata_maker.R) reads in `genera_analysis_combined.tsv` and  [`genera_metadata.tsv`](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/post_eggnog_pipeline/genera_metadata.tsv)
 

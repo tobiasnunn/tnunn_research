@@ -45,7 +45,7 @@ This way, all I had to do to process each batch of 20 was upload a new control f
 
 4.  Extract annotation Excel files eggNOG-mapper produces a lot of files but for the heatmaps I needed the Excel file which had the accession at the beginning and then emapper.annotations.xlsx. I created a script called [eggnog_annotation_getter.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/eggnog_annotation_getter.sh) to copy all the Excel files out of their main results directory into a separate folder, where I could download them in batches.
 
-5.  Separate the post-eggNOG process into different R scripts Once the KO values are extracted from each eggNOG-mapper annotation file, they go through a process in the [Microbiome R package](https://bioconductor.org/packages/devel/bioc/vignettes/microbiome/inst/doc/vignette.html) called enrichKO. This takes some time to run. Separating out the steps into different scripts meant I didn't have to re-run the enrichment process but instead it could write out tsv files that I then used in the later steps to create the heatmap.
+5.  Separate the post-eggNOG process into different R scripts Once the KO values are extracted from each eggNOG-mapper annotation file, they go through a process in the [MicrobiomeProfiler R package](https://bioconductor.org/packages/devel/bioc/vignettes/microbiome/inst/doc/vignette.html) called enrichKO. This takes some time to run. Separating out the steps into different scripts meant I didn't have to re-run the enrichment process but instead it could write out tsv files that I then used in the later steps to create the heatmap.
 
 The new [part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt1_enrich.R) focuses purely on enriching the output files and sending those outputs into .tsv files that [part2_aggregate](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt2_aggregate.R) can now read in and aggregate, producing the output table needed in the unmodified (but renamed) [part3_heatmap](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt3_proportionising.R).
 
@@ -74,13 +74,8 @@ knitr::include_graphics(
 ## Scripts
 
 - [slurmsquared.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/slurmsquared.sh)
-
 - [eggnogslurmrunner.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/eggnogslurmrunner.sh)
-
 - [eggnog_annotation_getter.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/eggnog_annotation_getter.sh)
-
 - [part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt1_enrich.R) 
-
 - [part2_aggregate](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt2_aggregate.R) 
-
 - [part3_heatmap](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pipeline_pt3_proportionising.R)
