@@ -8,7 +8,7 @@ There were some files outputted from the initial Flye_asm work done by Aaron tha
 
 ### Flye analysis 1: assembly_info.txt
 
-I created an R script, [rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/aad7006d65994e391c8621132fd7fab3fbf53609/00_scripts/rawflyeanalysis.R). Basic stuff, imports the text files I chose to download (I wonder if I could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages.
+I created an R script, [rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/rawflyeanalysis.R). Basic stuff, imports the text files I chose to download (I wonder if I could download the flye.log files and use a sub() to cut out the non-useful stuff). This then sorts and processes the data into the table seen below using a few packages.
 
 ### Flye analysis 2: flye.log
 
@@ -87,10 +87,6 @@ final %>%
     domain = c(0, 200),
     reverse = FALSE
   ) %>%
- # tab_header(
-  #  title = "Table 3 - Data obtained from flye.log outputs",
-   # subtitle = md("of samples taken from the skin microbiome of *Dendrobates tinctorius*")
-  #) %>% 
   cols_label(accession = "Accession",
              Total.length = "Total length",
              Fragments.N50 = "Fragments N50",
@@ -105,6 +101,8 @@ final %>%
 This is a table of the type of stuff I first collated in the Summer, it shares many similarities and cross overs with Table 2, neither have quality statistics, but both are metadata largely concerning the length and fragment, a marked difference is this one comes with a concrete value of coverage. Comparative analysis of them feels like a thing that would happen in the conclusion to this document.
 
 ### Scripts
+
+- [rawflyeanalysis.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/rawflyeanalysis.R)
 
 -   [flye.loggetter.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/flye.loggetter.sh)
 

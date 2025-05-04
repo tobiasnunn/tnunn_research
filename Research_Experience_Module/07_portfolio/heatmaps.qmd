@@ -4,21 +4,21 @@
 
 The main purpose of the project, this took much time to get right. The first part of the process is discussed above. This section concerns the output of EggNOG-mapper, which become the inputs here, with the end goal of creating a heatmap where 1 Genus has over 80% of accessions enriched for a pathway and each of the others have less than 20%. This task created a pipeline that evolved over time, but the current scripts that are used are:
 
-1.  [KEGG_pathway_pipeline_p1_enrich.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R)
+1.  [KEGG_pathway_pipeline_p1_enrich.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R)
 
-2.  [KEGG_pathway_pipeline_p2_aggregate.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p2_aggregate.R)
+2.  [KEGG_pathway_pipeline_p2_aggregate.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p2_aggregate.R)
 
-3.  [KEGG_pathway_pipeline_p3_proportion.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p3_proportion.R)
+3.  [KEGG_pathway_pipeline_p3_proportion.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p3_proportion.R)
 
 These are in specifically that order, as one file feeds the next.
 
 ## Methods
 
-Once the output of EggNOG-mapper is downloaded (@sec-eggnogmapper), they must first be enriched. This is p1 of the pipeline [KEGG_pathway_pipeline_p1_enrich.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R). The R package `Mircrobiomeprofiler` is used, specifically the `EnrichKO()` function to itterate over all the annotated accessions.
+Once the output of EggNOG-mapper is downloaded (@sec-eggnogfull), they must first be enriched. This is p1 of the pipeline [KEGG_pathway_pipeline_p1_enrich.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R). The R package `Mircrobiomeprofiler` is used, specifically the `EnrichKO()` function to itterate over all the annotated accessions.
 
-However, having a couple thousand individual enriched files cannot make a heatmap, thus they must be aggregated into one file, [KEGG_pathway_pipeline_p2_aggregate.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p2_aggregate.R).
+However, having a couple thousand individual enriched files cannot make a heatmap, thus they must be aggregated into one file, [KEGG_pathway_pipeline_p2_aggregate.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p2_aggregate.R).
 
-Finally, the proportions must be applied to this so that only the rows meeting the criteria (\>80% in any one and \<20% in the rest), [KEGG_pathway_pipeline_p3_proportion.R](https://github.com/tobiasnunn/tnunn_research/blob/09b6d09dd31e29cd56289794bffb23397e7baf15/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p3_proportion.R). I merged a 4th script with this, so this one also contains all of the formatting for the heatmap.
+Finally, the proportions must be applied to this so that only the rows meeting the criteria (\>80% in any one and \<20% in the rest), [KEGG_pathway_pipeline_p3_proportion.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p3_proportion.R). I merged a 4th script with this, so this one also contains all of the formatting for the heatmap.
 
 ## Results
 
@@ -32,9 +32,17 @@ knitr::include_graphics("img/all_genera_updated_b.png")
 
 As can be seen in @fig-final-heatmap, metabolism makes up three of the five KEGG groupings. Seen to be more enriched in one Genus than the others. With the other two being Drug resistence and biofilm formation. The Genus *Pantoea* makes up 6 of the 9 pathways found, with *Microbacterium* and *Brevibacterium* having none.
 
+## Scripts
+
+-   [KEGG_pathway_pipeline_p1_enrich.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R)
+
+-   [KEGG_pathway_pipeline_p2_aggregate.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p2_aggregate.R)
+
+-   [KEGG_pathway_pipeline_p3_proportion.R](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p3_proportion.R)
 
 ## Next steps
 
+£bookmark
 other heatmaps like the common one, the cutdown one
 
 link to the prototype page where i did those

@@ -22,6 +22,11 @@ book:
     - gen_prog.qmd
     - summary.qmd
     - references.qmd
+  repo-url: https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/07_portfolio
+  repo-branch: main
+  repo-actions: [issue]
+  sidebar:
+    search: false
 
 bibliography: references.bib
 
@@ -32,5 +37,9 @@ format:
     toc: true
     number-sections: true
     highlight-style: github
+
+editor:
+  render-on-save: true
+
 
 
