@@ -6,4 +6,3 @@ here::here for good pathing
 
 proper integration of images into the notebooks
 
-(i understand if you need to dock points for this, but I think it is too important to not write down)

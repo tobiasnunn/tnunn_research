@@ -42,7 +42,6 @@ As can be seen in @fig-final-heatmap, metabolism makes up three of the five KEGG
 
 ## Next steps
 
-£bookmark
-other heatmaps like the common one, the cutdown one
+£bookmark other heatmaps like the common one, the cutdown one
 
 link to the prototype page where i did those

@@ -1,15 +1,14 @@
 # GTDB-TK de novo {#sec-denovo}
 
 ## Introduction
-£bookmark citation: https://academic.oup.com/bioinformatics/article/36/6/1925/5626182
 
 Earlier in the year I had used GTDB-TK to identify Genera for the 10 samples and create phylogenetic trees, this is described in @sec-classify. However, upon review of these trees I found oddities, errors that did not quite make sense.
 
 I decided to take a closer look at the [documentation](https://ecogenomics.github.io/GTDBTk/index.html) for GTDB-TK to see what I had done exactly. I had initially used the [classify_wf](https://ecogenomics.github.io/GTDBTk/commands/classify_wf.html?highlight=classify_wf), it was here I discovered the [de_novo_wf](https://ecogenomics.github.io/GTDBTk/commands/de_novo_wf.html). It states:
 
->  The *de novo* workflow infers new bacterial and archaeal trees containing all user supplied and GTDB-Tk reference genomes. The classify workflow is recommended for obtaining taxonomic classifications, and this workflow only recommended if a *de novo* domain-specific trees are desired. **One should take the taxonomic assignments as a guide, but not as final classifications**. In particular, no effort is made to resolve the taxonomic assignment of lineages composed exclusively of user submitted genomes.
+> The *de novo* workflow infers new bacterial and archaeal trees containing all user supplied and GTDB-Tk reference genomes. The classify workflow is recommended for obtaining taxonomic classifications, and this workflow only recommended if a *de novo* domain-specific trees are desired. **One should take the taxonomic assignments as a guide, but not as final classifications**. In particular, no effort is made to resolve the taxonomic assignment of lineages composed exclusively of user submitted genomes.
 
-I took this to mean that the `de_novo` workflow would be a more accurate way of estimating the taxonomic assignment of the samples. Though now I re-read it I am not so sure. I found a paper that discusses this, [@chaumeil2022]. I then read this page, [on a discussion board](https://forum.gtdb.ecogenomic.org/t/when-should-i-use-classify-wf-instead-of-da-novo-wf/518). From what I understand from all of this, `classify_wf` gives good taxonomic assignments, but its trees are not perfect, and de_novo_wf is the opposite, it is weaker at assigning (explaining why that one sample without a major group was such an error for it) but spends more run-time making accurate trees. I shall have to dig up my work on classify, as from what I gather, it was not an error to run it.
+I took this to mean that the `de_novo` workflow would be a more accurate way of estimating the taxonomic assignment of the samples. Though now I re-read it I am not so sure. I found a paper that discusses this, [@chaumeil2022]. I then read this page, [on a discussion board](https://forum.gtdb.ecogenomic.org/t/when-should-i-use-classify-wf-instead-of-da-novo-wf/518). From what I understand from all of this, `classify_wf` gives good taxonomic assignments, but its trees are not perfect, and de_novo_wf is the opposite, it is weaker at assigning (explaining why that one sample without a major group was such an error for it) but spends more run-time making accurate trees. I shall have to dig up my work on classify, as from what I gather, it was not an error to run it. For reference, see [@chaumeil2020]
 
 ## Methods
 
@@ -68,7 +67,6 @@ knitr::include_graphics("img/Panto_tree.png")
 #| fig-cap: "GTDB-tk de_novo_wf phylogenetic tree for 1 Bangor-made genomic sequence of the genus *Microbacterium* (seen in the colour black)"
 knitr::include_graphics("img/Micro_tree.png")
 ```
-
 
 ## Scripts
 

@@ -4,11 +4,9 @@ project:
 book:
   title: "ENS-2002 Research Experience Portfolio"
   author: "Tobias Nunn"
-  date: "2025-04-22"
+  date: "2025-05-05"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summer_work.qmd
     - checkm.qmd
     - checkm2.qmd
     - gtdbtk_classify.qmd
@@ -16,7 +14,6 @@ book:
     - ncbi.qmd
     - eggnogmapper_proto.qmd
     - eggnogmapper_final.qmd
-    - heatmaps.qmd
     - subprojects.qmd
     - flye_outs.qmd
     - gen_prog.qmd
