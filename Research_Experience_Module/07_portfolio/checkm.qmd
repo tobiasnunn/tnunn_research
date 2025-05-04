@@ -26,7 +26,7 @@ Using the [CheckM documentation](https://github.com/Ecogenomics/CheckM/wiki/Geno
 
 The CheckM analysis produced [this output directory](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/CheckM). My export script exported all 10 "assembly_info.txt" files to a directory in my home directory, as well as adding their accession ID to the name, this is important as otherwise I would not know which file belonged to each accession. I then brought them down and stored them [here.](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/flyestuff)
 
-```{r checkm-table}
+```{r}
 #| echo: FALSE
 #| warning: false
 #| label: tbl-m
@@ -116,8 +116,9 @@ The vast majority of the code required was already used for the original checkm 
 
 I created an [output directory](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/CheckM/checkmtreeqa) to store all the outputs. As mentioned, there were five; 2 are metadata tables which contain taxonomy data, one basic and one with more data. The next two are .tree files which place the samples in a tree with online references from the [IMG database](https://img.jgi.doe.gov/), one had the ID on that system, in the other the tip labels contained the full taxonomy of each sample. It is possible I can use these for a comparative analysis of CheckM and gtdbtk or ncbi and img. The fifth and final output is: "multiple sequence alignment of reference genomes and bins which can be used to infer a *de novo* genome tree". It looks to be a fasta file for proteins in each sequence, as of now I am unsure what to do with it, I recognize de novo from gtdbtk, is there a link? I will have to consult Aaron for this one.
 
-```{r chart-checkmtreeqa, echo=FALSE, warning=FALSE}
+```{r}
 #| echo: FALSE
+#| warning: FALSE
 #| label: tbl-mtreeqa
 #| tbl-align: center
 #| tbl-cap: "Subset of data obtained from secondary CheckM analysis of samples taken from the skin microbiome of *Dendrobates tinctorius*, including taxonomy at various levels"
@@ -195,7 +196,7 @@ colour_array <- c("#5D1F77", "darkgrey")
 
 #### *Sphingomonas* samples
 
-```{r checkmtreeqa-sphingo, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+```{r out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', dpi=300}
 #| echo: FALSE
 #| label: fig-mtreeqasphingo
 #| fig-align: center
@@ -208,7 +209,7 @@ viewClade(taxtree, MRCA(taxtree, "3Dt2j", "1Dt100g")) +
 
 #### *Microbacterium* samples
 
-```{r checkmtreeqa-micro, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+```{r out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"',  dpi=300}
 #| echo: FALSE
 #| label: fig-mtreeqamicro
 #| fig-align: center
@@ -221,7 +222,7 @@ viewClade(taxtree, MRCA(taxtree, "3Dt2h", "2Dt1l")) +
 
 #### *Brachybacterium / Dermabacter* sample
 
-```{r checkmtreeqa-brach, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+```{r out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', dpi=300}
 #| echo: FALSE
 #| label: fig-mtreeqabrach
 #| fig-align: center
@@ -236,7 +237,7 @@ viewClade(taxtree, MRCA(taxtree, "IMG_647000216\nk__Bacteria;p__Actinobacteria;c
 
 #### *Brevibacterium* sample
 
-```{r checkmtreeqa-brev, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE, dpi=300}
+```{r out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', dpi=300}
 #| echo: FALSE
 #| label: fig-mtreeqabrev
 #| fig-align: center
@@ -251,7 +252,7 @@ viewClade(taxtree, MRCA(taxtree, "1Dt100h", "2Dt1e")) +
 
 #### *Pantoea* sample
 
-```{r checkmtreeqa-pant, out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', echo=FALSE}
+```{r out.width="90%", out.extra='style="background-color: white; padding:1px; display: inline-block;"', dpi=300}
 #| echo: FALSE
 #| label: fig-mtreeqapant
 #| fig-align: center

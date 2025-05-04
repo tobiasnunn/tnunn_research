@@ -14,7 +14,7 @@ I used the script [run_checkm2TN.sh](https://github.com/tobiasnunn/tnunn_researc
 
 The CheckM2 job produced a [set of files](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/CheckM2_20241228):
 
-```{r checkm2_files}
+```{r}
 #| echo: false
 #| label: tbl-files
 #| tbl-cap: "CheckM2 output files"
@@ -46,7 +46,7 @@ The file I needed was `quality_report.tsv`, which gives info on each sample:
 
 I created an R script [CheckM2tablegenerator.R.](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/CheckM2tablegenerator.R) This produced @tbl-m2
 
-```{r quality_report}
+```{r}
 #| echo: false
 #| label: tbl-diamond
 #| tbl-cap: "First five rows of DIAMOND_RESULTS.tsv file"
@@ -60,7 +60,7 @@ knitr::kable(tsv_data)
 
 ### Results
 
-```{r checkm2, echo=FALSE, warning=FALSE}
+```{r}
 #| echo: FALSE
 #| warning: FALSE
 #| label: tbl-m2
@@ -110,8 +110,9 @@ This is the table of CheckM2 analysis, there are many differences in which field
 
 ### Comparison of CheckM and CheckM2
 
-```{r m_vs_m2, echo=FALSE, warning=FALSE}
+```{r}
 #| echo: FALSE
+#| warning: FALSE
 #| label: tbl-mm2
 #| tbl-align: center
 #| tbl-cap: "Comparison of quality metrics for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3"
@@ -149,10 +150,6 @@ combicheck[columnnames] %>%
     domain = c(0, 3),
     reverse = FALSE
   ) %>%
- # tab_header(
-  #  title = "Table 5 - Comparison of quality metrics",
-   # subtitle = md("for the same fasta files between CheckM/1.1.3 and CheckM2/0.1.3")
-    # ) %>%
   tab_spanner(
     label = "CheckM/1.1.3",
     columns = c("Completeness.x", "Contamination.x")) %>%
@@ -181,7 +178,7 @@ I figured if I am going to make decisions based on if two methods are different,
 
 ### Results
 
-```{r diamond}
+```{r}
 #| echo: FALSE
 #| label: fig-diamond
 #| fig-align: center
@@ -190,7 +187,7 @@ I figured if I am going to make decisions based on if two methods are different,
 knitr::include_graphics("img/DIAMOND_RESULTS.tsv.png")
 ```
 
-```{r checkm2kosunique}
+```{r}
 #| echo: FALSE
 #| warning: FALSE
 #| label: tbl-2other
@@ -215,7 +212,7 @@ unique %>%
              egg_per = "% diff eggNog - DIAMOND")
 ```
 
-```{r checkm2koscumulative}
+```{r}
 #| echo: FALSE
 #| warning: FALSE
 #| label: tbl-2otherother
@@ -228,10 +225,6 @@ cumul %>%
   tab_source_note(source_note = "Source: DIAMOND_RESULTS.tsv produced by CheckM2 predict performed on 2024-12-28") %>%
   opt_row_striping() %>%
   opt_stylize(style = 5, color = "blue") %>%
-#  tab_header(
- #   title = "Table 8 - KO pathway Total Frequency analysis from CheckM2",
-  #  subtitle = md("based on samples taken from the skin microbiome of *Dendrobates tinctorius*")
-  #) %>%
   cols_label(accession.e = "Accession",
              ko_value.e = "EggNog-mapper most-frequent KO pathways",
              tot_rows.e = "Ocurrance number in genome",
@@ -243,8 +236,9 @@ cumul %>%
 
 ### Statistical analysis results
 
-```{r finalDIAMONDegganalysis, echo=FALSE, warning=FALSE}
+```{r}
 #| echo: FALSE
+#| warning: FALSE
 #| label: tbl-finaldiamond
 #| tbl-align: center
 #| tbl-cap: "Shared KO values between two systems represented as proportions of their totals based on samples taken from the skin microbiome of *Dendrobates tinctorius*"

@@ -43,7 +43,7 @@ This was saved to [genera_KEGG_metadata.tsv](https://github.com/tobiasnunn/tnunn
 
 ## Results
 
-```{r apicode}
+```{r}
 #| echo: false
 #| label: fig-APIcode
 #| fig-cap: "req_perform method of httr"
@@ -58,7 +58,7 @@ knitr::include_graphics(
 
 As can be seen in @fig-APIcode, An example of having to pass in an empty, existing directory to the call so that it can place the data somewhere
 
-```{r apidirectory}
+```{r}
 #| echo: false
 #| label: fig-APIdirectory
 #| fig-cap: "JSON output from NCBI stored directly as files"
@@ -75,7 +75,7 @@ As can be seen in @fig-APIdirectory, A subset of the files output by my API call
 
 I generated a table of all metadata for the 577 samples which can be accessed [here](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/03_final_outputs/MEGATABLE.xlsx). I have included a version of the table below.
 
-```{r metadata-parse}
+```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-metadata

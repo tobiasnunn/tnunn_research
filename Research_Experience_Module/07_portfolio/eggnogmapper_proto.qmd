@@ -53,7 +53,7 @@ The new [part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/main/Re
 
 The prototype phase produced the following heatmaps.
 
-```{r protos}
+```{r}
 #| echo: false
 #| label: fig-protoheat
 #| layout-ncol: 2

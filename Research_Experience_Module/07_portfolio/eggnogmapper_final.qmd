@@ -39,7 +39,7 @@ As I have described in @sec-eggnogproto, this involved creating a number of bash
 
 The Excel file contains the following information, shown in this example file:
 
-```{r example_file}
+```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-eggnogexample
@@ -63,14 +63,19 @@ I did this using this script [part1_enrich](https://github.com/tobiasnunn/tnunn_
 
 The results are then written to a file called `<accession>_ko_pathway.tsv` stored [here](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs).
 
-```{r example_pathway_file}
+```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-enrichexample
 #| tbl-cap: "KO enrichment example using accession GCA_001464615.1"
 
 library(tidyverse)
+library(DT)
 examplefile <- read_tsv("../02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs/GCA_001464615.1_ko_pathway.tsv") 
+
+#fix for Firefox
+examplefile$geneID <- gsub("/", ":", examplefile$geneID)
+
 
 table <- datatable(examplefile, options = list(pageLength = 5))
 table
@@ -87,7 +92,7 @@ I used the script [part2_aggregate](https://github.com/tobiasnunn/tnunn_research
 
 The resultant file looks like this
 
-```{r enriched_pathways}
+```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-pivotpathways
@@ -113,7 +118,7 @@ In order to analyse what proportion of all the samples for a particular genus ex
 
 This produced the following heatmap
 
-```{r protos}
+```{r}
 #| echo: false
 #| label: fig-finalheat
 #| fig-cap: "Heatmap showing those KEGG pathways expressed in 80% of one genus' samples but less than 50% of all other genera's samples"
@@ -129,7 +134,7 @@ As can be seen in @fig-finalheat, metabolism makes up three of the five KEGG gro
 
 Having identified the important pathways for this analysis, I want to understand what each signifies so they can be described and better understood. In order to generate the groupings on the heatmap, I created a file called [genera_KEGG_metadata.tsv](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/02_middle-analysis_outputs/analysis_tables/genera_KEGG_metadata.tsv), using the KEGGREST API (as described in @sec-ncbi). This data has descriptions of pathways I did not use. Thus, I can use that data again here to contruct a table describing the pathways.
 
-```{r desc_table}
+```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-desc

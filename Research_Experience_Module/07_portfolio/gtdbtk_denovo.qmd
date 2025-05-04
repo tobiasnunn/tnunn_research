@@ -28,7 +28,7 @@ The outputs from the GTDB-tk `de_novo_wf`, namely the .nexml tree file, can be r
 
 ### Results
 
-```{r sphingo-tree}
+```{r}
 #| echo: FALSE
 #| label: fig-sphingo-tree
 #| fig-align: center
@@ -36,7 +36,7 @@ The outputs from the GTDB-tk `de_novo_wf`, namely the .nexml tree file, can be r
 knitr::include_graphics("img/Sphingo_tree.png")
 ```
 
-```{r tree-2}
+```{r}
 #| echo: FALSE
 #| label: fig-brachy-tree
 #| fig-align: center
@@ -44,7 +44,7 @@ knitr::include_graphics("img/Sphingo_tree.png")
 knitr::include_graphics("img/Brachy_tree.png")
 ```
 
-```{r tree-3}
+```{r}
 #| echo: FALSE
 #| label: fig-brevi-tree
 #| fig-align: center
@@ -52,7 +52,7 @@ knitr::include_graphics("img/Brachy_tree.png")
 knitr::include_graphics("img/Brevi_tree.png")
 ```
 
-```{r tree4}
+```{r}
 #| echo: FALSE
 #| label: fig-panto-tree
 #| fig-align: center
@@ -60,7 +60,7 @@ knitr::include_graphics("img/Brevi_tree.png")
 knitr::include_graphics("img/Panto_tree.png")
 ```
 
-```{r tree5}
+```{r}
 #| echo: FALSE
 #| label: fig-micro-tree
 #| fig-align: center

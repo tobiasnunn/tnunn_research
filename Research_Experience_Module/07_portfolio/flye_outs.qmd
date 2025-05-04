@@ -16,7 +16,7 @@ I then went back to the flye.log analysis I wanted to do largely for posterity. 
 
 ### Results
 
-```{r assemblyinfo}
+```{r}
 #| echo: FALSE
 #| warning: FALSE
 #| label: fig-assem
@@ -61,7 +61,7 @@ processedtable %>%
 
 The basic flye output analysis produced this table, as mentioned, I couldn't get coverage to match what was on the flye.log file that I got the original of this table from, it is possible that file is the one that is wrong, but genome coverage is kind of all over the place, so I just omitted it as I don't think it's one of the mandatory fields. I chose to sort the table by "Number of contigs" rather arbitrarily, but it does show something interesting in that why is there such a large range in fragment number?
 
-```{r flyelog}
+```{r}
 #| echo: FALSE
 #| warning: FALSE
 #| label: fig-log

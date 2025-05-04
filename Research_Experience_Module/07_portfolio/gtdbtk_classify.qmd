@@ -16,7 +16,7 @@ The table was too large to include here, so here is a link to it in the repo: [g
 
 ### tree example
 
-```{r tree-bad-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-badtree
 #| fig-align: center
@@ -36,7 +36,7 @@ These were made using [This script](https://github.com/aptemus/tnunn_research/bl
 
 ### Sphingomonas samples
 
-```{r tree-bad-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-S
 #| fig-align: center
@@ -52,7 +52,7 @@ knitr::include_graphics(here::here("img/other_trees/sphingomona.png"))
 
 ### 1Dt1h
 
-```{r tree-bad-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-11h
 #| fig-align: center
@@ -65,7 +65,7 @@ knitr::include_graphics(here::here("img/other_trees/1Dt1h_orig.png"))
 
 ### 1Dt2d
 
-```{r tree-bad-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-12d
 #| fig-align: center
@@ -78,7 +78,7 @@ knitr::include_graphics(here::here("img/other_trees/1Dt2d.png"))
 
 ### 2Dt1l
 
-```{r tree-bad-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-21l
 #| fig-align: center
@@ -91,7 +91,7 @@ knitr::include_graphics(here::here("img/other_trees/2Dt1l_orig.png"))
 
 ### 3Dt2h
 
-```{r tree-bad-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-32h
 #| fig-align: center
@@ -104,7 +104,7 @@ knitr::include_graphics(here::here("img/other_trees/3Dt2h.png"))
 
 ### Other two samples
 
-```{r tree-bad-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-O2
 #| fig-align: center
@@ -121,7 +121,7 @@ I did an analysis table in Notebook 1.
 
 I noted that it seems samples 1Dt2d and 2Dt1l looked flipped, so I changed the names and the trees started making more sense:
 
-```{r tree-good-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-11hf
 #| fig-align: center
@@ -130,7 +130,7 @@ I noted that it seems samples 1Dt2d and 2Dt1l looked flipped, so I changed the n
 knitr::include_graphics(here::here("img/other_trees/1Dt1h_fix.png"))
 ```
 
-```{r trree-good-pic}
+```{r}
 #| echo: FALSE
 #| label: fig-21lf
 #| fig-align: center
