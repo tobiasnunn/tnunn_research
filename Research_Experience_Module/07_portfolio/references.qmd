@@ -2,3 +2,80 @@
 
 ::: {#refs}
 :::
+
+## Tool citations
+
+### CheckM
+
+Parks DH, Imelfort M, Skennerton CT, Hugenholtz P, Tyson GW. 2015. [CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes. Genome Research, 25: 1043–1055](http://genome.cshlp.org/content/25/7/1043.short).
+
+[pplacer](http://matsen.fhcrc.org/pplacer/): Matsen FA, Kodner RB, Armbrust EV. 2010. pplacer: linear time maximum-likelihood and Bayesian phylogenetic placement of sequences onto a fixed reference tree. BMC Bioinformatics 11: doi:10.1186/1471-2105-11-538.
+
+[prodigal](http://prodigal.ornl.gov/): Hyatt D, Locascio PF, Hauser LJ, Uberbacher EC. 2012. Gene and translation initiation site prediction in metagenomic sequences. Bioinformatics 28: 2223–2230.
+
+HMMER: http://hmmer.org/
+
+### CheckM2
+
+Chklovski A, Parks DH, Woodcroft BJ, Tyson GW. [CheckM2: a rapid, scalable and accurate tool for assessing microbial genome quality using machine learning](https://www.nature.com/articles/s41592-023-01940-w) Nat Methods. 2023 Aug;20(8):1203-1212. doi: 10.1038/s41592-023-01940-w. Epub 2023 Jul 27. Erratum in: Nat Methods. 2024 Apr;21(4):735. doi: 10.1038/s41592-024-02248-z. PMID: 37500759.
+
+### gtdb-tk
+
+Chaumeil PA, et al. 2022. [GTDB-Tk2: memory friendly classification with the genome taxonomy database](https://academic.oup.com/bioinformatics/article/38/23/5315/6758240) *Bioinformatics*, btac672
+
+Chaumeil PA, et al. 2019. [GTDB-Tk: A toolkit to classify genomes with the Genome Taxonomy Database] (\https://academic.oup.com/bioinformatics/advance-article-abstract/doi/10.1093/bioinformatics/btz848/5626182). *Bioinformatics*, btz848.
+
+#### GTDB
+
+Parks DH, et al. 2020. [A complete domain-to-species taxonomy for Bacteria and Archaea](https://rdcu.be/b3OI7)*. Nature Biotechnology*, https://doi.org/10.1038/s41587-020-0501-8. Parks DH, et al. 2018. [A standardized bacterial taxonomy based on genome phylogeny substantially revises the tree of life](https://www.nature.com/articles/nbt.4229). *Nature Biotechnology*, http://dx.doi.org/10.1038/nbt.4229.
+
+#### Other
+
+[Prodigal](http://compbio.ornl.gov/prodigal/): Hyatt D, et al. 2010. [Prodigal: prokaryotic gene recognition and translation initiation site identification] (https://www.ncbi.nlm.nih.gov/pubmed/20211023). *BMC Bioinformatics*, 11:119. doi: 10.1186/1471-2105-11-119.
+
+[HMMER](http://hmmer.org/): Eddy SR. 2011. [Accelerated profile HMM searches](https://www.ncbi.nlm.nih.gov/pubmed/22039361) *PLOS Comp. Biol.*, 7:e1002195.
+
+[pplacer](http://matsen.fhcrc.org/pplacer/): Matsen FA, et al. 2010. [pplacer: linear time maximum-likelihood and Bayesian phylogenetic placement of sequences onto a fixed reference tree](https://www.ncbi.nlm.nih.gov/pubmed/21034504). *BMC Bioinformatics*, 11:538.
+
+[skani](https://github.com/bluenote-1577/skani\): Shaw J. and Yu Y.W. 2023. [Fast and robust metagenomic sequence comparison through sparse chaining with skani](https://www.nature.com/articles/s41592-023-02018-3\) *Nature Methods*, 20, pages1661–1665 (2023).
+
+[FastTree](http://www.microbesonline.org/fasttree/): Price MN, et al. 2010. [FastTree 2 - Approximately Maximum-Likelihood Trees for Large Alignments](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2835736/) *PLoS One*, 5, e9490.
+
+[Mash](https://github.com/marbl/Mash): Ondov BD, et al. 2016. [Mash: fast genome and metagenome distance estimation using MinHash](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x) *Genome Biol* 17, 132. doi: doi: 10.1186/s13059-016-0997-x.
+
+[DendroPy](https://dendropy.org/): Sukumaran J. and Mark T. Holder. 2010. DendroPy: A Python library for phylogenetic computing. Bioinformatics 26: 1569-1571.
+
+[NumPy](https://numpy.org/): Harris, C.R., Millman, K.J., van der Walt, S.J. et al. Array programming with NumPy. Nature 585, 357–362 (2020). DOI: `0.1038/s41586-020-2649-2 https://doi.org/10.1038/s41586-020-2649-2
+
+[tqdm](https://github.com/tqdm/tqdm) DOI: `10.5281/zenodo.595120 https://doi.org/10.5281/zenodo.595120
+
+### eggNOG-mapper
+
+[1] eggNOG-mapper v2: functional annotation, orthology assignments, and domain 
+    prediction at the metagenomic scale. Carlos P. Cantalapiedra, 
+    Ana Hernandez-Plaza, Ivica Letunic, Peer Bork, Jaime Huerta-Cepas. 2021.
+    Molecular Biology and Evolution, msab293, https://doi.org/10.1093/molbev/msab293
+
+[2] eggNOG 5.0: a hierarchical, functionally and phylogenetically annotated
+    orthology resource based on 5090 organisms and 2502 viruses. Jaime
+    Huerta-Cepas, Damian Szklarczyk, Davide Heller, Ana Hernández-Plaza, Sofia
+    K Forslund, Helen Cook, Daniel R Mende, Ivica Letunic, Thomas Rattei, Lars
+    J Jensen, Christian von Mering, Peer Bork Nucleic Acids Res. 2019 Jan 8;
+    47(Database issue): D309–D314. doi: 10.1093/nar/gky1085 
+    
+[HMMER] Accelerated Profile HMM Searches. 
+        Eddy SR. 2011. PLoS Comput. Biol. 7:e1002195.
+
+[DIAMOND] Sensitive protein alignments at tree-of-life scale using DIAMOND.
+          Buchfink B, Reuter K, Drost HG. 2021.
+          Nature Methods 18, 366–368 (2021). https://doi.org/10.1038/s41592-021-01101-x
+
+[MMSEQS2] MMseqs2 enables sensitive protein sequence searching for the analysis of massive data sets.
+          Steinegger M & Söding J. 2017. Nat. Biotech. 35, 1026–1028. https://doi.org/10.1038/nbt.3988
+
+[PRODIGAL] Prodigal: prokaryotic gene recognition and translation initiation site identification.
+           Hyatt et al. 2010. BMC Bioinformatics 11, 119. https://doi.org/10.1186/1471-2105-11-119.
+
+### NCBI
+
+Sayers EW, Beck J, Bolton EE, Brister JR, Chan J, Connor R, Feldgarden M, Fine AM, Funk K, Hoffman J, Kannan S, Kelly C, Klimke W, Kim S, Lathrop S, Marchler-Bauer A, Murphy TD, O'Sullivan C, Schmieder E, Skripchenko Y, Stine A, Thibaud-Nissen F, Wang J, Ye J, Zellers E, Schneider VA, Pruitt KD. Database resources of the National Center for Biotechnology Information in 2025. Nucleic Acids Res. 2025 Jan 6;53(D1):D20-D29. doi: 10.1093/nar/gkae979. PMID: 39526373; PMCID: PMC11701734.
