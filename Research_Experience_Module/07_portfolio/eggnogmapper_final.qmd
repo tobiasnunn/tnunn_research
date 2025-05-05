@@ -128,7 +128,7 @@ knitr::include_graphics("img/all_genera_updated_b.png")
 
 ```
 
-As can be seen in @fig-finalheat, metabolism makes up three of the five KEGG groupings. Seen to be more enriched in one Genus than the others. With the other two being Drug resistence and biofilm formation. The Genus *Pantoea* makes up 6 of the 9 pathways found, with *Microbacterium* and *Brevibacterium* having none. **£footnote add more to this if can**
+As can be seen in @fig-finalheat, metabolism makes up the bottom three of the five KEGG groupings, and representing 5 of the total 9 pathways observed. The other two groupings being Drug resistence and Biofilm formation, these represent the other 4 pathways and are only found in the Genus *Pantoea*. The Genus *Pantoea* makes up 6 of the 9 pathways found, with *Microbacterium* and *Brevibacterium* having none.
 
 ### Descriptions
 
@@ -199,7 +199,13 @@ final
 
 ```
 
-@tbl-desc describes many, but not all of the pathways present in the heatmap. This is because the KEGG database can be inconsistent with descriptions. For the three pathways without description, I will elaborate here by manually looking up the pathways online and making my own descriptions. £bookmark do that
+@tbl-desc describes many, but not all of the pathways present in the heatmap. This is because the KEGG database can be inconsistent with descriptions. For the three pathways without description, I will elaborate here by manually looking up the pathways online and making my own descriptions.
+
+Firstly, map00511 (Other glycan Degradation) is the process by which Glycans, large polysaccharides, are broken into monosaccharides for use in making other molecules. The KEGG website claims this pathway is closely related with map00510 (N-Glycan biosynthesis) and map00604 (Glycosphingolipid biosynthesis - ganglio series). This is odd, one would think that "sphingo"lipid would refer to the genus *Sphingomonas.* However, despite 22% enrichment in *Sphingomonas*, this pathway is actually most seen in *Brachybacterium*, barely hitting the 80% limit at 80.6%.
+
+Secondly, map00561 (Glycerolipid metabolism) is, simply put, the creation, transformation and breakdown of Glycerolipids. These lipid molecules have many uses in the cell. This pathway is also seen expressed significantly in *Brachybacterium*, at 87.1% of samples enriched.
+
+Finally, map00564 (Glycerophospholipid metabolism) is very similar to Glycerolipid metabolism, understandeably as they fall in the same sub-group. These molecules differ in the addition of a phospherus molecule, but are similarly useful to cell structure and cellular processes. Strangely, despite the apparent similarity, this pathway is seen enriched in *Pantoea*, at 93.8%, with no sample in *Brachybacterium* enriched for this pathway.
 
 ## Scripts
 
@@ -216,5 +222,35 @@ I have identified and described important pathways. However, I believe further l
 The dataset that generates this heatmap has much more potential for further analysis. For example, I have identified that Pantoea contains the majority of the distinct pathways, so I would like to see a version of this heatmap without Pantoea present and compare the pathways found with the original.
 
 Similarly, I have identified relationships between the local samples and closely related NCBI samples. However, an interesting comparison may be to identify how these local bacteria differ from each other, and how that might cause differences in their genetics. For example, I have already taken a cursory glance online and found that Sphingomonas and Pantoea are Gram-negative, the others are Gram-positive. Perhaps next year I will look into literature around this to see if there is any significance for my samples.
+
+Another avenue of research not explored here was the effect of host, environment or geographic location on the genetics. This is something I aim to address going forward, the information on this already exists in my dataset. As shown in @tbl-loc
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-loc
+#| tbl-cap: "Table presenting current host information in 552 bacterial genomic samples"
+
+library(readxl)
+library(DT)
+library(tidyverse)
+
+metadatafile <- read_xlsx("../03_final_outputs/MEGATABLE.xlsx")  %>% 
+  dplyr::select(- document.id, ..JSON) %>% 
+  group_by(assembly_info.biosample.host) %>% 
+  count(name = "total", sort = TRUE) %>%
+  rename(host = assembly_info.biosample.host)
+
+metadatafile[1,1] <- "Missing"
+
+
+table2 <- datatable(metadatafile, 
+                    options = list(pageLength = 5))
+table2
+  
+
+```
+
+@tbl-loc shows that the vast majority of samples do not have a host. This could prove challenging for any host-based analysis. However, these 552 samples are a minuscule fraction of what is available on the NCBI and as such I can download many more samples to increase the number with usable host fields, and conduct analysis on this dataset.
 
 Finally, I read a paper on Chytridiomycosis that stood out to me by @becker2009. In it they discuss how they identified a species of bacteria that produces a chemical called violacein. This chemical has anti-chytrid properties. I would be interested in identifying the pahtways that make this or similar chemicals and seeing if they exist in my dataset. Another potential analysis could be to compare species that make these anti-chytrid chemicals between amphibian and non-amphibian hosts, to see if this chemical similarly exists on non-amphibians, despite the risk of chytrid infection not existing.

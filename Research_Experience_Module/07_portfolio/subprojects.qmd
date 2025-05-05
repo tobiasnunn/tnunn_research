@@ -45,4 +45,4 @@ The tree presents that the closest strain to both of the bangor samples are *Wol
 
 ### Scripts
 
-this bit is by no means done, and i need to decide on how i want to do this bit, do i give a long list of individual files, directories? the other bits need refinement too, but that can wait until later. £bookmark
+-   Due to the self-enclosed nature of this sub-project, all of the scripts are in one place, [here.](Research_Experience_Module/06_Wolbachia_subproject/00-scripts)

@@ -24,7 +24,7 @@ After `de_novo_wf` analysis is done, the trees can be crafted in R. However, it 
 
 ### Methods
 
-The outputs from the GTDB-tk `de_novo_wf`, namely the .nexml tree file, can be read into R and modified to make more visually appealing, they can then be combined with metadata to find the names, though now I see these names may not be wholly accurate. I also toyed with the idea of one large, interactive tree, though the capability to do that well is beyond my current skill level. There was one sample for which a taxonomy could not be assigned, meaning I could not isolate it to include in the trees, thus I excluded it from further study, this perhaps was another error on my part I now see. This is done across several scripts £bookmark
+The outputs from the GTDB-tk `de_novo_wf`, namely the .nexml tree file, can be read into R and modified to make more comprehensive, they can then be combined with metadata to identify the names, though now I see these names may not be wholly accurate. I also toyed with the idea of one large, interactive tree, though the capability to do that well is beyond my current skill level. There was one sample for which a taxonomy could not be assigned, meaning I could not isolate it to include in the trees, thus I excluded it from further study. This was process was done using [this script.](Research_Experience_Module/00_scripts/Archive/GTDBTKtrees.R) This created the images seen below, these are the main feature of the last section of Notebook 4, for reference.
 
 ### Results
 
@@ -71,3 +71,4 @@ knitr::include_graphics("img/Micro_tree.png")
 ## Scripts
 
 -   [de_novo_gtdbtk.sh](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Slurmscripts/de_novo_gtdbtk.sh)
+-   [GTDBTKtrees.R](Research_Experience_Module/00_scripts/Archive/GTDBTKtrees.R)
