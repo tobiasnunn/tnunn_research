@@ -32,9 +32,9 @@ format:
   html:
     theme: cosmo
   docx:
-    toc: true
     number-sections: true
     highlight-style: github
+    fig-format: png
 
 editor:
   render-on-save: true
