@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I had downloaded the .fasta files from the NCBI database. However, before KEGG pathway analysis could be performed these genome sequences needed to be annotated[^eggnogmapper_final-1]. To do this, I used a program called eggNOG-mapper[^eggnogmapper_final-2]. For reference, see [@huerta-cepas2017]. This process gave me an annotated .xlsx formatted file for each sample that I would then enrich in R (that process is talked about on a later page).
+I had downloaded the .fasta files from the NCBI database. However, before KEGG pathway analysis could be performed these genome sequences needed to be annotated[^eggnogmapper_final-1]. To do this, I used a program called eggNOG-mapper[^eggnogmapper_final-2]. For reference, see [@huerta-cepas_fast_2017]. This process gave me an annotated .xlsx formatted file for each sample that I would then enrich in R (that process is talked about on a later page).
 
 [^eggnogmapper_final-1]: annotation
 
@@ -59,7 +59,7 @@ Although there is a column called 'KEGG pathway' only the column 'KEGG_ko' is us
 
 Originally in this part of the process I was calling `MicrobiomeProfiler::enrichKO` once for each KEGG KO in each Excel file. This created some very strange results and I eventually realised that I needed to pass all KEGG KOs in each Excel file into a single call to `enrichKO`.
 
-I did this using this script [part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R). After separating all the KEGG KOs into a single list, it calls `enrichKO` and then filters the returned set of results to those where the `p.adjust` value is less than 0.05. I assume this is a probability but I cannot find any documentation on the `enrichResult` class of object returned by the call to `enrichKO`. For reference, see [@wu2021]
+I did this using this script [part1_enrich](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/00_scripts/Rscripts/KEGG_pathway_pipeline_p1_enrich.R). After separating all the KEGG KOs into a single list, it calls `enrichKO` and then filters the returned set of results to those where the `p.adjust` value is less than 0.05. I assume this is a probability but I cannot find any documentation on the `enrichResult` class of object returned by the call to `enrichKO`. For reference, see [@wu_clusterprofiler_2021]
 
 The results are then written to a file called `<accession>_ko_pathway.tsv` stored [here](https://github.com/tobiasnunn/tnunn_research/tree/main/Research_Experience_Module/02_middle-analysis_outputs/eggnog_stuff/eggnog_outputs).
 
@@ -253,4 +253,4 @@ table2
 
 @tbl-loc shows that the vast majority of samples do not have a host. This could prove challenging for any host-based analysis. However, these 552 samples are a minuscule fraction of what is available on the NCBI and as such I can download many more samples to increase the number with usable host fields, and conduct analysis on this dataset.
 
-Finally, I read a paper on Chytridiomycosis that stood out to me by @becker2009. In it they discuss how they identified a species of bacteria that produces a chemical called violacein. This chemical has anti-chytrid properties. I would be interested in identifying the pahtways that make this or similar chemicals and seeing if they exist in my dataset. Another potential analysis could be to compare species that make these anti-chytrid chemicals between amphibian and non-amphibian hosts, to see if this chemical similarly exists on non-amphibians, despite the risk of chytrid infection not existing.
+Finally, I read a paper on Chytridiomycosis that stood out to me by @becker_bacterially_2009. In it they discuss how they identified a species of bacteria that produces a chemical called violacein. This chemical has anti-Chytrid properties. I would be interested in identifying the pathways that make this or similar chemicals and seeing if they exist in my dataset. Another potential analysis could be to compare species that make these anti-Chytrid chemicals between amphibian and non-amphibian hosts, to see if this chemical similarly exists on non-amphibians, despite the risk of Chytrid infection not existing.

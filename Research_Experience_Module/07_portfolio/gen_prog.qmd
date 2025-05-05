@@ -1,4 +1,4 @@
-# Learning, General Progress and Important Mistakes {#sec-genprog}
+# Learning and General Progress {#sec-genprog}
 
 ## Evolution of skills
 
@@ -34,14 +34,6 @@ My ability to both read and utilize R has increased dramatically from where I st
 ### bash / slurm
 
 I now have a cursery knowledge of how to use these systems on Hawk. I am not perfect, but I am proficient enough to navigate without issue and run jobs correctly.
-
-## Mistakes
-
-### Initial delete
-
-All the way back at the beginning of the project, in the summer, something I did on hawk deleted all of the genomic .fasta files that had been created by Aaron through Flye-asm. To this day, noone knows exactly why that happened. However, this did teach me the importance of understanding something before messing with it and not just racing to get a result out to be shown. I then took the time to get to grips with bash and command-line coding by testing on sample documents before applying commands that ran the risk of modifying the important folders.
-
-(I also then either made copies of all important files from then on or downloaded them and stored them in OneDrive or Github so they could be recovered, just in case.)
 
 ## Next steps
 

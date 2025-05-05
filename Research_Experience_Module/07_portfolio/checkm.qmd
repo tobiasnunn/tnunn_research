@@ -4,7 +4,7 @@
 
 In the summer, I had run CheckM2 analysis on the 10 local samples and reported those to Aaron (details on the CheckM2 page). I understood some outputs of this, specifically the main ones of Completeness and Contamination, however I wished to learn more. Through my research I learned of CheckM, the apparent predecessor to CheckM2. However, upon closer inspection I saw that both had been updated recently, implying they worked toward different aims. I felt I had to know more, so one of the first things I did for this project was to take a deep look at CheckM and Contrast with CheckM2.
 
-I looked at files and documentation so that I could better understand what the results meant for the samples. This lead to many, smaller analyses conducted. All of these processes are noted throughout [Notebook 1](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/09_Notebooks/Notebook.Rmd). These included comparisons between CheckM and CheckM2, these are not included here, this is just a list of the CheckM processes run. For reference to this tool, see [@parks2015]
+I looked at files and documentation so that I could better understand what the results meant for the samples. This lead to many, smaller analyses conducted. All of these processes are noted throughout [Notebook 1](https://github.com/tobiasnunn/tnunn_research/blob/main/Research_Experience_Module/09_Notebooks/Notebook.Rmd). These included comparisons between CheckM and CheckM2, these are not included here, this is just a list of the CheckM processes run. For reference to this tool, see [@parks_checkm_2015].
 
 ## Check M lineage_wf
 

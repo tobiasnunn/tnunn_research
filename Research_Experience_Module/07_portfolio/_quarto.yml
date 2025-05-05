@@ -25,7 +25,8 @@ book:
   sidebar:
     search: false
 
-bibliography: references.bib
+bibliography: PORTFOLIO.bib
+csl: harvard-university-of-leeds.csl
 
 format:
   html:
